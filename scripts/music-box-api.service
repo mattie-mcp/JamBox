@@ -1,0 +1,14 @@
+[Unit]
+Description=JamBox API Server
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/music-box/backend
+Environment=PATH=/home/pi/music-box/backend/.venv/bin:/usr/bin
+ExecStart=/home/pi/music-box/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
