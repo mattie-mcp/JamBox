@@ -1,6 +1,6 @@
-# Music Box
+# JamBox
 
-Smart NFC-based music player for toddlers. Place a toy on the pedestal, music plays.
+Smart NFC-based music player for toddlers. Place a toy on the pedestal, music plays. Built for Jamie.
 
 ## Architecture
 - **Backend**: Python 3.11+ (FastAPI) - NFC daemon + REST API
