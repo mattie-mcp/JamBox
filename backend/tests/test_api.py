@@ -1,3 +1,5 @@
+from unittest.mock import patch, MagicMock
+
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -106,3 +108,25 @@ def test_duplicate_tag_returns_409():
         json={"tag_id": "AA:BB", "spotify_uri": "spotify:track:2", "name": "Song 2"},
     )
     assert response.status_code == 409
+
+
+def test_search_tracks():
+    client = setup_client()
+    mock_spotify = MagicMock()
+    mock_spotify.search.return_value = {
+        "tracks": {
+            "items": [
+                {
+                    "uri": "spotify:track:abc",
+                    "name": "Baby Shark",
+                    "artists": [{"name": "Pinkfong"}],
+                    "album": {"images": [{"url": "https://img.jpg"}]},
+                }
+            ]
+        }
+    }
+    with patch("app.api.get_spotify", return_value=mock_spotify):
+        response = client.get("/api/search?q=baby+shark")
+    assert response.status_code == 200
+    assert len(response.json()) == 1
+    assert response.json()[0]["name"] == "Baby Shark"

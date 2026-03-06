@@ -4,9 +4,11 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.auth import get_spotify
 from app.database import get_db
 from app.models import TagMapping
 from app.schemas import MappingCreate, MappingResponse, MappingUpdate
+from app.spotify import SpotifyService
 
 router = APIRouter(prefix="/api")
 
@@ -54,3 +56,10 @@ def delete_mapping(mapping_id: int, db: Session = Depends(get_db)):
         raise HTTPException(404, "Mapping not found")
     db.delete(mapping)
     db.commit()
+
+
+@router.get("/search")
+def search_tracks(q: str):
+    sp = get_spotify()
+    service = SpotifyService(sp=sp)
+    return service.search_tracks(q)
