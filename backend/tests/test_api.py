@@ -130,3 +130,31 @@ def test_search_tracks():
     assert response.status_code == 200
     assert len(response.json()) == 1
     assert response.json()[0]["name"] == "Baby Shark"
+
+
+def test_play_by_tag_id():
+    client = setup_client()
+    client.post(
+        "/api/mappings",
+        json={
+            "tag_id": "AA:BB",
+            "spotify_uri": "spotify:track:abc123",
+            "name": "Test Song",
+        },
+    )
+    mock_spotify = MagicMock()
+    mock_spotify.devices.return_value = {
+        "devices": [{"id": "dev1", "name": "raspotify"}]
+    }
+    with patch("app.api.get_spotify", return_value=mock_spotify):
+        response = client.post("/api/play/AA:BB")
+    assert response.status_code == 200
+    mock_spotify.start_playback.assert_called_once()
+
+
+def test_play_unknown_tag_returns_404():
+    client = setup_client()
+    mock_spotify = MagicMock()
+    with patch("app.api.get_spotify", return_value=mock_spotify):
+        response = client.post("/api/play/UNKNOWN")
+    assert response.status_code == 404

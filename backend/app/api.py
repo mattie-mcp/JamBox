@@ -63,3 +63,14 @@ def search_tracks(q: str):
     sp = get_spotify()
     service = SpotifyService(sp=sp)
     return service.search_tracks(q)
+
+
+@router.post("/play/{tag_id}")
+def play_by_tag(tag_id: str, db: Session = Depends(get_db)):
+    mapping = db.query(TagMapping).filter(TagMapping.tag_id == tag_id).first()
+    if not mapping:
+        raise HTTPException(404, f"No mapping found for tag '{tag_id}'")
+    sp = get_spotify()
+    service = SpotifyService(sp=sp)
+    service.play_track(mapping.spotify_uri)
+    return {"status": "playing", "name": mapping.name, "uri": mapping.spotify_uri}
