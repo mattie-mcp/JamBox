@@ -3,15 +3,15 @@
 ## Required
 | Item | Model | Approx Cost | Notes |
 |------|-------|-------------|-------|
-| Single-board computer | Raspberry Pi 4 Model B (4GB) | $55 | 2GB works too but 4GB gives headroom |
+| Single-board computer | Raspberry Pi 3 Model B+ | $35 | 1GB RAM, BT 4.2, WiFi built in. Sufficient for prototype |
 | NFC/RFID Reader | PN532 NFC Module | $10 | Supports I2C, SPI, and UART. Adafruit PN532 breakout recommended |
 | NFC Tags | NTAG215 stickers (25 pack) | $12 | 13.56MHz, writable, good read range |
 | MicroSD Card | 32GB+ Class 10 | $10 | For Pi OS |
-| Power Supply | Official RPi USB-C 5V/3A | $8 | Don't skimp on power supply |
+| Power Supply | Micro-USB 5V/2.5A | $8 | Don't skimp on power supply |
 | Jumper Wires | Female-to-female dupont wires | $5 | For connecting PN532 to Pi GPIO |
 | Bluetooth Speaker | Any Bluetooth speaker | $0-30 | Use one you already own if possible |
 
-**Total estimate: $100-130**
+**Total estimate: $80-110**
 
 ## Wiring: PN532 to Raspberry Pi (I2C mode)
 
