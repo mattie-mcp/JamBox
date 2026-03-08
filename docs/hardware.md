@@ -24,6 +24,51 @@
 
 Set PN532 DIP switches to I2C mode: Switch 1 = ON, Switch 2 = OFF
 
+## GPIO Pinboard Map (Pi 3 B+)
+
+Looking at the Pi with USB ports facing you, pin 1 is top-left.
+
+```
+                  +-----+-----+
+         3.3V [*] |  1  |  2  | [.] 5V
+  >>> SDA/GPIO2 [*] |  3  |  4  | [.] 5V
+  >>> SCL/GPIO3 [*] |  5  |  6  | [*] GND <<<
+       GPIO4  [.] |  7  |  8  | [.] GPIO14/TX
+          GND [.] |  9  | 10  | [.] GPIO15/RX
+      GPIO17  [.] | 11  | 12  | [.] GPIO18
+      GPIO27  [.] | 13  | 14  | [.] GND
+      GPIO22  [.] | 15  | 16  | [.] GPIO23
+         3.3V [.] | 17  | 18  | [.] GPIO24
+      GPIO10  [.] | 19  | 20  | [.] GND
+       GPIO9  [.] | 21  | 22  | [.] GPIO25
+      GPIO11  [.] | 23  | 24  | [.] GPIO8
+          GND [.] | 25  | 26  | [.] GPIO7
+       GPIO0  [.] | 27  | 28  | [.] GPIO1
+       GPIO5  [.] | 29  | 30  | [.] GND
+       GPIO6  [.] | 31  | 32  | [.] GPIO12
+      GPIO13  [.] | 33  | 34  | [.] GND
+      GPIO19  [.] | 35  | 36  | [.] GPIO16
+      GPIO26  [.] | 37  | 38  | [.] GPIO20
+          GND [.] | 39  | 40  | [.] GPIO21
+                  +-----+-----+
+
+  [*] = JamBox connection    [.] = unused
+  >>> = PN532 wire
+```
+
+### JamBox Wiring Summary
+
+```
+  PN532           Pi Pin    Wire Color (suggested)
+  ─────           ──────    ──────────────────────
+  VCC  ──────────  1        Red    (3.3V power)
+  SDA  ──────────  3        Blue   (I2C data)
+  SCL  ──────────  5        Yellow (I2C clock)
+  GND  ──────────  6        Black  (ground)
+```
+
+Only 4 wires needed. Keep them short to reduce noise on the I2C bus.
+
 ## Raspberry Pi Setup
 1. Flash Raspberry Pi OS (64-bit, Lite) to SD card using Raspberry Pi Imager
 2. Enable SSH and WiFi during imaging
