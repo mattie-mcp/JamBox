@@ -1,7 +1,7 @@
 [Unit]
 Description=JamBox NFC Daemon
-After=music-box-api.service
-Requires=music-box-api.service
+After=jambox-api.service
+Requires=jambox-api.service
 
 [Service]
 Type=simple

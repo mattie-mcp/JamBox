@@ -1,6 +1,6 @@
 [Unit]
 Description=JamBox Web Frontend
-After=music-box-api.service
+After=jambox-api.service
 
 [Service]
 Type=simple
