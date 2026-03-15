@@ -103,7 +103,7 @@ def run():
         trigger_play(tag_id)
         return True  # Keep listening
 
-    with nfc.ContactlessFrontend("tty:S0") as clf:
+    with nfc.ContactlessFrontend("i2c") as clf:
         logger.info("NFC daemon started. Waiting for tags...")
         while True:
             clf.connect(rdwr={"on-connect": on_connect})
