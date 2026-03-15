@@ -1,0 +1,13 @@
+[Unit]
+Description=JamBox Spotify Connect (librespot)
+After=pipewire.service wireplumber.service
+Wants=pipewire.service wireplumber.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/librespot --backend pulseaudio --name "raspotify" --bitrate 160
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
