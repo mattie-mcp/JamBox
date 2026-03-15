@@ -17,6 +17,7 @@ from app.schemas import (
     TagCreate,
     TagResponse,
 )
+from app.config import SPOTIFY_DEVICE_NAME
 from app.spotify import SpotifyService
 
 router = APIRouter(prefix="/api")
@@ -70,7 +71,7 @@ def delete_mapping(mapping_id: int, db: Session = Depends(get_db)):
 @router.get("/search")
 def search_tracks(q: str):
     sp = get_spotify()
-    service = SpotifyService(sp=sp)
+    service = SpotifyService(sp=sp, device_name=SPOTIFY_DEVICE_NAME)
     return service.search_tracks(q)
 
 
@@ -80,7 +81,7 @@ def play_by_tag(tag_id: str, db: Session = Depends(get_db)):
     if not mapping:
         raise HTTPException(404, f"No mapping found for tag '{tag_id}'")
     sp = get_spotify()
-    service = SpotifyService(sp=sp)
+    service = SpotifyService(sp=sp, device_name=SPOTIFY_DEVICE_NAME)
     service.play_track(mapping.spotify_uri)
     return {"status": "playing", "name": mapping.name, "uri": mapping.spotify_uri}
 
