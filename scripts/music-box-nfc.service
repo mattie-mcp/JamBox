@@ -5,11 +5,13 @@ Requires=music-box-api.service
 
 [Service]
 Type=simple
-User=pi
-WorkingDirectory=/home/pi/music-box/backend
-Environment=PATH=/home/pi/music-box/backend/.venv/bin:/usr/bin
-ExecStart=/home/pi/music-box/backend/.venv/bin/python -m app.nfc_daemon
+User=root
+WorkingDirectory=/home/admin/src/JamBox/backend
+EnvironmentFile=/home/admin/src/JamBox/backend/.env
+Environment=PATH=/home/admin/src/JamBox/backend/.venv/bin:/usr/bin
+ExecStart=/home/admin/src/JamBox/backend/.venv/bin/python -m app.nfc_daemon
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
