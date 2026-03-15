@@ -2,11 +2,16 @@
 NFC Listener Daemon
 
 Polls the NFC reader and triggers playback via the API when a tag is detected.
+Supports discovery mode: when active, detected tag IDs are stored for registration
+instead of triggering playback.
+
 Run on the Raspberry Pi: python -m app.nfc_daemon
 """
 
 import time
 import logging
+from datetime import datetime
+
 import httpx
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
@@ -36,6 +41,30 @@ def format_tag_id(tag_bytes: bytes) -> str:
     return ":".join(f"{b:02X}" for b in tag_bytes)
 
 
+def check_discovery_mode(db_session):
+    """Check if discovery mode is active. Returns the state row if active, else None."""
+    from app.models import DiscoveryState
+
+    state = db_session.query(DiscoveryState).filter(DiscoveryState.id == 1).first()
+    if state and state.active and state.started_at:
+        elapsed = (datetime.utcnow() - state.started_at).total_seconds()
+        if elapsed > state.timeout_seconds:
+            state.active = False
+            state.detected_tag_id = None
+            db_session.commit()
+            return None
+        return state
+    return None
+
+
+def handle_discovery(db_session, state, tag_id: str) -> None:
+    """Record discovered tag and deactivate discovery mode."""
+    state.detected_tag_id = tag_id
+    state.active = False
+    db_session.commit()
+    logger.info(f"Discovery mode: captured tag {tag_id}")
+
+
 def run():
     """Main loop - requires nfcpy and hardware."""
     try:
@@ -43,6 +72,8 @@ def run():
     except ImportError:
         logger.error("nfcpy not installed. Run: pip install nfcpy")
         return
+
+    from app.database import SessionLocal
 
     last_tag = None
     last_tag_time = 0
@@ -56,9 +87,19 @@ def run():
         if tag_id == last_tag and (now - last_tag_time) < debounce_seconds:
             return True  # Keep listening, ignore duplicate
 
-        logger.info(f"Tag detected: {tag_id}")
         last_tag = tag_id
         last_tag_time = now
+
+        db = SessionLocal()
+        try:
+            state = check_discovery_mode(db)
+            if state:
+                handle_discovery(db, state, tag_id)
+                return True
+        finally:
+            db.close()
+
+        logger.info(f"Tag detected: {tag_id}")
         trigger_play(tag_id)
         return True  # Keep listening
 

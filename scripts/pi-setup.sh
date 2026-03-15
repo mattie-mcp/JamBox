@@ -21,14 +21,14 @@ curl -sL https://dtcooper.github.io/raspotify/install.sh | sh
 
 # Backend setup
 echo "[5/6] Setting up backend..."
-cd ~/music-box/backend
+cd ~/backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[pi]"
 
 # Frontend build
 echo "[6/6] Building frontend..."
-cd ~/music-box/frontend
+cd ~/frontend
 npm install
 npm run build
 
