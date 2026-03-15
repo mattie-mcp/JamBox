@@ -18,7 +18,7 @@ dev = [
     "httpx>=0.26.0",
 ]
 pi = [
-    "nfcpy>=1.0.4",
+    "adafruit-circuitpython-pn532>=2.3.0",
 ]
 
 [tool.pytest.ini_options]

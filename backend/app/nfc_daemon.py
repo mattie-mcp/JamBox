@@ -66,26 +66,40 @@ def handle_discovery(db_session, state, tag_id: str) -> None:
 
 
 def run():
-    """Main loop - requires nfcpy and hardware."""
+    """Main loop - requires adafruit-circuitpython-pn532 and hardware."""
     try:
-        import nfc
+        import board
+        import busio
+        from adafruit_pn532.i2c import PN532_I2C
     except ImportError:
-        logger.error("nfcpy not installed. Run: pip install nfcpy")
+        logger.error(
+            "Adafruit PN532 library not installed. "
+            "Run: pip install adafruit-circuitpython-pn532"
+        )
         return
 
     from app.database import SessionLocal
+
+    i2c = busio.I2C(board.SCL, board.SDA)
+    pn532 = PN532_I2C(i2c)
+    logger.info(f"PN532 firmware: {pn532.firmware_version}")
+    pn532.SAM_configuration()
 
     last_tag = None
     last_tag_time = 0
     debounce_seconds = 5  # Don't re-trigger same tag within 5s
 
-    def on_connect(tag):
-        nonlocal last_tag, last_tag_time
-        tag_id = format_tag_id(tag.identifier)
+    logger.info("NFC daemon started. Waiting for tags...")
+    while True:
+        uid = pn532.read_passive_target(timeout=POLL_INTERVAL)
+        if uid is None:
+            continue
+
+        tag_id = format_tag_id(uid)
         now = time.time()
 
         if tag_id == last_tag and (now - last_tag_time) < debounce_seconds:
-            return True  # Keep listening, ignore duplicate
+            continue
 
         last_tag = tag_id
         last_tag_time = now
@@ -95,19 +109,12 @@ def run():
             state = check_discovery_mode(db)
             if state:
                 handle_discovery(db, state, tag_id)
-                return True
+                continue
         finally:
             db.close()
 
         logger.info(f"Tag detected: {tag_id}")
         trigger_play(tag_id)
-        return True  # Keep listening
-
-    with nfc.ContactlessFrontend() as clf:
-        logger.info("NFC daemon started. Waiting for tags...")
-        while True:
-            clf.connect(rdwr={"on-connect": on_connect})
-            time.sleep(POLL_INTERVAL)
 
 
 if __name__ == "__main__":
