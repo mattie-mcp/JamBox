@@ -7,15 +7,23 @@ The physical design for the hardwired, all-in-one JamBox. The parts list, wiring
 
 Decisions are made in the [design review page](https://claude.ai/artifact/R82Ww7XMcv26h4d8bHZJkR).
 
-| Decision | Status | Choice |
-|---|---|---|
-| Box design | **Decided** (2026-11-24) | **Concept B, "Jam Radio"**. See the Radio build details below |
-| Portable power | **Decided** | **Wall power only** for v1. The battery spike below stays as a future option |
-| Volume ceiling | **Decided** | **Parent-adjustable** in the web app, starting at ~80 dB |
-| Cartridge presence sensor | Open | Leaning **NFC-only + a click detent**, pending experiment E3 (see "Slot design") |
-| Cartridge construction | Open | Wood baseline. **3D-printed is a stretch goal** on branch `claude/3d-printed-cartridges` |
-| 3D printer | Open | Use your **Ender 3 Pro** (no purchase or service needed for prototyping) |
-| Material, slot liner, computer, amp, speakers, LEDs, resume | Open | Recommendations in this doc and hardware.md |
+All decisions were made on 2026-11-24.
+
+| Decision | Choice |
+|---|---|
+| Box design | **Concept B, "Jam Radio"**. See the Radio build details below |
+| Body material | **Baltic birch plywood** (12 mm + 6 mm) |
+| Slot liner | **HDPE** slot insert in the top panel |
+| Computer | **Raspberry Pi 4, 4 GB** |
+| Amplifier | **HiFiBerry Amp4** |
+| Speakers | **Dayton PC83-4** pair |
+| LED display | **Adafruit NeoMatrix 8×8** |
+| Cartridge presence | **NFC-only + click detent**. The microswitch is an optional add-on if the slot test shows laggy or false pauses |
+| Portable power | **Wall power only** for v1. The battery spike below stays as a future option |
+| Cartridges | **Laminated hardwood blocks** (tag sealed at the glue line). Printed cartridges are a stretch goal on branch `claude/3d-printed-cartridges` |
+| 3D printing | **Your Ender 3 Pro** (slot mock-up, LED grid, brackets, cartridge experiments) |
+| Re-inserting a cartridge | **Resume if within ~30 minutes**, otherwise start over |
+| Volume ceiling | **Parent-adjustable** in the web app, starting at ~80 dB |
 
 ## Design goals
 

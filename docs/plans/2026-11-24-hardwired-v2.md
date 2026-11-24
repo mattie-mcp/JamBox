@@ -31,7 +31,7 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
 - **Inputs:** NFC polling is the presence signal by default. Treat ~2–3 consecutive misses as "removed",
   and make the count configurable. If the optional slot microswitch (GPIO 5) is fitted, it becomes the primary
   signal for instant removal and NFC just identifies the tag. Design the state machine so either input works.
-- **Insert:** read the tag. If it's the **same tag as last time and less than ~30 min ago**, resume. Otherwise
+- **Insert:** read the tag. If it's the **same tag as last time and less than ~30 min ago** (decided), resume. Otherwise
   play the mapped track from the start. An unknown tag shows the "?" LED state; discovery mode still works.
 - **Remove:** call a new `POST /api/pause` and remember `{tag, position, time}` for resume.
 - Keep the logic in pure functions (state transitions) so it's unit-testable without hardware,

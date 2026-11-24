@@ -1,5 +1,9 @@
 # JamBox Hardware (v2: hardwired, all-in-one)
 
+> **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
+> Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoMatrix 8×8, NFC-only presence, wall power, hardwood cartridges.
+> Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
+
 This replaces the v1 prototype list (Pi 3 B+ plus a Bluetooth speaker). v2 is a self-contained
 box with built-in speakers, physical controls, an LED "face" that dances to the music,
 and a slot that takes chunky **cartridges**. One USB-C charger powers everything.
@@ -18,7 +22,7 @@ and a slot that takes chunky **cartridges**. One USB-C charger powers everything
 | Power in | Panel-mount **USB-C** → **USB-PD trigger board set to 15 V** → Amp4 + 5 V buck for the LEDs | A single USB-C port that accepts any **45 W+ USB-C PD charger** (or PD power bank). 15 V/3 A = 45 W of headroom. |
 | On/off + "it's on" light | Illuminated **latching anti-vandal pushbutton** on the 15 V rail | The steel button is toddler-proof, and its LED ring is the on/off indicator. Pairs with a read-only OS so a hard power-off can't corrupt the SD card. |
 | NFC | **PN532** (Adafruit #364), kept from v1 | The existing code already uses it. The tuned antenna reads 30–40 mm tags through a thin wall easily. |
-| Cartridge presence | **Open:** leaning **NFC-only** (pause after a few missed polls) plus a click detent for feel. The microswitch is an optional add-on | NFC alone can detect removal (~1–1.5 s). A switch makes it instant and immune to a flaky read. Decide after the slot mock-up test (enclosure.md, "Slot design") |
+| Cartridge presence | **NFC-only** (pause after 2–3 missed polls) plus a click detent for feel. The microswitch is an optional add-on | NFC alone can detect removal (~1–1.5 s) with no extra part. Add the switch only if the slot mock-up test shows laggy or false pauses |
 | Controls | 3× 30 mm arcade buttons (Back / Play-Pause / Skip) + rotary encoder volume knob | Arcade buttons are built for abuse. An encoder (not a pot) lets software enforce a max volume. |
 | LEDs | 8×8 **WS2812B** NeoPixel matrix behind a diffuser, driven over SPI | Audio-reactive visualizer, boot/idle animations, volume bar and status. SPI avoids clashing with I2S audio. |
 | Storage | 64 GB **high-endurance** microSD + read-only root filesystem (overlayfs) | Survives being unplugged mid-song. |
