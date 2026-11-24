@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoMatrix 8×8, NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices: ≈ $925 all-in** (≈ $720 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices: ≈ $940 all-in** (≈ $733 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -85,14 +85,14 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 
 | Item | Spec | ≈ Cost | Where |
 |---|---|---|---|
-| Baltic birch plywood | 12 mm (½") and 6 mm (¼"), void-free, about one 30"×60" panel of each | $75 † (Rockler 30×30": 2× ½", 1× ¼") | Rockler, Woodcraft, local hardwood dealer |
-| Hardwood for cartridges | Maple or cherry, ¾" (19 mm) and ½" (12 mm) boards, about 4 bd-ft | $30–50 | Local hardwood dealer, Rockler |
+| Baltic birch plywood | 12 mm (½") and 6 mm (¼"), void-free, about one 30"×60" panel of each | $100 † (Woodcraft 30×30": 2× ½" at $38.99, 1× ¼" at $21.99) | Woodcraft (Grand Rapids store), Rockler, local hardwood dealer. Not Home Depot: its birch panels aren't Baltic birch |
+| Hardwood for cartridges | Maple or cherry, ¾" (19 mm) and ½" (12 mm) boards, about 4 bd-ft | $30–50 | Woodcraft of Grand Rapids, local hardwood dealer |
 | Speaker grille mesh | Perforated steel or aluminum sheet, ~2 mm holes, or a 3" steel grille insert | $18–55 | Amazon 12×12" perforated stainless (~$18). Not bought yet: Parts Express has no sheet (its 3" grille fits 2.5" drivers) and McMaster's smallest is 24×24" from $54 |
 | Grille cloth + polyfill | Acoustic grille cloth, polyester fiberfill for the speaker chambers | $26 † | Parts Express |
 | LED diffuser | 3 mm opal/frosted acrylic, or 0.6 mm (1/42") maple veneer | $10 | TAP Plastics, Amazon |
 | Fasteners | **Tamper-resistant Torx (pin-in T20)** screws + matching bit, M3/#6 threaded inserts | $20 † | McMaster-Carr (91900A848 + 7233A61), Amazon. M3 pin-in Torx takes a **T8** bit, not T20 |
 | Feet | 4× rubber feet, ~10 mm tall (lifts the box for bottom vents) | $10 † | Amazon, hardware store |
-| Glue | Titebond III | $8.49 † | Anywhere |
+| Glue | Titebond III | $9.99 † | Anywhere |
 | Finish | Water-based, **toy-safe finish labeled EN 71-3 / ASTM F963**, plus non-toxic paint for accents | $25–40 | Woodcraft, Rockler |
 | Router bits | 6 mm (¼") roundover, 45° chamfer, rabbeting set | $40–60 | Rockler, Amazon (if not owned) |
 | Hole cutting | 75 mm (3") hole saw for the drivers, 32–35 mm Forstner (tag pockets), 6 mm brad-point (grille holes), 30 mm Forstner or step bit (buttons) | $40 | Rockler, Amazon |
@@ -107,7 +107,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $835–925** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $850–940** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 

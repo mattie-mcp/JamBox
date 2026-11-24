@@ -119,10 +119,10 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 1/1 | $2.34 | $8.49 UPS Ground + $0.49 tariff | n/a | Switch and fuse moved to Amazon |
 | 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 16/16 lines (17 units) | $202.38 | $4.99 (GetFPV regulator); rest free (Prime) | Prime | SanDisk card not added: 2-card minimum |
 | 7 | [McMaster-Carr](https://www.mcmaster.com/order/) | 3/3 | $30.36 | At checkout | n/a | Perforated sheet not added (24×24" minimum, $54+) |
-| 8 | [Rockler](https://www.rockler.com/checkout/cart/) | 4/4 | $92.45 | $15.99 economy (+ $5.55 tax) | $99 with code FREE99 | Maple, finish and tools not added (see below) |
+| 8 | [Woodcraft](https://www.woodcraft.com/cart) | 4/4 | $121.95 | Free (over $50, through Dec 1) | $50 | Switched from Rockler (cart emptied). Woodcraft of Grand Rapids is local for maple and pickup. Finish and tools not added (see below) |
 | | **hifiberry.com** | comparison only | $64.90 | $38.00 FedEx | | Amp4 left in that cart for comparison; **remove it, don't buy both** |
 
-**In carts: $679.62 of merchandise plus $39.91 of known shipping ≈ $720.** PiShop, Adafruit and McMaster shipping (≈ $25)
+**In carts: $709.12 of merchandise plus $23.92 of known shipping ≈ $733.** PiShop, Adafruit and McMaster shipping (≈ $25)
 and sales tax come on top.
 
 ### Line items
@@ -161,10 +161,10 @@ and sales tax come on top.
 | 7 | Tamper-Resistant Torx 18-8 SS Button Head Screws, M3 x 0.5 x 10 mm (pack of 50) | 91900A848 | $12.54 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/91900A848/) |
 | 7 | Tamper-Resistant Torx Bit, 1/4" Hex Shank, T8 | 7233A61 | $7.84 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/7233A61/) |
 | 7 | Moisture-Resistant HDPE Sheet 12" x 12" x 1/4" (FDA) | 8619K461 | $9.98 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/8619K461/) |
-| 8 | 1/2'' Baltic Birch Plywood, 30'' x 30'' | Rockler #75282 | $29.24 | 2 | In stock | [rockler](https://www.rockler.com/baltic-birch-plywood-choose-thickness) |
-| 8 | 1/4'' Baltic Birch Plywood, 30'' x 30'' | Rockler #79110 | $16.49 | 1 | In stock | same page |
-| 8 | Titebond III Ultimate Wood Glue, 16 oz. | Rockler #23921 | $8.49 | 1 | In stock | [rockler](https://www.rockler.com/titebondtrade-iii-ultimate-wood-glue-optional-sizes) |
-| 8 | Dowel Rod - Birch - 36" x 1" | Rockler #20792 | $8.99 | 1 | In stock | [rockler](https://www.rockler.com/dowel-rods-birch-36-choose-size) |
+| 8 | Woodcraft Woodshop Baltic Birch Plywood, 1/2" x 30" x 30" | Woodcraft #191388 | $38.99 | 2 | In stock online | [woodcraft](https://www.woodcraft.com/products/woodcraft-woodshop-baltic-birch-plywood) |
+| 8 | Woodcraft Woodshop Baltic Birch Plywood, 1/4" x 30" x 30" | Woodcraft #191387 | $21.99 | 1 | In stock online | same page |
+| 8 | Titebond III Ultimate Wood Glue - Waterproof, 16-oz | Woodcraft #145562 | $9.99 | 1 | In stock online | [woodcraft](https://www.woodcraft.com/products/titebond-iii-ultimate-wood-glue-waterproof) |
+| 8 | Cindoco 36" Round Wood Dowel, Maple, 1" | Woodcraft #158597 | $11.99 | 1 | In stock online | [woodcraft](https://www.woodcraft.com/products/cindoco-36-round-wood-dowel) |
 
 ### Comparisons
 
@@ -186,7 +186,12 @@ and sales tax come on top.
 - **Pololu cart dropped**: the regulator ships from Amazon. **DigiKey/Mouser shrank to one $2.34 encoder** costing $8.49 to ship;
   the 19 mm switch and the fuse holder went to Amazon. If DigiKey works for you after the CAPTCHA, check whether it
   ships the encoder cheaper; otherwise the Mouser cart is ready.
-- **Rockler is $6.55 short of free shipping** ($99 with code FREE99). Adding the finish or a Forstner bit there saves the $15.99.
+- **Wood moved from Rockler to Woodcraft.** Same items cost $13.50 more before shipping (Rockler had plywood on sale: $29.24 vs
+  $38.99 for ½"), but Woodcraft ships free over $50 and has a Grand Rapids store for maple and pickup. Rockler would have
+  been $108.44 with shipping vs $121.95 at Woodcraft. Rockler's cart was emptied so nothing is bought twice.
+- **Buy the finish, maple and any bits at Woodcraft too**, online (free shipping) or at the Grand Rapids store.
+- **Home Depot (Walker) has no true Baltic birch**, only birch-faced "PureBond", ProWood and Sande panels with softer cores.
+  Fine for jigs and test cuts, not for the box. Lowe's wasn't checked.
 - **Parts Express is $42 short of free shipping** ($99). Moving the 18 AWG speaker wire there (Consolidated 25 ft, $9.98) doesn't
   close the gap; paying the $9.95 is cheaper.
 - **Adafruit is far from its $200 threshold**; moving the Pi there ($120) would cost more than the shipping it saves.
@@ -195,10 +200,10 @@ and sales tax come on top.
 
 | Item | Why not added | Suggested |
 |---|---|---|
-| Water-based toy-safe finish (EN 71-3 / ASTM F963) | Rockler and Woodcraft list no water-based finish with that label. Rockler's only EN71 hit is Natura Onecoat Wood Oil 2K ($39.99), an oil | Your call. Options: Natura 2K (Rockler), or a General Finishes water-based topcoat if you accept its toy-safe statement |
-| Maple or cherry, ¾" and ½", 3–4 bd-ft | Rockler doesn't sell dimensional boards online | Rockler Novi store or a local hardwood dealer, ~$30–50 |
+| Water-based toy-safe finish (EN 71-3 / ASTM F963) | Rockler and Woodcraft list no water-based finish with that label online. Rockler's only EN71 hit is Natura Onecoat Wood Oil 2K ($39.99), an oil | Your call. Ask at Woodcraft of Grand Rapids, or consider Osmo or a General Finishes water-based topcoat if you accept its toy-safe statement |
+| Maple or cherry, ¾" and ½", 3–4 bd-ft | Sold by the board foot in store | Woodcraft of Grand Rapids or a local hardwood dealer, ~$30–50 |
 | Perforated grille sheet, ~2 mm holes | Parts Express has none; McMaster's smallest is 24×24" ($54+) | Amazon 12×12" perforated stainless, ~$18 (3 mm holes on the listings that state size) |
-| Router bits, 3" hole saw, 1-⅜" Forstner, 6 mm brad-point | Marked "if not owned" | ~$80–100 at Rockler; adding any of them gets Rockler free shipping |
+| Router bits, 3" hole saw, 1-⅜" Forstner, 6 mm brad-point | Marked "if not owned" | ~$80–100 at Woodcraft |
 | Omron D2F-01L3 microswitch | Optional, only if the slot test fails | Mouser or DigiKey, ~$3 |
 
 ### Total versus the ≈ $820 estimate
@@ -206,8 +211,8 @@ and sales tax come on top.
 | | Estimate | Real |
 |---|---|---|
 | Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $482** (Pi +$40, Amp4 +$33, SD +$16; PN532 −$31) |
-| Enclosure, printing supplies, hardware in carts | | ≈ $198 |
-| Known shipping and tariff | | ≈ $40 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
+| Enclosure, printing supplies, hardware in carts | | ≈ $227 |
+| Known shipping and tariff | | ≈ $24 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
 | Not yet bought: finish, maple, grille sheet | | ≈ $90 |
 | Tools, if not owned | | ≈ $90 |
-| **Total** | **≈ $820** | **≈ $925 all-in** (≈ $835 if you already own the bits and hole saw); still under the $1000 budget |
+| **Total** | **≈ $820** | **≈ $940 all-in** (≈ $850 if you already own the bits and hole saw); still under the $1000 budget |
