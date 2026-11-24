@@ -8,6 +8,7 @@ This replaces the v1 prototype list (Pi 3 B+ plus a Bluetooth speaker). v2 is a 
 box with built-in speakers, physical controls, an LED "face" that dances to the music,
 and a slot that takes chunky **cartridges**. One USB-C charger powers everything.
 
+- Shopping carts by store: [shopping.md](shopping.md).
 - Enclosure design, the three design concepts, cartridge spec and build notes are in [enclosure.md](enclosure.md).
 - Software changes this hardware needs are in [plans/2026-11-24-hardwired-v2.md](plans/2026-11-24-hardwired-v2.md).
 
