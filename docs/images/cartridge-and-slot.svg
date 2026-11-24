@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 720 330" width="720" height="330" font-family="Helvetica, Arial, sans-serif" font-size="11">
+  <rect x="-10" y="-10" width="720" height="330" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555"/></marker>
+    <pattern id="ply" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#e3cfa9"/><path d="M0 3H6" stroke="#c9b083" stroke-width="1"/></pattern>
+  </defs>
+  <text x="0" y="8" font-size="15" font-weight="bold" fill="#222">Cartridge + slot (scale 1.5×, mm)</text>
+
+  <!-- cartridge front -->
+  <text x="20" y="40" fill="#555">CARTRIDGE — FRONT</text>
+  <rect x="20" y="50" width="120" height="150" rx="12" fill="#f2b134" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="35" y="62" width="90" height="70" rx="6" fill="#fff6d8" stroke="#b07a10"/>
+  <text x="80" y="101" text-anchor="middle" fill="#b07a10">artwork</text>
+  <circle cx="80" cy="155" r="25" fill="none" stroke="#1d6fd1" stroke-dasharray="4 3" stroke-width="1.5"/>
+  <text x="80" y="159" text-anchor="middle" fill="#1d6fd1" font-size="10">NFC tag</text>
+  <path d="M20 215H140" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="80" y="228" text-anchor="middle" fill="#555">80</text>
+  <path d="M150 50V200" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="154" y="128" fill="#555">100</text>
+  <text x="20" y="250" fill="#333" font-size="10.5">6 mm roundover on every edge</text>
+  <text x="20" y="264" fill="#333" font-size="10.5">tag Ø30–35, centred 33 mm up from bottom</text>
+
+  <!-- cartridge side (laminated) -->
+  <text x="200" y="40" fill="#555">SIDE (glue-up)</text>
+  <rect x="200" y="50" width="28" height="150" rx="9" fill="#f2b134" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="228" y="50" width="17" height="150" rx="7" fill="#f6c45a" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="226" y="117" width="3" height="76" fill="#1d6fd1"/>
+  <text x="250" y="160" fill="#1d6fd1" font-size="10">tag in 1 mm</text><text x="250" y="172" fill="#1d6fd1" font-size="10">pocket at glue line</text>
+  <path d="M200 215H245" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="222" y="228" text-anchor="middle" fill="#555">30</text>
+  <text x="196" y="250" fill="#333" font-size="10.5">19 mm + 12 mm hardwood</text>
+
+  <!-- slot section: 1mm = 1.5px. top surface y=96 (12 mm = 18px), floor y=186 (60 mm deep) -->
+  <text x="400" y="30" fill="#555">SLOT — SECTION (front ◀ ▶ back)</text>
+  <rect x="390" y="96" width="43" height="18" fill="url(#ply)" stroke="#2b2b2b"/>
+  <rect x="493" y="96" width="43" height="18" fill="url(#ply)" stroke="#2b2b2b"/>
+  <path d="M433 96 l9 9 M493 96 l-9 9" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="433" y="114" width="9" height="72" fill="url(#ply)" stroke="#2b2b2b"/>
+  <rect x="484" y="114" width="9" height="72" fill="url(#ply)" stroke="#2b2b2b"/>
+  <rect x="433" y="186" width="60" height="9" fill="url(#ply)" stroke="#2b2b2b"/>
+  <rect x="440.5" y="36" width="45" height="150" rx="9" fill="#f2b134" fill-opacity="0.85" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="461.5" y="114" width="3" height="45" fill="#1d6fd1"/>
+  <rect x="494" y="112" width="6" height="58" fill="#2a7a3a" stroke="#123"/>
+  <text x="505" y="128" fill="#2a7a3a" font-size="10.5">PN532 antenna,</text>
+  <text x="505" y="141" fill="#2a7a3a" font-size="10.5">face-on to the tag</text>
+  <path d="M464 165H494" stroke="#d11d4f" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="505" y="169" fill="#d11d4f" font-size="10.5">≈ 23 mm tag → antenna</text>
+  <rect x="452" y="195" width="22" height="12" fill="#444"/>
+  <path d="M463 195 l8 -8" stroke="#444" stroke-width="2"/><circle cx="471" cy="187" r="2.5" fill="#444"/>
+  <text x="400" y="228" fill="#333" font-size="10.5">microswitch under the 6 mm floor; lever pokes through</text>
+  <text x="400" y="242" fill="#333" font-size="10.5">a 6 mm slot. Floor has a crumb/clean-out hole.</text>
+  <text x="400" y="262" fill="#333" font-size="10.5">slot opening 34 × 84 with a 45° chamfered lip</text>
+  <path d="M600 96V186" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="604" y="145" fill="#555">60 inserted</text>
+  <path d="M600 36V94" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/><text x="604" y="68" fill="#555">40 proud</text>
+</svg>

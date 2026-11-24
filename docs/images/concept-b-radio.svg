@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -10 500 440" width="500" height="440" font-family="Helvetica, Arial, sans-serif" font-size="11">
+  <rect x="-20" y="-10" width="500" height="440" fill="#ffffff"/>
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555"/></marker></defs>
+  <text x="0" y="12" font-size="15" font-weight="bold" fill="#222">Concept B — "Jam Radio" · front, mm</text>
+  <!-- handle -->
+  <rect x="70" y="92" width="16" height="90" rx="6" fill="#8c6a43" stroke="#2b2b2b"/>
+  <rect x="294" y="92" width="16" height="90" rx="6" fill="#8c6a43" stroke="#2b2b2b"/>
+  <rect x="62" y="80" width="256" height="20" rx="10" fill="#b5895a" stroke="#2b2b2b" stroke-width="1.5"/>
+  <!-- cartridge -->
+  <rect x="150" y="136" width="80" height="48" rx="8" fill="#5fb3a1" stroke="#2b2b2b" stroke-width="1.5"/>
+  <circle cx="190" cy="156" r="10" fill="#e8fff8" stroke="#2c6e60"/>
+  <!-- knob on top -->
+  <rect x="320" y="160" width="40" height="22" rx="4" fill="#e9c46a" stroke="#6b4e10" stroke-width="1.5"/>
+  <text x="340" y="150" text-anchor="middle" fill="#333" font-size="10.5">volume</text>
+  <!-- body -->
+  <rect x="20" y="180" width="360" height="200" rx="16" fill="#ecd9b8" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="20" y="180" width="360" height="22" rx="11" fill="#d4b98f"/>
+  <!-- speakers -->
+  <g fill="#5a4630">
+    <circle cx="95" cy="280" r="58" fill="#fbf3e4" stroke="#7a5a32" stroke-width="3"/>
+    <circle cx="305" cy="280" r="58" fill="#fbf3e4" stroke="#7a5a32" stroke-width="3"/>
+  </g>
+  <g fill="#5a4630" id="holes">
+    <circle cx="95" cy="280" r="3"/><circle cx="83" cy="280" r="3"/><circle cx="107" cy="280" r="3"/><circle cx="71" cy="280" r="3"/><circle cx="119" cy="280" r="3"/><circle cx="59" cy="280" r="3"/><circle cx="131" cy="280" r="3"/>
+    <circle cx="89" cy="269" r="3"/><circle cx="101" cy="269" r="3"/><circle cx="77" cy="269" r="3"/><circle cx="113" cy="269" r="3"/><circle cx="65" cy="269" r="3"/><circle cx="125" cy="269" r="3"/>
+    <circle cx="89" cy="291" r="3"/><circle cx="101" cy="291" r="3"/><circle cx="77" cy="291" r="3"/><circle cx="113" cy="291" r="3"/><circle cx="65" cy="291" r="3"/><circle cx="125" cy="291" r="3"/>
+    <circle cx="95" cy="258" r="3"/><circle cx="83" cy="258" r="3"/><circle cx="107" cy="258" r="3"/><circle cx="71" cy="258" r="3"/><circle cx="119" cy="258" r="3"/>
+    <circle cx="95" cy="302" r="3"/><circle cx="83" cy="302" r="3"/><circle cx="107" cy="302" r="3"/><circle cx="71" cy="302" r="3"/><circle cx="119" cy="302" r="3"/>
+    <circle cx="89" cy="247" r="3"/><circle cx="101" cy="247" r="3"/><circle cx="77" cy="247" r="3"/><circle cx="113" cy="247" r="3"/>
+    <circle cx="89" cy="313" r="3"/><circle cx="101" cy="313" r="3"/><circle cx="77" cy="313" r="3"/><circle cx="113" cy="313" r="3"/>
+    <circle cx="95" cy="236" r="3"/><circle cx="83" cy="236" r="3"/><circle cx="107" cy="236" r="3"/>
+    <circle cx="95" cy="324" r="3"/><circle cx="83" cy="324" r="3"/><circle cx="107" cy="324" r="3"/>
+  </g>
+  <use href="#holes" x="210"/>
+  <!-- display -->
+  <rect x="154" y="216" width="72" height="72" rx="4" fill="#1d1630" stroke="#2b2b2b"/>
+  <g fill="#7be0ff"><rect x="158" y="268" width="6" height="16"/><rect x="167" y="254" width="6" height="30"/><rect x="176" y="244" width="6" height="40"/><rect x="185" y="260" width="6" height="24"/><rect x="194" y="236" width="6" height="48"/><rect x="203" y="250" width="6" height="34"/><rect x="212" y="264" width="6" height="20"/></g>
+  <!-- buttons -->
+  <circle cx="160" cy="330" r="14" fill="#3d7bd9" stroke="#1d3f73" stroke-width="2"/>
+  <circle cx="200" cy="330" r="16" fill="#3fb36b" stroke="#1e6a3d" stroke-width="2"/>
+  <circle cx="240" cy="330" r="14" fill="#f08a24" stroke="#8a4a0c" stroke-width="2"/>
+  <rect x="40" y="380" width="24" height="8" fill="#333"/><rect x="336" y="380" width="24" height="8" fill="#333"/>
+  <path d="M20 405H380" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="200" y="400" text-anchor="middle" fill="#555">360</text>
+  <path d="M400 180V380" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="404" y="284" fill="#555">200</text>
+  <text x="404" y="298" fill="#555">(170 deep)</text>
+  <text x="404" y="130" fill="#555">+100</text><text x="404" y="143" fill="#555">handle</text>
+</svg>

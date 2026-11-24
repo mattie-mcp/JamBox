@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -10 790 450" width="790" height="450" font-family="Helvetica, Arial, sans-serif" font-size="11">
+  <rect x="-20" y="-10" width="790" height="450" fill="#ffffff"/>
+  <defs>
+    <pattern id="shingle" width="20" height="12" patternUnits="userSpaceOnUse">
+      <rect width="20" height="12" fill="#c96f4a"/>
+      <path d="M0 11.5H20M10 0V12" stroke="#a9563a" stroke-width="1"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555"/></marker>
+  </defs>
+  <text x="0" y="10" font-size="15" font-weight="bold" fill="#222">Concept A — "Jam House" (recommended) · front + side elevation, mm</text>
+
+  <!-- ============ FRONT ============ -->
+  <text x="170" y="440" fill="#555">FRONT</text>
+  <!-- cartridge standing in ridge slot -->
+  <rect x="150" y="68" width="80" height="44" rx="8" fill="#f2b134" stroke="#2b2b2b" stroke-width="1.5"/>
+  <path d="M190 76 l5 10 11 1 -8 7 3 11 -11 -6 -11 6 3 -11 -8 -7 11 -1z" fill="#fff6d8" stroke="#b07a10"/>
+  <!-- ridge cap -->
+  <rect x="30" y="108" width="320" height="12" rx="3" fill="#8c6a43" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="146" y="108" width="88" height="4" fill="#3a3a3a"/>
+  <!-- front roof slope -->
+  <rect x="30" y="120" width="320" height="60" fill="url(#shingle)" stroke="#2b2b2b" stroke-width="1.5"/>
+  <circle cx="135" cy="150" r="15" fill="#3d7bd9" stroke="#1d3f73" stroke-width="2"/>
+  <circle cx="190" cy="150" r="17" fill="#3fb36b" stroke="#1e6a3d" stroke-width="2"/>
+  <circle cx="245" cy="150" r="15" fill="#f08a24" stroke="#8a4a0c" stroke-width="2"/>
+  <text x="135" y="154" text-anchor="middle" fill="#fff" font-size="12">◀◀</text>
+  <text x="190" y="155" text-anchor="middle" fill="#fff" font-size="14">▶‖</text>
+  <text x="245" y="154" text-anchor="middle" fill="#fff" font-size="12">▶▶</text>
+  <!-- wall -->
+  <rect x="40" y="180" width="300" height="200" fill="#ecd9b8" stroke="#2b2b2b" stroke-width="1.5"/>
+  <g id="win">
+    <rect x="50" y="200" width="90" height="90" rx="4" fill="#fbf3e4" stroke="#7a5a32" stroke-width="3"/>
+    <path d="M95 200V290M50 245H140" stroke="#7a5a32" stroke-width="4"/>
+    <g fill="#5a4630">
+      <circle cx="62" cy="212" r="3"/><circle cx="73" cy="212" r="3"/><circle cx="84" cy="212" r="3"/>
+      <circle cx="62" cy="223" r="3"/><circle cx="73" cy="223" r="3"/><circle cx="84" cy="223" r="3"/>
+      <circle cx="62" cy="234" r="3"/><circle cx="73" cy="234" r="3"/><circle cx="84" cy="234" r="3"/>
+      <circle cx="106" cy="212" r="3"/><circle cx="117" cy="212" r="3"/><circle cx="128" cy="212" r="3"/>
+      <circle cx="106" cy="223" r="3"/><circle cx="117" cy="223" r="3"/><circle cx="128" cy="223" r="3"/>
+      <circle cx="106" cy="234" r="3"/><circle cx="117" cy="234" r="3"/><circle cx="128" cy="234" r="3"/>
+      <circle cx="62" cy="256" r="3"/><circle cx="73" cy="256" r="3"/><circle cx="84" cy="256" r="3"/>
+      <circle cx="62" cy="267" r="3"/><circle cx="73" cy="267" r="3"/><circle cx="84" cy="267" r="3"/>
+      <circle cx="62" cy="278" r="3"/><circle cx="73" cy="278" r="3"/><circle cx="84" cy="278" r="3"/>
+      <circle cx="106" cy="256" r="3"/><circle cx="117" cy="256" r="3"/><circle cx="128" cy="256" r="3"/>
+      <circle cx="106" cy="267" r="3"/><circle cx="117" cy="267" r="3"/><circle cx="128" cy="267" r="3"/>
+      <circle cx="106" cy="278" r="3"/><circle cx="117" cy="278" r="3"/><circle cx="128" cy="278" r="3"/>
+    </g>
+  </g>
+  <use href="#win" x="190"/>
+  <!-- door = LED matrix, knob = volume -->
+  <rect x="145" y="250" width="90" height="130" rx="6" fill="#8c6a43" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="154" y="262" width="72" height="72" fill="#1d1630" stroke="#2b2b2b"/>
+  <g fill="#ff5fa2"><rect x="158" y="314" width="6" height="16"/><rect x="167" y="300" width="6" height="30"/><rect x="176" y="290" width="6" height="40"/><rect x="185" y="306" width="6" height="24"/><rect x="194" y="282" width="6" height="48"/><rect x="203" y="296" width="6" height="34"/><rect x="212" y="310" width="6" height="20"/></g>
+  <g fill="#ffd166"><rect x="176" y="290" width="6" height="6"/><rect x="194" y="282" width="6" height="6"/><rect x="167" y="300" width="6" height="6"/><rect x="203" y="296" width="6" height="6"/></g>
+  <circle cx="214" cy="357" r="17" fill="#e9c46a" stroke="#6b4e10" stroke-width="2"/>
+  <path d="M214 343v8" stroke="#6b4e10" stroke-width="3"/>
+  <rect x="50" y="380" width="24" height="8" fill="#333"/><rect x="306" y="380" width="24" height="8" fill="#333"/>
+  <!-- dims -->
+  <path d="M40 410H340" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="190" y="426" text-anchor="middle" fill="#555">300 (320 with eaves)</text>
+  <path d="M362 108V380" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="366" y="250" fill="#555">272</text>
+  <path d="M362 68V106" stroke="#999" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="366" y="92" fill="#999">+40 cartridge</text>
+  <g fill="#333" font-size="10.5">
+    <text x="-14" y="146">Buttons on</text><text x="-14" y="159">front roof</text>
+    <text x="-14" y="241">Window =</text><text x="-14" y="254">3" speaker</text>
+    <text x="246" y="62">Cartridge in ridge slot</text>
+    <text x="-14" y="330">Door = LED</text><text x="-14" y="343">Knob = volume</text>
+  </g>
+
+  <!-- ============ SIDE ============ -->
+  <text x="500" y="440" fill="#555">SIDE (gable)</text>
+  <polygon points="430,180 490,120 550,120 610,180" fill="#ecd9b8" stroke="#2b2b2b" stroke-width="1.5"/>
+  <path d="M420 190 L490 120 M620 190 L550 120" fill="none" stroke="#c96f4a" stroke-width="10" stroke-linecap="round"/>
+  <rect x="482" y="108" width="76" height="12" rx="3" fill="#8c6a43" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="430" y="180" width="180" height="200" fill="#ecd9b8" stroke="#2b2b2b" stroke-width="1.5"/>
+  <!-- cartridge + sleeve -->
+  <rect x="505" y="68" width="30" height="40" rx="6" fill="#f2b134" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="505" y="108" width="30" height="60" fill="none" stroke="#b07a10" stroke-dasharray="4 3"/>
+  <rect x="501" y="112" width="38" height="62" fill="none" stroke="#777" stroke-dasharray="3 3"/>
+  <rect x="541" y="122" width="4" height="40" fill="#2a7a3a"/>
+  <text x="566" y="104" fill="#777" font-size="10">sleeve + PN532</text>
+  <path d="M564 101 L545 135" stroke="#777"/>
+  <!-- hand hold -->
+  <rect x="470" y="205" width="100" height="26" rx="13" fill="#5a4630"/>
+  <text x="520" y="250" text-anchor="middle" fill="#333" font-size="10.5">hand-hold (both gables)</text>
+  <!-- back items -->
+  <circle cx="604" cy="300" r="5" fill="#59c3ff" stroke="#333"/>
+  <rect x="604" y="330" width="6" height="10" fill="#333"/>
+  <text x="616" y="303" fill="#333" font-size="10.5">power button (lit)</text>
+  <text x="616" y="339" fill="#333" font-size="10.5">USB-C (back, recessed)</text>
+  <g fill="#5a4630"><circle cx="588" cy="168" r="2.5"/><circle cx="596" cy="160" r="2.5"/><circle cx="580" cy="160" r="2.5"/><circle cx="588" cy="152" r="2.5"/></g>
+  <text x="616" y="160" fill="#333" font-size="10.5">vents, back roof</text>
+  <rect x="440" y="380" width="24" height="8" fill="#333"/><rect x="576" y="380" width="24" height="8" fill="#333"/>
+  <path d="M430 410H610" stroke="#555" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="520" y="426" text-anchor="middle" fill="#555">180</text>
+  <text x="436" y="296" fill="#555" font-size="10">roof 45°</text>
+  <text x="436" y="310" fill="#555" font-size="10">◀ front</text>
+</svg>

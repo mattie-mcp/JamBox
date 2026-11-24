@@ -1,22 +1,26 @@
 # JamBox
 
-A smart NFC-based music player for toddlers. Place a toy on the pedestal, and the matching Spotify song plays automatically.
+A smart NFC-based music player for toddlers. Slide a chunky wooden cartridge into the box and the matching Spotify song plays; pull it out and it pauses.
 
 Inspired by [Tonie Box](https://tonies.com). Built for Jamie.
 
 ## How It Works
 
-1. NFC tags are embedded in small toys
-2. A Raspberry Pi with an NFC reader detects which toy is placed on the pedestal
-3. The Pi looks up the tag-to-song mapping and triggers Spotify playback
-4. Parents manage mappings through a web app
+1. NFC tags are sealed inside chunky cartridges (wooden blocks)
+2. A Raspberry Pi with an NFC reader detects which cartridge is in the slot
+3. The Pi looks up the tag-to-song mapping and triggers Spotify playback through built-in speakers
+4. Volume knob, Back / Play-Pause / Skip buttons and a dancing LED display are on the box
+5. Parents manage mappings through a web app
 
 ## Components
 
 | Component | Tech |
 |-----------|------|
 | Brain | Raspberry Pi 4 |
-| NFC Reader | PN532 (I2C) |
+| Audio | HiFiBerry Amp4 + 2× 3" full-range drivers |
+| NFC Reader | PN532 (I2C) + slot microswitch |
+| Controls / display | Arcade buttons, rotary encoder, WS2812B 8×8 matrix |
+| Power | Single USB-C PD charger (15 V) |
 | Backend | Python / FastAPI |
 | Frontend | Next.js / Tailwind |
 | Database | SQLite |
@@ -24,7 +28,7 @@ Inspired by [Tonie Box](https://tonies.com). Built for Jamie.
 
 ## Quick Start
 
-See [Hardware Guide](docs/hardware.md) for shopping list and wiring.
+See the [Hardware Guide](docs/hardware.md) for the parts list and wiring, and the [Enclosure Design](docs/enclosure.md) for the box, cartridges and design concepts.
 
 ### Development (on your Mac)
 
