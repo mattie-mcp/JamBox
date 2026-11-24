@@ -107,15 +107,107 @@ the better-documented board. Check the free-shipping threshold; Cart 2 may cross
 
 ## Results
 
-*(Filled in when the carts are built.)*
+Carts built in Chrome on **2026-11-24** (add to cart only; nothing bought). Prices are what each cart showed that
+day; several are Black Friday sale prices. Shipping marked "at checkout" needs an address, which was not entered.
 
 | Cart | Store | Items in stock | Subtotal | Shipping | Free-ship threshold | Notes |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
-| 6 | | | | | | |
-| 7 | | | | | | |
-| 8 | | | | | | |
+| 1 | [PiShop.us](https://www.pishop.us/cart.php) | 3/3 | $232.35 | At checkout (USPS / FedEx) | None listed | SD card moved here from Amazon |
+| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 8 lines; PN532 #364 and encoder #377 **out of stock** | $62.80 | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
+| 3 | [Parts Express](https://www.parts-express.com/cart) | 3/3 | $56.94 | $9.95 | $99 | Code EARLYBF15: 15% off $75+, ends 11/26 |
+| 4 | Pololu | **0/1** (D36V28F5 out of stock, backorder only) | n/a | n/a | n/a | Bought on Amazon instead (Cart 6) |
+| 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 1/1 | $2.34 | $8.49 UPS Ground + $0.49 tariff | n/a | Switch and fuse moved to Amazon |
+| 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 16/16 lines (17 units) | $202.38 | $4.99 (GetFPV regulator); rest free (Prime) | Prime | SanDisk card not added: 2-card minimum |
+| 7 | [McMaster-Carr](https://www.mcmaster.com/order/) | 3/3 | $30.36 | At checkout | n/a | Perforated sheet not added (24×24" minimum, $54+) |
+| 8 | [Rockler](https://www.rockler.com/checkout/cart/) | 4/4 | $92.45 | $15.99 economy (+ $5.55 tax) | $99 with code FREE99 | Maple, finish and tools not added (see below) |
+| | **hifiberry.com** | comparison only | $64.90 | $38.00 FedEx | | Amp4 left in that cart for comparison; **remove it, don't buy both** |
+
+**In carts: $679.62 of merchandise plus $39.91 of known shipping ≈ $720.** PiShop, Adafruit and McMaster shipping (≈ $25)
+and sales tax come on top.
+
+### Line items
+
+| Cart | Item (exact title) | Part / SKU | Unit | Qty | Stock | Link |
+|---|---|---|---|---|---|---|
+| 1 | Raspberry Pi 4 Model B/4GB | PiShop 4GB-9004 (SC0194) | $100.00 | 1 | In stock | [pishop](https://www.pishop.us/product/raspberry-pi-4-model-b-4gb/) |
+| 1 | ↳ add-on: Aluminum Heatsink for Raspberry Pi 4B (3-Pack) | PiShop 1723 | $2.95 | 1 | In stock | same page |
+| 1 | HiFiBerry AMP4 | PiShop 23-1 | $98.45 | 1 | In stock | [pishop](https://www.pishop.us/product/hifiberry-amp4/) |
+| 1 | SanDisk High Endurance MicroSDXC Card - 64GB - Class10 - BLANK | SanDisk High Endurance 64GB | $30.95 | 1 | In stock | [pishop search](https://www.pishop.us/search.php?search_query=sandisk+high+endurance+64gb) |
+| 2 | Adafruit USB Type C Power Delivery Dummy Breakout - I2C or Fixed - HUSB238 | #5807 | $5.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/5807) |
+| 2 | Adafruit NeoPixel NeoMatrix 8x8 - 64 RGB LED Pixel Matrix | #1487 | $34.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1487) |
+| 2 | 74AHCT125 - Quad Level-Shifter (3V to 5V) | #1787 | $1.50 | 1 | 21 in stock | [adafruit](https://www.adafruit.com/product/1787) |
+| 2 | Stacking Header - 2x20 Extra Tall Header | #1979 | $2.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1979) |
+| 2 | Arcade Button with LED - 30mm Translucent Blue / Green / Yellow | #3490 / #3487 / #3488 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3490) |
+| 2 | USB C Round Panel Mount Extension Cable | #4218 | $9.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/4218) |
+| 3 | Dayton Audio PC83-4 3" Full-Range Poly Cone Driver | 295-154 | $15.49 | 2 | 1,074 in stock | [parts-express](https://www.parts-express.com/Dayton-Audio-PC83-4-3-Full-Range-Poly-Cone-Driver-295-154) |
+| 3 | Parts Express Speaker Grille Cloth Black Yard 70" Wide | 260-335 | $9.98 | 1 | In stock | [search](https://www.parts-express.com/search?keywords=260-335) |
+| 3 | Acousta-Fill Nylon Polyfill 1 lb. Bag | 260-319 | $15.98 | 1 | In stock | [search](https://www.parts-express.com/search?keywords=260-319) |
+| 5 | Bourns PEC11R-4220F-S0024 Encoders 20mm SHAFT w/SWITCH | Mouser 652-PEC11R-4220F-S24 | $2.34 | 1 | 8,085 in stock | [mouser](https://www.mouser.com/ProductDetail/Bourns/PEC11R-4220F-S0024) |
+| 6 | 5V, 3.2A Step-Down Voltage Regulator D36V28F5 (sold by GetFPV) | B0BJKVWR2D | $16.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0BJKVWR2D) |
+| 6 | HiLetgo PN532 NFC NXP RFID Module V3 Kit | B01I1J17LC | $8.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B01I1J17LC) |
+| 6 | 30pcs NFC Tags NTAG215 NFC Coins Rewritable White NFC Tag Round 30mm | B07PFC2FH5 | $9.50 | 2 | In stock | [amazon](https://www.amazon.com/dp/B07PFC2FH5) |
+| 6 | UGREEN Nexode 65W USB C Charger Block, 3-Port (lists 15V/3A) | B091BGMKYS | $22.49 | 1 | In stock | [amazon](https://www.amazon.com/dp/B091BGMKYS) |
+| 6 | APIELE 10 Amp 19mm Latching Push Button Switch 12V SPST LED (stainless, blue ring) | B07V96FYHP | $13.49 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07V96FYHP) |
+| 6 | 2pcs 18AWG Inline Fuse Holder with 3A Mini Fuse | B0DC3LVV75 | $5.59 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0DC3LVV75) |
+| 6 | 2020-Piece JST XH 2.54mm Connector Kit with Ratcheting Crimping Tool | B0G2L3LGWD | $23.74 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0G2L3LGWD) |
+| 6 | TUOFENG 22 AWG Silicone Wire Kit, 6 Colors, 26.3 ft Each | B07G2JWYDW | $15.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07G2JWYDW) |
+| 6 | RCA AH1850N 50 feet 18-Gauge Speaker Wire | B00005T3G2 | $7.99 | 1 | Only 9 left | [amazon](https://www.amazon.com/dp/B00005T3G2) |
+| 6 | 365 Pcs M2.5 Black Nylon Hex Standoff Screw Nut Kit | B0FPMC9917 | $9.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0FPMC9917) |
+| 6 | HANGLIFE Heat-Set Threaded Inserts, M3 x D5 x L4 (100 pcs) | B0CS6VZYL8 | $8.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0CS6VZYL8) |
+| 6 | smseace 100PCS (5 Sizes) Rubber Feet with Washer and Screws | B08PBH875X | $9.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B08PBH875X) |
+| 6 | PEI Flexi Steel Magnetic Build Plate 235×235 (Ender 3 Pro; includes magnetic base) | B09WZSGXFL | $15.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B09WZSGXFL) |
+| 6 | SUNLU PETG Filament 1.75mm, 1kg, Black | B0DJS3PJVX | $11.96 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0DJS3PJVX) |
+| 6 | SUNLU PLA 3D Printer Filament, Black, 1KG | B07XG3RM58 | $11.19 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07XG3RM58) |
+| 7 | Tamper-Resistant Torx 18-8 SS Button Head Screws, M3 x 0.5 x 10 mm (pack of 50) | 91900A848 | $12.54 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/91900A848/) |
+| 7 | Tamper-Resistant Torx Bit, 1/4" Hex Shank, T8 | 7233A61 | $7.84 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/7233A61/) |
+| 7 | Moisture-Resistant HDPE Sheet 12" x 12" x 1/4" (FDA) | 8619K461 | $9.98 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/8619K461/) |
+| 8 | 1/2'' Baltic Birch Plywood, 30'' x 30'' | Rockler #75282 | $29.24 | 2 | In stock | [rockler](https://www.rockler.com/baltic-birch-plywood-choose-thickness) |
+| 8 | 1/4'' Baltic Birch Plywood, 30'' x 30'' | Rockler #79110 | $16.49 | 1 | In stock | same page |
+| 8 | Titebond III Ultimate Wood Glue, 16 oz. | Rockler #23921 | $8.49 | 1 | In stock | [rockler](https://www.rockler.com/titebondtrade-iii-ultimate-wood-glue-optional-sizes) |
+| 8 | Dowel Rod - Birch - 36" x 1" | Rockler #20792 | $8.99 | 1 | In stock | [rockler](https://www.rockler.com/dowel-rods-birch-36-choose-size) |
+
+### Comparisons
+
+| Item | Options (Nov 24, 2026) | Recommended |
+|---|---|---|
+| Pi 4 4 GB | PiShop **$100**, CanaKit $100, Micro Center $99.99 (in-store pickup only), Adafruit $120 | **PiShop**: same price as CanaKit, ships with the Amp4 and SD card |
+| HiFiBerry Amp4 | PiShop **$98.45**, in stock, ships with the Pi. hifiberry.com $64.90 + $38.00 FedEx Intl Economy = **$102.90**, plus possible US duties, 1–6 weeks | **PiShop** |
+| PN532 | Adafruit #364 $39.95, **out of stock**. Amazon V3 clones: HiLetgo $8.99 (220 reviews), AITRIP $7.99. No Elechouse-branded listing on Amazon | **HiLetgo V3** (in cart). Same PN532 chip and I2C, so the code works unchanged |
+| NTAG215, 30–35 mm | **ShopNFC: no NTAG215** (stocks 210/213/216/DNA; e.g. NTAG213 Bullseye 38 mm €0.69). **Seritag: no NTAG215**; genuine-NXP NTAG213 29 mm **$0.37** (10–99). Amazon: 30 mm NTAG215 coins, 30-pack $9.50 = **$0.32/tag** (genuine NXP not stated); most Amazon 50-packs are 25 mm | **Amazon 30 mm coins** (2 packs = 60 tags, in cart). If you want verified NXP, Seritag 29 mm NTAG213 works too, because the daemon only reads the UID |
+| Pololu D36V28F5 | Pololu $23.95, **out of stock**, backorder. RobotShop $21.95, restocking. Amazon (GetFPV) **$16.99 + $4.99** = $21.98, in stock. Mouser doesn't carry it; DigiKey blocked by CAPTCHA | **Amazon / GetFPV** |
+| USB-C PD charger 45 W+, 15 V ⎓ 3 A | UGREEN Nexode 65W $22.49 (lists 15V/3A), Anker Nano 70W $32.99 (lists 15V⎓3A), Anker 65W 3-port $22.77 (15 V not stated in listing) | **UGREEN Nexode 65W** |
+| SanDisk High Endurance 64 GB | Amazon $25.99, but **minimum order 2**; PiShop $30.95 | **PiShop** (rides along with Cart 1) |
+| 19 mm latching switch | Adafruit: none rated for 12–15 V. Mouser: Bulgin only, $32–65. Amazon APIELE 10 A $13.49 | **Amazon APIELE** |
+
+### Consolidation
+
+- **Pi + Amp4 + SD card + heatsink at PiShop** (done): one shipment instead of three. Ordering the Amp4 from hifiberry.com
+  would cost more after FedEx and wait on Swiss post and customs.
+- **Pololu cart dropped**: the regulator ships from Amazon. **DigiKey/Mouser shrank to one $2.34 encoder** costing $8.49 to ship;
+  the 19 mm switch and the fuse holder went to Amazon. If DigiKey works for you after the CAPTCHA, check whether it
+  ships the encoder cheaper; otherwise the Mouser cart is ready.
+- **Rockler is $6.55 short of free shipping** ($99 with code FREE99). Adding the finish or a Forstner bit there saves the $15.99.
+- **Parts Express is $42 short of free shipping** ($99). Moving the 18 AWG speaker wire there (Consolidated 25 ft, $9.98) doesn't
+  close the gap; paying the $9.95 is cheaper.
+- **Adafruit is far from its $200 threshold**; moving the Pi there ($120) would cost more than the shipping it saves.
+
+### Still to buy (not in any cart)
+
+| Item | Why not added | Suggested |
+|---|---|---|
+| Water-based toy-safe finish (EN 71-3 / ASTM F963) | Rockler and Woodcraft list no water-based finish with that label. Rockler's only EN71 hit is Natura Onecoat Wood Oil 2K ($39.99), an oil | Your call. Options: Natura 2K (Rockler), or a General Finishes water-based topcoat if you accept its toy-safe statement |
+| Maple or cherry, ¾" and ½", 3–4 bd-ft | Rockler doesn't sell dimensional boards online | Rockler Novi store or a local hardwood dealer, ~$30–50 |
+| Perforated grille sheet, ~2 mm holes | Parts Express has none; McMaster's smallest is 24×24" ($54+) | Amazon 12×12" perforated stainless, ~$18 (3 mm holes on the listings that state size) |
+| Router bits, 3" hole saw, 1-⅜" Forstner, 6 mm brad-point | Marked "if not owned" | ~$80–100 at Rockler; adding any of them gets Rockler free shipping |
+| Omron D2F-01L3 microswitch | Optional, only if the slot test fails | Mouser or DigiKey, ~$3 |
+
+### Total versus the ≈ $820 estimate
+
+| | Estimate | Real |
+|---|---|---|
+| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $482** (Pi +$40, Amp4 +$33, SD +$16; PN532 −$31) |
+| Enclosure, printing supplies, hardware in carts | | ≈ $198 |
+| Known shipping and tariff | | ≈ $40 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
+| Not yet bought: finish, maple, grille sheet | | ≈ $90 |
+| Tools, if not owned | | ≈ $90 |
+| **Total** | **≈ $820** | **≈ $925 all-in** (≈ $835 if you already own the bits and hole saw); still under the $1000 budget |
