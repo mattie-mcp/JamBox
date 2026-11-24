@@ -18,7 +18,7 @@ and a slot that takes chunky **cartridges**. One USB-C charger powers everything
 | Power in | Panel-mount **USB-C** → **USB-PD trigger board set to 15 V** → Amp4 + 5 V buck for the LEDs | A single USB-C port that accepts any **45 W+ USB-C PD charger** (or PD power bank). 15 V/3 A = 45 W of headroom. |
 | On/off + "it's on" light | Illuminated **latching anti-vandal pushbutton** on the 15 V rail | The steel button is toddler-proof, and its LED ring is the on/off indicator. Pairs with a read-only OS so a hard power-off can't corrupt the SD card. |
 | NFC | **PN532** (Adafruit #364), kept from v1 | The existing code already uses it. The tuned antenna reads 30–40 mm tags through a thin wall easily. |
-| Cartridge presence | **Roller-lever microswitch** at the bottom of the slot, with NFC polling as backup | Pause happens the instant the cartridge comes out, with no waiting for NFC timeouts. |
+| Cartridge presence | **Open:** leaning **NFC-only** (pause after a few missed polls) plus a click detent for feel. The microswitch is an optional add-on | NFC alone can detect removal (~1–1.5 s). A switch makes it instant and immune to a flaky read. Decide after the slot mock-up test (enclosure.md, "Slot design") |
 | Controls | 3× 30 mm arcade buttons (Back / Play-Pause / Skip) + rotary encoder volume knob | Arcade buttons are built for abuse. An encoder (not a pot) lets software enforce a max volume. |
 | LEDs | 8×8 **WS2812B** NeoPixel matrix behind a diffuser, driven over SPI | Audio-reactive visualizer, boot/idle animations, volume bar and status. SPI avoids clashing with I2S audio. |
 | Storage | 64 GB **high-endurance** microSD + read-only root filesystem (overlayfs) | Survives being unplugged mid-song. |
@@ -60,7 +60,7 @@ research (Nov 2026); the rest are estimates. **Check stock and price before orde
 | E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $5–10 | Rockler, Amazon | Big and grippy. Grub-screw or D-shaft fit, glued |
 | E12 | LED matrix | Adafruit NeoPixel **NeoMatrix 8×8** (#1487), or a flexible 8×8/16×16 WS2812B panel | 1 | $20–35 | Adafruit, BTF-Lighting (Amazon) | Software-capped at ~20% brightness |
 | E13 | Level shifter | **74AHCT125** quad level shifter (Adafruit #1787) | 1 | ~$2 | Adafruit | 3.3 V GPIO → 5 V NeoPixel data |
-| E14 | Slot sensor | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Alt: Adafruit IR break-beam 3 mm (#2167), no moving parts |
+| E14 | Slot sensor (**optional**, pending test) | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Only if NFC-only removal is laggy or flaky. Alt: Adafruit IR break-beam 3 mm (#2167) |
 | E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + screw-terminal or Perma-Proto HAT | 1 | ~$15 | Adafruit | The Amp4 sits on the Pi; this exposes free pins for wiring |
 | E16 | Storage | SanDisk **High Endurance** 64 GB microSD | 1 | ~$15 | Amazon, B&H | High-endurance cards are made for constant writes |
 | E17 | Pi cooling | Aluminum heatsink set for Pi 4 | 1 | ~$6 | Amazon | Passive. The box has vent holes (see enclosure.md) |
@@ -95,8 +95,8 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 
 | Item | ≈ Cost | Notes |
 |---|---|---|
-| 3D printer (Bambu Lab A1 / A1 mini class) | $250–450 | **Not required.** See "3D printer decision" in enclosure.md. Online print services (JLC3DP, Craftcloud) are a middle ground |
-| UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | For portable use. See "Battery spike" in enclosure.md. No battery goes *inside* the box |
+| 3D printer | $0 | **You already have an Ender 3 Pro.** See "3D printer decision" in enclosure.md |
+| UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
 **Overall: about $700–900** without a 3D printer, inside the original <$1000 budget.

@@ -3,6 +3,20 @@
 The physical design for the hardwired, all-in-one JamBox. The parts list, wiring and pin map are in
 [hardware.md](hardware.md).
 
+## Decision log
+
+Decisions are made in the [design review page](https://claude.ai/artifact/R82Ww7XMcv26h4d8bHZJkR).
+
+| Decision | Status | Choice |
+|---|---|---|
+| Box design | **Decided** (2026-11-24) | **Concept B, "Jam Radio"**. See the Radio build details below |
+| Portable power | **Decided** | **Wall power only** for v1. The battery spike below stays as a future option |
+| Volume ceiling | **Decided** | **Parent-adjustable** in the web app, starting at ~80 dB |
+| Cartridge presence sensor | Open | Leaning **NFC-only + a click detent**, pending experiment E3 (see "Slot design") |
+| Cartridge construction | Open | Wood baseline. **3D-printed is a stretch goal** on branch `claude/3d-printed-cartridges` |
+| 3D printer | Open | Use your **Ender 3 Pro** (no purchase or service needed for prototyping) |
+| Material, slot liner, computer, amp, speakers, LEDs, resume | Open | Recommendations in this doc and hardware.md |
+
 ## Design goals
 
 - **Players:** ages 2 to 6. It will be dropped, sat on, drooled on and fed things that aren't cartridges.
@@ -19,7 +33,7 @@ about looks, build effort and play value.
 
 ---
 
-## Concept A: "Jam House" (recommended)
+## Concept A: "Jam House"
 
 ![Jam House concept](images/concept-a-house.svg)
 
@@ -41,7 +55,7 @@ front roof slope, angled toward a child sitting in front of it.
 - Every part is a flat panel you can cut on a table saw.
 - It looks like a piece of nice wooden furniture, not a gadget.
 
-## Concept B: "Jam Radio" (easiest to build)
+## Concept B: "Jam Radio" (chosen)
 
 ![Jam Radio concept](images/concept-b-radio.svg)
 
@@ -91,8 +105,9 @@ large-radius corners take more jig work.
 | LED display | 8×8 "door" | 8×8 "dial" | 8×16 "mouth" |
 | Looks like furniture | ★★★ | ★★★ | ★ |
 
-**Recommendation:** build **A (House)**. If you'd like a quick practice build first, build B in
-cheap plywood as a test mule for the electronics, then build A for real.
+**Chosen: B (Radio).** It's the easiest build, the most stable on the floor, and the most portable.
+Paint and the LED "dial" give it character. My original pick was A (House). Its drawings and cut list
+stay below for reference.
 
 ---
 
@@ -112,6 +127,12 @@ cheap plywood as a test mule for the electronics, then build A for real.
 The cartridge is symmetric front-to-back. The only "wrong" way in is upside-down, and the flat
 bottom with artwork on top makes the right way obvious. If you want it fool-proof, the software can map
 a second tag in the top end to the same song.
+
+### No stickers on the outside
+
+Jamie peels stickers, so **the tag is never on a surface**. It's sealed inside every cartridge: at the glue
+line of a wood block, or embedded mid-print in a printed one. **Artwork isn't a sticker either**: use paint
+sealed under finish, engraving, or a raised printed icon. A label on the outside is something to pick at.
 
 ### Three ways to make cartridges
 
@@ -140,9 +161,20 @@ cartridges and turns tidy-up into a game. It's easy to make with the table saw a
 - The **PN532** is screwed (nylon screws) to the outside of the sleeve wall, with the antenna face-on to the tag.
   The tag-to-antenna gap is **≈ 23 mm** (15 mm into the cartridge, 2 mm clearance, 6 mm wall).
   Bench-test this before final glue-up (see hardware.md §5).
-- A **roller-lever microswitch** sits under the sleeve floor, with its lever through a 6 mm slot. A cartridge
-  bottoming out closes it. A **clean-out hole** in the floor lets crumbs and juice drain out instead
-  of jamming the switch.
+- **Presence sensing (open decision).** The NFC reader can tell when a cartridge leaves: when the tag
+  stops answering for a few polls, pause. That works with no extra parts. A switch adds three things:
+  1. **Speed.** The removal check is instant, instead of a few missed polls (~1–1.5 s with a 0.5 s poll).
+  2. **No false pauses.** A single flaky NFC read mid-song can't be mistaken for removal, so the NFC
+     debounce can be more forgiving.
+  3. **"Something's in, but I can't read it."** It can show a "?" for an unregistered or damaged cartridge.
+
+  A roller-lever microswitch gives almost **no tactile feel**. Its actuation force is tiny, so it doesn't
+  "click" for the child. **Updated recommendation:** start **NFC-only**, and test it in the printed slot mock-up
+  (experiment E3). For feel, add a **detent**: a small printed or wooden spring bump in the slot wall that
+  snaps into a shallow groove on each cartridge face, so it clicks in and holds. Use no metal
+  ball-plungers near the antenna. Add the microswitch later only if E3 shows laggy or false pauses.
+  If you use it, it sits under the sleeve floor with its lever through a 6 mm slot.
+- Either way, a **clean-out hole** in the slot floor lets crumbs and juice drain out.
 - **Optional wear liner:** make the ridge cap (or just a slot insert) from **HDPE** (cutting-board plastic). It
   shrugs off thousands of insertions, is transparent to NFC, and routes cleanly.
 
@@ -152,7 +184,55 @@ The software changes are in [the v2 plan](plans/2026-11-24-hardwired-v2.md).
 
 ---
 
-## Inside the house
+## Inside the radio (chosen design)
+
+```
+   ┌───────── handle (25 mm hardwood dowel) ─────────┐
+   │ upright                                upright  │
+ ┌─┴──────────────[slot]───────────────────[knob]───┴─┐  ← 12 mm top panel
+ │  ┌─ spk chamber L ─┐  [ LED 8×8 ]  ┌─ spk chamber R ─┐ │
+ │  │   PC83-4 ⌀75    │  ◉  ◉  ◉     │    PC83-4 ⌀75   │ │  ← front: grilles, display, buttons
+ │  └─────────────────┘  [sleeve+PN532]└─────────────────┘ │
+ │                [ electronics sled: Pi 4 + Amp4, buck,  │
+ │                  PD trigger, JST terminals ]            │
+ └─────────────────────────────────────────────────────┘
+   back: recessed USB-C, lit power button, vents
+```
+
+| | |
+|---|---|
+| Outside | **360 W × 170 D × 200 H mm**, +100 mm handle. With 10 mm feet, ≈ 310 mm to the top of the handle |
+| Speakers | Two drivers at the far ends (210 mm apart), each in a sealed 6 mm ply chamber of ~110 × 110 × 80 mm internal (≈ 1 L). Grilles are a 115 mm circle of 6 mm holes, with steel mesh and cloth behind |
+| Centre bay | ~100 mm wide between the chambers. Holds the LED matrix (front, upper), the three buttons (front, lower), the slot sleeve (from the top) and the electronics sled (bottom) |
+| Slot | Centred in the top panel under the handle. A 6 mm sleeve hangs 48 mm below the 12 mm top (60 mm insertion). PN532 on the sleeve's back wall, facing the cartridge |
+| Knob | Encoder through the top panel at the right end, clear of the handle upright |
+| Handle | Two hardwood uprights (70 × 40 × 19 mm), each glued into a 6 mm-deep mortise and screwed from inside through the top panel, at least 30 mm from the PN532. A 25 mm dowel through both, glued and pinned with a hardwood peg. It has to hold a toddler hanging on it, so test with ~20 kg |
+| Back | 260 × 120 mm service opening and a 6 mm cover with the recessed USB-C, the lit power button and vent holes. Tamper-resistant screws |
+
+**Tight spot:** the centre bay is about 100 mm wide. A Pi 4 + Amp4 stack (85 × 56 × ~35 mm) fits on the sled,
+but check it in the mock-up. Keep the PN532 at the top of the bay, well above the Pi and amp.
+
+### Cut list (Concept B, chosen)
+
+12 mm Baltic birch unless noted.
+
+| Part | Qty | Size (mm) | Notes |
+|---|---|---|---|
+| Front | 1 | 360 × 200 | 2 grille fields, 72 × 72 display window, 3 button holes (check button spec, usually 28 mm). 3/8" roundover on outside edges |
+| Back | 1 | 360 × 200 | 260 × 120 service opening |
+| Sides | 2 | 146 × 200 | Fit between front and back. Optional hand-hold slot as a second carry option |
+| Top | 1 | 336 × 146 | Slot 34 × 84 with 45° chamfer (or an HDPE insert), knob hole, handle mortises |
+| Bottom | 1 | 336 × 146 | Sled grooves, vent holes, feet |
+| Service cover | 1 | 280 × 140, **6 mm** | USB-C pocket, power-button hole, vents |
+| Speaker chambers | 2 sets | **6 mm** | ~110 × 110 × 80 internal each |
+| Slot sleeve | 1 set | **6 mm** | 2 × (96 × 48) long walls capturing 2 × (34 × 48) ends; floor 96 × 46 with crumb hole |
+| Electronics sled | 1 | 95 × 140, **6 mm** | Slides in from the back |
+| Handle uprights | 2 | 70 × 40 × 19, **hardwood** | 25 mm hole for the dowel |
+| Handle | 1 | Ø25 × 240, **hardwood dowel** | |
+
+The printed slot mock-up on the 3D branch (`hardware/3d/slot_mockup.scad`) matches this slot. Print it first to test fit and NFC.
+
+## Inside the house (Concept A, for reference)
 
 ```
             ┌──── ridge cap (slot) ────┐
@@ -184,7 +264,7 @@ The software changes are in [the v2 plan](plans/2026-11-24-hardwired-v2.md).
   USB-C** port and the **illuminated power button**, fixed with tamper-resistant Torx screws into threaded inserts.
   The USB-C sits in a 10 mm-deep routed pocket, so a tugged cable pulls out instead of snapping the port.
 
-### Cut list (Concept A)
+### Cut list (Concept A, for reference)
 
 12 mm Baltic birch unless noted.
 
@@ -269,7 +349,10 @@ for eyes and power. Details are in the [v2 plan](plans/2026-11-24-hardwired-v2.m
 
 ## 3D printer decision
 
-**You don't need one for v1.** The enclosure and wood cartridges are entirely table-saw and router work.
+**You already have an Ender 3 Pro, so no purchase or print service is needed for prototyping.**
+The enclosure and wood cartridges are still entirely table-saw and router work. The printer handles the slot mock-up,
+the LED pixel grid, brackets, and the printed-cartridge exploration (branch `claude/3d-printed-cartridges`,
+`docs/plans/2026-11-24-3d-printed-cartridges.md`). The original guidance follows.
 
 A printer becomes worth it if you want:
 - **Character cartridges** in colour (the most compelling reason).

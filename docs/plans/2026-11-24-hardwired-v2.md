@@ -28,8 +28,9 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
   └──── switch open (or N consecutive NFC misses) ◄─────┘  → pause
 ```
 
-- **Inputs:** the slot microswitch (GPIO 5, via `gpiozero`) is the primary presence signal. NFC polling
-  provides the tag ID and backs up the switch (treat ~3 consecutive misses as removed if the switch fails).
+- **Inputs:** NFC polling is the presence signal by default. Treat ~2–3 consecutive misses as "removed",
+  and make the count configurable. If the optional slot microswitch (GPIO 5) is fitted, it becomes the primary
+  signal for instant removal and NFC just identifies the tag. Design the state machine so either input works.
 - **Insert:** read the tag. If it's the **same tag as last time and less than ~30 min ago**, resume. Otherwise
   play the mapped track from the start. An unknown tag shows the "?" LED state; discovery mode still works.
 - **Remove:** call a new `POST /api/pause` and remember `{tag, position, time}` for resume.
@@ -42,8 +43,8 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
   `gpiozero.Button` handles the encoder push (mute) and Back/Play-Pause/Skip on GPIO 23/24/25, with debounce.
 - New API endpoints: `POST /api/pause`, `/api/resume`, `/api/next`, `/api/previous`, `/api/volume`.
   Thin wrappers over `spotify.py` (pause already exists).
-- Settings (in SQLite, editable in the web UI): `max_volume`, `default_volume`, `led_brightness`,
-  `resume_window_minutes`.
+- Settings (in SQLite, editable in the web UI): `max_volume` (**parent-adjustable, default ≈ 80 dB**; decided),
+  `default_volume`, `led_brightness`, `resume_window_minutes`.
 - New systemd unit: `scripts/jambox-controls.service`.
 
 ## 4. LED service (new: `backend/app/leds.py`)
