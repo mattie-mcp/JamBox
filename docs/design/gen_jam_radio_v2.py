@@ -319,11 +319,11 @@ a centred 32 mm slot, sled on rails, power in the back panel, and the arched 5×
 </ul>
 <h2>Parts by store</h2>
 {"".join(parts_html)}
-<div class="total"><b>In carts: ${grand:,.2f}</b> of merchandise before shipping (≈ $583 with known shipping; ≈ $573 with the Adafruit code).
-3D-printing supplies stay in Amazon's Saved for later. Nothing has been bought.</div>
+<div class="total"><b>In carts: ${grand:,.2f}</b> of merchandise before shipping (≈ $570 with known shipping; ≈ $560 with the Adafruit code).
+3D-printing supplies and the backup UGREEN charger are in Amazon's Saved for later. Nothing has been bought.</div>
 <h2>Still to buy</h2>
 <section class="store"><table><thead><tr><th>Item</th><th>Where</th><th>≈ Cost</th></tr></thead><tbody>{still}</tbody></table>
-<p class="note">All-in estimate ≈ $789 (≈ $699 if you own the router bits and Forstners). You already have the PN532 reader, soldering kit, breadboard and jumpers.</p></section>
+<p class="note">All-in estimate ≈ $776 (≈ $686 if you own the router bits and Forstners). You already have the PN532 reader, a 15 V ⎓ 3 A charger, the soldering kit, breadboard and jumpers.</p></section>
 </main></body></html>"""
 
 (ROOT / "docs/design/jam-radio-v2.html").write_text(page)
