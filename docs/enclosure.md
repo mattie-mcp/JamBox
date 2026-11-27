@@ -255,7 +255,7 @@ x across (0–360), y front to back (0–170), z up (0–200).
 | Knob | Encoder through the top at **x = 300, y = 120** (back right, behind the right chamber), counterbored from below to ~3–4 mm of panel. With no handle there's nothing near it to pinch a finger. Maple Shaker knob, 51 mm across, epoxied on |
 | Electronics sled | 6 mm ply, **136 W × 95 D mm**, rides on two 10 × 10 mm hardwood rails glued to the bottom panel (y 63–158). The Pi lies sideways (85 mm across the bay) on 10 mm nylon standoffs; buck and HUSB238 beside it. The 10 mm gap under the sled is the air inlet |
 | Back panel | 12 mm, with a **260 × 98 mm service opening** whose sill is level with the rail tops (z 22–120), so **the sled slides straight out**. Above the opening: the **USB-C panel jack and the lit power button**, mounted in the 12 mm panel (22 mm counterbore 6 mm deep from outside, so the plug sits recessed and a tugged cable pulls free), the outlet vents, and the slot drain |
-| Service cover | 6 mm, 280 × 118 mm, over the opening. Inlet holes along its bottom edge. Four **#8 × ¾" pan-head screws** straight into pilot holes in the 12 mm back panel (a tool is needed to open it; no threaded inserts) |
+| Service cover | 6 mm, 280 × 118 mm, over the opening. Inlet holes along its bottom edge. Four **M4 × 12 mm pan-head machine screws** into four **M4 screw-in wood inserts** in the 12 mm back panel, so the cover comes off and on any number of times without wearing the wood (a tool is needed to open it) |
 
 **Clearances (check in the mock-up):** Pi + Amp4 + proto HAT on the sled reaches z ≈ 88, 32 mm under the opening's top
 edge. The sled's front edge (y 63) is 16 mm behind the button bodies. The sleeve floor (z 134) is 46 mm above the stack.
@@ -303,11 +303,11 @@ roughly doubles the rise to ~25 °C, which is too close to the limit.
 | Part | Qty | Size (mm) | Notes |
 |---|---|---|---|
 | Front | 1 | 360 × 200 | Two 84 mm grille fields of 6 mm holes (centres x 57 / 303, z 100). 52 × 84 arched LED window (z 80–164) with a 1.5 mm diffuser recess. Three 24 mm button holes at z 48, x 140 / 180 / 220. 10 mm (3/8") roundover on the outside edges |
-| Back | 1 | 360 × 200 | 260 × 98 service opening (z 22–120). Above it: USB-C jack and 19 mm power-button holes (22 mm × 6 mm counterbores from outside), outlet vents, 8 mm drain hole at z ≈ 126. Four 2.5 mm pilot holes for the cover screws |
+| Back | 1 | 360 × 200 | 260 × 98 service opening (z 22–120). Above it: USB-C jack and 19 mm power-button holes (22 mm × 6 mm counterbores from outside), outlet vents, 8 mm drain hole at z ≈ 126. Four M4 wood inserts for the cover (drill the size on the package, add a dab of glue) |
 | Sides | 2 | 146 × 200 | Fit between front and back. No hand-holds (they'd open the sealed chambers) |
 | Top | 1 | 336 × 146 | Stepped slot hole for the HDPE insert, centred at x 180, y 85. Encoder hole at x 300, y 120, counterbored from below |
 | Bottom | 1 | 336 × 146 | Two 10 × 10 hardwood sled rails, ~20 cm² vent grid under the sled, 4 screw-on feet |
-| Service cover | 1 | 280 × 118, **6 mm** | Row of inlet holes along the bottom edge. 4 × #8 × ¾" pan-head screws |
+| Service cover | 1 | 280 × 118, **6 mm** | Row of inlet holes along the bottom edge. 4 × M4 × 12 mm pan-head screws (4.5 mm clearance holes) |
 | Chamber inner walls | 2 | 64 × 176, **6 mm** | Between the front panel and the chamber back wall, at x 102–108 and 252–258 |
 | Chamber back walls | 2 | 96 × 176, **6 mm** | At y 76–82. A small caulked hole for the speaker wire |
 | Slot insert | 1 | 130 × 50 × 12, **½" HDPE cutting board** | 6 × 10 mm rabbet on each end (110 mm on top). 32 × 84 slot, 45° × 6 mm chamfer |

@@ -91,7 +91,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | Speaker grille mesh | Perforated steel or aluminum sheet, ~2 mm holes, or a 3" steel grille insert | $18–55 | Amazon 12×12" perforated stainless (~$18). Not bought yet: Parts Express has no sheet (its 3" grille fits 2.5" drivers) and McMaster's smallest is 24×24" from $54 |
 | Grille cloth + polyfill | Acoustic grille cloth; a handful of polyester fiberfill for the chambers | $10 † | Parts Express (cloth). Polyfill: use pillow or craft-stash polyester (not cotton or wool), or a small craft bag (~$5) |
 | LED diffuser | 3 mm opal/frosted acrylic, or 0.6 mm (1/42") maple veneer | $10 | TAP Plastics, Amazon |
-| Fasteners | 4 × **#8 × ¾" pan-head screws** for the service cover, straight into the plywood (no tamper-resistant screws or threaded inserts; decided 2026-11-27) | $2 | Lowe's or your stash |
+| Fasteners | Service cover: 4 × **Hillman M4 (4 mm × 0.7) zinc wood insert nuts** in the back panel + 4 × **M4 × 12 mm pan-head machine screws**. Plain screws, not tamper-resistant (decided 2026-11-27) | $5 | Lowe's (Kentwood): inserts $2.98 per 4; screws from the Hillman metric drawer |
 | Slot insert stock | **½" (12 mm) HDPE cutting board**, at least 130 × 50 mm usable | $5–10 | Lowe's, Walmart, or a spare from the kitchen |
 | Feet | 4× **screw-on** rubber feet, ~10 mm tall (lifts the box for bottom vents). No adhesive pads | $10 † | Amazon (smseace kit with screws), hardware store |
 | Glue | Titebond III | $9.99 † | Anywhere |

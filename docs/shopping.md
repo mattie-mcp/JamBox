@@ -16,7 +16,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | Merchandise in carts | **$512.01** |
 | Known shipping and tariff | $19.07 (Parts Express $9.95, Mouser $8.49 + $0.63). PiShop and Adafruit show shipping at checkout (≈ $15) |
 | **In carts** | **≈ $531** (≈ $521 with Adafruit's OhFudge15 code), plus tax |
-| Still to buy | ≈ $115 (maple, finish, grille sheet, veneer, HDPE cutting board, screws, polyfill) |
+| Still to buy | ≈ $118 (maple, finish, grille sheet, veneer, HDPE cutting board, cover inserts and screws, polyfill) |
 | Tools, if not owned | ≈ $90 (router bits and Forstners) |
 | **All-in** | **≈ $750** (≈ $660 if you own the bits). Under the $1000 budget |
 
@@ -111,7 +111,8 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | Water-based toy-safe finish (EN 71-3 / ASTM F963) | Ask at Woodcraft of Grand Rapids | $25–40 |
 | Perforated stainless grille sheet, 12 × 12", ~2–3 mm holes | Amazon | $18 |
 | ½" (12 mm) HDPE cutting board (slot insert; check it's HDPE, not bamboo) | Lowe's (Kentwood) or Walmart | $5–10 |
-| 4 × #8 × ¾" pan-head screws (service cover) | Lowe's or your stash | $2 |
+| 4 × Hillman M4 (4 mm × 0.7) zinc wood insert nuts (service cover) | Lowe's (Kentwood), in stock | $2.98 |
+| 4 × M4 × 12 mm pan-head machine screws | Lowe's Hillman metric drawer | $1–2 |
 | Maple veneer, 0.6 mm (LED diffuser) and ~1.5 mm (tag covers) | Woodcraft | $10 |
 | A handful of polyester fiberfill (not cotton or wool) | Pillow or craft stash, or a small craft bag | $0–5 |
 | Label paper for the cartridge labels | Any | – |

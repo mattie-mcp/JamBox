@@ -242,7 +242,7 @@ still = """
 <tr><td>8/4 hard maple milled to 30 mm (cartridges), ~3–4 bd-ft; label paper</td><td>Woodcraft of Grand Rapids or a local hardwood dealer</td><td>$30–50</td></tr>
 <tr><td>Water-based toy-safe finish (EN 71-3 / ASTM F963)</td><td>Ask at Woodcraft of Grand Rapids</td><td>~$25–40</td></tr>
 <tr><td>Perforated steel grille sheet, ~2–3 mm holes, 12 × 12"</td><td>Amazon</td><td>~$18</td></tr>
-<tr><td>½" HDPE cutting board (slot insert) and 4 × #8 × ¾" pan-head screws (service cover)</td><td>Lowe's (Kentwood)</td><td>~$7–12</td></tr>
+<tr><td>½" HDPE cutting board (slot insert); 4 M4 wood insert nuts + 4 M4 × 12 mm pan-head screws (service cover)</td><td>Lowe's (Kentwood)</td><td>~$10–15</td></tr>
 <tr><td>Maple veneer (0.6 mm) for the LED diffuser</td><td>Woodcraft</td><td>~$10</td></tr>
 <tr><td>Handful of polyester fiberfill</td><td>Pillow or craft stash</td><td>$0–5</td></tr>
 <tr><td>Router bits and Forstners, if not owned: ⅜" and ¼" roundover, 45° chamfer; 1-⅜", 15/16", ⅞" Forstner; 6 mm brad-point</td><td>Woodcraft</td><td>~$80–100</td></tr>
