@@ -232,7 +232,7 @@ but check it in the mock-up. Keep the PN532 at the top of the bay, well above th
 | LED matrix at the 20% cap | ~1–2 W, mostly at the front window |
 | 5 V buck and PD trigger | < 0.5 W |
 
-Build the Next.js app off the device (on a laptop or in CI) and only run it on the Pi; builds are the 12 W case.
+The web UI builds as static files off the device (on a laptop or in CI); no Node runs on the Pi. Builds would be the 12 W case.
 
 **Where the heat goes:** plywood barely conducts heat. The bay's outside walls pass only ~0.2 W per °C, so a
 sealed bay would sit 30–40 °C above the room. Nearly all the heat must leave by **natural convection** (a chimney):

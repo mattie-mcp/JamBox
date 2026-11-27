@@ -43,8 +43,10 @@ uvicorn app.main:app --reload
 # Frontend
 cd frontend
 npm install
-npm run dev
+npm run dev  # needs JAMBOX_DEV_CORS_ORIGINS=http://localhost:3000 in backend/.env
 ```
+
+On the box, the backend serves the built UI at `http://<pi-ip>:8000/`. Build and copy it from your laptop with `scripts/deploy-ui.sh`.
 
 ### Raspberry Pi
 

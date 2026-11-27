@@ -8,9 +8,19 @@ logger = logging.getLogger(__name__)
 
 
 class SpotifyService:
-    def __init__(self, sp: spotipy.Spotify, device_name: str = "raspotify"):
+    def __init__(
+        self,
+        sp: spotipy.Spotify,
+        device_name: str = "raspotify",
+        max_volume: Optional[int] = None,
+    ):
         self.sp = sp
         self.device_name = device_name
+        if max_volume is None:
+            from app.config import MAX_VOLUME_PERCENT
+
+            max_volume = MAX_VOLUME_PERCENT
+        self.max_volume = max(0, min(100, max_volume))
 
     def _find_device(self) -> Optional[dict]:
         """Find device by partial, case-insensitive name match."""
@@ -22,11 +32,14 @@ class SpotifyService:
         return None
 
     def _get_device_id(self, retries: int = 3, delay: float = 2.0) -> str:
-        """Get device ID with retries for sleeping devices."""
+        return self._get_device(retries=retries, delay=delay)["id"]
+
+    def _get_device(self, retries: int = 3, delay: float = 2.0) -> dict:
+        """Get the device with retries for sleeping devices."""
         for attempt in range(retries):
             device = self._find_device()
             if device:
-                return device["id"]
+                return device
             if attempt < retries - 1:
                 logger.info(
                     f"Device '{self.device_name}' not found, "
@@ -46,9 +59,17 @@ class SpotifyService:
             f"Available: {available}"
         )
 
+    def enforce_volume_cap(self, device: dict) -> None:
+        """Lower the device volume to the hard cap if it is above it (or unknown).
+        Raises if the cap can't be applied, so playback never starts too loud."""
+        volume = device.get("volume_percent")
+        if volume is None or volume > self.max_volume:
+            self.sp.volume(self.max_volume, device_id=device["id"])
+
     def play_track(self, spotify_uri: str) -> None:
-        device_id = self._get_device_id()
-        self.sp.start_playback(device_id=device_id, uris=[spotify_uri])
+        device = self._get_device()
+        self.enforce_volume_cap(device)
+        self.sp.start_playback(device_id=device["id"], uris=[spotify_uri])
 
     def pause(self) -> None:
         device_id = self._get_device_id()

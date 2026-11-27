@@ -39,10 +39,10 @@ def get_test_db():
     return override
 
 
-def setup_client():
+def setup_client(host: str = "127.0.0.1"):
     override = get_test_db()
     app.dependency_overrides[get_db] = override
-    return TestClient(app)
+    return TestClient(app, client=(host, 50000))
 
 
 def test_create_mapping():
@@ -160,6 +160,26 @@ def test_play_by_tag_id():
         response = client.post("/api/play/AA:BB")
     assert response.status_code == 200
     mock_spotify.start_playback.assert_called_once()
+
+
+def test_play_from_another_machine_is_refused():
+    client = setup_client(host="192.168.1.50")
+    mock_spotify = MagicMock()
+    with patch("app.api.get_spotify", return_value=mock_spotify):
+        response = client.post("/api/play/AA:BB")
+    assert response.status_code == 403
+    mock_spotify.start_playback.assert_not_called()
+
+
+def test_parent_routes_still_work_from_the_network():
+    client = setup_client(host="192.168.1.50")
+    assert client.get("/api/mappings").status_code == 200
+
+
+def test_no_cors_headers_for_other_sites():
+    client = setup_client()
+    response = client.get("/api/mappings", headers={"Origin": "https://evil.example"})
+    assert "access-control-allow-origin" not in response.headers
 
 
 def test_play_unknown_tag_returns_404():

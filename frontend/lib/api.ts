@@ -1,4 +1,8 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+// The built UI is served by the same FastAPI that serves the API, so calls are
+// same-origin (""). `npm run dev` runs on :3000 and talks to a local API on :8000.
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_URL ??
+  (process.env.NODE_ENV === "development" ? "http://localhost:8000" : "");
 
 export async function checkHealth(): Promise<boolean> {
   try {

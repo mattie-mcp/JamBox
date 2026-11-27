@@ -21,7 +21,7 @@ and a slot that takes chunky **cartridges**. One USB-C charger powers everything
 
 | Area | Choice | Why |
 |---|---|---|
-| Computer | **Raspberry Pi 4 Model B (4GB)** | It runs the whole stack (FastAPI, Next.js, librespot) with headroom. It runs cooler than a Pi 5 inside a closed wooden box. It's powered fine from the amp board. It works with the `rpi_ws281x` LED library. Raspberry Pi commits to producing it until at least **January 2034**. |
+| Computer | **Raspberry Pi 4 Model B (4GB)** | It runs the whole stack (FastAPI, librespot, NFC, LEDs) in under 1 GB of RAM; the web UI is just static files. 4 GB is long-term headroom for future features and the RAM-backed overlay of the read-only root. It runs cooler than a Pi 5 inside a closed wooden box. It's powered fine from the amp board. It works with the `rpi_ws281x` LED library. Raspberry Pi commits to producing it until at least **January 2034**. |
 | Audio | **HiFiBerry Amp4** I2S amp HAT + 2× **Dayton Audio PC83-4** 3" full-range drivers | Clean digital audio with no headphone-jack hiss. Up to 2×30 W, far more than needed, so it loafs at toddler volumes. It also **powers the Pi from the same 12–20 V input**. |
 | Power in | Panel-mount **USB-C** → **USB-PD trigger board set to 15 V** → Amp4 + 5 V buck for the LEDs | A single USB-C port that accepts any **45 W+ USB-C PD charger** (or PD power bank). 15 V/3 A = 45 W of headroom. |
 | On/off + "it's on" light | Illuminated **latching anti-vandal pushbutton** on the 15 V rail | The steel button is toddler-proof, and its LED ring is the on/off indicator. Pairs with a read-only OS so a hard power-off can't corrupt the SD card. |
@@ -35,9 +35,9 @@ and a slot that takes chunky **cartridges**. One USB-C charger powers everything
 
 | Option | Verdict |
 |---|---|
-| Pi 3 B+ (v1) | It works, but it has 1 GB RAM and an older Wi-Fi radio, and it's slower to build and run Next.js. Fine to reuse for bench testing. |
+| Pi 3 B+ (v1) | It works, but it has 1 GB RAM and an older Wi-Fi radio, and 1 GB leaves less headroom for future features and the read-only root overlay. Fine to reuse for bench testing. |
 | Pi 5 | It's faster and has a built-in power button, but runs hotter (needs a fan in a closed box) and wants a 5 V/5 A PD supply. Its LED library support (`rpi_ws281x`) is not equivalent. Overkill here. |
-| Pi Zero 2 W | Only 512 MB RAM, which is too tight for Next.js + FastAPI + librespot. There are also reports of audio stutter under load. |
+| Pi Zero 2 W | Only 512 MB RAM. There are reports of audio stutter under load, and LED library support is weaker. |
 | ESP32 + Spotify Connect (cspot) | Cheap and instant-on, but it can't host the web app and database, so it breaks the "device does everything" requirement. |
 | Pi headphone jack + powered speakers | Hissy audio, plus a second power brick. That defeats the point of all-in-one. |
 | Adafruit I2S 3 W Speaker Bonnet / HiFiBerry MiniAmp | Both are good, simpler amps powered from the Pi's 5 V. But then the whole box hangs off a 5 V/3 A USB-C budget, and LEDs + Pi + amp peaks exceed it. The Amp4 + 15 V PD design has real headroom. Keep the Bonnet as the budget fallback. |
@@ -55,7 +55,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 
 | # | Item | Specific part | Qty | ≈ Each | Where to buy | Notes |
 |---|---|---|---|---|---|---|
-| E1 | Single-board computer | Raspberry Pi 4 Model B, 4 GB | 1 | $100 † | [PiShop.us](https://www.pishop.us), [Adafruit](https://www.adafruit.com), [CanaKit](https://www.canakit.com), Micro Center | 2 GB also works; 4 GB gives headroom for Next.js builds. Nov 2026: $100 at PiShop and CanaKit, $120 Adafruit, $99.99 Micro Center (in-store only) |
+| E1 | Single-board computer | Raspberry Pi 4 Model B, 4 GB | 1 | $100 † | [PiShop.us](https://www.pishop.us), [Adafruit](https://www.adafruit.com), [CanaKit](https://www.canakit.com), Micro Center | 2 GB also works; 4 GB is long-term headroom (future features, RAM-backed overlay root). Nov 2026: $100 at PiShop and CanaKit, $120 Adafruit, $99.99 Micro Center (in-store only) |
 | E2 | Amplifier HAT | HiFiBerry **Amp4** | 1 | $98.45 † | [hifiberry.com](https://www.hifiberry.com/shop/boards/hifiberry-amp4/), [PiShop](https://www.pishop.us) | 12–20 V input (4 Ω speakers); powers the Pi. Uses GPIO 2/3 (I2C), 4 (mute), 18–21 (I2S). $98.45 at PiShop; hifiberry.com is $64.90 + $38 FedEx from Switzerland (+ duties) |
 | E3 | Speaker drivers | Dayton Audio **PC83-4** 3" full-range, 4 Ω | 2 | $15.49 † | [Parts Express 295-154](https://www.parts-express.com/Dayton-Audio-PC83-4-3-Full-Range-Poly-Cone-Driver-295-154) | 30 W RMS, 86.8 dB. Upgrade: Dayton RS75-4 (~$30 †) |
 | E4 | NFC reader | Adafruit **PN532** breakout v1.6 (#364) | 1 | $39.95 † | [Adafruit](https://www.adafruit.com/product/364) | **Out of stock Nov 2026.** Bought the V3 alt instead: HiLetgo PN532 V3 ($8.99 †, Amazon B01I1J17LC; no Elechouse-brand listing on Amazon) |
@@ -67,7 +67,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
 | E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $11.99 † | Amazon (B099DHHGGQ, 44 × 25 mm aluminium, set screw) | Big and grippy. Grub-screw or D-shaft fit, glued. The Amazon knob is the backup; print or turn one if you prefer. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
 | E12 | LED matrix | Adafruit NeoPixel **NeoMatrix 8×8** (#1487), or a flexible 8×8/16×16 WS2812B panel | 1 | $34.95 † | Adafruit, BTF-Lighting (Amazon) | Software-capped at ~20% brightness |
-| E13 | Level shifter | **74AHCT125** quad level shifter (Adafruit #1787) | 1 | $1.50 † | Adafruit | 3.3 V GPIO → 5 V NeoPixel data |
+| E13 | Level shifter | **74AHCT125** quad level shifter, DIP-14 (TI SN74AHCT125N; Adafruit #1787 is the same chip) | 1 | $0.95 † | Mouser 595-SN74AHCT125N, Adafruit (out of stock 11/27) | 3.3 V GPIO → 5 V NeoPixel data |
 | E14 | Slot sensor (**optional**, pending test) | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Only if NFC-only removal is laggy or flaky. Alt: Adafruit IR break-beam 3 mm (#2167) |
 | E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + screw-terminal or Perma-Proto HAT | 1 | $2.95 † + HAT | Adafruit | The Amp4 sits on the Pi; this exposes free pins for wiring |
 | E16 | Storage | SanDisk **High Endurance** 64 GB microSD | 1 | $30.95 † | PiShop, Amazon, B&H | High-endurance cards are made for constant writes. Amazon's $25.99 listing has a 2-card minimum |

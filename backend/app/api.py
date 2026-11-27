@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -21,6 +21,16 @@ from app.config import SPOTIFY_DEVICE_NAME
 from app.spotify import SpotifyService
 
 router = APIRouter(prefix="/api")
+
+LOOPBACK_HOSTS = {"127.0.0.1", "::1", "localhost"}
+
+
+def require_loopback(request: Request) -> None:
+    """Child-facing playback actions are driven by the box itself (NFC daemon,
+    buttons). Refuse them from other machines on the network."""
+    host = request.client.host if request.client else None
+    if host not in LOOPBACK_HOSTS:
+        raise HTTPException(403, "Playback control is only accepted from the box itself")
 
 
 @router.get("/mappings", response_model=List[MappingResponse])
@@ -75,7 +85,7 @@ def search_tracks(q: str):
     return service.search_tracks(q)
 
 
-@router.post("/play/{tag_id}")
+@router.post("/play/{tag_id}", dependencies=[Depends(require_loopback)])
 def play_by_tag(tag_id: str, db: Session = Depends(get_db)):
     mapping = db.query(TagMapping).filter(TagMapping.tag_id == tag_id).first()
     if not mapping:

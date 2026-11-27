@@ -43,7 +43,8 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
   `gpiozero.Button` handles the encoder push (mute) and Back/Play-Pause/Skip on GPIO 23/24/25, with debounce.
 - New API endpoints: `POST /api/pause`, `/api/resume`, `/api/next`, `/api/previous`, `/api/volume`.
   Thin wrappers over `spotify.py` (pause already exists).
-- Settings (in SQLite, editable in the web UI): `max_volume` (**parent-adjustable, default ≈ 80 dB**; decided),
+- Settings (in SQLite, editable in the web UI): `max_volume` (**parent-adjustable, default ≈ 80 dB**; decided;
+  always clamped server-side to the hard cap, see §7),
   `default_volume`, `led_brightness`, `resume_window_minutes`.
 - New systemd unit: `scripts/jambox-controls.service`.
 
@@ -68,6 +69,26 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
 
 - Settings page: max volume, LED brightness, resume window.
 - Tag registration copy: "insert the cartridge" instead of "tap the toy".
+
+## 7. Web UI hosting and safety (decided 2026-11-27, built)
+
+- **Static UI:** the Next.js app is a static export (`output: "export"`). It is built on a laptop or in CI
+  and copied to the Pi with `scripts/deploy-ui.sh`. FastAPI serves `frontend/out` at `/` on port 8000,
+  same origin as the API (`JAMBOX_UI_DIR` overrides the path). No Node runs on the Pi; `jambox-web` is gone.
+- **Rejected: a separate home server for the UI.** The box must be self-sufficient: mappings, the Spotify
+  token, volume limits and discovery all live on the Pi. A home server would only host static files, while
+  adding a second machine, cross-origin/HTTPS problems, and no UI away from home.
+- **Pi:** stays a 4 GB Pi 4. About 1 GB is used; the rest is long-term headroom.
+- **Safety rules:**
+  - `POST /api/play/{tag_id}` only accepts loopback requests (NFC daemon, buttons). Other LAN machines get 403.
+  - CORS is off. Local dev sets `JAMBOX_DEV_CORS_ORIGINS=http://localhost:3000`.
+  - Hard volume cap `JAMBOX_MAX_VOLUME_PERCENT` (default 60) lives only in the backend `.env`. No API can change it.
+  - Before every play the backend lowers the device volume to the cap. If it can't, playback doesn't start.
+- **TODO (design only):**
+  - A parent settings PIN or pairing token, required for every settings write.
+  - Settings writes (e.g. the parent `max_volume`) are always clamped to the hard cap.
+  - A second volume limit at the ALSA/librespot level.
+  - A versioned API (`/api/v1` plus `/api/v1/info`) if the UI and the box ever ship on different schedules.
 
 ## Docs
 
