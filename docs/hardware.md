@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices: ≈ $945 all-in** (≈ $738 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices: ≈ $905 all-in** (≈ $698 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -107,7 +107,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $855–945** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $815–905** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 

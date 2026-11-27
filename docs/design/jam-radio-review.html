@@ -1,0 +1,1705 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jam Radio Review</title>
+<meta name="description" content="Visual design review of the JamBox Jam Radio enclosure: to-scale drawings, a rendered look, tolerances, critique and open questions.">
+<style>
+:root{--bg:#f4efe6;--paper:#fffdf8;--ink:#2a2118;--muted:#6f604f;--faint:#dccfbd;--line:#e5dacb;
+--acc:#b35a12;--bad:#c0392b;--warn:#b7791f;--ok:#2e7d4f;--wood:#efe0c4;--wood6:#f5e9d3;--maple:#f2e2c2;--hdpe:#dfeef0;
+--pcb:#2f7a55;--metal:#c9ced4;--cart:#f2c46b;--chip:#f7f1e6;--hl:#fff4dc;--air:#3a7bd5;--warm:#f0a04b}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15110d;--paper:#1d1813;--ink:#efe5d6;--muted:#ab9a85;--faint:#4a3f33;--line:#3a3128;
+--acc:#f0a050;--bad:#ff6f5e;--warn:#e9b04a;--ok:#62c48d;--wood:#4b3a28;--wood6:#3c2f22;--maple:#5d4a33;--hdpe:#22393c;--pcb:#4fb07f;--metal:#6c737b;--cart:#9c6f22;--chip:#26201a;--hl:#30261a;--air:#79a9f0;--warm:#c77a2a}}
+:root[data-theme="dark"]{--bg:#15110d;--paper:#1d1813;--ink:#efe5d6;--muted:#ab9a85;--faint:#4a3f33;--line:#3a3128;
+--acc:#f0a050;--bad:#ff6f5e;--warn:#e9b04a;--ok:#62c48d;--wood:#4b3a28;--wood6:#3c2f22;--maple:#5d4a33;--hdpe:#22393c;--pcb:#4fb07f;--metal:#6c737b;--cart:#9c6f22;--chip:#26201a;--hl:#30261a;--air:#79a9f0;--warm:#c77a2a}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.2;margin:1.6em 0 .5em}
+h1{font-size:2.1rem;margin-top:.2em}
+h2{font-size:1.5rem;border-bottom:1px solid var(--line);padding-bottom:.25em}
+h3{font-size:1.15rem}
+p,li{max-width:78ch}
+.lede{color:var(--muted);font-size:1.05rem}
+.meta{color:var(--muted);font-size:.9rem}
+code{font-size:.88em;background:var(--chip);padding:.05em .3em;border-radius:4px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card h3{margin:.1em 0 .35em;font-size:1rem}
+.card p{margin:0;font-size:.93rem}
+figure{margin:14px 0 6px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px;overflow-x:auto}
+figcaption{font-size:.88rem;color:var(--muted);padding:6px 6px 2px;max-width:none}
+.sheet{display:block;width:100%;min-width:860px;height:auto}
+.looks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.looks figure{overflow:hidden}
+.look{display:block;width:100%;height:auto;border-radius:8px;background:radial-gradient(ellipse at 50% 30%,#fbf3e3,#e9dcc6)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--muted);margin:6px 2px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:18px;height:10px;border-radius:2px;border:1px solid var(--ink)}
+.tablewrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:760px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:600;background:var(--chip);position:sticky;top:0}
+td.num{white-space:nowrap}
+tr.flag td{background:color-mix(in srgb,var(--bad) 7%,transparent)}
+tr.tight td{background:color-mix(in srgb,var(--warn) 8%,transparent)}
+.pill{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.02em;padding:.1em .5em;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.p-ok{color:var(--ok)}.p-tight{color:var(--warn)}.p-flag{color:var(--bad)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.12em .5em;border-radius:4px;margin-right:4px;background:var(--chip);border:1px solid var(--line)}
+.t-look{color:#a0522d}.t-fit{color:var(--acc)}.t-safety{color:var(--bad)}.t-build{color:var(--ok)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .t-look{color:#e0a080}}
+:root[data-theme="dark"] .t-look{color:#e0a080}
+ol.crit>li{margin:0 0 14px}
+ol.crit b{font-weight:650}
+.fix{color:var(--muted)}
+.conf li{margin-bottom:6px}
+/* drawing classes */
+.paper{fill:var(--paper)}
+.ln{fill:none;stroke:var(--ink);stroke-width:1}
+.faint{fill:none;stroke:var(--faint);stroke-width:.7}
+.body{fill:var(--wood);stroke:var(--ink);stroke-width:1.4}
+.hid{fill:none;stroke:var(--muted);stroke-width:.8;stroke-dasharray:4 3}
+.hidw{fill:none;stroke:var(--muted);stroke-width:.7;stroke-dasharray:2 2}
+.hidacc{fill:none;stroke:var(--acc);stroke-width:1.1;stroke-dasharray:4 3}
+.hidbad{fill:none;stroke:var(--bad);stroke-width:1.2;stroke-dasharray:5 3}
+.warnln{fill:none;stroke:var(--warn);stroke-width:.9;stroke-dasharray:2 2}
+.hole{fill:var(--ink);opacity:.75}
+.holeb{fill:var(--paper);stroke:var(--ink);stroke-width:.8}
+.win{fill:#2b160a;stroke:var(--ink);stroke-width:1}
+.bezel{fill:var(--maple);stroke:var(--ink);stroke-width:1}
+.led{fill:#ffae2e}
+.ledp{fill:#ff7a1a;stroke:var(--bad);stroke-width:.8}
+.ledx{fill:none;stroke:var(--bad);stroke-width:1}
+.bez{fill:#2a2a2a;stroke:var(--ink);stroke-width:.6}
+.bblue{fill:#2f6fd6}.bgreen{fill:#2fae5a}.byellow{fill:#f2c31b}
+.cart{fill:var(--cart);stroke:var(--ink);stroke-width:1.1}
+.nfc{fill:none;stroke:#2a6fd1;stroke-width:1;stroke-dasharray:3 2}
+.nfch{fill:none;stroke:#2a6fd1;stroke-width:.8;stroke-dasharray:2 2}
+.tagb{fill:#2a6fd1}
+.taghb{fill:var(--muted)}
+.maple{fill:var(--maple);stroke:var(--ink);stroke-width:1}
+.dowelp{fill:var(--maple);stroke:var(--bad);stroke-width:1.4}
+.metal{fill:var(--metal);stroke:var(--ink);stroke-width:1}
+.metalt{fill:var(--metal);fill-opacity:.55;stroke:var(--ink);stroke-width:1}
+.foot{fill:var(--ink)}
+.gnd{stroke:var(--muted);stroke-width:.8}
+.hdpe{fill:var(--hdpe);stroke:var(--ink);stroke-width:.8;stroke-dasharray:3 2}
+.slot{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.pcbh{fill:none;stroke:var(--pcb);stroke-width:1.2;stroke-dasharray:3 2}
+.pcb{fill:var(--pcb);fill-opacity:.18;stroke:var(--pcb);stroke-width:1}
+.pcbs{fill:var(--pcb);stroke:var(--pcb);stroke-width:.6}
+.ledsq{fill:#ffae2e;stroke:#a35a00;stroke-width:.4}
+.keep{fill:var(--warn);fill-opacity:.06;stroke:var(--warn);stroke-width:1;stroke-dasharray:6 3}
+.screw{fill:var(--paper);stroke:var(--ink);stroke-width:.8}
+.cover{fill:var(--wood6);stroke:var(--ink);stroke-width:1.1}
+.ring{fill:#3a7bd5}
+.port{fill:var(--ink)}
+.sec{fill:url(#s2h);stroke:var(--ink);stroke-width:1}
+.sec6{fill:var(--wood6);stroke:var(--ink);stroke-width:.9}
+.sec6clash{fill:var(--wood6);stroke:var(--bad);stroke-width:1.4}
+.secm{fill:var(--maple);stroke:var(--ink);stroke-width:1}
+.gap{fill:var(--paper);stroke:none}
+.fill{fill:var(--wood);fill-opacity:.35;stroke:none}
+.drv{fill:none;stroke:var(--ink);stroke-width:1}
+.cone{fill:var(--ink);fill-opacity:.08;stroke:var(--ink);stroke-width:.6}
+.btnbody{fill:var(--faint);stroke:var(--ink);stroke-width:.8}
+.clash{fill:url(#s2x);stroke:var(--bad);stroke-width:1.2}
+.comp{fill:var(--faint);stroke:var(--ink);stroke-width:.5}
+.pcbs+.comp{}
+.nut{fill:var(--metal);stroke:var(--ink);stroke-width:.6}
+.shaft{fill:var(--metal);stroke:var(--ink);stroke-width:.6}
+.veneer{fill:#d9a35b}
+.grid{fill:var(--faint);fill-opacity:.6;stroke:var(--ink);stroke-width:.4}
+.tube{fill:var(--hdpe);stroke:var(--ink);stroke-width:.8}
+.glue{stroke:var(--muted);stroke-width:.8;stroke-dasharray:2 2}
+.warmzone{fill:var(--warm);fill-opacity:.12;stroke:var(--warm);stroke-width:.8;stroke-dasharray:3 3}
+.air{fill:none;stroke:var(--air);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hatch{stroke:var(--muted);stroke-width:.7}
+.hatchb{stroke:var(--bad);stroke-width:1}
+.dim{stroke:var(--muted);stroke-width:.7}
+.ext{stroke:var(--muted);stroke-width:.5}
+.tk{stroke:var(--ink);stroke-width:1.1}
+.dt{fill:var(--ink);font:600 10.5px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.vt{fill:var(--ink);font:700 12.5px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif;letter-spacing:.06em}
+.sm{fill:var(--muted);font:10px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.smbad{fill:var(--bad);font:10px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.lbl{fill:var(--ink);font:11px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.co-l{fill:none;stroke:var(--muted);stroke-width:.7}.co-d{fill:var(--muted)}.co-t{fill:var(--ink);font:10.5px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.bad-l{fill:none;stroke:var(--bad);stroke-width:.9}.bad-d{fill:var(--bad)}.bad-t{fill:var(--bad);font:600 10.5px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.warn-l{fill:none;stroke:var(--warn);stroke-width:.9}.warn-d{fill:var(--warn)}.warn-t{fill:var(--warn);font:600 10.5px ui-sans-serif,-apple-system,Helvetica,Arial,sans-serif}
+.sbk{fill:var(--ink)}.sbw{fill:var(--paper);stroke:var(--ink);stroke-width:.6}
+</style>
+</head>
+<body>
+<main>
+<p class="meta">JamBox · enclosure v2 · design review · 2026-11-27</p>
+<h1>Jam Radio: design review</h1>
+<p class="lede">To-scale drawings, a rendered look, and a tolerance check of the chosen enclosure, so you can critique the look, proportions and fits before cutting wood. Numbers come from <code>docs/enclosure.md</code> and <code>docs/hardware.md</code>, updated with the 2026-11-27 decisions (5×8 portrait dial, 44 mm knob, 19 mm power button, vent plan).</p>
+
+<div class="summary">
+<div class="card"><h3>Biggest clash</h3><p>The handle dowel sits right over the slot. A cartridge can't drop straight in, and with the cut-list 70 mm uprights the proud cartridge hits it.</p></div>
+<div class="card"><h3>Cartridge fit</h3><p>19 + 12 mm lamination makes a 31 mm block with the tag off-centre: ≈1.2 mm clearance per side and a 20 or 27 mm read gap (target ≤20).</p></div>
+<div class="card"><h3>Front crowding</h3><p>The 30 mm PN532 rule, read vertically, pushes the window low and the buttons almost onto the bottom edge. The arch then hides 2 LEDs and clips 2.</p></div>
+<div class="card"><h3>Table score</h3><p>27 fits checked: 10 flagged, 8 tight, 9 OK. 13 conflicts between the docs.</p></div>
+</div>
+
+<h2>1. Orthographic drawings</h2>
+<p>Both sheets share one scale: 1 drawing unit = 1 mm, and they render at the same size side by side. Use the scale bar. On a narrow screen, scroll each sheet sideways. Dashed = hidden; red = clash or safety flag; orange = tight.</p>
+<div class="legend">
+<span><i class="sw" style="background:var(--wood)"></i>12 mm Baltic birch</span>
+<span><i class="sw" style="background:var(--wood6)"></i>6 mm birch (chambers, sleeve, sled, cover)</span>
+<span><i class="sw" style="background:var(--maple)"></i>maple (handle, bezel)</span>
+<span><i class="sw" style="background:var(--hdpe)"></i>HDPE</span>
+<span><i class="sw" style="background:var(--cart)"></i>hardwood cartridge</span>
+<span><i class="sw" style="background:var(--pcb)"></i>PCB</span>
+</div>
+<figure><svg viewBox="0 0 1200 715" class="sheet" role="img" aria-label="Sheet 1: front, top, right side and back views of the Jam Radio, to scale" xmlns="http://www.w3.org/2000/svg"><title>Sheet 1: front, top, right side and back views of the Jam Radio, to scale</title><defs>
+<pattern id="s1h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="hatch"/></pattern>
+<pattern id="s1x" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="5" class="hatchb"/></pattern>
+</defs><rect x="0" y="0" width="1200" height="715" class="paper"/><text x="170" y="654" text-anchor="start" class="vt">FRONT ELEVATION</text>
+<rect x="30" y="510" width="80" height="100" rx="6" class="cart"/>
+<circle cx="70" cy="577" r="17.5" class="nfc"/>
+<text x="70" y="504" text-anchor="middle" class="sm">loose cartridge</text>
+<line x1="30" y1="610" x2="30" y2="619" class="ext"/>
+<line x1="110" y1="610" x2="110" y2="619" class="ext"/>
+<line x1="30" y1="622" x2="110" y2="622" class="dim"/>
+<path d="M27 625 L33 619" class="tk"/>
+<path d="M107 625 L113 619" class="tk"/>
+<text x="70" y="619" text-anchor="middle" class="dt">80</text>
+<line x1="30" y1="610" x2="19" y2="610" class="ext"/>
+<line x1="30" y1="510" x2="19" y2="510" class="ext"/>
+<line x1="22" y1="610" x2="22" y2="510" class="dim"/>
+<path d="M19 613 L25 607" class="tk"/>
+<path d="M19 513 L25 507" class="tk"/>
+<text x="18" y="563" text-anchor="end" class="dt">100</text>
+<line x1="70" y1="610" x2="121" y2="610" class="ext"/>
+<line x1="70" y1="577" x2="121" y2="577" class="ext"/>
+<line x1="118" y1="610" x2="118" y2="577" class="dim"/>
+<path d="M115 613 L121 607" class="tk"/>
+<path d="M115 580 L121 574" class="tk"/>
+<text x="122" y="596.5" class="dt">33 tag</text>
+<line x1="15" y1="620" x2="545" y2="620" class="gnd"/>
+<rect x="185" y="610" width="20" height="10" class="foot"/>
+<rect x="495" y="610" width="20" height="10" class="foot"/>
+<rect x="170" y="410" width="360" height="200" rx="9.5" class="body"/>
+<rect x="179.5" y="419.5" width="341" height="181" class="faint"/>
+<circle cx="245" cy="510" r="55" class="warnln"/>
+<circle cx="245" cy="510" r="57.5" class="hid"/>
+<circle cx="218" cy="556.77" r="3" class="hole"/>
+<circle cx="227" cy="556.77" r="3" class="hole"/>
+<circle cx="236" cy="556.77" r="3" class="hole"/>
+<circle cx="245" cy="556.77" r="3" class="hole"/>
+<circle cx="254" cy="556.77" r="3" class="hole"/>
+<circle cx="263" cy="556.77" r="3" class="hole"/>
+<circle cx="272" cy="556.77" r="3" class="hole"/>
+<circle cx="213.5" cy="548.97" r="3" class="hole"/>
+<circle cx="222.5" cy="548.97" r="3" class="hole"/>
+<circle cx="231.5" cy="548.97" r="3" class="hole"/>
+<circle cx="240.5" cy="548.97" r="3" class="hole"/>
+<circle cx="249.5" cy="548.97" r="3" class="hole"/>
+<circle cx="258.5" cy="548.97" r="3" class="hole"/>
+<circle cx="267.5" cy="548.97" r="3" class="hole"/>
+<circle cx="276.5" cy="548.97" r="3" class="hole"/>
+<circle cx="209" cy="541.18" r="3" class="hole"/>
+<circle cx="218" cy="541.18" r="3" class="hole"/>
+<circle cx="227" cy="541.18" r="3" class="hole"/>
+<circle cx="236" cy="541.18" r="3" class="hole"/>
+<circle cx="245" cy="541.18" r="3" class="hole"/>
+<circle cx="254" cy="541.18" r="3" class="hole"/>
+<circle cx="263" cy="541.18" r="3" class="hole"/>
+<circle cx="272" cy="541.18" r="3" class="hole"/>
+<circle cx="281" cy="541.18" r="3" class="hole"/>
+<circle cx="204.5" cy="533.38" r="3" class="hole"/>
+<circle cx="213.5" cy="533.38" r="3" class="hole"/>
+<circle cx="222.5" cy="533.38" r="3" class="hole"/>
+<circle cx="231.5" cy="533.38" r="3" class="hole"/>
+<circle cx="240.5" cy="533.38" r="3" class="hole"/>
+<circle cx="249.5" cy="533.38" r="3" class="hole"/>
+<circle cx="258.5" cy="533.38" r="3" class="hole"/>
+<circle cx="267.5" cy="533.38" r="3" class="hole"/>
+<circle cx="276.5" cy="533.38" r="3" class="hole"/>
+<circle cx="285.5" cy="533.38" r="3" class="hole"/>
+<circle cx="200" cy="525.59" r="3" class="hole"/>
+<circle cx="209" cy="525.59" r="3" class="hole"/>
+<circle cx="218" cy="525.59" r="3" class="hole"/>
+<circle cx="227" cy="525.59" r="3" class="hole"/>
+<circle cx="236" cy="525.59" r="3" class="hole"/>
+<circle cx="245" cy="525.59" r="3" class="hole"/>
+<circle cx="254" cy="525.59" r="3" class="hole"/>
+<circle cx="263" cy="525.59" r="3" class="hole"/>
+<circle cx="272" cy="525.59" r="3" class="hole"/>
+<circle cx="281" cy="525.59" r="3" class="hole"/>
+<circle cx="290" cy="525.59" r="3" class="hole"/>
+<circle cx="195.5" cy="517.79" r="3" class="hole"/>
+<circle cx="204.5" cy="517.79" r="3" class="hole"/>
+<circle cx="213.5" cy="517.79" r="3" class="hole"/>
+<circle cx="222.5" cy="517.79" r="3" class="hole"/>
+<circle cx="231.5" cy="517.79" r="3" class="hole"/>
+<circle cx="240.5" cy="517.79" r="3" class="hole"/>
+<circle cx="249.5" cy="517.79" r="3" class="hole"/>
+<circle cx="258.5" cy="517.79" r="3" class="hole"/>
+<circle cx="267.5" cy="517.79" r="3" class="hole"/>
+<circle cx="276.5" cy="517.79" r="3" class="hole"/>
+<circle cx="285.5" cy="517.79" r="3" class="hole"/>
+<circle cx="294.5" cy="517.79" r="3" class="hole"/>
+<circle cx="191" cy="510" r="3" class="hole"/>
+<circle cx="200" cy="510" r="3" class="hole"/>
+<circle cx="209" cy="510" r="3" class="hole"/>
+<circle cx="218" cy="510" r="3" class="hole"/>
+<circle cx="227" cy="510" r="3" class="hole"/>
+<circle cx="236" cy="510" r="3" class="hole"/>
+<circle cx="245" cy="510" r="3" class="hole"/>
+<circle cx="254" cy="510" r="3" class="hole"/>
+<circle cx="263" cy="510" r="3" class="hole"/>
+<circle cx="272" cy="510" r="3" class="hole"/>
+<circle cx="281" cy="510" r="3" class="hole"/>
+<circle cx="290" cy="510" r="3" class="hole"/>
+<circle cx="299" cy="510" r="3" class="hole"/>
+<circle cx="195.5" cy="502.21" r="3" class="hole"/>
+<circle cx="204.5" cy="502.21" r="3" class="hole"/>
+<circle cx="213.5" cy="502.21" r="3" class="hole"/>
+<circle cx="222.5" cy="502.21" r="3" class="hole"/>
+<circle cx="231.5" cy="502.21" r="3" class="hole"/>
+<circle cx="240.5" cy="502.21" r="3" class="hole"/>
+<circle cx="249.5" cy="502.21" r="3" class="hole"/>
+<circle cx="258.5" cy="502.21" r="3" class="hole"/>
+<circle cx="267.5" cy="502.21" r="3" class="hole"/>
+<circle cx="276.5" cy="502.21" r="3" class="hole"/>
+<circle cx="285.5" cy="502.21" r="3" class="hole"/>
+<circle cx="294.5" cy="502.21" r="3" class="hole"/>
+<circle cx="200" cy="494.41" r="3" class="hole"/>
+<circle cx="209" cy="494.41" r="3" class="hole"/>
+<circle cx="218" cy="494.41" r="3" class="hole"/>
+<circle cx="227" cy="494.41" r="3" class="hole"/>
+<circle cx="236" cy="494.41" r="3" class="hole"/>
+<circle cx="245" cy="494.41" r="3" class="hole"/>
+<circle cx="254" cy="494.41" r="3" class="hole"/>
+<circle cx="263" cy="494.41" r="3" class="hole"/>
+<circle cx="272" cy="494.41" r="3" class="hole"/>
+<circle cx="281" cy="494.41" r="3" class="hole"/>
+<circle cx="290" cy="494.41" r="3" class="hole"/>
+<circle cx="204.5" cy="486.62" r="3" class="hole"/>
+<circle cx="213.5" cy="486.62" r="3" class="hole"/>
+<circle cx="222.5" cy="486.62" r="3" class="hole"/>
+<circle cx="231.5" cy="486.62" r="3" class="hole"/>
+<circle cx="240.5" cy="486.62" r="3" class="hole"/>
+<circle cx="249.5" cy="486.62" r="3" class="hole"/>
+<circle cx="258.5" cy="486.62" r="3" class="hole"/>
+<circle cx="267.5" cy="486.62" r="3" class="hole"/>
+<circle cx="276.5" cy="486.62" r="3" class="hole"/>
+<circle cx="285.5" cy="486.62" r="3" class="hole"/>
+<circle cx="209" cy="478.82" r="3" class="hole"/>
+<circle cx="218" cy="478.82" r="3" class="hole"/>
+<circle cx="227" cy="478.82" r="3" class="hole"/>
+<circle cx="236" cy="478.82" r="3" class="hole"/>
+<circle cx="245" cy="478.82" r="3" class="hole"/>
+<circle cx="254" cy="478.82" r="3" class="hole"/>
+<circle cx="263" cy="478.82" r="3" class="hole"/>
+<circle cx="272" cy="478.82" r="3" class="hole"/>
+<circle cx="281" cy="478.82" r="3" class="hole"/>
+<circle cx="213.5" cy="471.03" r="3" class="hole"/>
+<circle cx="222.5" cy="471.03" r="3" class="hole"/>
+<circle cx="231.5" cy="471.03" r="3" class="hole"/>
+<circle cx="240.5" cy="471.03" r="3" class="hole"/>
+<circle cx="249.5" cy="471.03" r="3" class="hole"/>
+<circle cx="258.5" cy="471.03" r="3" class="hole"/>
+<circle cx="267.5" cy="471.03" r="3" class="hole"/>
+<circle cx="276.5" cy="471.03" r="3" class="hole"/>
+<circle cx="218" cy="463.23" r="3" class="hole"/>
+<circle cx="227" cy="463.23" r="3" class="hole"/>
+<circle cx="236" cy="463.23" r="3" class="hole"/>
+<circle cx="245" cy="463.23" r="3" class="hole"/>
+<circle cx="254" cy="463.23" r="3" class="hole"/>
+<circle cx="263" cy="463.23" r="3" class="hole"/>
+<circle cx="272" cy="463.23" r="3" class="hole"/>
+<circle cx="455" cy="510" r="55" class="warnln"/>
+<circle cx="455" cy="510" r="57.5" class="hid"/>
+<circle cx="428" cy="556.77" r="3" class="hole"/>
+<circle cx="437" cy="556.77" r="3" class="hole"/>
+<circle cx="446" cy="556.77" r="3" class="hole"/>
+<circle cx="455" cy="556.77" r="3" class="hole"/>
+<circle cx="464" cy="556.77" r="3" class="hole"/>
+<circle cx="473" cy="556.77" r="3" class="hole"/>
+<circle cx="482" cy="556.77" r="3" class="hole"/>
+<circle cx="423.5" cy="548.97" r="3" class="hole"/>
+<circle cx="432.5" cy="548.97" r="3" class="hole"/>
+<circle cx="441.5" cy="548.97" r="3" class="hole"/>
+<circle cx="450.5" cy="548.97" r="3" class="hole"/>
+<circle cx="459.5" cy="548.97" r="3" class="hole"/>
+<circle cx="468.5" cy="548.97" r="3" class="hole"/>
+<circle cx="477.5" cy="548.97" r="3" class="hole"/>
+<circle cx="486.5" cy="548.97" r="3" class="hole"/>
+<circle cx="419" cy="541.18" r="3" class="hole"/>
+<circle cx="428" cy="541.18" r="3" class="hole"/>
+<circle cx="437" cy="541.18" r="3" class="hole"/>
+<circle cx="446" cy="541.18" r="3" class="hole"/>
+<circle cx="455" cy="541.18" r="3" class="hole"/>
+<circle cx="464" cy="541.18" r="3" class="hole"/>
+<circle cx="473" cy="541.18" r="3" class="hole"/>
+<circle cx="482" cy="541.18" r="3" class="hole"/>
+<circle cx="491" cy="541.18" r="3" class="hole"/>
+<circle cx="414.5" cy="533.38" r="3" class="hole"/>
+<circle cx="423.5" cy="533.38" r="3" class="hole"/>
+<circle cx="432.5" cy="533.38" r="3" class="hole"/>
+<circle cx="441.5" cy="533.38" r="3" class="hole"/>
+<circle cx="450.5" cy="533.38" r="3" class="hole"/>
+<circle cx="459.5" cy="533.38" r="3" class="hole"/>
+<circle cx="468.5" cy="533.38" r="3" class="hole"/>
+<circle cx="477.5" cy="533.38" r="3" class="hole"/>
+<circle cx="486.5" cy="533.38" r="3" class="hole"/>
+<circle cx="495.5" cy="533.38" r="3" class="hole"/>
+<circle cx="410" cy="525.59" r="3" class="hole"/>
+<circle cx="419" cy="525.59" r="3" class="hole"/>
+<circle cx="428" cy="525.59" r="3" class="hole"/>
+<circle cx="437" cy="525.59" r="3" class="hole"/>
+<circle cx="446" cy="525.59" r="3" class="hole"/>
+<circle cx="455" cy="525.59" r="3" class="hole"/>
+<circle cx="464" cy="525.59" r="3" class="hole"/>
+<circle cx="473" cy="525.59" r="3" class="hole"/>
+<circle cx="482" cy="525.59" r="3" class="hole"/>
+<circle cx="491" cy="525.59" r="3" class="hole"/>
+<circle cx="500" cy="525.59" r="3" class="hole"/>
+<circle cx="405.5" cy="517.79" r="3" class="hole"/>
+<circle cx="414.5" cy="517.79" r="3" class="hole"/>
+<circle cx="423.5" cy="517.79" r="3" class="hole"/>
+<circle cx="432.5" cy="517.79" r="3" class="hole"/>
+<circle cx="441.5" cy="517.79" r="3" class="hole"/>
+<circle cx="450.5" cy="517.79" r="3" class="hole"/>
+<circle cx="459.5" cy="517.79" r="3" class="hole"/>
+<circle cx="468.5" cy="517.79" r="3" class="hole"/>
+<circle cx="477.5" cy="517.79" r="3" class="hole"/>
+<circle cx="486.5" cy="517.79" r="3" class="hole"/>
+<circle cx="495.5" cy="517.79" r="3" class="hole"/>
+<circle cx="504.5" cy="517.79" r="3" class="hole"/>
+<circle cx="401" cy="510" r="3" class="hole"/>
+<circle cx="410" cy="510" r="3" class="hole"/>
+<circle cx="419" cy="510" r="3" class="hole"/>
+<circle cx="428" cy="510" r="3" class="hole"/>
+<circle cx="437" cy="510" r="3" class="hole"/>
+<circle cx="446" cy="510" r="3" class="hole"/>
+<circle cx="455" cy="510" r="3" class="hole"/>
+<circle cx="464" cy="510" r="3" class="hole"/>
+<circle cx="473" cy="510" r="3" class="hole"/>
+<circle cx="482" cy="510" r="3" class="hole"/>
+<circle cx="491" cy="510" r="3" class="hole"/>
+<circle cx="500" cy="510" r="3" class="hole"/>
+<circle cx="509" cy="510" r="3" class="hole"/>
+<circle cx="405.5" cy="502.21" r="3" class="hole"/>
+<circle cx="414.5" cy="502.21" r="3" class="hole"/>
+<circle cx="423.5" cy="502.21" r="3" class="hole"/>
+<circle cx="432.5" cy="502.21" r="3" class="hole"/>
+<circle cx="441.5" cy="502.21" r="3" class="hole"/>
+<circle cx="450.5" cy="502.21" r="3" class="hole"/>
+<circle cx="459.5" cy="502.21" r="3" class="hole"/>
+<circle cx="468.5" cy="502.21" r="3" class="hole"/>
+<circle cx="477.5" cy="502.21" r="3" class="hole"/>
+<circle cx="486.5" cy="502.21" r="3" class="hole"/>
+<circle cx="495.5" cy="502.21" r="3" class="hole"/>
+<circle cx="504.5" cy="502.21" r="3" class="hole"/>
+<circle cx="410" cy="494.41" r="3" class="hole"/>
+<circle cx="419" cy="494.41" r="3" class="hole"/>
+<circle cx="428" cy="494.41" r="3" class="hole"/>
+<circle cx="437" cy="494.41" r="3" class="hole"/>
+<circle cx="446" cy="494.41" r="3" class="hole"/>
+<circle cx="455" cy="494.41" r="3" class="hole"/>
+<circle cx="464" cy="494.41" r="3" class="hole"/>
+<circle cx="473" cy="494.41" r="3" class="hole"/>
+<circle cx="482" cy="494.41" r="3" class="hole"/>
+<circle cx="491" cy="494.41" r="3" class="hole"/>
+<circle cx="500" cy="494.41" r="3" class="hole"/>
+<circle cx="414.5" cy="486.62" r="3" class="hole"/>
+<circle cx="423.5" cy="486.62" r="3" class="hole"/>
+<circle cx="432.5" cy="486.62" r="3" class="hole"/>
+<circle cx="441.5" cy="486.62" r="3" class="hole"/>
+<circle cx="450.5" cy="486.62" r="3" class="hole"/>
+<circle cx="459.5" cy="486.62" r="3" class="hole"/>
+<circle cx="468.5" cy="486.62" r="3" class="hole"/>
+<circle cx="477.5" cy="486.62" r="3" class="hole"/>
+<circle cx="486.5" cy="486.62" r="3" class="hole"/>
+<circle cx="495.5" cy="486.62" r="3" class="hole"/>
+<circle cx="419" cy="478.82" r="3" class="hole"/>
+<circle cx="428" cy="478.82" r="3" class="hole"/>
+<circle cx="437" cy="478.82" r="3" class="hole"/>
+<circle cx="446" cy="478.82" r="3" class="hole"/>
+<circle cx="455" cy="478.82" r="3" class="hole"/>
+<circle cx="464" cy="478.82" r="3" class="hole"/>
+<circle cx="473" cy="478.82" r="3" class="hole"/>
+<circle cx="482" cy="478.82" r="3" class="hole"/>
+<circle cx="491" cy="478.82" r="3" class="hole"/>
+<circle cx="423.5" cy="471.03" r="3" class="hole"/>
+<circle cx="432.5" cy="471.03" r="3" class="hole"/>
+<circle cx="441.5" cy="471.03" r="3" class="hole"/>
+<circle cx="450.5" cy="471.03" r="3" class="hole"/>
+<circle cx="459.5" cy="471.03" r="3" class="hole"/>
+<circle cx="468.5" cy="471.03" r="3" class="hole"/>
+<circle cx="477.5" cy="471.03" r="3" class="hole"/>
+<circle cx="486.5" cy="471.03" r="3" class="hole"/>
+<circle cx="428" cy="463.23" r="3" class="hole"/>
+<circle cx="437" cy="463.23" r="3" class="hole"/>
+<circle cx="446" cy="463.23" r="3" class="hole"/>
+<circle cx="455" cy="463.23" r="3" class="hole"/>
+<circle cx="464" cy="463.23" r="3" class="hole"/>
+<circle cx="473" cy="463.23" r="3" class="hole"/>
+<circle cx="482" cy="463.23" r="3" class="hole"/>
+<text x="245" y="446.5" text-anchor="middle" class="sm">grille Ø115 / chamber 110</text>
+<path d="M318 564 L382 564 L382 516 A32 32 0 0 0 318 516 Z" class="bezel"/>
+<path d="M326 556 L374 556 L374 516 A24 24 0 0 0 326 516 Z" class="win"/>
+<circle cx="333" cy="553.75" r="2.2" class="led"/>
+<circle cx="341.5" cy="553.75" r="2.2" class="led"/>
+<circle cx="350" cy="553.75" r="2.2" class="led"/>
+<circle cx="358.5" cy="553.75" r="2.2" class="led"/>
+<circle cx="367" cy="553.75" r="2.2" class="led"/>
+<circle cx="333" cy="545.25" r="2.2" class="led"/>
+<circle cx="341.5" cy="545.25" r="2.2" class="led"/>
+<circle cx="350" cy="545.25" r="2.2" class="led"/>
+<circle cx="358.5" cy="545.25" r="2.2" class="led"/>
+<circle cx="367" cy="545.25" r="2.2" class="led"/>
+<circle cx="333" cy="536.75" r="2.2" class="led"/>
+<circle cx="341.5" cy="536.75" r="2.2" class="led"/>
+<circle cx="350" cy="536.75" r="2.2" class="led"/>
+<circle cx="358.5" cy="536.75" r="2.2" class="led"/>
+<circle cx="367" cy="536.75" r="2.2" class="led"/>
+<circle cx="333" cy="528.25" r="2.2" class="led"/>
+<circle cx="341.5" cy="528.25" r="2.2" class="led"/>
+<circle cx="350" cy="528.25" r="2.2" class="led"/>
+<circle cx="358.5" cy="528.25" r="2.2" class="led"/>
+<circle cx="367" cy="528.25" r="2.2" class="led"/>
+<circle cx="333" cy="519.75" r="2.2" class="led"/>
+<circle cx="341.5" cy="519.75" r="2.2" class="led"/>
+<circle cx="350" cy="519.75" r="2.2" class="led"/>
+<circle cx="358.5" cy="519.75" r="2.2" class="led"/>
+<circle cx="367" cy="519.75" r="2.2" class="led"/>
+<circle cx="333" cy="511.25" r="2.2" class="led"/>
+<circle cx="341.5" cy="511.25" r="2.2" class="led"/>
+<circle cx="350" cy="511.25" r="2.2" class="led"/>
+<circle cx="358.5" cy="511.25" r="2.2" class="led"/>
+<circle cx="367" cy="511.25" r="2.2" class="led"/>
+<circle cx="333" cy="502.75" r="2.2" class="led"/>
+<circle cx="341.5" cy="502.75" r="2.2" class="led"/>
+<circle cx="350" cy="502.75" r="2.2" class="led"/>
+<circle cx="358.5" cy="502.75" r="2.2" class="led"/>
+<circle cx="367" cy="502.75" r="2.2" class="led"/>
+<circle cx="333" cy="494.25" r="2.2" class="ledx"/>
+<circle cx="341.5" cy="494.25" r="2.2" class="ledp"/>
+<circle cx="350" cy="494.25" r="2.2" class="led"/>
+<circle cx="358.5" cy="494.25" r="2.2" class="ledp"/>
+<circle cx="367" cy="494.25" r="2.2" class="ledx"/>
+<rect x="328.75" y="490" width="42.5" height="68" class="hidw"/>
+<circle cx="310" cy="580" r="16.5" class="bez"/>
+<circle cx="310" cy="580" r="12" class="bblue"/>
+<circle cx="350" cy="580" r="16.5" class="bez"/>
+<circle cx="350" cy="580" r="12" class="bgreen"/>
+<circle cx="390" cy="580" r="16.5" class="bez"/>
+<circle cx="390" cy="580" r="12" class="byellow"/>
+<rect x="310" y="370" width="80" height="40" rx="6" class="cart"/>
+<rect x="310" y="410" width="80" height="60" class="hid"/>
+<circle cx="350" cy="437" r="17.5" class="nfch"/>
+<rect x="230" y="310" width="19" height="100" rx="4" class="maple"/>
+<rect x="451" y="310" width="19" height="100" rx="4" class="maple"/>
+<rect x="230" y="313.5" width="240" height="25" rx="3" class="maple"/>
+<rect x="478" y="385" width="44" height="25" rx="3" class="metal"/>
+<line x1="170" y1="620" x2="170" y2="637" class="ext"/>
+<line x1="530" y1="620" x2="530" y2="637" class="ext"/>
+<line x1="170" y1="640" x2="530" y2="640" class="dim"/>
+<path d="M167 643 L173 637" class="tk"/>
+<path d="M527 643 L533 637" class="tk"/>
+<text x="350" y="637" text-anchor="middle" class="dt">360</text>
+<line x1="245" y1="510" x2="245" y2="625" class="ext"/>
+<line x1="455" y1="510" x2="455" y2="625" class="ext"/>
+<line x1="245" y1="628" x2="455" y2="628" class="dim"/>
+<path d="M242 631 L248 625" class="tk"/>
+<path d="M452 631 L458 625" class="tk"/>
+<text x="350" y="625" text-anchor="middle" class="dt">210 driver centres</text>
+<line x1="170" y1="610" x2="153" y2="610" class="ext"/>
+<line x1="170" y1="410" x2="153" y2="410" class="ext"/>
+<line x1="156" y1="610" x2="156" y2="410" class="dim"/>
+<path d="M153 613 L159 607" class="tk"/>
+<path d="M153 413 L159 407" class="tk"/>
+<text x="152" y="513" text-anchor="end" class="dt">200</text>
+<line x1="230" y1="410" x2="153" y2="410" class="ext"/>
+<line x1="230" y1="310" x2="153" y2="310" class="ext"/>
+<line x1="156" y1="410" x2="156" y2="310" class="dim"/>
+<path d="M153 413 L159 407" class="tk"/>
+<path d="M153 313 L159 307" class="tk"/>
+<text x="152" y="363" text-anchor="end" class="dt">+100</text>
+<line x1="515" y1="610" x2="543" y2="610" class="ext"/>
+<line x1="515" y1="620" x2="543" y2="620" class="ext"/>
+<line x1="540" y1="610" x2="540" y2="620" class="dim"/>
+<path d="M537 613 L543 607" class="tk"/>
+<path d="M537 623 L543 617" class="tk"/>
+<text x="544" y="618" class="dt">10 feet</text>
+<line x1="310" y1="584" x2="310" y2="601" class="ext"/>
+<line x1="350" y1="584" x2="350" y2="601" class="ext"/>
+<line x1="310" y1="604" x2="350" y2="604" class="dim"/>
+<path d="M307 607 L313 601" class="tk"/>
+<path d="M347 607 L353 601" class="tk"/>
+<text x="330" y="601" text-anchor="middle" class="dt">40</text>
+<line x1="294" y1="610" x2="279" y2="610" class="ext"/>
+<line x1="294" y1="580" x2="279" y2="580" class="ext"/>
+<line x1="282" y1="610" x2="282" y2="580" class="dim"/>
+<path d="M279 613 L285 607" class="tk"/>
+<path d="M279 583 L285 577" class="tk"/>
+<text x="278" y="598" text-anchor="end" class="dt">30</text>
+<line x1="478" y1="385" x2="478" y2="380" class="ext"/>
+<line x1="522" y1="385" x2="522" y2="380" class="ext"/>
+<line x1="478" y1="377" x2="522" y2="377" class="dim"/>
+<path d="M475 380 L481 374" class="tk"/>
+<path d="M519 380 L525 374" class="tk"/>
+<text x="500" y="374" text-anchor="middle" class="dt">Ø44</text>
+<line x1="390" y1="410" x2="405" y2="410" class="ext"/>
+<line x1="390" y1="370" x2="405" y2="370" class="ext"/>
+<line x1="402" y1="410" x2="402" y2="370" class="dim"/>
+<path d="M399 413 L405 407" class="tk"/>
+<path d="M399 373 L405 367" class="tk"/>
+<text x="406" y="393" class="dt">40 proud</text>
+<path d="M470 398 L483 330" class="bad-l"/>
+<circle cx="470" cy="398" r="1.8" class="bad-d"/>
+<text x="486" y="333" text-anchor="start" class="bad-t">8 mm knob-to-upright gap</text>
+<path d="M329 499 L160 290" class="bad-l"/>
+<circle cx="329" cy="499" r="1.8" class="bad-d"/>
+<text x="157" y="293" text-anchor="end" class="bad-t">window 48 × 64,</text>
+<text x="157" y="304" text-anchor="end" class="bad-t">top edge 82 below top face;</text>
+<text x="157" y="315" text-anchor="end" class="bad-t">arch hides 2 LEDs (red),</text>
+<text x="157" y="326" text-anchor="end" class="bad-t">clips 2 (orange)</text>
+<text x="170" y="86" text-anchor="start" class="vt">TOP VIEW (front edge at bottom)</text>
+<rect x="170" y="100" width="360" height="170" rx="9.5" class="body"/>
+<rect x="182" y="112" width="336" height="146" class="faint"/>
+<rect x="290" y="150" width="120" height="70" rx="6" class="hdpe"/>
+<rect x="304" y="164" width="92" height="42" class="ln"/>
+<rect x="308" y="168" width="84" height="34" class="slot"/>
+<rect x="310" y="170" width="80" height="30" rx="4" class="cart"/>
+<rect x="328.5" y="159" width="43" height="3" class="pcbh"/>
+<rect x="298.5" y="129" width="103" height="63" rx="30" class="keep"/>
+<circle cx="296" cy="214" r="1.8" class="screw"/>
+<circle cx="404" cy="214" r="1.8" class="screw"/>
+<circle cx="296" cy="156" r="1.8" class="screw"/>
+<circle cx="404" cy="156" r="1.8" class="screw"/>
+<rect x="230" y="165" width="19" height="40" rx="3" class="maple"/>
+<rect x="451" y="165" width="19" height="40" rx="3" class="maple"/>
+<rect x="230" y="172.5" width="240" height="25" rx="2" class="dowelp"/>
+<circle cx="500" cy="185" r="12.5" class="hid"/>
+<circle cx="500" cy="185" r="22" class="metal"/>
+<rect x="210" y="94" width="280" height="6" class="ln"/>
+<line x1="170" y1="270" x2="170" y2="279" class="ext"/>
+<line x1="530" y1="270" x2="530" y2="279" class="ext"/>
+<line x1="170" y1="282" x2="530" y2="282" class="dim"/>
+<path d="M167 285 L173 279" class="tk"/>
+<path d="M527 285 L533 279" class="tk"/>
+<text x="350" y="292" text-anchor="middle" class="dt">360</text>
+<line x1="530" y1="270" x2="543" y2="270" class="ext"/>
+<line x1="530" y1="100" x2="543" y2="100" class="ext"/>
+<line x1="540" y1="270" x2="540" y2="100" class="dim"/>
+<path d="M537 273 L543 267" class="tk"/>
+<path d="M537 103 L543 97" class="tk"/>
+<text x="544" y="188" class="dt">170</text>
+<line x1="308" y1="202" x2="308" y2="227" class="ext"/>
+<line x1="392" y1="202" x2="392" y2="227" class="ext"/>
+<line x1="308" y1="230" x2="392" y2="230" class="dim"/>
+<path d="M305 233 L311 227" class="tk"/>
+<path d="M389 233 L395 227" class="tk"/>
+<text x="350" y="240" text-anchor="middle" class="dt">slot 84 × 34</text>
+<line x1="230" y1="165" x2="230" y2="101" class="ext"/>
+<line x1="470" y1="165" x2="470" y2="101" class="ext"/>
+<line x1="230" y1="98" x2="470" y2="98" class="dim"/>
+<path d="M227 101 L233 95" class="tk"/>
+<path d="M467 101 L473 95" class="tk"/>
+<text x="350" y="95" text-anchor="middle" class="dt">240 dowel</text>
+<path d="M420 185 L640 118" class="bad-l"/>
+<circle cx="420" cy="185" r="1.8" class="bad-d"/>
+<text x="643" y="121" text-anchor="start" class="bad-t">dowel sits directly over</text>
+<text x="643" y="132" text-anchor="start" class="bad-t">the slot: cartridge can't</text>
+<text x="643" y="143" text-anchor="start" class="bad-t">drop straight in</text>
+<path d="M401.5 152 L640 168" class="warn-l"/>
+<circle cx="401.5" cy="152" r="1.8" class="warn-d"/>
+<text x="643" y="171" text-anchor="start" class="warn-t">30 mm metal-free zone</text>
+<text x="643" y="182" text-anchor="start" class="warn-t">(HDPE screws at the edge)</text>
+<text x="590" y="654" text-anchor="start" class="vt">RIGHT SIDE</text>
+<rect x="605" y="610" width="20" height="10" class="foot"/>
+<rect x="725" y="610" width="20" height="10" class="foot"/>
+<rect x="590" y="410" width="170" height="200" rx="9.5" class="body"/>
+<rect x="760" y="458" width="6" height="140" class="ln"/>
+<rect x="660" y="370" width="30" height="40" class="hid"/>
+<rect x="660" y="240" width="30" height="100" class="hidbad"/>
+<text x="693" y="250" text-anchor="start" class="smbad">drop path</text>
+<rect x="655" y="310" width="40" height="100" rx="4" class="maple"/>
+<circle cx="675" cy="326" r="12.5" class="maple"/>
+<rect x="653" y="385" width="44" height="25" rx="3" class="metal"/>
+<line x1="590" y1="620" x2="590" y2="637" class="ext"/>
+<line x1="760" y1="620" x2="760" y2="637" class="ext"/>
+<line x1="590" y1="640" x2="760" y2="640" class="dim"/>
+<path d="M587 643 L593 637" class="tk"/>
+<path d="M757 643 L763 637" class="tk"/>
+<text x="675" y="637" text-anchor="middle" class="dt">170</text>
+<line x1="687.5" y1="410" x2="779" y2="410" class="ext"/>
+<line x1="687.5" y1="338.5" x2="779" y2="338.5" class="ext"/>
+<line x1="776" y1="410" x2="776" y2="338.5" class="dim"/>
+<path d="M773 413 L779 407" class="tk"/>
+<path d="M773 341.5 L779 335.5" class="tk"/>
+<text x="780" y="377.25" class="dt">71.5 under dowel</text>
+<line x1="660" y1="410" x2="577" y2="410" class="ext"/>
+<line x1="660" y1="370" x2="577" y2="370" class="ext"/>
+<line x1="580" y1="410" x2="580" y2="370" class="dim"/>
+<path d="M577 413 L583 407" class="tk"/>
+<path d="M577 373 L583 367" class="tk"/>
+<text x="576" y="393" text-anchor="end" class="dt">40</text>
+<path d="M685 320 L790 285" class="bad-l"/>
+<circle cx="685" cy="320" r="1.8" class="bad-d"/>
+<text x="793" y="288" text-anchor="start" class="bad-t">dowel crosses the</text>
+<text x="793" y="299" text-anchor="start" class="bad-t">cartridge's drop path</text>
+<text x="810" y="654" text-anchor="start" class="vt">BACK (service cover)</text>
+<rect x="1135" y="610" width="20" height="10" class="foot"/>
+<rect x="825" y="610" width="20" height="10" class="foot"/>
+<rect x="810" y="410" width="360" height="200" rx="9.5" class="body"/>
+<rect x="860" y="468" width="260" height="120" class="hid"/>
+<rect x="850" y="458" width="280" height="140" rx="4" class="cover"/>
+<circle cx="1125" cy="593" r="2.6" class="screw"/>
+<circle cx="1125" cy="463" r="2.6" class="screw"/>
+<circle cx="990" cy="593" r="2.6" class="screw"/>
+<circle cx="990" cy="463" r="2.6" class="screw"/>
+<circle cx="855" cy="593" r="2.6" class="screw"/>
+<circle cx="855" cy="463" r="2.6" class="screw"/>
+<circle cx="1066.5" cy="474" r="3" class="hole"/>
+<circle cx="1057.5" cy="474" r="3" class="hole"/>
+<circle cx="1048.5" cy="474" r="3" class="hole"/>
+<circle cx="1039.5" cy="474" r="3" class="hole"/>
+<circle cx="1030.5" cy="474" r="3" class="hole"/>
+<circle cx="1021.5" cy="474" r="3" class="hole"/>
+<circle cx="1012.5" cy="474" r="3" class="hole"/>
+<circle cx="1003.5" cy="474" r="3" class="hole"/>
+<circle cx="994.5" cy="474" r="3" class="hole"/>
+<circle cx="985.5" cy="474" r="3" class="hole"/>
+<circle cx="976.5" cy="474" r="3" class="hole"/>
+<circle cx="967.5" cy="474" r="3" class="hole"/>
+<circle cx="958.5" cy="474" r="3" class="hole"/>
+<circle cx="949.5" cy="474" r="3" class="hole"/>
+<circle cx="940.5" cy="474" r="3" class="hole"/>
+<circle cx="931.5" cy="474" r="3" class="hole"/>
+<circle cx="922.5" cy="474" r="3" class="hole"/>
+<circle cx="913.5" cy="474" r="3" class="hole"/>
+<circle cx="1066.5" cy="483" r="3" class="hole"/>
+<circle cx="1057.5" cy="483" r="3" class="hole"/>
+<circle cx="1048.5" cy="483" r="3" class="hole"/>
+<circle cx="1039.5" cy="483" r="3" class="hole"/>
+<circle cx="1030.5" cy="483" r="3" class="hole"/>
+<circle cx="1021.5" cy="483" r="3" class="hole"/>
+<circle cx="1012.5" cy="483" r="3" class="hole"/>
+<circle cx="1003.5" cy="483" r="3" class="hole"/>
+<circle cx="994.5" cy="483" r="3" class="hole"/>
+<circle cx="985.5" cy="483" r="3" class="hole"/>
+<circle cx="976.5" cy="483" r="3" class="hole"/>
+<circle cx="967.5" cy="483" r="3" class="hole"/>
+<circle cx="958.5" cy="483" r="3" class="hole"/>
+<circle cx="949.5" cy="483" r="3" class="hole"/>
+<circle cx="940.5" cy="483" r="3" class="hole"/>
+<circle cx="931.5" cy="483" r="3" class="hole"/>
+<circle cx="922.5" cy="483" r="3" class="hole"/>
+<circle cx="913.5" cy="483" r="3" class="hole"/>
+<circle cx="1066.5" cy="492" r="3" class="hole"/>
+<circle cx="1057.5" cy="492" r="3" class="hole"/>
+<circle cx="1048.5" cy="492" r="3" class="hole"/>
+<circle cx="1039.5" cy="492" r="3" class="hole"/>
+<circle cx="1030.5" cy="492" r="3" class="hole"/>
+<circle cx="1021.5" cy="492" r="3" class="hole"/>
+<circle cx="1012.5" cy="492" r="3" class="hole"/>
+<circle cx="1003.5" cy="492" r="3" class="hole"/>
+<circle cx="994.5" cy="492" r="3" class="hole"/>
+<circle cx="985.5" cy="492" r="3" class="hole"/>
+<circle cx="976.5" cy="492" r="3" class="hole"/>
+<circle cx="967.5" cy="492" r="3" class="hole"/>
+<circle cx="958.5" cy="492" r="3" class="hole"/>
+<circle cx="949.5" cy="492" r="3" class="hole"/>
+<circle cx="940.5" cy="492" r="3" class="hole"/>
+<circle cx="931.5" cy="492" r="3" class="hole"/>
+<circle cx="922.5" cy="492" r="3" class="hole"/>
+<circle cx="913.5" cy="492" r="3" class="hole"/>
+<circle cx="1066.5" cy="501" r="3" class="hole"/>
+<circle cx="1057.5" cy="501" r="3" class="hole"/>
+<circle cx="1048.5" cy="501" r="3" class="hole"/>
+<circle cx="1039.5" cy="501" r="3" class="hole"/>
+<circle cx="1030.5" cy="501" r="3" class="hole"/>
+<circle cx="1021.5" cy="501" r="3" class="hole"/>
+<circle cx="1012.5" cy="501" r="3" class="hole"/>
+<circle cx="1003.5" cy="501" r="3" class="hole"/>
+<circle cx="994.5" cy="501" r="3" class="hole"/>
+<circle cx="985.5" cy="501" r="3" class="hole"/>
+<circle cx="976.5" cy="501" r="3" class="hole"/>
+<circle cx="967.5" cy="501" r="3" class="hole"/>
+<circle cx="958.5" cy="501" r="3" class="hole"/>
+<circle cx="949.5" cy="501" r="3" class="hole"/>
+<circle cx="940.5" cy="501" r="3" class="hole"/>
+<circle cx="931.5" cy="501" r="3" class="hole"/>
+<circle cx="922.5" cy="501" r="3" class="hole"/>
+<circle cx="913.5" cy="501" r="3" class="hole"/>
+<circle cx="1066.5" cy="578" r="3" class="hole"/>
+<circle cx="1057.5" cy="578" r="3" class="hole"/>
+<circle cx="1048.5" cy="578" r="3" class="hole"/>
+<circle cx="1039.5" cy="578" r="3" class="hole"/>
+<circle cx="1030.5" cy="578" r="3" class="hole"/>
+<circle cx="1021.5" cy="578" r="3" class="hole"/>
+<circle cx="1012.5" cy="578" r="3" class="hole"/>
+<circle cx="1003.5" cy="578" r="3" class="hole"/>
+<circle cx="994.5" cy="578" r="3" class="hole"/>
+<circle cx="985.5" cy="578" r="3" class="hole"/>
+<circle cx="976.5" cy="578" r="3" class="hole"/>
+<circle cx="967.5" cy="578" r="3" class="hole"/>
+<circle cx="958.5" cy="578" r="3" class="hole"/>
+<circle cx="949.5" cy="578" r="3" class="hole"/>
+<circle cx="940.5" cy="578" r="3" class="hole"/>
+<circle cx="931.5" cy="578" r="3" class="hole"/>
+<circle cx="922.5" cy="578" r="3" class="hole"/>
+<circle cx="913.5" cy="578" r="3" class="hole"/>
+<circle cx="990" cy="518" r="5" class="holeb"/>
+<circle cx="880" cy="544" r="11" class="ring"/>
+<circle cx="880" cy="544" r="9.5" class="metal"/>
+<circle cx="915" cy="544" r="12" class="ln"/>
+<rect x="910.5" y="542.25" width="9" height="3.5" rx="1.7" class="port"/>
+<line x1="860" y1="588" x2="860" y2="637" class="ext"/>
+<line x1="1120" y1="588" x2="1120" y2="637" class="ext"/>
+<line x1="860" y1="640" x2="1120" y2="640" class="dim"/>
+<path d="M857 643 L863 637" class="tk"/>
+<path d="M1117 643 L1123 637" class="tk"/>
+<text x="990" y="637" text-anchor="middle" class="dt">service opening 260 (dashed)</text>
+<line x1="1120" y1="588" x2="1143" y2="588" class="ext"/>
+<line x1="1120" y1="468" x2="1143" y2="468" class="ext"/>
+<line x1="1140" y1="588" x2="1140" y2="468" class="dim"/>
+<path d="M1137 591 L1143 585" class="tk"/>
+<path d="M1137 471 L1143 465" class="tk"/>
+<text x="1136" y="531" text-anchor="end" class="dt">120</text>
+<line x1="1130" y1="598" x2="1169" y2="598" class="ext"/>
+<line x1="1130" y1="458" x2="1169" y2="458" class="ext"/>
+<line x1="1166" y1="598" x2="1166" y2="458" class="dim"/>
+<path d="M1163 601 L1169 595" class="tk"/>
+<path d="M1163 461 L1169 455" class="tk"/>
+<text x="1170" y="531" class="dt">140</text>
+<line x1="850" y1="458" x2="850" y2="451" class="ext"/>
+<line x1="1130" y1="458" x2="1130" y2="451" class="ext"/>
+<line x1="850" y1="448" x2="1130" y2="448" class="dim"/>
+<path d="M847 451 L853 445" class="tk"/>
+<path d="M1127 451 L1133 445" class="tk"/>
+<text x="990" y="445" text-anchor="middle" class="dt">cover 280 × 140, 6 mm</text>
+<path d="M880 544 L880 398" class="co-l"/>
+<circle cx="880" cy="544" r="1.8" class="co-d"/>
+<text x="883" y="401" text-anchor="start" class="co-t">19 mm power button (blue ring)</text>
+<path d="M990 518 L880 380" class="co-l"/>
+<circle cx="990" cy="518" r="1.8" class="co-d"/>
+<text x="883" y="383" text-anchor="start" class="co-t">crumb-drain exit</text>
+<path d="M1066.5 474 L1040 362" class="co-l"/>
+<circle cx="1066.5" cy="474" r="1.8" class="co-d"/>
+<text x="1043" y="365" text-anchor="start" class="co-t">outlet ≈20 cm² (72 × Ø6)</text>
+<path d="M915 556 L960 668" class="bad-l"/>
+<circle cx="915" cy="556" r="1.8" class="bad-d"/>
+<text x="963" y="671" text-anchor="start" class="bad-t">USB-C: a 10 mm recess</text>
+<text x="963" y="682" text-anchor="start" class="bad-t">won't fit a 6 mm cover</text>
+<path d="M913.5 578 L1112 668" class="co-l"/>
+<circle cx="913.5" cy="578" r="1.8" class="co-d"/>
+<text x="1115" y="671" text-anchor="start" class="co-t">low inlet row</text>
+<text x="1115" y="682" text-anchor="start" class="co-t">(18 × Ø6)</text>
+<g class="sb"><rect x="30" y="690" width="10" height="5" class="sbk"/><rect x="40" y="690" width="10" height="5" class="sbw"/><rect x="50" y="690" width="10" height="5" class="sbk"/><rect x="60" y="690" width="10" height="5" class="sbw"/><rect x="70" y="690" width="10" height="5" class="sbk"/><rect x="80" y="690" width="10" height="5" class="sbw"/><rect x="90" y="690" width="10" height="5" class="sbk"/><rect x="100" y="690" width="10" height="5" class="sbw"/><rect x="110" y="690" width="10" height="5" class="sbk"/><rect x="120" y="690" width="10" height="5" class="sbw"/><text x="30" y="686" text-anchor="middle" class="dt">0</text><text x="80" y="686" text-anchor="middle" class="dt">50</text><text x="130" y="686" text-anchor="middle" class="dt">100</text><text x="138" y="696" class="sm">Scale bar, mm. All four views here and Sections A–A / B–B on Sheet 2 use this one scale.</text></g>
+<text x="1170" y="706" text-anchor="end" class="sm">Third-angle layout · mm · as documented 2026-11-27 · red = clash or safety flag · orange = tight</text></svg><figcaption>Sheet 1. Front, top, right side and back, as documented. One cartridge is inserted, one stands beside the box. LED dots: amber = visible, orange ring = clipped by the arch, red ring = hidden.</figcaption></figure>
+<figure><svg viewBox="0 0 1200 560" class="sheet" role="img" aria-label="Sheet 2: cutaway sections and the read-gap detail" xmlns="http://www.w3.org/2000/svg"><title>Sheet 2: cutaway sections and the read-gap detail</title><defs>
+<pattern id="s2h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="hatch"/></pattern>
+<pattern id="s2x" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="5" class="hatchb"/></pattern>
+</defs><rect x="0" y="0" width="1200" height="560" class="paper"/><text x="60" y="522" text-anchor="start" class="vt">SECTION A–A (cutaway from the front)</text>
+<rect x="60" y="280" width="12" height="200" class="sec"/>
+<rect x="408" y="280" width="12" height="200" class="sec"/>
+<rect x="72" y="280" width="126" height="12" class="sec"/>
+<rect x="282" y="280" width="95.5" height="12" class="sec"/>
+<rect x="402.5" y="280" width="5.5" height="12" class="sec"/>
+<rect x="377.5" y="280" width="25" height="3.5" class="sec"/>
+<rect x="72" y="468" width="336" height="12" class="sec"/>
+<rect x="196.5" y="468" width="6" height="12" class="gap"/>
+<rect x="205.5" y="468" width="6" height="12" class="gap"/>
+<rect x="214.5" y="468" width="6" height="12" class="gap"/>
+<rect x="223.5" y="468" width="6" height="12" class="gap"/>
+<rect x="232.5" y="468" width="6" height="12" class="gap"/>
+<rect x="241.5" y="468" width="6" height="12" class="gap"/>
+<rect x="250.5" y="468" width="6" height="12" class="gap"/>
+<rect x="259.5" y="468" width="6" height="12" class="gap"/>
+<rect x="268.5" y="468" width="6" height="12" class="gap"/>
+<rect x="277.5" y="468" width="6" height="12" class="gap"/>
+<rect x="75" y="480" width="20" height="10" class="foot"/>
+<rect x="385" y="480" width="20" height="10" class="foot"/>
+<line x1="45" y1="490" x2="435" y2="490" class="gnd"/>
+<rect x="72" y="435" width="110" height="6" class="sec6"/>
+<rect x="72" y="319" width="110" height="6" class="sec6"/>
+<rect x="182" y="319" width="6" height="122" class="sec6"/>
+<rect x="72" y="325" width="110" height="110" class="fill"/>
+<circle cx="135" cy="380" r="41.5" class="drv"/>
+<circle cx="135" cy="380" r="33" class="cone"/>
+<circle cx="135" cy="380" r="12" class="drv"/>
+<rect x="298" y="435" width="110" height="6" class="sec6"/>
+<rect x="298" y="319" width="110" height="6" class="sec6"/>
+<rect x="292" y="319" width="6" height="122" class="sec6"/>
+<rect x="298" y="325" width="110" height="110" class="fill"/>
+<circle cx="345" cy="380" r="41.5" class="drv"/>
+<circle cx="345" cy="380" r="33" class="cone"/>
+<circle cx="345" cy="380" r="12" class="drv"/>
+<text x="135" y="429" text-anchor="middle" class="sm">1 L sealed</text>
+<text x="345" y="429" text-anchor="middle" class="sm">1 L sealed</text>
+<rect x="213.3" y="359.55" width="53.4" height="68.9" class="pcbh"/>
+<path d="M216 426 L264 426 L264 386 A24 24 0 0 0 216 386 Z" class="hidacc"/>
+<circle cx="200" cy="450" r="18" class="hid"/>
+<rect x="188" y="441" width="24" height="18" class="btnbody"/>
+<circle cx="240" cy="450" r="18" class="hid"/>
+<rect x="228" y="441" width="24" height="18" class="btnbody"/>
+<circle cx="280" cy="450" r="18" class="hid"/>
+<rect x="268" y="441" width="24" height="18" class="btnbody"/>
+<rect x="182" y="432" width="6" height="9" class="clash"/>
+<rect x="292" y="432" width="6" height="9" class="clash"/>
+<rect x="192.5" y="462" width="95" height="6" class="sec6"/>
+<rect x="196.5" y="462" width="6" height="6" class="gap"/>
+<rect x="205.5" y="462" width="6" height="6" class="gap"/>
+<rect x="214.5" y="462" width="6" height="6" class="gap"/>
+<rect x="223.5" y="462" width="6" height="6" class="gap"/>
+<rect x="232.5" y="462" width="6" height="6" class="gap"/>
+<rect x="241.5" y="462" width="6" height="6" class="gap"/>
+<rect x="250.5" y="462" width="6" height="6" class="gap"/>
+<rect x="259.5" y="462" width="6" height="6" class="gap"/>
+<rect x="268.5" y="462" width="6" height="6" class="gap"/>
+<rect x="277.5" y="462" width="6" height="6" class="gap"/>
+<rect x="212" y="452" width="2" height="10" class="ln"/>
+<rect x="266" y="452" width="2" height="10" class="ln"/>
+<rect x="212" y="450.4" width="56" height="1.6" class="pcbs"/>
+<rect x="215" y="435" width="20" height="15.4" class="comp"/>
+<rect x="238" y="437" width="27" height="13.4" class="comp"/>
+<rect x="212" y="428.4" width="56" height="1.6" class="pcbs"/>
+<rect x="230" y="430" width="4" height="20.4" class="comp"/>
+<rect x="216" y="417" width="16" height="11.4" class="comp"/>
+<rect x="245" y="420" width="20" height="8.4" class="comp"/>
+<rect x="210" y="397" width="60" height="20" class="hid"/>
+<rect x="270" y="454" width="15" height="8" class="comp"/>
+<rect x="192" y="340" width="96" height="6" class="sec6"/>
+<rect x="192" y="292" width="6" height="48" class="sec6"/>
+<rect x="282" y="292" width="6" height="48" class="sec6"/>
+<rect x="200" y="240" width="80" height="100" rx="6" class="cart"/>
+<circle cx="240" cy="307" r="17.5" class="nfc"/>
+<rect x="218.5" y="292" width="43" height="40" class="pcbh"/>
+<circle cx="240" cy="343" r="4" class="holeb"/>
+<rect x="383.5" y="283.5" width="13" height="7" class="comp"/>
+<rect x="385.5" y="277.5" width="9" height="6" class="ln"/>
+<rect x="383" y="277.5" width="14" height="2.5" class="nut"/>
+<rect x="387" y="263.5" width="6" height="14" class="shaft"/>
+<rect x="368" y="251" width="44" height="25" rx="3" class="metalt"/>
+<rect x="120" y="180" width="19" height="106" rx="4" class="maple"/>
+<rect x="341" y="180" width="19" height="106" rx="4" class="maple"/>
+<rect x="139" y="183.5" width="202" height="25" rx="2" class="maple"/>
+<path d="M226 486 L226 384" class="air"/>
+<path d="M222 390 L226 383 L230 390" class="air"/>
+<path d="M254 486 L254 384" class="air"/>
+<path d="M250 390 L254 383 L258 390" class="air"/>
+<line x1="188" y1="325" x2="188" y2="327" class="ext"/>
+<line x1="292" y1="325" x2="292" y2="327" class="ext"/>
+<line x1="188" y1="330" x2="292" y2="330" class="dim"/>
+<path d="M185 333 L191 327" class="tk"/>
+<path d="M289 333 L295 327" class="tk"/>
+<text x="240" y="327" text-anchor="middle" class="dt"></text>
+<text x="296" y="333" text-anchor="start" class="dt">bay 104</text>
+<line x1="192.5" y1="468" x2="192.5" y2="503" class="ext"/>
+<line x1="287.5" y1="468" x2="287.5" y2="503" class="ext"/>
+<line x1="192.5" y1="506" x2="287.5" y2="506" class="dim"/>
+<path d="M189.5 509 L195.5 503" class="tk"/>
+<path d="M284.5 509 L290.5 503" class="tk"/>
+<text x="240" y="503" text-anchor="middle" class="dt">sled 95</text>
+<line x1="210" y1="468" x2="187" y2="468" class="ext"/>
+<line x1="210" y1="397" x2="187" y2="397" class="ext"/>
+<line x1="190" y1="468" x2="190" y2="397" class="dim"/>
+<path d="M187 471 L193 465" class="tk"/>
+<path d="M187 400 L193 394" class="tk"/>
+<text x="194" y="435.5" class="dt"></text>
+<text x="186" y="410" text-anchor="end" class="dt">stack ≈83</text>
+<line x1="261.5" y1="332" x2="291" y2="332" class="ext"/>
+<line x1="261.5" y1="362" x2="291" y2="362" class="ext"/>
+<line x1="288" y1="332" x2="288" y2="362" class="dim"/>
+<path d="M285 335 L291 329" class="tk"/>
+<path d="M285 365 L291 359" class="tk"/>
+<text x="292" y="350" class="dt">30</text>
+<path d="M185 436 L64 497" class="bad-l"/>
+<circle cx="185" cy="436" r="1.8" class="bad-d"/>
+<text x="67" y="500" text-anchor="start" class="bad-t">button nuts hit</text>
+<text x="67" y="511" text-anchor="start" class="bad-t">chamber floors</text>
+<path d="M390 283.5 L370 40" class="co-l"/>
+<circle cx="390" cy="283.5" r="1.8" class="co-d"/>
+<text x="367" y="43" text-anchor="end" class="co-t">3.5 mm web left</text>
+<text x="367" y="54" text-anchor="end" class="co-t">by the counterbore</text>
+<path d="M240 343 L120 130" class="co-l"/>
+<circle cx="240" cy="343" r="1.8" class="co-d"/>
+<text x="117" y="133" text-anchor="end" class="co-t">crumb hole → drain tube</text>
+<text x="117" y="144" text-anchor="end" class="co-t">to back cover</text>
+<text x="560" y="522" text-anchor="start" class="vt">SECTION B–B (side, centre bay)</text>
+<rect x="560" y="465" width="12" height="15" class="sec"/>
+<rect x="560" y="426" width="12" height="9" class="sec"/>
+<rect x="560" y="280" width="12" height="82" class="sec"/>
+<rect x="554" y="426" width="6" height="8" class="secm"/>
+<rect x="554" y="354" width="6" height="8" class="secm"/>
+<rect x="572" y="358" width="0.6" height="72" class="veneer"/>
+<rect x="572.6" y="360" width="8" height="68" class="grid"/>
+<rect x="580.6" y="359.55" width="1.6" height="68.9" class="pcbs"/>
+<rect x="582.2" y="374" width="3.8" height="40" class="comp"/>
+<rect x="557" y="433.5" width="3" height="33" class="bblue"/>
+<rect x="560" y="438" width="47" height="24" class="btnbody"/>
+<rect x="607" y="442" width="17" height="16" class="comp"/>
+<rect x="572" y="280" width="56" height="12" class="sec"/>
+<rect x="662" y="280" width="56" height="12" class="sec"/>
+<rect x="560" y="280" width="12" height="12" class="sec"/>
+<rect x="622" y="292" width="6" height="48" class="sec6"/>
+<rect x="662" y="292" width="6" height="48" class="sec6"/>
+<rect x="622" y="340" width="46" height="6" class="sec6"/>
+<rect x="642" y="340" width="6" height="6" class="gap"/>
+<path d="M642 346 L648 346 L720 385 L714 391 Z" class="tube"/>
+<rect x="630" y="240" width="30" height="100" rx="6" class="cart"/>
+<line x1="641" y1="338" x2="641" y2="242" class="glue"/>
+<rect x="644.5" y="289.5" width="1" height="35" class="tagb"/>
+<rect x="668" y="292" width="1.6" height="40" class="pcbs"/>
+<rect x="669.6" y="302" width="3.4" height="24" class="comp"/>
+<rect x="632" y="292" width="68" height="70" rx="8" class="keep"/>
+<rect x="578" y="462" width="140" height="6" class="sec6clash"/>
+<rect x="633" y="452" width="2" height="10" class="ln"/>
+<rect x="710" y="452" width="2" height="10" class="ln"/>
+<rect x="633" y="450.4" width="85" height="1.6" class="pcbs"/>
+<rect x="633" y="435" width="21" height="15.4" class="comp"/>
+<rect x="653" y="428.4" width="65" height="1.6" class="pcbs"/>
+<rect x="670" y="417" width="30" height="11.4" class="comp"/>
+<rect x="633" y="397" width="85" height="20" class="hid"/>
+<rect x="572" y="468" width="146" height="12" class="sec"/>
+<rect x="653" y="468" width="6" height="12" class="gap"/>
+<rect x="662" y="468" width="6" height="12" class="gap"/>
+<rect x="671" y="468" width="6" height="12" class="gap"/>
+<rect x="680" y="468" width="6" height="12" class="gap"/>
+<rect x="689" y="468" width="6" height="12" class="gap"/>
+<rect x="698" y="468" width="6" height="12" class="gap"/>
+<rect x="707" y="468" width="6" height="12" class="gap"/>
+<rect x="718" y="458" width="12" height="22" class="sec"/>
+<rect x="718" y="280" width="12" height="58" class="sec"/>
+<rect x="730" y="328" width="6" height="140" class="sec6"/>
+<rect x="730" y="368" width="6" height="6" class="gap"/>
+<rect x="730" y="359" width="6" height="6" class="gap"/>
+<rect x="730" y="350" width="6" height="6" class="gap"/>
+<rect x="730" y="341" width="6" height="6" class="gap"/>
+<rect x="730" y="445" width="6" height="6" class="gap"/>
+<rect x="575" y="480" width="20" height="10" class="foot"/>
+<rect x="695" y="480" width="20" height="10" class="foot"/>
+<line x1="545" y1="490" x2="750" y2="490" class="gnd"/>
+<rect x="625" y="180" width="40" height="106" class="hid"/>
+<circle cx="645" cy="196" r="12.5" class="secm"/>
+<rect x="630" y="120" width="30" height="100" class="hidbad"/>
+<rect x="612" y="292" width="106" height="46" class="warmzone"/>
+<path d="M670 487 L670 380 L744 356" class="air"/>
+<path d="M738 361 L745 356 L737 352" class="air"/>
+<path d="M602 463 L752 478" class="bad-l"/>
+<circle cx="602" cy="463" r="1.8" class="bad-d"/>
+<text x="755" y="481" text-anchor="start" class="bad-t">buttons reach 64 mm in;</text>
+<text x="755" y="492" text-anchor="start" class="bad-t">sled starts 18 mm in</text>
+<path d="M645 196 L740 120" class="bad-l"/>
+<circle cx="645" cy="196" r="1.8" class="bad-d"/>
+<text x="743" y="123" text-anchor="start" class="bad-t">dowel vs drop path</text>
+<path d="M690 310 L800 230" class="warn-l"/>
+<circle cx="690" cy="310" r="1.8" class="warn-d"/>
+<text x="803" y="233" text-anchor="start" class="warn-t">warm pocket above outlet</text>
+<text x="803" y="244" text-anchor="start" class="warn-t">(~46 mm unvented)</text>
+<path d="M573 362 L548 230" class="warn-l"/>
+<circle cx="573" cy="362" r="1.8" class="warn-d"/>
+<text x="545" y="233" text-anchor="end" class="warn-t">diffuser 12 mm behind</text>
+<text x="545" y="244" text-anchor="end" class="warn-t">the face (+6 bezel):</text>
+<text x="545" y="255" text-anchor="end" class="warn-t">deep tunnel at low angles</text>
+<path d="M641 300 L510 160" class="warn-l"/>
+<circle cx="641" cy="300" r="1.8" class="warn-d"/>
+<text x="507" y="163" text-anchor="end" class="warn-t">glue line (19+12 laminate)</text>
+<text x="507" y="174" text-anchor="end" class="warn-t">is 4 mm off centre</text>
+<path d="M720 386 L745 445" class="co-l"/>
+<circle cx="720" cy="386" r="1.8" class="co-d"/>
+<text x="748" y="448" text-anchor="start" class="co-t">drain exits through</text>
+<text x="748" y="459" text-anchor="start" class="co-t">the service cover</text>
+<line x1="560" y1="490" x2="560" y2="505" class="ext"/>
+<line x1="730" y1="490" x2="730" y2="505" class="ext"/>
+<line x1="560" y1="508" x2="730" y2="508" class="dim"/>
+<path d="M557 511 L563 505" class="tk"/>
+<path d="M727 511 L733 505" class="tk"/>
+<text x="645" y="505" text-anchor="middle" class="dt">170</text>
+<line x1="554" y1="426" x2="541" y2="426" class="ext"/>
+<line x1="554" y1="362" x2="541" y2="362" class="ext"/>
+<line x1="544" y1="426" x2="544" y2="362" class="dim"/>
+<path d="M541 429 L547 423" class="tk"/>
+<path d="M541 365 L547 359" class="tk"/>
+<text x="540" y="397" text-anchor="end" class="dt">window</text>
+<text x="900" y="262" class="vt">DETAIL C (2:1): READ GAP</text>
+<rect x="920" y="334" width="12" height="96" class="sec6"/>
+<rect x="1000" y="334" width="12" height="96" class="sec6"/>
+<rect x="936" y="298" width="60" height="132" rx="6" class="cart"/>
+<line x1="958" y1="428" x2="958" y2="300" class="glue"/>
+<rect x="965" y="326" width="2" height="70" class="tagb"/>
+<rect x="957" y="326" width="2" height="70" class="taghb"/>
+<rect x="1012" y="334" width="3.2" height="80" class="pcbs"/>
+<rect x="1015.2" y="354" width="6.8" height="48" class="comp"/>
+<rect x="900" y="310" width="32" height="24" class="sec"/>
+<rect x="1000" y="310" width="52" height="24" class="sec"/>
+<line x1="966" y1="396" x2="966" y2="407" class="ext"/>
+<line x1="1012" y1="396" x2="1012" y2="407" class="ext"/>
+<line x1="966" y1="410" x2="1012" y2="410" class="dim"/>
+<path d="M963 413 L969 407" class="tk"/>
+<path d="M1009 413 L1015 407" class="tk"/>
+<text x="989" y="407" text-anchor="middle" class="dt">23 spec</text>
+<line x1="958" y1="396" x2="958" y2="433" class="ext"/>
+<line x1="1012" y1="396" x2="1012" y2="433" class="ext"/>
+<line x1="958" y1="436" x2="1012" y2="436" class="dim"/>
+<path d="M955 439 L961 433" class="tk"/>
+<path d="M1009 439 L1015 433" class="tk"/>
+<text x="985" y="446" text-anchor="middle" class="dt">≈27 (19 mm half toward PN532)</text>
+<line x1="996" y1="370" x2="996" y2="341" class="ext"/>
+<line x1="1000" y1="370" x2="1000" y2="341" class="ext"/>
+<line x1="996" y1="338" x2="1000" y2="338" class="dim"/>
+<path d="M993 341 L999 335" class="tk"/>
+<path d="M997 341 L1003 335" class="tk"/>
+<text x="998" y="335" text-anchor="middle" class="dt">2</text>
+<line x1="1000" y1="370" x2="1000" y2="353" class="ext"/>
+<line x1="1012" y1="370" x2="1012" y2="353" class="ext"/>
+<line x1="1000" y1="350" x2="1012" y2="350" class="dim"/>
+<path d="M997 353 L1003 347" class="tk"/>
+<path d="M1009 353 L1015 347" class="tk"/>
+<text x="1006" y="347" text-anchor="middle" class="dt">6</text>
+<text x="938" y="306" text-anchor="start" class="sm">cartridge</text>
+<text x="1016" y="346" text-anchor="start" class="sm">PN532</text>
+<text x="902" y="358" text-anchor="start" class="sm">sleeve</text>
+<text x="900" y="468" class="sm">Blue = tag centred (spec). Grey = tag at the glue line.</text>
+<text x="900" y="482" class="sm">19 + 12 mm stock makes a 31 mm block, and the gap</text>
+<text x="900" y="496" class="sm">is ≈20 or ≈27 mm depending on which way it faces.</text>
+<g class="sb"><rect x="900" y="522" width="20" height="5" class="sbk"/><rect x="920" y="522" width="20" height="5" class="sbw"/><rect x="940" y="522" width="20" height="5" class="sbk"/><rect x="960" y="522" width="20" height="5" class="sbw"/><rect x="980" y="522" width="20" height="5" class="sbk"/><rect x="1000" y="522" width="20" height="5" class="sbw"/><rect x="1020" y="522" width="20" height="5" class="sbk"/><rect x="1040" y="522" width="20" height="5" class="sbw"/><rect x="1060" y="522" width="20" height="5" class="sbk"/><rect x="1080" y="522" width="20" height="5" class="sbw"/><text x="900" y="518" text-anchor="middle" class="dt">0</text><text x="1000" y="518" text-anchor="middle" class="dt">50</text><text x="1100" y="518" text-anchor="middle" class="dt">100</text><text x="1108" y="528" class="sm">Detail C only (2:1)</text></g>
+<g class="sb"><rect x="60" y="545" width="10" height="5" class="sbk"/><rect x="70" y="545" width="10" height="5" class="sbw"/><rect x="80" y="545" width="10" height="5" class="sbk"/><rect x="90" y="545" width="10" height="5" class="sbw"/><rect x="100" y="545" width="10" height="5" class="sbk"/><rect x="110" y="545" width="10" height="5" class="sbw"/><rect x="120" y="545" width="10" height="5" class="sbk"/><rect x="130" y="545" width="10" height="5" class="sbw"/><rect x="140" y="545" width="10" height="5" class="sbk"/><rect x="150" y="545" width="10" height="5" class="sbw"/><text x="60" y="541" text-anchor="middle" class="dt">0</text><text x="110" y="541" text-anchor="middle" class="dt">50</text><text x="160" y="541" text-anchor="middle" class="dt">100</text><text x="168" y="551" class="sm">Sections A–A and B–B, mm (same scale as Sheet 1)</text></g></svg><figcaption>Sheet 2. Section A–A looks at the internals from the front; Section B–B cuts through the centre bay from the side. Blue arrows show the convection path. Detail C is the only view at 2:1.</figcaption></figure>
+
+<h2>2. The look</h2>
+<p>Left is the design as documented. Right shows the cheap tweaks from the critique, so you can compare the two faces. Both show the 5-band equaliser mid-song through a maple-veneer diffuser.</p>
+<div class="looks">
+<figure><svg viewBox="0 0 560 560" class="look" role="img" aria-label="As documented (200 high, 48 × 64 arch, Ø115 grilles, top-mounted handle)" xmlns="http://www.w3.org/2000/svg"><title>As documented (200 high, 48 × 64 arch, Ø115 grilles, top-mounted handle)</title><defs>
+<linearGradient id="docwf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecd3a6"/><stop offset=".55" stop-color="#dcb983"/><stop offset="1" stop-color="#cfa56c"/></linearGradient>
+<linearGradient id="docws" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c39560"/><stop offset="1" stop-color="#a9784a"/></linearGradient>
+<linearGradient id="docwt" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f1dcb5"/><stop offset="1" stop-color="#e2c494"/></linearGradient>
+<linearGradient id="docmp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f3e2c0"/><stop offset="1" stop-color="#d9bd8c"/></linearGradient>
+<linearGradient id="docdw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4e3c3"/><stop offset=".5" stop-color="#dcbf8d"/><stop offset="1" stop-color="#b89262"/></linearGradient>
+<linearGradient id="docal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8e949b"/><stop offset=".35" stop-color="#e9ecef"/><stop offset=".6" stop-color="#b8bec5"/><stop offset="1" stop-color="#70767d"/></linearGradient>
+<radialGradient id="doccl" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#4a3626"/><stop offset="1" stop-color="#221811"/></radialGradient>
+<radialGradient id="docgl" cx=".5" cy=".6" r=".7"><stop offset="0" stop-color="#5a2a0c"/><stop offset="1" stop-color="#241208"/></radialGradient>
+<filter id="docblur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter>
+<filter id="docsoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+<filter id="docshadow" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<ellipse cx="304.5" cy="485.5" rx="264.5" ry="18.4" fill="#000" opacity=".18" filter="url(#docshadow)"/>
+<path d="M87.49 477.01 L97.16 471.04 L97.16 459.54 L87.49 465.51 Z" fill="#111" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M64.5 465.51 L87.49 465.51 L97.16 459.54 L74.16 459.54 Z" fill="#2a2a2a" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M64.5 477.01 L87.49 477.01 L87.49 465.51 L64.5 465.51 Z" fill="#1d1d1d" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M145.45 441.13 L155.11 435.15 L155.11 423.65 L145.45 429.63 Z" fill="#111" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M122.45 429.63 L145.45 429.63 L155.11 423.65 L132.11 423.65 Z" fill="#2a2a2a" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M122.45 441.13 L145.45 441.13 L145.45 429.63 L122.45 429.63 Z" fill="#1d1d1d" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M444 477.01 L453.65 471.04 L453.65 459.54 L444 465.51 Z" fill="#111" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M421 465.51 L444 465.51 L453.65 459.54 L430.65 459.54 Z" fill="#2a2a2a" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M421 477.01 L444 477.01 L444 465.51 L421 465.51 Z" fill="#1d1d1d" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M501.95 441.13 L511.62 435.15 L511.62 423.65 L501.95 429.63 Z" fill="#111" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M478.95 429.63 L501.95 429.63 L511.62 423.65 L488.62 423.65 Z" fill="#2a2a2a" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M478.95 441.13 L501.95 441.13 L501.95 429.63 L478.95 429.63 Z" fill="#1d1d1d" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M454 470 L536.11 419.17 L536.11 189.17 L454 240 Z" fill="url(#docws)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M40 240 L454 240 L536.11 189.17 L122.11 189.17 Z" fill="url(#docwt)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M40 470 L454 470 L454 240 L40 240 Z" fill="url(#docwf)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="454" y1="444.44" x2="456.9" y2="442.65" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="418.89" x2="456.9" y2="417.09" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="393.33" x2="456.9" y2="391.54" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="367.78" x2="456.9" y2="365.98" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="342.22" x2="456.9" y2="340.43" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="316.67" x2="456.9" y2="314.87" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="291.11" x2="456.9" y2="289.32" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="265.56" x2="456.9" y2="263.76" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<circle cx="126.25" cy="355" r="66.12" fill="#e3c89a" stroke="#9c7650" stroke-width=".6"/>
+<circle cx="105.55" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="90.03" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="100.38" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="110.72" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="121.07" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="131.43" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="141.77" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="152.12" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="162.47" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="84.85" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="95.2" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="105.55" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="157.3" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="167.65" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="79.67" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="90.03" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="100.38" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="110.72" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="121.07" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="131.43" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="141.77" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="152.12" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="162.47" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="172.82" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="74.5" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="84.85" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="95.2" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="105.55" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="157.3" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="167.65" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="178" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="69.33" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="79.67" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="90.03" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="100.38" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="110.72" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="121.07" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="131.43" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="141.77" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="152.12" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="162.47" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="172.82" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="183.17" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="74.5" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="84.85" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="95.2" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="105.55" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="157.3" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="167.65" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="178" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="69.33" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="79.67" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="90.03" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="100.38" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="110.72" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="121.07" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="131.43" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="141.77" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="152.12" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="162.47" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="172.82" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="183.17" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="74.5" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="84.85" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="95.2" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="105.55" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="157.3" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="167.65" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="178" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="79.67" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="90.03" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="100.38" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="110.72" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="121.07" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="131.43" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="141.77" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="152.12" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="162.47" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="172.82" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="84.85" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="95.2" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="105.55" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="157.3" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="167.65" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="90.03" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="100.38" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="110.72" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="121.07" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="131.43" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="141.77" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="152.12" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="162.47" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="105.55" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="115.9" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="126.25" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="136.6" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="146.95" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="355" r="66.12" fill="#e3c89a" stroke="#9c7650" stroke-width=".6"/>
+<circle cx="347.05" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="408.78" r="3.45" fill="url(#doccl)"/>
+<circle cx="331.52" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="341.88" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="352.22" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="362.57" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="372.92" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="383.27" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="393.62" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="403.97" cy="399.82" r="3.45" fill="url(#doccl)"/>
+<circle cx="326.35" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="336.7" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="347.05" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="398.8" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="409.15" cy="390.85" r="3.45" fill="url(#doccl)"/>
+<circle cx="321.17" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="331.52" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="341.88" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="352.22" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="362.57" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="372.92" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="383.27" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="393.62" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="403.97" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="414.32" cy="381.89" r="3.45" fill="url(#doccl)"/>
+<circle cx="316" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="326.35" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="336.7" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="347.05" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="398.8" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="409.15" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="419.5" cy="372.93" r="3.45" fill="url(#doccl)"/>
+<circle cx="310.82" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="321.17" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="331.52" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="341.88" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="352.22" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="362.57" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="372.92" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="383.27" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="393.62" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="403.97" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="414.32" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="424.67" cy="363.96" r="3.45" fill="url(#doccl)"/>
+<circle cx="316" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="326.35" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="336.7" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="347.05" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="398.8" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="409.15" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="419.5" cy="355" r="3.45" fill="url(#doccl)"/>
+<circle cx="310.82" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="321.17" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="331.52" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="341.88" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="352.22" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="362.57" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="372.92" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="383.27" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="393.62" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="403.97" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="414.32" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="424.67" cy="346.04" r="3.45" fill="url(#doccl)"/>
+<circle cx="316" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="326.35" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="336.7" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="347.05" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="398.8" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="409.15" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="419.5" cy="337.07" r="3.45" fill="url(#doccl)"/>
+<circle cx="321.17" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="331.52" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="341.88" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="352.22" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="362.57" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="372.92" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="383.27" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="393.62" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="403.97" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="414.32" cy="328.11" r="3.45" fill="url(#doccl)"/>
+<circle cx="326.35" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="336.7" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="347.05" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="398.8" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="409.15" cy="319.15" r="3.45" fill="url(#doccl)"/>
+<circle cx="331.52" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="341.88" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="352.22" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="362.57" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="372.92" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="383.27" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="393.62" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="403.97" cy="310.18" r="3.45" fill="url(#doccl)"/>
+<circle cx="347.05" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="357.4" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="367.75" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="378.1" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<circle cx="388.45" cy="301.22" r="3.45" fill="url(#doccl)"/>
+<path d="M207.9 419.4 L286.1 419.4 L286.1 361.9 A39.1 39.1 0 0 0 207.9 361.9 Z" fill="url(#docmp)" stroke="#8a6a40" stroke-width="1.2"/>
+<path d="M211.35 415.95 L282.65 415.95 L282.65 361.9 A35.65 35.65 0 0 0 211.35 361.9 Z" fill="none" stroke="#b8935e" stroke-width=".8"/>
+<clipPath id="docwin"><path d="M219.4 407.9 L274.6 407.9 L274.6 361.9 A27.6 27.6 0 0 0 219.4 361.9 Z"/></clipPath>
+<path d="M219.4 407.9 L274.6 407.9 L274.6 361.9 A27.6 27.6 0 0 0 219.4 361.9 Z" fill="url(#docgl)" stroke="#5c3d1e" stroke-width="1"/>
+<g clip-path="url(#docwin)"><rect x="233.31" y="342.75" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="243.09" y="352.53" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="243.09" y="332.98" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="252.86" y="362.3" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="252.86" y="342.75" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="252.86" y="332.98" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="262.64" y="362.3" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="262.64" y="342.75" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="262.64" y="332.98" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><g filter="url(#docblur)"><rect x="223.54" y="401.4" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="223.54" y="391.63" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="223.54" y="381.85" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="223.54" y="372.08" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="223.54" y="362.3" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="223.54" y="352.53" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/><rect x="223.54" y="342.75" width="7.82" height="7.82" rx="1.5" fill="#f0441e"/><rect x="223.54" y="332.98" width="7.82" height="7.82" rx="1.5" fill="#e0301c"/><rect x="233.31" y="401.4" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="233.31" y="391.63" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="233.31" y="381.85" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="233.31" y="372.08" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="233.31" y="362.3" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="233.31" y="352.53" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/><rect x="233.31" y="332.98" width="7.82" height="7.82" rx="1.5" fill="#e0301c"/><rect x="243.09" y="401.4" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="243.09" y="391.63" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="243.09" y="381.85" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="243.09" y="372.08" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="243.09" y="362.3" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="243.09" y="342.75" width="7.82" height="7.82" rx="1.5" fill="#f0441e"/><rect x="252.86" y="401.4" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="252.86" y="391.63" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="252.86" y="381.85" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="252.86" y="372.08" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="252.86" y="352.53" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/><rect x="262.64" y="401.4" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="262.64" y="391.63" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="262.64" y="381.85" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="262.64" y="372.08" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="262.64" y="352.53" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/></g><rect x="223.54" y="401.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="223.54" y="391.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="223.54" y="381.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="223.54" y="372.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="223.54" y="362.3" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="223.54" y="352.53" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/><rect x="223.54" y="342.75" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#f0441e"/><rect x="223.54" y="332.98" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#e0301c"/><rect x="233.31" y="401.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="233.31" y="391.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="233.31" y="381.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="233.31" y="372.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="233.31" y="362.3" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="233.31" y="352.53" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/><rect x="233.31" y="332.98" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#e0301c"/><rect x="243.09" y="401.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="243.09" y="391.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="243.09" y="381.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="243.09" y="372.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="243.09" y="362.3" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="243.09" y="342.75" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#f0441e"/><rect x="252.86" y="401.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="252.86" y="391.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="252.86" y="381.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="252.86" y="372.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="252.86" y="352.53" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/><rect x="262.64" y="401.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="262.64" y="391.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="262.64" y="381.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="262.64" y="372.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="262.64" y="352.53" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/></g>
+<circle cx="201" cy="437" r="18.97" fill="#000" opacity=".25"/>
+<circle cx="201" cy="435.5" r="18.97" fill="#1b4796"/>
+<circle cx="201" cy="434.5" r="13.8" fill="#2f6fd6"/>
+<ellipse cx="198" cy="430.5" rx="6.9" ry="4.02" fill="#fff" opacity=".35"/>
+<circle cx="247" cy="437" r="18.97" fill="#000" opacity=".25"/>
+<circle cx="247" cy="435.5" r="18.97" fill="#1c7a3d"/>
+<circle cx="247" cy="434.5" r="13.8" fill="#2fae5a"/>
+<ellipse cx="244" cy="430.5" rx="6.9" ry="4.02" fill="#fff" opacity=".35"/>
+<circle cx="293" cy="437" r="18.97" fill="#000" opacity=".25"/>
+<circle cx="293" cy="435.5" r="18.97" fill="#b58e0c"/>
+<circle cx="293" cy="434.5" r="13.8" fill="#f2c31b"/>
+<ellipse cx="290" cy="430.5" rx="6.9" ry="4.02" fill="#fff" opacity=".35"/>
+<path d="M162.25 220.57 L181.56 208.61 L181.56 93.61 L162.25 105.57 Z" fill="#c9a874" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M140.39 105.57 L162.25 105.57 L181.56 93.61 L159.71 93.61 Z" fill="#f6e8cc" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M140.39 220.57 L162.25 220.57 L162.25 105.57 L140.39 105.57 Z" fill="url(#docmp)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M416.39 220.57 L435.71 208.61 L435.71 93.61 L416.39 105.57 Z" fill="#c9a874" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M394.54 105.57 L416.39 105.57 L435.71 93.61 L413.87 93.61 Z" fill="#f6e8cc" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M394.54 220.57 L416.39 220.57 L416.39 105.57 L394.54 105.57 Z" fill="url(#docmp)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M326.81 219.07 L341.3 210.1 L341.3 164.1 L326.81 173.07 Z" fill="#c7821f" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M234.81 173.07 L326.81 173.07 L341.3 164.1 L249.3 164.1 Z" fill="#f6c46a" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M234.81 219.07 L326.81 219.07 L326.81 173.07 L234.81 173.07 Z" fill="#e9a23b" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="246.31" y="182.27" width="69" height="27.6" rx="4" fill="#fff2cf" opacity=".9"/>
+<path d="M272.81 200.07 q8 -16 16 0 M277.81 194.07 l0 8" stroke="#b4661a" stroke-width="2" fill="none" stroke-linecap="round"/>
+<line x1="150.05" y1="117.99" x2="426.05" y2="117.99" stroke="#7a5a32" stroke-width="30.75" stroke-linecap="butt"/>
+<line x1="150.05" y1="117.99" x2="426.05" y2="117.99" stroke="#d6b582" stroke-width="28.75" stroke-linecap="butt"/>
+<line x1="150.05" y1="112.24" x2="426.05" y2="112.24" stroke="#f1dfbd" stroke-width="8.05" stroke-linecap="butt"/>
+<line x1="150.05" y1="127.19" x2="426.05" y2="127.19" stroke="#b08a58" stroke-width="5.75" stroke-linecap="butt"/>
+<path d="M416.39 220.57 L435.71 208.61 L435.71 93.61 L416.39 105.57 Z" fill="#c9a874" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M394.54 105.57 L416.39 105.57 L435.71 93.61 L413.87 93.61 Z" fill="#f6e8cc" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M394.54 220.57 L416.39 220.57 L416.39 105.57 L394.54 105.57 Z" fill="url(#docmp)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="405.47" cy="123.97" r="5.75" fill="#c08f55" stroke="#7a5a32" stroke-width=".8"/>
+<path d="M435.25 214.59 L435.25 185.84 A25.3 9.61 0 0 0 485.85 185.84 L485.85 214.59 A25.3 9.61 0 0 1 435.25 214.59 Z" fill="url(#docal)" stroke="#555b62" stroke-width="1"/>
+<line x1="435.57" y1="188.84" x2="435.57" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="436.49" y1="188.84" x2="436.49" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="438.01" y1="188.84" x2="438.01" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="440.09" y1="188.84" x2="440.09" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="442.67" y1="188.84" x2="442.67" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="445.68" y1="188.84" x2="445.68" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="449.07" y1="188.84" x2="449.07" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="452.74" y1="188.84" x2="452.74" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="456.6" y1="188.84" x2="456.6" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="460.55" y1="188.84" x2="460.55" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="464.51" y1="188.84" x2="464.51" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="468.37" y1="188.84" x2="468.37" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="472.04" y1="188.84" x2="472.04" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="475.43" y1="188.84" x2="475.43" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="478.44" y1="188.84" x2="478.44" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="481.02" y1="188.84" x2="481.02" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="483.1" y1="188.84" x2="483.1" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="484.62" y1="188.84" x2="484.62" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="485.54" y1="188.84" x2="485.54" y2="213.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<ellipse cx="460.55" cy="185.84" rx="25.3" ry="9.61" fill="#d9dde1" stroke="#555b62" stroke-width="1"/>
+<line x1="460.55" y1="185.84" x2="460.55" y2="178.22" stroke="#333" stroke-width="2" stroke-linecap="round"/></svg><figcaption>As documented: 360 × 200, 48 × 64 semicircular arch, Ø115 grilles, top-mounted handle over the slot, stick-on feet. Note the missing top-corner pixels.</figcaption></figure>
+<figure><svg viewBox="0 0 560 560" class="look" role="img" aria-label="With suggested tweaks (220 high, taller arch over the full field, Ø96 grilles in maple rings, painted fascia, side handle, plinth runners)" xmlns="http://www.w3.org/2000/svg"><title>With suggested tweaks (220 high, taller arch over the full field, Ø96 grilles in maple rings, painted fascia, side handle, plinth runners)</title><defs>
+<linearGradient id="tweakwf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecd3a6"/><stop offset=".55" stop-color="#dcb983"/><stop offset="1" stop-color="#cfa56c"/></linearGradient>
+<linearGradient id="tweakws" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c39560"/><stop offset="1" stop-color="#a9784a"/></linearGradient>
+<linearGradient id="tweakwt" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f1dcb5"/><stop offset="1" stop-color="#e2c494"/></linearGradient>
+<linearGradient id="tweakmp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f3e2c0"/><stop offset="1" stop-color="#d9bd8c"/></linearGradient>
+<linearGradient id="tweakdw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4e3c3"/><stop offset=".5" stop-color="#dcbf8d"/><stop offset="1" stop-color="#b89262"/></linearGradient>
+<linearGradient id="tweakal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8e949b"/><stop offset=".35" stop-color="#e9ecef"/><stop offset=".6" stop-color="#b8bec5"/><stop offset="1" stop-color="#70767d"/></linearGradient>
+<radialGradient id="tweakcl" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#4a3626"/><stop offset="1" stop-color="#221811"/></radialGradient>
+<radialGradient id="tweakgl" cx=".5" cy=".6" r=".7"><stop offset="0" stop-color="#5a2a0c"/><stop offset="1" stop-color="#241208"/></radialGradient>
+<filter id="tweakblur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter>
+<filter id="tweaksoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+<filter id="tweakshadow" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<ellipse cx="304.5" cy="485.5" rx="264.5" ry="18.4" fill="#000" opacity=".18" filter="url(#tweakshadow)"/>
+<path d="M89.86 481.41 L164.25 435.36 L164.25 421.56 L89.86 467.61 Z" fill="#55341d" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M57.66 467.61 L89.86 467.61 L164.25 421.56 L132.05 421.56 Z" fill="#7a5032" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M57.66 481.41 L89.86 481.41 L89.86 467.61 L57.66 467.61 Z" fill="#6b4428" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M444.06 481.41 L518.45 435.36 L518.45 421.56 L444.06 467.61 Z" fill="#55341d" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M411.86 467.61 L444.06 467.61 L518.45 421.56 L486.25 421.56 Z" fill="#7a5032" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M411.86 481.41 L444.06 481.41 L444.06 467.61 L411.86 467.61 Z" fill="#6b4428" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M93.13 264.61 L112.45 252.65 L112.45 68.65 L93.13 80.61 Z" fill="#c9a874" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M71.28 80.61 L93.13 80.61 L112.45 68.65 L90.6 68.65 Z" fill="#f6e8cc" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M71.28 264.61 L93.13 264.61 L93.13 80.61 L71.28 80.61 Z" fill="url(#tweakmp)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M454 470 L536.11 419.17 L536.11 166.17 L454 217 Z" fill="url(#tweakws)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M40 217 L454 217 L536.11 166.17 L122.11 166.17 Z" fill="url(#tweakwt)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M40 470 L454 470 L454 217 L40 217 Z" fill="url(#tweakwf)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="454" y1="441.89" x2="456.9" y2="440.09" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="413.78" x2="456.9" y2="411.98" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="385.67" x2="456.9" y2="383.87" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="357.56" x2="456.9" y2="355.76" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="329.44" x2="456.9" y2="327.65" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="301.33" x2="456.9" y2="299.54" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="273.22" x2="456.9" y2="271.43" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<line x1="454" y1="245.11" x2="456.9" y2="243.32" stroke="#9c7046" stroke-width=".6" opacity=".6"/>
+<rect x="58.4" y="235.4" width="377.2" height="216.2" rx="11.5" fill="#2f5b57" stroke="#1f3d3a" stroke-width="1.2"/>
+<rect x="61.4" y="238.4" width="371.2" height="210.2" rx="9.2" fill="none" stroke="#467c76" stroke-width=".8"/>
+<circle cx="126.25" cy="334.3" r="64.4" fill="url(#tweakmp)" stroke="#8a6a40" stroke-width="1"/>
+<circle cx="126.25" cy="334.3" r="57.5" fill="none" stroke="#b8935e" stroke-width=".8"/>
+<circle cx="126.25" cy="334.3" r="55.2" fill="#2f5b57" stroke="#9c7650" stroke-width=".6"/>
+<circle cx="110.72" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="121.07" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="131.43" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="141.77" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="95.2" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="105.55" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="115.9" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="126.25" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="136.6" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="146.95" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="157.3" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="90.03" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="100.38" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="110.72" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="121.07" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="131.43" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="141.77" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="152.12" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="162.47" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="84.85" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="95.2" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="105.55" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="115.9" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="126.25" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="136.6" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="146.95" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="157.3" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="167.65" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="79.67" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="90.03" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="100.38" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="110.72" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="121.07" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="131.43" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="141.77" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="152.12" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="162.47" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="172.82" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="84.85" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="95.2" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="105.55" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="115.9" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="126.25" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="136.6" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="146.95" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="157.3" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="167.65" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="79.67" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="90.03" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="100.38" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="110.72" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="121.07" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="131.43" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="141.77" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="152.12" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="162.47" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="172.82" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="84.85" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="95.2" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="105.55" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="115.9" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="126.25" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="136.6" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="146.95" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="157.3" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="167.65" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="90.03" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="100.38" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="110.72" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="121.07" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="131.43" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="141.77" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="152.12" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="162.47" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="95.2" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="105.55" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="115.9" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="126.25" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="136.6" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="146.95" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="157.3" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="110.72" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="121.07" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="131.43" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="141.77" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="367.75" cy="334.3" r="64.4" fill="url(#tweakmp)" stroke="#8a6a40" stroke-width="1"/>
+<circle cx="367.75" cy="334.3" r="57.5" fill="none" stroke="#b8935e" stroke-width=".8"/>
+<circle cx="367.75" cy="334.3" r="55.2" fill="#2f5b57" stroke="#9c7650" stroke-width=".6"/>
+<circle cx="352.22" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="362.57" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="372.92" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="383.27" cy="379.12" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="336.7" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="347.05" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="357.4" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="367.75" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="378.1" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="388.45" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="398.8" cy="370.15" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="331.52" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="341.88" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="352.22" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="362.57" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="372.92" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="383.27" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="393.62" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="403.97" cy="361.19" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="326.35" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="336.7" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="347.05" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="357.4" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="367.75" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="378.1" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="388.45" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="398.8" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="409.15" cy="352.23" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="321.17" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="331.52" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="341.88" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="352.22" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="362.57" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="372.92" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="383.27" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="393.62" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="403.97" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="414.32" cy="343.26" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="326.35" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="336.7" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="347.05" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="357.4" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="367.75" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="378.1" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="388.45" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="398.8" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="409.15" cy="334.3" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="321.17" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="331.52" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="341.88" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="352.22" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="362.57" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="372.92" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="383.27" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="393.62" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="403.97" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="414.32" cy="325.34" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="326.35" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="336.7" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="347.05" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="357.4" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="367.75" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="378.1" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="388.45" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="398.8" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="409.15" cy="316.37" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="331.52" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="341.88" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="352.22" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="362.57" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="372.92" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="383.27" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="393.62" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="403.97" cy="307.41" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="336.7" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="347.05" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="357.4" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="367.75" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="378.1" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="388.45" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="398.8" cy="298.45" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="352.22" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="362.57" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="372.92" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<circle cx="383.27" cy="289.48" r="3.45" fill="url(#tweakcl)"/>
+<path d="M205.6 394.1 L288.4 394.1 L288.4 315.9 A41.4 41.4 0 0 0 205.6 315.9 Z" fill="url(#tweakmp)" stroke="#8a6a40" stroke-width="1.2"/>
+<path d="M209.05 390.65 L284.95 390.65 L284.95 315.9 A37.95 37.95 0 0 0 209.05 315.9 Z" fill="none" stroke="#b8935e" stroke-width=".8"/>
+<clipPath id="tweakwin"><path d="M217.1 382.6 L276.9 382.6 L276.9 315.9 A29.9 29.9 0 0 0 217.1 315.9 Z"/></clipPath>
+<path d="M217.1 382.6 L276.9 382.6 L276.9 315.9 A29.9 29.9 0 0 0 217.1 315.9 Z" fill="url(#tweakgl)" stroke="#5c3d1e" stroke-width="1"/>
+<g clip-path="url(#tweakwin)"><ellipse cx="247" cy="306.7" rx="20.7" ry="10.35" fill="#ffb347" opacity=".55" filter="url(#tweaksoft)"/><rect x="233.31" y="312.85" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="243.09" y="322.63" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="243.09" y="303.08" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="252.86" y="332.4" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="252.86" y="312.85" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="252.86" y="303.08" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="262.64" y="332.4" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="262.64" y="312.85" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><rect x="262.64" y="303.08" width="7.82" height="7.82" rx="1.5" fill="#3a1d0b"/><g filter="url(#tweakblur)"><rect x="223.54" y="371.5" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="223.54" y="361.73" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="223.54" y="351.95" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="223.54" y="342.18" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="223.54" y="332.4" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="223.54" y="322.63" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/><rect x="223.54" y="312.85" width="7.82" height="7.82" rx="1.5" fill="#f0441e"/><rect x="223.54" y="303.08" width="7.82" height="7.82" rx="1.5" fill="#e0301c"/><rect x="233.31" y="371.5" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="233.31" y="361.73" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="233.31" y="351.95" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="233.31" y="342.18" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="233.31" y="332.4" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="233.31" y="322.63" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/><rect x="233.31" y="303.08" width="7.82" height="7.82" rx="1.5" fill="#e0301c"/><rect x="243.09" y="371.5" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="243.09" y="361.73" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="243.09" y="351.95" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="243.09" y="342.18" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="243.09" y="332.4" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="243.09" y="312.85" width="7.82" height="7.82" rx="1.5" fill="#f0441e"/><rect x="252.86" y="371.5" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="252.86" y="361.73" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="252.86" y="351.95" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="252.86" y="342.18" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="252.86" y="322.63" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/><rect x="262.64" y="371.5" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="262.64" y="361.73" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="262.64" y="351.95" width="7.82" height="7.82" rx="1.5" fill="#ffb32c"/><rect x="262.64" y="342.18" width="7.82" height="7.82" rx="1.5" fill="#ff8a1c"/><rect x="262.64" y="322.63" width="7.82" height="7.82" rx="1.5" fill="#ff6a14"/></g><rect x="223.54" y="371.5" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="223.54" y="361.73" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="223.54" y="351.95" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="223.54" y="342.18" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="223.54" y="332.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="223.54" y="322.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/><rect x="223.54" y="312.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#f0441e"/><rect x="223.54" y="303.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#e0301c"/><rect x="233.31" y="371.5" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="233.31" y="361.73" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="233.31" y="351.95" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="233.31" y="342.18" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="233.31" y="332.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="233.31" y="322.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/><rect x="233.31" y="303.08" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#e0301c"/><rect x="243.09" y="371.5" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="243.09" y="361.73" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="243.09" y="351.95" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="243.09" y="342.18" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="243.09" y="332.4" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="243.09" y="312.85" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#f0441e"/><rect x="252.86" y="371.5" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="252.86" y="361.73" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="252.86" y="351.95" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="252.86" y="342.18" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="252.86" y="322.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/><rect x="262.64" y="371.5" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="262.64" y="361.73" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="262.64" y="351.95" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ffb32c"/><rect x="262.64" y="342.18" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff8a1c"/><rect x="262.64" y="322.63" width="7.82" height="7.82" rx="1.5" opacity=".75" fill="#ff6a14"/></g>
+<circle cx="201" cy="427.8" r="18.97" fill="#000" opacity=".25"/>
+<circle cx="201" cy="426.3" r="18.97" fill="#1b4796"/>
+<circle cx="201" cy="425.3" r="13.8" fill="#2f6fd6"/>
+<ellipse cx="198" cy="421.3" rx="6.9" ry="4.02" fill="#fff" opacity=".35"/>
+<circle cx="247" cy="427.8" r="18.97" fill="#000" opacity=".25"/>
+<circle cx="247" cy="426.3" r="18.97" fill="#1c7a3d"/>
+<circle cx="247" cy="425.3" r="13.8" fill="#2fae5a"/>
+<ellipse cx="244" cy="421.3" rx="6.9" ry="4.02" fill="#fff" opacity=".35"/>
+<circle cx="293" cy="427.8" r="18.97" fill="#000" opacity=".25"/>
+<circle cx="293" cy="426.3" r="18.97" fill="#b58e0c"/>
+<circle cx="293" cy="425.3" r="13.8" fill="#f2c31b"/>
+<ellipse cx="290" cy="421.3" rx="6.9" ry="4.02" fill="#fff" opacity=".35"/>
+<path d="M321.98 199.06 L336.47 190.09 L336.47 144.09 L321.98 153.06 Z" fill="#c7821f" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M229.98 153.06 L321.98 153.06 L336.47 144.09 L244.47 144.09 Z" fill="#f6c46a" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M229.98 199.06 L321.98 199.06 L321.98 153.06 L229.98 153.06 Z" fill="#e9a23b" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="241.48" y="162.26" width="69" height="27.6" rx="4" fill="#fff2cf" opacity=".9"/>
+<path d="M267.98 180.06 q8 -16 16 0 M272.98 174.06 l0 8" stroke="#b4661a" stroke-width="2" fill="none" stroke-linecap="round"/>
+<line x1="80.94" y1="93.03" x2="538.64" y2="93.03" stroke="#7a5a32" stroke-width="30.75" stroke-linecap="butt"/>
+<line x1="80.94" y1="93.03" x2="538.64" y2="93.03" stroke="#d6b582" stroke-width="28.75" stroke-linecap="butt"/>
+<line x1="80.94" y1="87.28" x2="538.64" y2="87.28" stroke="#f1dfbd" stroke-width="8.05" stroke-linecap="butt"/>
+<line x1="80.94" y1="102.23" x2="538.64" y2="102.23" stroke="#b08a58" stroke-width="5.75" stroke-linecap="butt"/>
+<path d="M528.98 264.61 L548.3 252.65 L548.3 68.65 L528.98 80.61 Z" fill="#c9a874" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M507.13 80.61 L528.98 80.61 L548.3 68.65 L526.45 68.65 Z" fill="#f6e8cc" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M507.13 264.61 L528.98 264.61 L528.98 80.61 L507.13 80.61 Z" fill="url(#tweakmp)" stroke="#3a2a18" stroke-width="1.2" stroke-linejoin="round"/>
+<circle cx="542.64" cy="231.63" r="3" fill="#7a5a32"/>
+<circle cx="542.64" cy="197.13" r="3" fill="#7a5a32"/>
+<path d="M412.25 191.59 L412.25 162.83 A25.3 9.61 0 0 0 462.85 162.83 L462.85 191.59 A25.3 9.61 0 0 1 412.25 191.59 Z" fill="url(#tweakal)" stroke="#555b62" stroke-width="1"/>
+<line x1="412.57" y1="165.83" x2="412.57" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="413.49" y1="165.83" x2="413.49" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="415.01" y1="165.83" x2="415.01" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="417.09" y1="165.83" x2="417.09" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="419.67" y1="165.83" x2="419.67" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="422.68" y1="165.83" x2="422.68" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="426.07" y1="165.83" x2="426.07" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="429.74" y1="165.83" x2="429.74" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="433.6" y1="165.83" x2="433.6" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="437.55" y1="165.83" x2="437.55" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="441.51" y1="165.83" x2="441.51" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="445.37" y1="165.83" x2="445.37" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="449.04" y1="165.83" x2="449.04" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="452.43" y1="165.83" x2="452.43" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="455.44" y1="165.83" x2="455.44" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="458.02" y1="165.83" x2="458.02" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="460.1" y1="165.83" x2="460.1" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="461.62" y1="165.83" x2="461.62" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<line x1="462.54" y1="165.83" x2="462.54" y2="190.59" stroke="#6b7178" stroke-width=".5" opacity=".6"/>
+<ellipse cx="437.55" cy="162.83" rx="25.3" ry="9.61" fill="#d9dde1" stroke="#555b62" stroke-width="1"/>
+<line x1="437.55" y1="162.83" x2="437.55" y2="155.22" stroke="#333" stroke-width="2" stroke-linecap="round"/></svg><figcaption>Suggested: 360 × 220, 52 × 84 window with the arch above the full field and a glowing crown, Ø96 grilles in maple rings, painted fascia, side-mounted handle behind the slot, hardwood plinth runners.</figcaption></figure>
+</div>
+
+<h2>3. Tolerances and clearances</h2>
+<p>All values in mm. "Assumed" means the docs don't give it; check it on the real part.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Fit</th><th>Nominal</th><th>Tolerance / stack-up</th><th>Source</th><th>Status</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><b>Slot width (x) vs cartridge width</b></td><td>84 slot / 80 cart = 2.0 per side</td><td>Slot ±0.3 (router template), cart ±0.3 → 1.7–2.3 per side</td><td>Slot design; The cartridge</td><td><span class="pill p-ok">OK</span></td><td>Comfortable. The 45° lip funnels small hands.</td></tr><tr class="flag"><td><b>Slot thickness (y) vs cartridge thickness</b></td><td>34 slot / 30 cart = 2.0 per side</td><td>As laminated, 19 + 12 = 31 mm (31.75 with ¾″ + ½″ stock) → 1.1–1.5 per side, less after finish and humid swelling</td><td>Slot design; Three ways (19 + 12 mm); assumed stock sizes</td><td><span class="pill p-flag">Flag</span></td><td>Plane each block to 30.0 after glue-up, or laminate 2 × 15 mm.</td></tr><tr><td><b>Insertion depth (z)</b></td><td>12 top + 48 sleeve = 60 in, 40 proud</td><td>Sleeve floor ±0.5; chamfer lip (assumed 4 mm) does not change depth</td><td>Inside the radio: Slot; Cut list (sleeve 96 × 48)</td><td><span class="pill p-ok">OK</span></td><td>Tag (Ø35 at 33 up) spans 9.5–44.5 mm below the top face, fully inside.</td></tr><tr class="tight"><td><b>Click detent</b></td><td>Spring bump in slot wall → groove on each cartridge face</td><td>Undimensioned. With 4 mm total play a fixed bump can't engage; needs a flexure that is ≥5 mm proud when free (assumed 1.5 mm groove)</td><td>Slot design (presence sensing); assumed</td><td><span class="pill p-tight">Tight</span></td><td>Put the flexure on the <b>front</b> wall so it pushes the block onto the PN532 wall (gap 21 mm). Make it integral with the HDPE or sleeve so it can't come loose.</td></tr><tr class="flag"><td><b>Tag → PN532 read gap</b></td><td>15 + 2 + 6 = 23</td><td>21–25 with play; 20 or 27 with the 19/12 lamination</td><td>Slot design (23); hardware.md §5 target ≤20</td><td><span class="pill p-flag">Flag</span></td><td>Exceeds the hardware target. Bench test E3 at 27 mm, the worst case.</td></tr><tr><td><b>Tag height vs antenna centre</b></td><td>Tag centre 27 below top face; board centre ≥32 below</td><td>≈5 mm vertical offset (antenna position on board varies)</td><td>The cartridge; assumed HiLetgo V3 43 × 40 board</td><td><span class="pill p-ok">OK</span></td><td>Mount the board as high as the top panel allows.</td></tr><tr class="tight"><td><b>≥30 mm metal-free zone around PN532</b></td><td>≥30 in all directions</td><td>HDPE-insert screws at the insert corners land ≈29 mm away; detent must be non-metal; LED shield ≈75 mm (depth); drivers ≈80; Pi/Amp4 ≥55 below</td><td>hardware.md §5; Concept A notes; HDPE insert (assumed 120 × 70)</td><td><span class="pill p-tight">Tight</span></td><td>Use nylon screws or screw the insert along its front edge only.</td></tr><tr class="flag"><td><b>Arcade button hole (×3)</b></td><td>28 mm (cut list) or 30 mm (hardware hole-cutting list)</td><td>Bought Adafruit #3490/#3487/#3488. Snap or nut thread assumed to suit thin panels (≲8 mm), not 12 mm ply</td><td>Cut list (Front); hardware.md Hole cutting; assumed</td><td><span class="pill p-flag">Flag</span></td><td>Measure a button, test in scrap, counterbore the back of the front to the thread length.</td></tr><tr><td><b>Power button hole</b></td><td>19 mm (+0.2 to +0.5)</td><td>6 mm cover is within typical anti-vandal thread length; body ≈45 mm deep (assumed)</td><td>hardware.md E8; shopping.md (APIELE 19 mm)</td><td><span class="pill p-ok">OK</span></td><td>Place it behind a speaker chamber, not in the bay, or it meets the Pi stack.</td></tr><tr class="flag"><td><b>USB-C port</b></td><td>Panel mount, 21.5–27 mm hole, recessed 10 mm</td><td>A 10 mm pocket can't be cut in a 6 mm cover</td><td>hardware.md E6; Concept A back panel</td><td><span class="pill p-flag">Flag</span></td><td>Glue a 12 mm boss behind the cover, or put the port in the 12 mm back panel below the opening.</td></tr><tr class="flag"><td><b>LED window vs LED field</b></td><td>Window 48 W × 64 H (arched) vs field 42.5 × 68 cells at 8.5 pitch</td><td>Field is 4 mm taller than the window. The semicircular arch hides 2 LEDs and clips 2 more (EQ peak dots of bands 1 and 5)</td><td>LED display: Look; pitch ~8.5 unverified</td><td><span class="pill p-flag">Flag</span></td><td>Size the window from the measured pitch; put the arch above the field (see critique 3).</td></tr><tr><td><b>Shield board behind window</b></td><td>68.9 × 53.4 board vs 64 × 48 window</td><td>2.5 per side margin for mounting tabs (±0.5)</td><td>hardware.md E12</td><td><span class="pill p-ok">OK</span></td><td>Board covers the window. Mount on printed rails, not metal screws, near the top.</td></tr><tr class="tight"><td><b>Speaker cutout vs driver</b></td><td>75 mm hole saw (3″ = 76) for PC83-4</td><td>PC83-4 frame ≈83, cutout ≈72–73 (assumed; check spec sheet). 76 mm leaves ≈3.5 mm of land; mounting holes may break out</td><td>hardware.md Hole cutting; Inside the radio (Ø75)</td><td><span class="pill p-tight">Tight</span></td><td>Use the datasheet cutout (fly cutter or router circle jig).</td></tr><tr class="tight"><td><b>Grille field vs chamber</b></td><td>Ø115 grille, chamber 110 internal</td><td>Grille overruns the chamber; with drivers 210 apart it reaches 17.5 mm from the box edge (8 mm flat after a 9.5 roundover)</td><td>Inside the radio: Speakers</td><td><span class="pill p-tight">Tight</span></td><td>Reduce to Ø96–100 (see critique 6).</td></tr><tr><td><b>Grille hole size vs fingers / pencils</b></td><td>Ø6 holes, steel mesh behind</td><td>Pencil ≈7 mm can't pass; a sharpened tip or skewer is stopped by the mesh</td><td>Safety checklist; Concept A Grilles</td><td><span class="pill p-ok">OK</span></td><td>Countersink each hole lightly to avoid splinters.</td></tr><tr class="tight"><td><b>Vent hole size (bottom, cover)</b></td><td>Ø6, no mesh</td><td>A stick or hairpin reaches the electronics (15 V, so a damage risk, not a shock risk)</td><td>Heat and airflow; assumed</td><td><span class="pill p-tight">Tight</span></td><td>Use Ø5 holes or put mesh behind the cover vents.</td></tr><tr class="tight"><td><b>Encoder stack-up</b></td><td>Shaft 20 from mount face; web 3.5; nut + washer 3; → 13.5 mm above nut</td><td>Bushing thread ≈7 mm (assumed) so web must be ≤4; knob bore ≈15 deep (assumed) → ≈12 mm engaged, skirt ≈1.5 mm off the panel. Without counterbore: ≈5 mm, fail</td><td>Inside the radio: Knob; hardware.md E10/E11</td><td><span class="pill p-tight">Tight</span></td><td>Counterbore Ø25 × 8.5 deep from below. Check the PEC11R datasheet before drilling.</td></tr><tr class="flag"><td><b>Handle clearance</b></td><td>Upright 70 (cut list) or +100 handle (size table)</td><td>With 70 mm uprights the dowel underside is ≈31 mm above the top: the 40 mm-proud cartridge hits it. With +100 it's ≈71.5 mm, but the dowel sits over the slot</td><td>Cut list; Concept B size; Inside the radio: Handle</td><td><span class="pill p-flag">Flag</span></td><td>Offset dowel ≥28 mm behind the cartridge (see critique 1).</td></tr><tr class="flag"><td><b>Knob to handle upright</b></td><td>8 mm gap</td><td>A finger-sized gap next to a turning knob</td><td>Derived from the dowel (240) and knob (Ø44) positions; assumed knob centre at x = 330</td><td><span class="pill p-flag">Flag</span></td><td>Keep the gap ≥25 mm or move the uprights.</td></tr><tr><td><b>Sled in bay</b></td><td>95 sled in ≈104 bay (docs: ~100)</td><td>2.5–4.5 per side; 6 mm ply is often 5.5–5.8 thick, so cut grooves to measured stock</td><td>Cut list; Heat and airflow; derived bay</td><td><span class="pill p-ok">OK</span></td><td>Width is fine. Length is not: see next row.</td></tr><tr class="flag"><td><b>Sled length vs front controls</b></td><td>140 sled in 146 depth → front edge 18 mm behind face</td><td>Button body + switch reach ≈64 mm behind the face at z 15–45</td><td>Cut list; assumed button depth</td><td><span class="pill p-flag">Flag</span></td><td>Shorten the sled to ≈95 mm or raise it on runners above the button bodies.</td></tr><tr><td><b>Pi 4 + Amp4 stack height</b></td><td>6 sled + 10 standoff + ≈35 stack + ≈5 tall header + ≈15 plugs → top ≈83 above outer bottom</td><td>Space to the drain tube ≈120 → ≈35 mm margin</td><td>Inside the radio; Heat and airflow; assumed header/plug heights</td><td><span class="pill p-ok">OK</span></td><td>Orient the Pi lengthwise (56 wide) to leave room for buck and PD trigger.</td></tr><tr class="flag"><td><b>Service opening vs sled</b></td><td>Opening position not specified (assumed z 22–142)</td><td>Sled sits at z 12–18 so it can't slide out over a sill at 22</td><td>Cut list (Back, Electronics sled); assumed</td><td><span class="pill p-flag">Flag</span></td><td>Raise the sled on 12 mm runners (also an inlet plenum) or drop the sill.</td></tr><tr class="tight"><td><b>Service cover overlap</b></td><td>280 × 140 cover on 260 × 120 opening = 10 mm</td><td>M3 insert (~4.5 OD) centred 5 mm out leaves ≈2.7 mm wood each side</td><td>Cut list; fasteners in hardware.md</td><td><span class="pill p-tight">Tight</span></td><td>Make the cover 290 × 150 (15 mm lap).</td></tr><tr class="tight"><td><b>Joint / rabbet allowance</b></td><td>Cut list sizes are butt-joint sizes (sides 146, top/bottom 336 × 146)</td><td>Rabbets of 6 deep add 12 mm: sides 158, top/bottom 348 × 158. Real "12 mm" Baltic birch is 11.5–12.0</td><td>Concept B (rabbet joints); Cut list</td><td><span class="pill p-tight">Tight</span></td><td>Pick a joint, recompute, and cut rabbets to the measured panel.</td></tr><tr><td><b>Edge roundover</b></td><td>3/8″ (9.5 mm) on the front's outside edges</td><td>Safety checklist says 6 mm on all outside edges</td><td>Cut list (Front); Safety checklist</td><td><span class="pill p-ok">OK</span></td><td>Either is safe; 9.5 eats grille margin. Pick one.</td></tr><tr class="flag"><td><b>Small parts (≥31.7 mm)</b></td><td>Cartridge 80 × 100 × 30, knob Ø44 × 25</td><td>Pass. Arcade button plunger (≈24 mm, assumed) and stick-on rubber feet (≈20 × 10) would fit the cylinder if pried off</td><td>Safety checklist; The cartridge; 16 CFR 1501 cylinder</td><td><span class="pill p-flag">Flag</span></td><td>Retain buttons from inside; replace stick-on feet with screwed runners.</td></tr>
+</tbody></table></div>
+
+<h2>4. Critique and suggested adjustments</h2>
+<p>In priority order. Tags: <span class="tag t-look">look</span><span class="tag t-fit">fit</span><span class="tag t-safety">safety</span><span class="tag t-build">build</span></p>
+<ol class="crit">
+<li><span class="tag t-fit">fit</span><span class="tag t-safety">safety</span><b>The handle blocks the cartridge.</b> The dowel runs straight over the slot. A 100 mm cartridge can't drop in vertically under a dowel only ≈71.5 mm up, and with the cut-list 70 mm uprights the proud cartridge would hit it.<br><span class="fix">Suggest: Move the slot 10 mm forward (centre at y = 75) and the dowel back to y = 130. That leaves ≈27 mm between the cartridge's back face and the dowel. Keep the dowel ≥70 mm up so an adult hand fits.</span></li><li><span class="tag t-fit">fit</span><span class="tag t-look">look</span><b>The centre bay front is overcrowded.</b> Reading the 30 mm PN532 rule as a vertical offset puts the window at z 54–118, the buttons at z 30, and leaves a 4 mm flat above the bottom roundover. The button nuts also hit the chamber floors and the sled.<br><span class="fix">Suggest: Treat the 30 mm as 3D clearance: the LED shield is already ≈75 mm in front of the antenna. Then centre the window on the drivers. Also consider +20 mm height (360 × 220, close to the golden ratio), which costs almost nothing.</span></li><li><span class="tag t-look">look</span><b>The arch eats the equaliser.</b> A semicircular top on a 48 mm window hides 2 corner LEDs and clips 2 more: the peak dots of the bass and treble bands disappear.<br><span class="fix">Suggest: Make the window ≈52 × 84 with the arch above the LED field. Let the crown glow as a plain amber "dial lamp". Size it after measuring the real pitch.</span></li><li><span class="tag t-look">look</span><span class="tag t-fit">fit</span><b>Bring the diffuser to the face.</b> Veneer on the back of a 12 mm panel plus a 6 mm bezel is an 18 mm tunnel. A seated toddler looks down ≈30°, so the top row (the peak dots) is shaded by ≈10 mm.<br><span class="fix">Suggest: Glue the veneer into a rebate at the front of the window and chamfer the bezel edge 45°.</span></li><li><span class="tag t-safety">safety</span><b>Replace the stick-on feet.</b> Jamie peels stickers, and 20 mm rubber feet are small parts.<br><span class="fix">Suggest: Glue and screw two hardwood runners (≈28 × 12 mm, full depth) from inside. They read as a radio plinth and keep the 10 mm vent gap.</span></li><li><span class="tag t-look">look</span><span class="tag t-fit">fit</span><b>Shrink the grilles to Ø96–100 and ring them.</b> Ø115 overruns the 110 mm chamber and comes within 8 mm of the roundover.<br><span class="fix">Suggest: Use Ø96 hole fields inside turned or router-cut maple rings (≈110 OD). Rings echo the arch bezel and give the classic cathedral-radio face.</span></li><li><span class="tag t-safety">safety</span><span class="tag t-fit">fit</span><b>Knob, upright and handle loads.</b> The knob sits 8 mm from the right upright: a finger gap next to a turning part. A 6 mm mortise with screws in a 12 mm top is a weak root for a 20 kg hang.<br><span class="fix">Suggest: Mount the uprights on the outside of the end panels (two bolts each, into the 12 mm sides). It's stronger, frees the top for the knob, and looks like a real portable.</span></li><li><span class="tag t-build">build</span><span class="tag t-fit">fit</span><b>Fix the sled and service-cover path.</b> The sled can't slide over the opening's sill, the outlet sits ≈46 mm below the top (a warm pocket), and the 10 mm USB-C recess won't fit a 6 mm cover.<br><span class="fix">Suggest: Raise the sled on 12 mm runners, shorten it to ≈95 mm, make the opening 260 × 150 with its top ≈15 mm under the top panel, and glue a 12 mm boss behind the USB-C.</span></li><li><span class="tag t-fit">fit</span><span class="tag t-build">build</span><b>Make cartridges exactly 30 mm with the tag centred.</b> 19 + 12 mm makes 31 (or 31.75) mm, leaves ≈1.2 mm per side, and puts the tag 12 or 19 mm from a face (gap 20 or 27 mm).<br><span class="fix">Suggest: Resaw or plane ¾″ stock to two 15 mm halves. Batch it with a planer stop. Then the "either way round" promise holds.</span></li><li><span class="tag t-build">build</span><b>Recompute the cut list for the joint you'll cut.</b> The cut list is butt-joint sizes but the build says rabbets. Plywood is under nominal.<br><span class="fix">Suggest: Cut a test rabbet in the real stock, make a story stick, then size the sides and top/bottom (+12 mm for 6 mm rabbets).</span></li><li><span class="tag t-look">look</span><b>Cheap upgrades toward a classic radio.</b> Natural birch alone reads as a nice box rather than a radio.<br><span class="fix">Suggest: Paint an inset fascia (milk paint, deep teal or cream) with natural maple rings and bezel; round the vertical corners harder (12–15 mm) than the face edges; add a routed "JAM" badge, or a single painted "station strip" under the window (no metal near the antenna).</span></li><li><span class="tag t-safety">safety</span><span class="tag t-build">build</span><b>Keep the slot area metal-free and spill-proof.</b> HDPE screws at the insert's back corners land ≈29 mm from the antenna. The drain must exit the box, which here means through the service cover.<br><span class="fix">Suggest: Use nylon screws, a push-fit silicone drain tube to a Ø10 hole in the cover, and run the spill test before the final glue-up.</span></li>
+</ol>
+
+<h2>5. Conflicts between the docs</h2>
+<p>Where these disagree, the drawings follow the 2026-11-27 decisions.</p>
+<ul class="conf"><li><b>Handle height:</b> +100 mm in the size table, concept drawing and "≈310 mm to the top", but the cut list uprights are 70 mm (≈64 mm above the top after a 6 mm mortise).</li><li><b>Button hole:</b> cut list says "usually 28 mm"; hardware.md hole-cutting says a 30 mm Forstner.</li><li><b>Read gap:</b> slot design gives ≈23 mm; hardware.md §5 sets a design target of ≤20 mm.</li><li><b>Cartridge thickness and tag position:</b> spec is 30 mm with the tag at the centre; the recipe is 19 + 12 mm with the tag at the glue line (31 mm thick, tag 12/19 mm from the faces).</li><li><b>Presence sensing:</b> the cartridge table says "Presence is sensed by a microswitch"; the decision log says NFC-only + detent.</li><li><b>Centre bay width:</b> "~100 mm"; geometry gives 104 mm if the box sides are the chambers' outer walls, or 88 mm if each chamber is a separate box centred on its driver (then the 95 mm sled doesn't fit).</li><li><b>Grille vs chamber:</b> Ø115 grille vs 110 mm chamber.</li><li><b>USB-C recess:</b> 10 mm-deep pocket (Concept A, hardware.md E6) vs the Radio's 6 mm service cover.</li><li><b>Roundover:</b> 3/8″ on the front (cut list) vs 6 mm everywhere (safety checklist).</li><li><b>Joinery:</b> "rabbet joints" (Concept B) vs butt-joint part sizes in the cut list.</li><li><b>Slot sleeve depth:</b> slot design still says it hangs 60 mm "into the attic under the ridge cap" (Concept A); the Radio uses 48 mm under a 12 mm top.</li><li><b>PN532 board:</b> E4 names the Adafruit #364, which is out of stock; the HiLetgo V3 was bought. The drawings assume the V3 (≈43 × 40 mm), which fits the 96 × 48 sleeve wall.</li><li><b>Inside-the-radio diagram</b> shows the old "LED 5×8" between chambers at mid-height, while the window rule (≥30 mm below the PN532) pushes it low. The latest decision is drawn.</li></ul>
+
+<h2>6. Open questions for you</h2>
+<ol><li>Is the 30 mm PN532 clearance meant as 3D distance (the LED shield is ≈75 mm away in depth) or as a vertical offset on the face? This decides the whole front layout.</li><li>Handle: 70 mm uprights or a +100 mm handle? Are you open to side-mounted uprights and moving the dowel behind the slot?</li><li>Would +20 mm of height (360 × 220) be acceptable?</li><li>Arch: full semicircle, or a taller window with the arch above the LED field? Is an unlit or softly lit crown OK?</li><li>Which buttons are going in: the Adafruit LED arcade buttons as bought? What's their measured hole and thread length?</li><li>Cartridges: plane to 30 mm with two 15 mm halves, or keep 19 + 12 and widen the slot to 36 mm?</li><li>Finish: natural birch, or a painted fascia? Any colour you already have in mind?</li><li>Feet: OK to swap stick-on rubber feet for screwed hardwood runners?</li><li>Where should the crumb drain exit: through the service cover, or a separate hole in the back panel?</li><li>Can you measure the NeoPixel Shield's LED pitch (or pull it from Adafruit's board files) before the window is cut?</li></ol>
+
+<h2>7. Assumptions made for the drawings</h2>
+<ul><li>Box sides double as the chambers' outer walls (gives the ≈100 mm bay). Chambers are centred vertically (drivers at z = 100) and drivers are 210 mm apart.</li><li>PN532 is the HiLetgo V3 (≈43 × 40 mm), mounted with its top edge under the top panel.</li><li>LED pitch 8.5 mm (doc says unverified). Window arch is a full semicircle (r = 24).</li><li>Arcade button bezel Ø33, body Ø30, nut Ø36, body + switch ≈52 mm deep.</li><li>Handle: uprights 19 × 40, dowel 240 long centred, dowel centre 16 mm below the upright top, uprights centred in depth over the slot.</li><li>Knob centred at x = 330 above the right chamber; encoder bushing ≈7 mm, nut + washer ≈3 mm, knob bore ≈15 mm.</li><li>Service opening centred horizontally at z 22–142 (not specified). Cover 280 × 140 at z 12–152.</li><li>HDPE insert ≈120 × 70 mm with four corner screws; slot chamfer 4 mm.</li><li>Pi + Amp4 stack 35 mm (doc), extra-tall header +5 mm, plugs +15 mm. PC83-4 frame ≈83 mm, cutout ≈72–73 mm.</li><li>Feet Ø20 × 10 mm stick-on rubber, 15 mm in from each corner.</li></ul>
+<p class="meta">Generated for review only. Nothing in the repo docs was changed.</p>
+</main>
+</body>
+</html>

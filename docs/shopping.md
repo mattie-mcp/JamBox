@@ -117,12 +117,12 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | 3 | [Parts Express](https://www.parts-express.com/cart) | 3/3 | $56.94 | $9.95 | $99 | Code EARLYBF15: 15% off $75+, ends 11/26 |
 | 4 | Pololu | **0/1** (D36V28F5 out of stock, backorder only) | n/a | n/a | n/a | Bought on Amazon instead (Cart 6) |
 | 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 2/2 | $3.29 | $8.49 UPS Ground + $0.49 tariff | n/a | Switch and fuse moved to Amazon; level shifter added 11/27 |
-| 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 17/17 lines (18 units) | $214.37 | $4.99 (GetFPV regulator); rest free (Prime) | Prime | SanDisk card not added: 2-card minimum |
+| 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 14 lines (15 units) | $175.23 | $4.99 (GetFPV regulator); rest free (Prime) | Prime | SanDisk card not added: 2-card minimum. PEI sheet, PETG and PLA moved to **Saved for later** on 11/27 (printing comes last) |
 | 7 | [McMaster-Carr](https://www.mcmaster.com/order/) | 3/3 | $30.36 | At checkout | n/a | Perforated sheet not added (24×24" minimum, $54+) |
 | 8 | [Woodcraft](https://www.woodcraft.com/cart) | 4/4 | $121.95 | Free (over $50, through Dec 1) | $50 | Switched from Rockler (cart emptied). Woodcraft of Grand Rapids is local for maple and pickup. Finish and tools not added (see below) |
 | | **hifiberry.com** | comparison only | $64.90 | $38.00 FedEx | | Amp4 left in that cart for comparison; **remove it, don't buy both** |
 
-**In carts: $713.56 of merchandise plus $23.92 of known shipping ≈ $738.** PiShop, Adafruit and McMaster shipping (≈ $25)
+**In carts: $674.42 of merchandise plus $23.92 of known shipping ≈ $698.** PiShop, Adafruit and McMaster shipping (≈ $25)
 and sales tax come on top.
 
 ### Line items
@@ -155,9 +155,9 @@ and sales tax come on top.
 | 6 | 365 Pcs M2.5 Black Nylon Hex Standoff Screw Nut Kit | B0FPMC9917 | $9.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0FPMC9917) |
 | 6 | HANGLIFE Heat-Set Threaded Inserts, M3 x D5 x L4 (100 pcs) | B0CS6VZYL8 | $8.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0CS6VZYL8) |
 | 6 | smseace 100PCS (5 Sizes) Rubber Feet with Washer and Screws | B08PBH875X | $9.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B08PBH875X) |
-| 6 | PEI Flexi Steel Magnetic Build Plate 235×235 (Ender 3 Pro; includes magnetic base) | B09WZSGXFL | $15.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B09WZSGXFL) |
-| 6 | SUNLU PETG Filament 1.75mm, 1kg, Black | B0DJS3PJVX | $11.96 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0DJS3PJVX) |
-| 6 | SUNLU PLA 3D Printer Filament, Black, 1KG | B07XG3RM58 | $11.19 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07XG3RM58) |
+| 6 (saved for later) | PEI Flexi Steel Magnetic Build Plate 235×235 (Ender 3 Pro; includes magnetic base) | B09WZSGXFL | $15.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B09WZSGXFL) |
+| 6 (saved for later) | SUNLU PETG Filament 1.75mm, 1kg, Black | B0DJS3PJVX | $11.96 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0DJS3PJVX) |
+| 6 (saved for later) | SUNLU PLA 3D Printer Filament, Black, 1KG | B07XG3RM58 | $11.19 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07XG3RM58) |
 | 6 | Szliyands 44 x 25mm Aluminum Knob for 6 mm Shaft (set screw + wrench); backup if you don't print or turn one | B099DHHGGQ | $11.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B099DHHGGQ) |
 | 7 | Tamper-Resistant Torx 18-8 SS Button Head Screws, M3 x 0.5 x 10 mm (pack of 50) | 91900A848 | $12.54 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/91900A848/) |
 | 7 | Tamper-Resistant Torx Bit, 1/4" Hex Shank, T8 | 7233A61 | $7.84 | 1 | Delivers tomorrow | [mcmaster](https://www.mcmaster.com/7233A61/) |
@@ -212,8 +212,8 @@ and sales tax come on top.
 | | Estimate | Real |
 |---|---|---|
 | Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $487** (Pi +$40, Amp4 +$33, SD +$16, knob +$12; PN532 −$31, 5×8 LEDs −$7) |
-| Enclosure, printing supplies, hardware in carts | | ≈ $227 |
+| Enclosure and hardware in carts (printing supplies saved for later, $39) | | ≈ $188 |
 | Known shipping and tariff | | ≈ $24 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
 | Not yet bought: finish, maple, grille sheet | | ≈ $90 |
 | Tools, if not owned | | ≈ $90 |
-| **Total** | **≈ $820** | **≈ $945 all-in** (≈ $855 if you already own the bits and hole saw); still under the $1000 budget |
+| **Total** | **≈ $820** | **≈ $905 all-in** (≈ $815 if you already own the bits and hole saw). See [cost-review.md](cost-review.md) for ≈ $113 more in possible savings; still under the $1000 budget |
