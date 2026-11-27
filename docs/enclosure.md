@@ -181,9 +181,9 @@ cartridges and turns tidy-up into a game. It's easy to make with the table saw a
 
 - The slot is **32 × 84 mm** (1 mm clearance per side on thickness, 2 mm on width), cut in a 12 mm **HDPE insert**
   with a **45° × 6 mm chamfered lip** that funnels small hands. HDPE is slippery, so the tighter fit still slides easily.
-- The insert is **130 × 50 × 12 mm, stepped**, made from **two layers of the ¼" (6 mm) HDPE sheet**: the top layer is
-  110 mm long and the bottom layer 130 mm, so it drops in from below and can't be pulled out the top. No glue (HDPE
-  won't take it); the step and the cleats hold both layers. The top panel's hole is stepped to match (110 × 50 at the top face,
+- The insert is **130 × 50 × 12 mm, stepped**, cut from a **½" (12 mm) HDPE cutting board**: rout a 6 mm × 10 mm
+  rabbet across each end so the top is 110 mm long and the bottom 130 mm. It drops in from below and can't be pulled
+  out the top. No glue (HDPE won't take it); the step and the cleats hold it. Check the board is HDPE, not bamboo or composite. The top panel's hole is stepped to match (110 × 50 at the top face,
   130 × 50 in the bottom 6 mm).
 - A **6 mm plywood sleeve** (inside 32 × 84 mm) hangs 48 mm below the 12 mm top, for 60 mm of insertion. Its end walls
   are glued to two 6 mm plywood cleats that hold the insert's ends up.
@@ -255,7 +255,7 @@ x across (0–360), y front to back (0–170), z up (0–200).
 | Knob | Encoder through the top at **x = 300, y = 120** (back right, behind the right chamber), counterbored from below to ~3–4 mm of panel. With no handle there's nothing near it to pinch a finger. Maple Shaker knob, 51 mm across, epoxied on |
 | Electronics sled | 6 mm ply, **136 W × 95 D mm**, rides on two 10 × 10 mm hardwood rails glued to the bottom panel (y 63–158). The Pi lies sideways (85 mm across the bay) on 10 mm nylon standoffs; buck and HUSB238 beside it. The 10 mm gap under the sled is the air inlet |
 | Back panel | 12 mm, with a **260 × 98 mm service opening** whose sill is level with the rail tops (z 22–120), so **the sled slides straight out**. Above the opening: the **USB-C panel jack and the lit power button**, mounted in the 12 mm panel (22 mm counterbore 6 mm deep from outside, so the plug sits recessed and a tugged cable pulls free), the outlet vents, and the slot drain |
-| Service cover | 6 mm, 280 × 118 mm, over the opening. Inlet holes along its bottom edge. Four tamper-resistant Torx screws into threaded inserts in the back panel |
+| Service cover | 6 mm, 280 × 118 mm, over the opening. Inlet holes along its bottom edge. Four **#8 × ¾" pan-head screws** straight into pilot holes in the 12 mm back panel (a tool is needed to open it; no threaded inserts) |
 
 **Clearances (check in the mock-up):** Pi + Amp4 + proto HAT on the sled reaches z ≈ 88, 32 mm under the opening's top
 edge. The sled's front edge (y 63) is 16 mm behind the button bodies. The sleeve floor (z 134) is 46 mm above the stack.
@@ -303,14 +303,14 @@ roughly doubles the rise to ~25 °C, which is too close to the limit.
 | Part | Qty | Size (mm) | Notes |
 |---|---|---|---|
 | Front | 1 | 360 × 200 | Two 84 mm grille fields of 6 mm holes (centres x 57 / 303, z 100). 52 × 84 arched LED window (z 80–164) with a 1.5 mm diffuser recess. Three 24 mm button holes at z 48, x 140 / 180 / 220. 10 mm (3/8") roundover on the outside edges |
-| Back | 1 | 360 × 200 | 260 × 98 service opening (z 22–120). Above it: USB-C jack and 19 mm power-button holes (22 mm × 6 mm counterbores from outside), outlet vents, 8 mm drain hole at z ≈ 126. Threaded inserts for the cover |
+| Back | 1 | 360 × 200 | 260 × 98 service opening (z 22–120). Above it: USB-C jack and 19 mm power-button holes (22 mm × 6 mm counterbores from outside), outlet vents, 8 mm drain hole at z ≈ 126. Four 2.5 mm pilot holes for the cover screws |
 | Sides | 2 | 146 × 200 | Fit between front and back. No hand-holds (they'd open the sealed chambers) |
 | Top | 1 | 336 × 146 | Stepped slot hole for the HDPE insert, centred at x 180, y 85. Encoder hole at x 300, y 120, counterbored from below |
 | Bottom | 1 | 336 × 146 | Two 10 × 10 hardwood sled rails, ~20 cm² vent grid under the sled, 4 screw-on feet |
-| Service cover | 1 | 280 × 118, **6 mm** | Row of inlet holes along the bottom edge. 4 tamper-resistant screws |
+| Service cover | 1 | 280 × 118, **6 mm** | Row of inlet holes along the bottom edge. 4 × #8 × ¾" pan-head screws |
 | Chamber inner walls | 2 | 64 × 176, **6 mm** | Between the front panel and the chamber back wall, at x 102–108 and 252–258 |
 | Chamber back walls | 2 | 96 × 176, **6 mm** | At y 76–82. A small caulked hole for the speaker wire |
-| Slot insert | 2 layers | 110 × 50 and 130 × 50, **6 mm HDPE** | Stacked into a stepped 12 mm insert. 32 × 84 slot, 45° × 6 mm chamfer |
+| Slot insert | 1 | 130 × 50 × 12, **½" HDPE cutting board** | 6 × 10 mm rabbet on each end (110 mm on top). 32 × 84 slot, 45° × 6 mm chamfer |
 | Slot cleats | 2 | 50 × 30, **6 mm** | Under the insert's ends; screwed to the top, ≥ 50 mm from the PN532 |
 | Slot sleeve | 1 set | **6 mm** | 2 × (96 × 48) long walls capturing 2 × (32 × 48) ends; floor 96 × 44 with a 10 mm drain hole. 45 × 45 × 3 mm PN532 pocket in the back wall |
 | Electronics sled | 1 | 136 × 95, **6 mm** | Rides on the rails. Vent grid under the Pi |
@@ -447,7 +447,7 @@ headers), with a 1000 µF cap across 5 V. Details are in the [v2 plan](plans/202
 - [ ] **No pinch points.** No handle, hinges or lids. The slot's chamfered lip guides fingers out of the gap, and the knob
       has nothing beside it.
 - [ ] Speaker grilles: holes ≤ 6 mm, with steel mesh behind.
-- [ ] Tamper-resistant screws on the service cover only. No other fasteners are exposed.
+- [ ] Screws on the service cover only, so it takes a screwdriver to open. No other fasteners are exposed.
 - [ ] **Volume cap** set in software. Aim for ≤ ~85 dB at Jamie's ear distance and check with a phone SPL app.
 - [ ] Toy-safe finish, fully cured.
 - [ ] **Feet:** screw-on rubber feet only (no adhesive pads a child can peel off).

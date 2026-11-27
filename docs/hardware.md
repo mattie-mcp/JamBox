@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $776 all-in** (≈ $570 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $750 all-in** (≈ $531 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > [shopping.md](shopping.md).
 
@@ -76,9 +76,9 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E19 | Charger | Any **USB-C PD charger, 45 W+, with a 15 V profile** (most 45–65 W GaN chargers) | 1 | $0 (owned) | Anker, UGREEN, Apple, etc. | **Using your own charger, which lists 15 V ⎓ 3 A.** The UGREEN Nexode 65W (B091BGMKYS, $22.49 †) is in Amazon's Saved for later as a backup. Keep a charger that stays with the box |
 | E20 | Wiring kit | 22 AWG silicone hookup wire (also used for the speakers), **pre-crimped JST-XH kit** (2–7 pin, 90 × 13 cm leads, no crimper; Amazon B0CJ6JDMJH), heat-shrink (Adafruit #1649), inline 3 A blade fuse holder | 1 | $36 † | Amazon, Adafruit | Use keyed connectors (JST-XH) everywhere, not loose Dupont jumpers. The 13 cm leads are soldered and heat-shrunk onto hookup wire for longer runs. Breadboard and jumpers are for the bench prototype only |
 | E22 | Wiring passives | 1000 µF 16 V cap (LED 5 V), 330 Ω (LED data), 470 Ω (switch ring LED at 15 V), 0.1 µF (74AHCT125 decoupling), 5.5 × 2.1 mm DC plug to screw terminal (Amp4 power in; confirm the jack size) | 1 set | $6 † | Mouser, Adafruit #369 | Spares included for the resistors and 0.1 µF |
-| E21 | Mounting | M2.5 nylon standoff kit, M3 brass threaded inserts | 1 | $19 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
+| E21 | Mounting | M2.5 nylon standoff kit | 1 | $9.99 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $431** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
+**Electronics subtotal: about $422** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -91,7 +91,8 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | Speaker grille mesh | Perforated steel or aluminum sheet, ~2 mm holes, or a 3" steel grille insert | $18–55 | Amazon 12×12" perforated stainless (~$18). Not bought yet: Parts Express has no sheet (its 3" grille fits 2.5" drivers) and McMaster's smallest is 24×24" from $54 |
 | Grille cloth + polyfill | Acoustic grille cloth; a handful of polyester fiberfill for the chambers | $10 † | Parts Express (cloth). Polyfill: use pillow or craft-stash polyester (not cotton or wool), or a small craft bag (~$5) |
 | LED diffuser | 3 mm opal/frosted acrylic, or 0.6 mm (1/42") maple veneer | $10 | TAP Plastics, Amazon |
-| Fasteners | **Tamper-resistant Torx (pin-in T20)** screws + matching bit, M3/#6 threaded inserts | $20 † | McMaster-Carr (91900A848 + 7233A61), Amazon. M3 pin-in Torx takes a **T8** bit, not T20 |
+| Fasteners | 4 × **#8 × ¾" pan-head screws** for the service cover, straight into the plywood (no tamper-resistant screws or threaded inserts; decided 2026-11-27) | $2 | Lowe's or your stash |
+| Slot insert stock | **½" (12 mm) HDPE cutting board**, at least 130 × 50 mm usable | $5–10 | Lowe's, Walmart, or a spare from the kitchen |
 | Feet | 4× **screw-on** rubber feet, ~10 mm tall (lifts the box for bottom vents). No adhesive pads | $10 † | Amazon (smseace kit with screws), hardware store |
 | Glue | Titebond III | $9.99 † | Anywhere |
 | Finish | Water-based, **toy-safe finish labeled EN 71-3 / ASTM F963**, plus non-toxic paint for accents | $25–40 | Woodcraft, Rockler |
@@ -108,7 +109,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $686–776** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $660–750** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 

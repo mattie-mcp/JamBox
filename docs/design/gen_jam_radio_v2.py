@@ -242,6 +242,7 @@ still = """
 <tr><td>8/4 hard maple milled to 30 mm (cartridges), ~3–4 bd-ft; label paper</td><td>Woodcraft of Grand Rapids or a local hardwood dealer</td><td>$30–50</td></tr>
 <tr><td>Water-based toy-safe finish (EN 71-3 / ASTM F963)</td><td>Ask at Woodcraft of Grand Rapids</td><td>~$25–40</td></tr>
 <tr><td>Perforated steel grille sheet, ~2–3 mm holes, 12 × 12"</td><td>Amazon</td><td>~$18</td></tr>
+<tr><td>½" HDPE cutting board (slot insert) and 4 × #8 × ¾" pan-head screws (service cover)</td><td>Lowe's (Kentwood)</td><td>~$7–12</td></tr>
 <tr><td>Maple veneer (0.6 mm) for the LED diffuser</td><td>Woodcraft</td><td>~$10</td></tr>
 <tr><td>Handful of polyester fiberfill</td><td>Pillow or craft stash</td><td>$0–5</td></tr>
 <tr><td>Router bits and Forstners, if not owned: ⅜" and ¼" roundover, 45° chamfer; 1-⅜", 15/16", ⅞" Forstner; 6 mm brad-point</td><td>Woodcraft</td><td>~$80–100</td></tr>
@@ -286,7 +287,7 @@ a centred 32 mm slot, sled on rails, power in the back panel, and the arched 5×
 <h2>Key numbers</h2>
 <ul class="keys">
 <li><b>360 × 170 × 200 mm</b>12 mm Baltic birch, glued butt joints with glue blocks, 10 mm roundovers, 4 screw-on feet</li>
-<li><b>Slot 32 × 84 mm</b>Stepped HDPE insert (two ¼" layers), 45° lip, no metal within 30 mm of the reader</li>
+<li><b>Slot 32 × 84 mm</b>Stepped insert from a ½" HDPE cutting board, 45° lip, no metal within 30 mm of the reader</li>
 <li><b>Cartridge 80 × 100 × 30 mm</b>Solid maple, a sealed tag under each face, printed label in a 1 mm recess</li>
 <li><b>Read gap ~5–7 mm</b>Near tag 1.5 mm deep + 0–2 mm clearance + 3 mm pocketed wall, either way round</li>
 <li><b>Chambers ≈ 1.0 L each</b>90 × 176 × 64 mm, sealed, drivers 246 mm apart behind 84 mm drilled grilles</li>
@@ -296,11 +297,11 @@ a centred 32 mm slot, sled on rails, power in the back panel, and the arched 5×
 </ul>
 <h2>Parts by store</h2>
 {"".join(parts_html)}
-<div class="total"><b>In carts: ${grand:,.2f}</b> of merchandise before shipping (≈ $570 with known shipping; ≈ $560 with the Adafruit code).
+<div class="total"><b>In carts: ${grand:,.2f}</b> of merchandise before shipping (≈ $531 with known shipping; ≈ $521 with the Adafruit code).
 3D-printing supplies and the backup UGREEN charger are in Amazon's Saved for later. Nothing has been bought.</div>
 <h2>Still to buy</h2>
 <section class="store"><table><thead><tr><th>Item</th><th>Where</th><th>≈ Cost</th></tr></thead><tbody>{still}</tbody></table>
-<p class="note">All-in estimate ≈ $776 (≈ $686 if you own the router bits and Forstners). You already have the PN532 reader, a 15 V ⎓ 3 A charger, the soldering kit, breadboard and jumpers.</p></section>
+<p class="note">All-in estimate ≈ $750 (≈ $660 if you own the router bits and Forstners). You already have the PN532 reader, a 15 V ⎓ 3 A charger, the soldering kit, breadboard and jumpers.</p></section>
 </main></body></html>"""
 
 (ROOT / "docs/design/jam-radio-v2.html").write_text(page)

@@ -13,12 +13,12 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 | | |
 |---|---|
-| Merchandise in carts | **$551.36** |
-| Known shipping and tariff | $19.07 (Parts Express $9.95, Mouser $8.49 + $0.63). PiShop, Adafruit and McMaster show shipping at checkout (≈ $25) |
-| **In carts** | **≈ $570** (≈ $560 with Adafruit's OhFudge15 code), plus tax |
-| Still to buy | ≈ $115 (maple, finish, grille sheet, veneer, polyfill) |
+| Merchandise in carts | **$512.01** |
+| Known shipping and tariff | $19.07 (Parts Express $9.95, Mouser $8.49 + $0.63). PiShop and Adafruit show shipping at checkout (≈ $15) |
+| **In carts** | **≈ $531** (≈ $521 with Adafruit's OhFudge15 code), plus tax |
+| Still to buy | ≈ $115 (maple, finish, grille sheet, veneer, HDPE cutting board, screws, polyfill) |
 | Tools, if not owned | ≈ $90 (router bits and Forstners) |
-| **All-in** | **≈ $776** (≈ $686 if you own the bits). Under the $1000 budget |
+| **All-in** | **≈ $750** (≈ $660 if you own the bits). Under the $1000 budget |
 
 ## 1. [PiShop.us](https://www.pishop.us/cart.php): $232.35
 
@@ -60,7 +60,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | YAGEO 470 Ω ¼ W (power-switch ring LED + spare) | 603-CFR-25JB-52-470R | $0.11 | 2 | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-470R) |
 | KEMET 0.1 µF 50 V ceramic (level-shifter decoupling + spare) | 80-C320C104K5R5TA | $0.92 | 2 | [mouser](https://www.mouser.com/c/?q=C320C104K5R5TA) |
 
-## 4. [Amazon](https://www.amazon.com/gp/cart/view.html): $91.03
+## 4. [Amazon](https://www.amazon.com/gp/cart/view.html): $82.04
 
 > Free shipping (Prime). Your own Scotch tape is also in this cart.
 
@@ -72,7 +72,6 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | XH 2.54 mm connector kit with pre-crimped 22 AWG leads, 2–7 pin (no crimper) | B0CJ6JDMJH | $7.99 | 1 | [amazon](https://www.amazon.com/dp/B0CJ6JDMJH) |
 | TUOFENG 22 AWG silicone wire kit, 6 colours | B07G2JWYDW | $15.99 | 1 | [amazon](https://www.amazon.com/dp/B07G2JWYDW) |
 | 365 pcs M2.5 nylon standoff kit | B0FPMC9917 | $9.99 | 1 | [amazon](https://www.amazon.com/dp/B0FPMC9917) |
-| HANGLIFE M3 threaded inserts, 100 pcs (epoxy them into the plywood) | B0CS6VZYL8 | $8.99 | 1 | [amazon](https://www.amazon.com/dp/B0CS6VZYL8) |
 | smseace 100 pcs screw-on rubber feet with washers and screws | B08PBH875X | $9.99 | 1 | [amazon](https://www.amazon.com/dp/B08PBH875X) |
 
 **Saved for later (not counted):**
@@ -93,17 +92,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | Dayton Audio PC83-4 3" full-range driver, 4 Ω | 295-154 | $15.49 | 2 | [parts-express](https://www.parts-express.com/Dayton-Audio-PC83-4-3-Full-Range-Poly-Cone-Driver-295-154) |
 | Speaker grille cloth, black, 1 yard × 70" | 260-335 | $9.98 | 1 | [parts-express](https://www.parts-express.com/search?keywords=260-335) |
 
-## 6. [McMaster-Carr](https://www.mcmaster.com/order/): $30.36
-
-> Shipping at checkout.
-
-| Item | Part | Unit | Qty | Link |
-|---|---|---|---|---|
-| Tamper-resistant Torx button-head screws, 18-8 SS, M3 × 10 mm (50) | 91900A848 | $12.54 | 1 | [mcmaster](https://www.mcmaster.com/91900A848/) |
-| Tamper-resistant Torx bit, ¼" hex, T8 | 7233A61 | $7.84 | 1 | [mcmaster](https://www.mcmaster.com/7233A61/) |
-| HDPE sheet 12" × 12" × ¼" (two layers make the slot insert) | 8619K461 | $9.98 | 1 | [mcmaster](https://www.mcmaster.com/8619K461/) |
-
-## 7. [Woodcraft](https://www.woodcraft.com/cart): $76.96
+## 6. [Woodcraft](https://www.woodcraft.com/cart): $76.96
 
 > Free shipping over $50 (through Dec 1). Woodcraft of Grand Rapids is local for pickup and maple.
 
@@ -121,6 +110,8 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | 8/4 hard maple, milled to 30 mm, ~3–4 bd-ft (cartridges, sled rails) | Woodcraft of Grand Rapids or a local hardwood dealer | $30–50 |
 | Water-based toy-safe finish (EN 71-3 / ASTM F963) | Ask at Woodcraft of Grand Rapids | $25–40 |
 | Perforated stainless grille sheet, 12 × 12", ~2–3 mm holes | Amazon | $18 |
+| ½" (12 mm) HDPE cutting board (slot insert; check it's HDPE, not bamboo) | Lowe's (Kentwood) or Walmart | $5–10 |
+| 4 × #8 × ¾" pan-head screws (service cover) | Lowe's or your stash | $2 |
 | Maple veneer, 0.6 mm (LED diffuser) and ~1.5 mm (tag covers) | Woodcraft | $10 |
 | A handful of polyester fiberfill (not cotton or wool) | Pillow or craft stash, or a small craft bag | $0–5 |
 | Label paper for the cartridge labels | Any | – |
