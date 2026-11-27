@@ -13,12 +13,12 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 | | |
 |---|---|
-| Merchandise in carts | **$512.01** |
-| Known shipping and tariff | $19.07 (Parts Express $9.95, Mouser $8.49 + $0.63). PiShop and Adafruit show shipping at checkout (≈ $15) |
-| **In carts** | **≈ $531** (≈ $521 with Adafruit's OhFudge15 code), plus tax |
+| Merchandise in carts | **$523.40** |
+| Known shipping and tariff | $19.93 (Parts Express $9.95, Mouser $8.49 + $1.49). PiShop and Adafruit show shipping at checkout (≈ $15) |
+| **In carts** | **≈ $543** (≈ $533 with Adafruit's OhFudge15 code), plus tax |
 | Still to buy | ≈ $118 (maple, finish, grille sheet, veneer, HDPE cutting board, cover inserts and screws, polyfill) |
 | Tools, if not owned | ≈ $90 (router bits and Forstners) |
-| **All-in** | **≈ $750** (≈ $660 if you own the bits). Under the $1000 budget |
+| **All-in** | **≈ $762** (≈ $672 if you own the bits). Under the $1000 budget |
 
 ## 1. [PiShop.us](https://www.pishop.us/cart.php): $232.35
 
@@ -46,19 +46,20 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | Male DC Power adapter, 2.1 mm plug to screw terminal (15 V into the Amp4) | #369 | $2.00 | 1 | [adafruit](https://www.adafruit.com/product/369) |
 | Multi-Colored Heat Shrink Pack | #1649 | $4.95 | 1 | [adafruit](https://www.adafruit.com/product/1649) |
 
-## 3. [Mouser](https://www.mouser.com/Cart/): $11.50
+## 3. [Mouser](https://www.mouser.com/Cart/): $22.89
 
-> \+ $8.49 UPS Ground + $0.63 tariff = $20.62. Cheaper than buying these on Amazon (≈ $40).
+> \+ $8.49 UPS Ground + $1.49 tariff = $32.87. Includes spares for the parts most likely to die. Cheaper than Amazon for the same parts.
 
 | Item | Part | Unit | Qty | Link |
 |---|---|---|---|---|
-| Bourns PEC11R-4220F-S0024 encoder, 24 detents, push switch, D-shaft | 652-PEC11R-4220F-S24 | $2.34 | 1 | [mouser](https://www.mouser.com/ProductDetail/Bourns/PEC11R-4220F-S0024) |
-| TI SN74AHCT125N quad level shifter, DIP-14 | 595-SN74AHCT125N | $0.95 | 1 | [mouser](https://www.mouser.com/c/?q=SN74AHCT125N) |
-| Adafruit Perma-Proto HAT for Pi Mini Kit, no EEPROM | 485-2310 | $4.95 | 1 | [mouser](https://www.mouser.com/c/?q=485-2310) |
-| Panasonic EEU-FR1C102, 1000 µF 16 V (across 5 V at the LED shield) | 667-EEU-FR1C102 | $0.98 | 1 | [mouser](https://www.mouser.com/c/?q=EEU-FR1C102) |
-| YAGEO 330 Ω ¼ W (LED data line + spare) | 603-CFR-25JB-52-330R | $0.11 | 2 | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-330R) |
-| YAGEO 470 Ω ¼ W (power-switch ring LED + spare) | 603-CFR-25JB-52-470R | $0.11 | 2 | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-470R) |
+| Bourns PEC11R-4220F-S0024 encoder, 24 detents, push switch, D-shaft (1 + spare) | 652-PEC11R-4220F-S24 | $2.34 | 2 | [mouser](https://www.mouser.com/ProductDetail/Bourns/PEC11R-4220F-S0024) |
+| TI SN74AHCT125N quad level shifter, DIP-14 (1 + 2 spares) | 595-SN74AHCT125N | $0.95 | 3 | [mouser](https://www.mouser.com/c/?q=SN74AHCT125N) |
+| Adafruit Perma-Proto HAT for Pi Mini Kit, no EEPROM (1 + spare) | 485-2310 | $4.95 | 2 | [mouser](https://www.mouser.com/c/?q=485-2310) |
+| Panasonic EEU-FR1C102, 1000 µF 16 V (across 5 V at the LED shield; 1 + spare) | 667-EEU-FR1C102 | $0.98 | 2 | [mouser](https://www.mouser.com/c/?q=EEU-FR1C102) |
+| YAGEO 330 Ω ¼ W (LED data line + spares) | 603-CFR-25JB-52-330R | $0.11 | 5 | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-330R) |
+| YAGEO 470 Ω ¼ W (power-switch ring LED + spares) | 603-CFR-25JB-52-470R | $0.11 | 5 | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-470R) |
 | KEMET 0.1 µF 50 V ceramic (level-shifter decoupling + spare) | 80-C320C104K5R5TA | $0.92 | 2 | [mouser](https://www.mouser.com/c/?q=C320C104K5R5TA) |
+| TE 1-2199298-3 14-pin DIP socket (solder this, plug the level shifter in; 1 + spare) | 571-1-2199298-3 | $0.28 | 2 | [mouser](https://www.mouser.com/c/?q=571-1-2199298-3) |
 
 ## 4. [Amazon](https://www.amazon.com/gp/cart/view.html): $82.04
 

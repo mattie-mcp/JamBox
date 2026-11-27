@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $750 all-in** (≈ $531 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $762 all-in** (≈ $543 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > [shopping.md](shopping.md).
 
@@ -67,7 +67,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
 | E11 | Volume knob | Cindoco **maple Shaker knob, 2" (51 mm)**, ¾" tenon, 2-pack | 1 pack | $5.99 † | Woodcraft #161868 | Matches the maple cartridges. Cut the tenon short, drill 6 mm, epoxy onto the D-shaft, finish, and pull-test. The second knob is the spare. Changed 2026-11-27 from the Amazon aluminium knob ($11.99); a printed knob stays optional. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
 | E12 | LED matrix | Adafruit **NeoPixel Shield 5×8** (#1430), 40 LEDs, 68.9 × 53.4 mm, mounted portrait | 1 | $27.95 † | Adafruit | Software-capped at ~20% brightness (~0.48 A worst case). Wire DIN/5 V/GND pads directly; no Arduino headers. Changed 2026-11-27 from the NeoMatrix 8×8 (#1487) for a rectangular "dial" |
-| E13 | Level shifter | **74AHCT125** quad level shifter, DIP-14 (TI SN74AHCT125N; Adafruit #1787 is the same chip) | 1 | $0.95 † | Mouser 595-SN74AHCT125N, Adafruit (out of stock 11/27) | 3.3 V GPIO → 5 V NeoPixel data |
+| E13 | Level shifter | **74AHCT125** quad level shifter, DIP-14 (TI SN74AHCT125N; Adafruit #1787 is the same chip) | 1 | $0.95 † | Mouser 595-SN74AHCT125N, Adafruit (out of stock 11/27) | 3.3 V GPIO → 5 V NeoPixel data. Plug it into a 14-pin DIP socket (Mouser 571-1-2199298-3) so a dead chip is a quick swap; 2 spares on order |
 | E14 | Slot sensor (**optional**, pending test) | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Only if NFC-only removal is laggy or flaky. Alt: Adafruit IR break-beam 3 mm (#2167) |
 | E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + **Perma-Proto HAT** mini kit (#2310) | 1 each | $2.95 † + $4.95 † | Adafruit (header), Mouser 485-2310 (HAT; out of stock at Adafruit) | The Amp4 sits on the Pi; this exposes free pins for wiring |
 | E16 | Storage | SanDisk **High Endurance** 64 GB microSD | 1 | $30.95 † | PiShop, Amazon, B&H | High-endurance cards are made for constant writes. Amazon's $25.99 listing has a 2-card minimum |
@@ -78,7 +78,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E22 | Wiring passives | 1000 µF 16 V cap (LED 5 V), 330 Ω (LED data), 470 Ω (switch ring LED at 15 V), 0.1 µF (74AHCT125 decoupling), 5.5 × 2.1 mm DC plug to screw terminal (Amp4 power in; confirm the jack size) | 1 set | $6 † | Mouser, Adafruit #369 | Spares included for the resistors and 0.1 µF |
 | E21 | Mounting | M2.5 nylon standoff kit | 1 | $9.99 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $422** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
+**Electronics subtotal: about $434** (including Mouser spares) at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -109,7 +109,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $660–750** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $672–762** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 
