@@ -17,7 +17,7 @@ All decisions were made on 2026-11-24.
 | Computer | **Raspberry Pi 4, 4 GB** |
 | Amplifier | **HiFiBerry Amp4** |
 | Speakers | **Dayton PC83-4** pair |
-| LED display | **Adafruit NeoMatrix 8×8** |
+| LED display | **Adafruit NeoPixel Shield 5×8** (#1430), portrait, as a jukebox-style equaliser (changed 2026-11-27 from the NeoMatrix 8×8) |
 | Cartridge presence | **NFC-only + click detent**. The microswitch is an optional add-on if the slot test shows laggy or false pauses |
 | Portable power | **Wall power only** for v1. The battery spike below stays as a future option |
 | Cartridges | **Laminated hardwood blocks** (tag sealed at the glue line). Printed cartridges are a stretch goal on branch `claude/3d-printed-cartridges` |
@@ -110,7 +110,7 @@ large-radius corners take more jig work.
 | Portability | ★★ (hand-holds) | ★★★ (handle) | ★★ |
 | Build effort (table saw + router) | Medium | **Low** | Medium-high |
 | Stereo separation | Good (170 mm) | Best (210 mm) | Fair (120 mm) |
-| LED display | 8×8 "door" | 8×8 "dial" | 8×16 "mouth" |
+| LED display | 8×8 "door" | 5×8 "dial" (portrait) | 8×16 "mouth" |
 | Looks like furniture | ★★★ | ★★★ | ★ |
 
 **Chosen: B (Radio).** It's the easiest build, the most stable on the floor, and the most portable.
@@ -199,7 +199,7 @@ The software changes are in [the v2 plan](plans/2026-11-24-hardwired-v2.md).
    ┌───────── handle (25 mm hardwood dowel) ─────────┐
    │ upright                                upright  │
  ┌─┴──────────────[slot]───────────────────[knob]───┴─┐  ← 12 mm top panel
- │  ┌─ spk chamber L ─┐  [ LED 8×8 ]  ┌─ spk chamber R ─┐ │
+ │  ┌─ spk chamber L ─┐  [ LED 5×8 ]  ┌─ spk chamber R ─┐ │
  │  │   PC83-4 ⌀75    │  ◉  ◉  ◉     │    PC83-4 ⌀75   │ │  ← front: grilles, display, buttons
  │  └─────────────────┘  [sleeve+PN532]└─────────────────┘ │
  │                [ electronics sled: Pi 4 + Amp4, buck,  │
@@ -263,7 +263,7 @@ roughly doubles the rise to ~25 °C, which is too close to the limit.
 
 | Part | Qty | Size (mm) | Notes |
 |---|---|---|---|
-| Front | 1 | 360 × 200 | 2 grille fields, 72 × 72 display window, 3 button holes (check button spec, usually 28 mm). 3/8" roundover on outside edges |
+| Front | 1 | 360 × 200 | 2 grille fields, ~48 × 64 mm portrait display window with an arched top, 3 button holes (check button spec, usually 28 mm). 3/8" roundover on outside edges |
 | Back | 1 | 360 × 200 | 260 × 120 service opening |
 | Sides | 2 | 146 × 200 | Fit between front and back. Optional hand-hold slot as a second carry option |
 | Top | 1 | 336 × 146 | Slot 34 × 84 with 45° chamfer (or an HDPE insert), knob hole, handle mortises |
@@ -355,22 +355,43 @@ plays with it. Non-toxic milk paint or toy-safe acrylics for colour accents (roo
 
 ## LED display: what it does
 
-The 8×8 matrix sits behind a diffuser (3 mm opal acrylic, or 0.6 mm maple veneer that glows warm).
-A small **"egg-crate" grid** between the LEDs and the diffuser makes each pixel crisp. It's an easy 3D print, or
-can be made from strips of card or thin ply. Planned behaviours:
+**Decided 2026-11-27: Adafruit NeoPixel Shield 5×8 (#1430), mounted portrait (5 wide × 8 tall).** It is a
+rectangle that suits the radio's "dial", draws less than the 8×8 (~0.48 A worst case at the 20% cap), and 5×8 is
+also a classic character cell, so it can show letters, digits and simple icons.
+
+The goal is a display that **dances with the music like a jukebox or a valve radio's tuning eye**.
+
+### Look
+
+- **Window:** about **48 W × 64 H mm, portrait**, centred in the bay between the slot sleeve and the buttons,
+  with its top edge at least 30 mm below the PN532. Give it an **arched top** (a jukebox/cathedral-radio arch,
+  cut with a router template in a maple bezel) to lean into the radio look. Confirm the LED field size from
+  Adafruit's board files before cutting (pitch is ~8.5 mm, unverified).
+- **Diffuser:** 0.6 mm maple veneer for a warm wooden glow (or 3 mm opal acrylic for crisper pixels).
+- **Egg-crate grid:** a 5 × 8 printed grid at the measured pitch, about 6–8 mm deep, between the LEDs and the
+  diffuser so each pixel reads as a lit "valve segment".
+- **Palette:** warm only, like old radio dial lamps: amber at the bottom of a bar, orange in the middle, red at
+  the top. No blue or white while playing, which is also kinder to small eyes at bedtime.
+
+### Behaviours
 
 | State | Animation |
 |---|---|
-| Booting (~30–40 s) | A slow "sunrise" fill, so Jamie knows it's waking up |
-| On, idle | A gentle breathing glow (the "porch light"). Together with the lit power button, this is the on indicator |
-| Playing | **Audio-reactive spectrum bars** (8 bands) that dance to the music |
-| Paused / cartridge out | Bars freeze and fade to the idle glow |
-| Unknown cartridge | A friendly "?" or a blinking face, to prompt a parent to map it in the web app |
-| Turning the knob | A volume bar for 2 s |
+| Booting (~30–40 s) | "Valves warming up": the whole field fades up from deep red to amber |
+| On, idle | A slow amber breathing glow (the "dial lamp"). With the lit power button, this is the on indicator |
+| Cartridge in | A **tuning sweep**: a bright column sweeps left to right like a radio dial needle finding a station (~1 s), then the music starts |
+| Playing | A **5-band graphic equaliser**: bass on the left to treble on the right, each band an 8-segment bar rising from the bottom, amber → orange → red, with a **peak dot** that holds briefly and falls slowly. A strong bass beat brightens the bottom row for a moment |
+| Paused / cartridge out | Bars sink to the bottom row and settle into the idle glow |
+| Unknown cartridge | A "?" glyph in the 5×8 cell, gently pulsing, to prompt a parent to map it |
+| Turning the knob | A volume level (0–8 rows lit across all five columns) for 2 s, capped at the parent's ceiling |
 
-How it works: the audio is copied into an ALSA loopback device. **cava** computes the spectrum
-from it, and a small Python service drives the LEDs over SPI using `rpi_ws281x`. Brightness is capped at about 20%
-for eyes and power. Details are in the [v2 plan](plans/2026-11-24-hardwired-v2.md).
+### How it works
+
+The audio is copied into an ALSA loopback device. **cava** computes a 5-band spectrum from it (bass to treble,
+roughly 60 / 150 / 400 Hz / 1 kHz / 2.5 kHz and up) at ~30 fps, and a small Python service drives the LEDs over SPI
+with `rpi_ws281x`. The shield is wired as 8 × 5 rows; the service rotates it 90° in software to get the portrait
+5 × 8 layout. Brightness is capped at about 20%. Wire the shield's DIN, 5 V and ground pads directly (no Arduino
+headers), with a 1000 µF cap across 5 V. Details are in the [v2 plan](plans/2026-11-24-hardwired-v2.md).
 
 ---
 

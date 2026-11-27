@@ -30,7 +30,7 @@ Amp4, PiShop vs hifiberry.com, *including shipping*.
 |---|---|---|---|
 | PN532 NFC/RFID breakout v1.6 | #364 | 1 | $39.95 |
 | USB-C PD Dummy Breakout, HUSB238 (I2C or Fixed) | #5807 | 1 | ~$6 |
-| NeoPixel NeoMatrix 8×8 | #1487 | 1 | ~$35 |
+| NeoPixel Shield 5×8 (portrait; replaced the NeoMatrix 8×8 #1487 on 11/27) | #1430 | 1 | $27.95 |
 | 74AHCT125 quad level shifter | #1787 | 1 | ~$2 |
 | GPIO stacking header, 2×20 extra-tall | #1979 | 1 | ~$2.50 |
 | 30 mm arcade buttons, 3 colours (blue, green, orange or nearest) | search "Arcade Button 30mm" | 3 | ~$2–3 ea |
@@ -113,7 +113,7 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | Cart | Store | Items in stock | Subtotal | Shipping | Free-ship threshold | Notes |
 |---|---|---|---|---|---|---|
 | 1 | [PiShop.us](https://www.pishop.us/cart.php) | 3/3 | $232.35 | At checkout (USPS / FedEx) | None listed | SD card moved here from Amazon |
-| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 7 lines; 74AHCT125 #1787 now out of stock (moved to Mouser); PN532 #364 and encoder #377 **out of stock** | $61.30 | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
+| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 7 lines; 74AHCT125 #1787 now out of stock (moved to Mouser); PN532 #364 and encoder #377 **out of stock** | $54.30 | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
 | 3 | [Parts Express](https://www.parts-express.com/cart) | 3/3 | $56.94 | $9.95 | $99 | Code EARLYBF15: 15% off $75+, ends 11/26 |
 | 4 | Pololu | **0/1** (D36V28F5 out of stock, backorder only) | n/a | n/a | n/a | Bought on Amazon instead (Cart 6) |
 | 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 2/2 | $3.29 | $8.49 UPS Ground + $0.49 tariff | n/a | Switch and fuse moved to Amazon; level shifter added 11/27 |
@@ -122,7 +122,7 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | 8 | [Woodcraft](https://www.woodcraft.com/cart) | 4/4 | $121.95 | Free (over $50, through Dec 1) | $50 | Switched from Rockler (cart emptied). Woodcraft of Grand Rapids is local for maple and pickup. Finish and tools not added (see below) |
 | | **hifiberry.com** | comparison only | $64.90 | $38.00 FedEx | | Amp4 left in that cart for comparison; **remove it, don't buy both** |
 
-**In carts: $720.56 of merchandise plus $23.92 of known shipping ≈ $745.** PiShop, Adafruit and McMaster shipping (≈ $25)
+**In carts: $713.56 of merchandise plus $23.92 of known shipping ≈ $738.** PiShop, Adafruit and McMaster shipping (≈ $25)
 and sales tax come on top.
 
 ### Line items
@@ -134,7 +134,7 @@ and sales tax come on top.
 | 1 | HiFiBerry AMP4 | PiShop 23-1 | $98.45 | 1 | In stock | [pishop](https://www.pishop.us/product/hifiberry-amp4/) |
 | 1 | SanDisk High Endurance MicroSDXC Card - 64GB - Class10 - BLANK | SanDisk High Endurance 64GB | $30.95 | 1 | In stock | [pishop search](https://www.pishop.us/search.php?search_query=sandisk+high+endurance+64gb) |
 | 2 | Adafruit USB Type C Power Delivery Dummy Breakout - I2C or Fixed - HUSB238 | #5807 | $5.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/5807) |
-| 2 | Adafruit NeoPixel NeoMatrix 8x8 - 64 RGB LED Pixel Matrix | #1487 | $34.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1487) |
+| 2 | Adafruit NeoPixel Shield for Arduino - 40 RGB LED Pixel Matrix (5×8) | #1430 | $27.95 | 1 | 33 in stock | [adafruit](https://www.adafruit.com/product/1430) |
 | 5 | Texas Instruments SN74AHCT125N quad buffer, DIP-14 (same chip as Adafruit #1787, which went out of stock 11/27) | Mouser 595-SN74AHCT125N | $0.95 | 1 | 1,002 in stock | [mouser](https://www.mouser.com/c/?q=SN74AHCT125N) |
 | 2 | Stacking Header - 2x20 Extra Tall Header | #1979 | $2.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1979) |
 | 2 | Arcade Button with LED - 30mm Translucent Blue / Green / Yellow | #3490 / #3487 / #3488 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3490) |
@@ -211,9 +211,9 @@ and sales tax come on top.
 
 | | Estimate | Real |
 |---|---|---|
-| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $494** (Pi +$40, Amp4 +$33, SD +$16, knob +$12; PN532 −$31) |
+| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $487** (Pi +$40, Amp4 +$33, SD +$16, knob +$12; PN532 −$31, 5×8 LEDs −$7) |
 | Enclosure, printing supplies, hardware in carts | | ≈ $227 |
 | Known shipping and tariff | | ≈ $24 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
 | Not yet bought: finish, maple, grille sheet | | ≈ $90 |
 | Tools, if not owned | | ≈ $90 |
-| **Total** | **≈ $820** | **≈ $950 all-in** (≈ $860 if you already own the bits and hole saw); still under the $1000 budget |
+| **Total** | **≈ $820** | **≈ $945 all-in** (≈ $855 if you already own the bits and hole saw); still under the $1000 budget |

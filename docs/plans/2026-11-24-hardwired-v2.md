@@ -52,8 +52,13 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
 
 - `rpi_ws281x` over SPI (GPIO 10). Needs `core_freq=500` / `core_freq_min=500` on the Pi 4.
 - Spectrum: an ALSA `multi`/`dmix` + `snd-aloop` route so audio goes to both the Amp4 and the loopback.
-  **cava** reads the loopback with raw output (8 bars) into a FIFO, and the LED service reads the FIFO.
-- States: booting, idle glow, playing (spectrum), paused, unknown cartridge, volume overlay.
+  **cava** reads the loopback with raw output (**5 bars**, ~30 fps, bass→treble) into a FIFO, and the LED service reads the FIFO.
+- Matrix: Adafruit NeoPixel Shield 5×8 (#1430), 40 LEDs, mounted **portrait (5 wide × 8 tall)**. The shield is wired as 8 × 5 rows,
+  so the service maps (x, y) → index with a 90° rotation; keep the mapping in one config so a different panel is a config change.
+- Jukebox look (see enclosure.md "LED display"): warm palette only (amber → orange → red up each bar), peak dots that hold
+  ~0.3 s then fall, a bass-beat flash on the bottom row, a left-to-right "tuning sweep" on cartridge insert, a 5×8 "?" glyph
+  for unknown cartridges, and a 0–8 row volume overlay.
+- States: booting (valves warming), idle glow, tuning sweep, playing (5-band equaliser), paused, unknown cartridge, volume overlay.
   It gets state from the API (or a small local socket) rather than polling Spotify.
 - Brightness capped by the `led_brightness` setting (default ~20%).
 - New systemd unit: `scripts/jambox-leds.service`, started early so the boot animation shows.

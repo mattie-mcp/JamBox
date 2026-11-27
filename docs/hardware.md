@@ -1,9 +1,9 @@
 # JamBox Hardware (v2: hardwired, all-in-one)
 
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
-> Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoMatrix 8×8, NFC-only presence, wall power, hardwood cartridges.
+> Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices: ≈ $950 all-in** (≈ $745 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices: ≈ $945 all-in** (≈ $738 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -28,7 +28,7 @@ and a slot that takes chunky **cartridges**. One USB-C charger powers everything
 | NFC | **PN532** (Adafruit #364), kept from v1 | The existing code already uses it. The tuned antenna reads 30–40 mm tags through a thin wall easily. |
 | Cartridge presence | **NFC-only** (pause after 2–3 missed polls) plus a click detent for feel. The microswitch is an optional add-on | NFC alone can detect removal (~1–1.5 s) with no extra part. Add the switch only if the slot mock-up test shows laggy or false pauses |
 | Controls | 3× 30 mm arcade buttons (Back / Play-Pause / Skip) + rotary encoder volume knob | Arcade buttons are built for abuse. An encoder (not a pot) lets software enforce a max volume. |
-| LEDs | 8×8 **WS2812B** NeoPixel matrix behind a diffuser, driven over SPI | Audio-reactive visualizer, boot/idle animations, volume bar and status. SPI avoids clashing with I2S audio. |
+| LEDs | 5×8 **WS2812B** NeoPixel matrix (portrait) behind a diffuser, driven over SPI | Jukebox-style 5-band equaliser, boot/idle animations, volume bar and status. SPI avoids clashing with I2S audio. |
 | Storage | 64 GB **high-endurance** microSD + read-only root filesystem (overlayfs) | Survives being unplugged mid-song. |
 
 ### Why not the alternatives?
@@ -66,7 +66,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E9 | Buttons | 30 mm arcade buttons (Sanwa OBSF-30 or Adafruit 30 mm) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com), Paradise Arcade Shop, Amazon | Pick three colors: Back, Play/Pause, Skip. Adafruit LED versions #3490/#3487/#3488 (blue, green, yellow; no orange) |
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
 | E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $11.99 † | Amazon (B099DHHGGQ, 44 × 25 mm aluminium, set screw) | Big and grippy. Grub-screw or D-shaft fit, glued. The Amazon knob is the backup; print or turn one if you prefer. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
-| E12 | LED matrix | Adafruit NeoPixel **NeoMatrix 8×8** (#1487), or a flexible 8×8/16×16 WS2812B panel | 1 | $34.95 † | Adafruit, BTF-Lighting (Amazon) | Software-capped at ~20% brightness |
+| E12 | LED matrix | Adafruit **NeoPixel Shield 5×8** (#1430), 40 LEDs, 68.9 × 53.4 mm, mounted portrait | 1 | $27.95 † | Adafruit | Software-capped at ~20% brightness (~0.48 A worst case). Wire DIN/5 V/GND pads directly; no Arduino headers. Changed 2026-11-27 from the NeoMatrix 8×8 (#1487) for a rectangular "dial" |
 | E13 | Level shifter | **74AHCT125** quad level shifter, DIP-14 (TI SN74AHCT125N; Adafruit #1787 is the same chip) | 1 | $0.95 † | Mouser 595-SN74AHCT125N, Adafruit (out of stock 11/27) | 3.3 V GPIO → 5 V NeoPixel data |
 | E14 | Slot sensor (**optional**, pending test) | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Only if NFC-only removal is laggy or flaky. Alt: Adafruit IR break-beam 3 mm (#2167) |
 | E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + screw-terminal or Perma-Proto HAT | 1 | $2.95 † + HAT | Adafruit | The Amp4 sits on the Pi; this exposes free pins for wiring |
@@ -77,7 +77,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E20 | Wiring kit | 18 AWG speaker wire, 22 AWG silicone hookup wire, JST-XH connector kit + crimper, heat-shrink, inline 3 A blade fuse holder | 1 | $53 † | Amazon | Use keyed connectors (JST-XH) everywhere, not loose Dupont jumpers |
 | E21 | Mounting | M2.5 nylon standoff kit, M3 brass threaded inserts | 1 | $19 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $494** at Nov 2026 cart prices, including the charger and 60 tags (estimate was $450–520).
+**Electronics subtotal: about $487** at Nov 2026 cart prices, including the charger and 60 tags (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -107,7 +107,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $860–950** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $855–945** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 
@@ -129,7 +129,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
      ▼                      ▼
  [E2] HiFiBerry Amp4    [E7] Pololu 5 V buck
   │ powers Pi via 40-pin  │ 5 V
-  ▼                       ├─► NeoPixel 8×8 matrix (+ 1000 µF cap)
+  ▼                       ├─► NeoPixel 5×8 shield (+ 1000 µF cap)
  [E1] Raspberry Pi 4       └─► 74AHCT125 level shifter VCC
   (PN532, buttons, encoder and slot switch run from the Pi's 3.3 V)
 ```

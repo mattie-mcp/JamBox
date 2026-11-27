@@ -6,7 +6,7 @@ Smart NFC-based music player for toddlers. Slide a chunky cartridge into the box
 - **Backend**: Python 3.11+ (FastAPI) - NFC daemon + REST API
 - **Frontend**: Next.js 16 (App Router), built as a static export and served by FastAPI; parent management UI
 - **Database**: SQLite via SQLAlchemy
-- **Hardware (v2)**: Raspberry Pi 4, HiFiBerry Amp4 + 2 wired 3" drivers, PN532 NFC reader, slot microswitch, arcade buttons + rotary encoder, WS2812B 8x8 LED matrix, USB-C PD (15 V) power. See `docs/hardware.md` and `docs/enclosure.md`
+- **Hardware (v2)**: Raspberry Pi 4, HiFiBerry Amp4 + 2 wired 3" drivers, PN532 NFC reader, slot microswitch, arcade buttons + rotary encoder, WS2812B 5×8 LED matrix (portrait, jukebox-style equaliser), USB-C PD (15 V) power. See `docs/hardware.md` and `docs/enclosure.md`
 - **Spotify**: Raspotify (Connect device) + Spotify Web API (playback control)
 
 ## Commands
