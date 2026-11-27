@@ -5,7 +5,7 @@
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
 > **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $776 all-in** (≈ $570 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
-> the Results section of [shopping.md](shopping.md).
+> [shopping.md](shopping.md).
 
 This replaces the v1 prototype list (Pi 3 B+ plus a Bluetooth speaker). v2 is a self-contained
 box with built-in speakers, physical controls, an LED "face" that dances to the music,

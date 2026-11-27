@@ -208,35 +208,8 @@ def back_view():
     p.append("</svg>")
     return "\n".join(p)
 
-# ---- parts list from docs/shopping.md ----
+# ---- parts list from docs/shopping.md (one "## N. [Store](cart url): $x" section per store) ----
 md = (ROOT / "docs/shopping.md").read_text()
-stores = {
-    "1": ("PiShop.us", "https://www.pishop.us/cart.php"),
-    "2": ("Adafruit", "https://www.adafruit.com/shopping_cart"),
-    "3": ("Parts Express", "https://www.parts-express.com/cart"),
-    "5": ("Mouser", "https://www.mouser.com/Cart/"),
-    "6": ("Amazon", "https://www.amazon.com/gp/cart/view.html"),
-    "7": ("McMaster-Carr", "https://www.mcmaster.com/order/"),
-    "8": ("Woodcraft", "https://www.woodcraft.com/cart"),
-}
-notes = {
-    "1": "Shipping at checkout",
-    "2": "$57.97 with code OhFudge15; shipping at checkout",
-    "3": "+ $9.95 shipping",
-    "5": "+ $8.49 UPS Ground + $0.63 tariff",
-    "6": "Free shipping (Prime). Your Scotch tape is also in this cart",
-    "7": "Shipping at checkout",
-    "8": "Free shipping over $50 (through Dec 1)",
-}
-sec = md[md.index("### Line items"):md.index("### Comparisons")]
-rows = {}
-for line in sec.splitlines():
-    m = re.match(r"\| (\d) \| (.+?) \| (.+?) \| (\$[\d.]+) \| (.+?) \| (.+?) \| (.+?) \|$", line)
-    if not m:
-        continue
-    cart, item, part, unit, qty, stock, link = m.groups()
-    lm = re.search(r"\((https?://[^)]+)\)", link)
-    rows.setdefault(cart, []).append((item, part, unit, qty, stock, lm.group(1) if lm else None))
 
 def money(v): return float(v.replace("$", ""))
 def qn(q):
@@ -245,21 +218,25 @@ def qn(q):
 
 parts_html = []
 grand = 0.0
-for cart in ("1", "2", "5", "6", "3", "7", "8"):
-    name, url = stores[cart]
-    items = rows.get(cart, [])
-    sub = sum(money(u) * qn(q) for _, _, u, q, _, _ in items)
+for sm in re.finditer(r"^## \d+\. \[(.+?)\]\((.+?)\): .*?$(.*?)(?=^## |\Z)", md, re.M | re.S):
+    name, url, body = sm.groups()
+    note = " ".join(l.lstrip("> ").replace("\\", "") for l in body.splitlines() if l.startswith(">"))
+    table = body.split("**Saved for later")[0]
+    items = []
+    for line in table.splitlines():
+        m = re.match(r"\| (.+?) \| (.+?) \| (\$[\d.]+) \| (.+?) \| \[.+?\]\((.+?)\) \|$", line)
+        if m:
+            items.append(m.groups())
+    sub = sum(money(u) * qn(q) for _, _, u, q, _ in items)
     grand += sub
-    trs = []
-    for item, part, unit, qty, stock, link in items:
-        t = html.escape(item)
-        if link:
-            t = f'<a href="{link}">{t}</a>'
-        trs.append(f"<tr><td>{t}</td><td class=mono>{html.escape(part)}</td><td class=num>{unit}</td><td class=num>{html.escape(qty)}</td><td>{html.escape(stock)}</td></tr>")
+    trs = "".join(
+        f'<tr><td><a href="{link}">{html.escape(item)}</a></td><td class=mono>{html.escape(part)}</td>'
+        f'<td class=num>{unit}</td><td class=num>{html.escape(qty)}</td></tr>'
+        for item, part, unit, qty, link in items)
     parts_html.append(
         f'<section class="store"><h3><a href="{url}">{name}</a> <span class="sub">${sub:,.2f}</span></h3>'
-        f'<p class="note">{notes[cart]}</p><table><thead><tr><th>Item</th><th>Part</th><th>Unit</th><th>Qty</th><th>Stock</th></tr></thead>'
-        f'<tbody>{"".join(trs)}</tbody></table></section>')
+        f'<p class="note">{html.escape(note)}</p><table><thead><tr><th>Item</th><th>Part</th><th>Unit</th><th>Qty</th></tr></thead>'
+        f'<tbody>{trs}</tbody></table></section>')
 
 still = """
 <tr><td>8/4 hard maple milled to 30 mm (cartridges), ~3–4 bd-ft; label paper</td><td>Woodcraft of Grand Rapids or a local hardwood dealer</td><td>$30–50</td></tr>
@@ -327,4 +304,4 @@ a centred 32 mm slot, sled on rails, power in the back panel, and the arched 5×
 </main></body></html>"""
 
 (ROOT / "docs/design/jam-radio-v2.html").write_text(page)
-print("grand", round(grand, 2), {k: len(v) for k, v in rows.items()})
+print("grand", round(grand, 2), len(parts_html), "stores")

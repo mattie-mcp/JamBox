@@ -7,7 +7,7 @@
 > and Adafruit carts. The owner already has a soldering kit. See [shopping.md](shopping.md) for the current carts.
 
 Research only, 2026-11-27. Nothing was added to, removed from or bought in any cart. Prices come from the carts
-in [shopping.md](shopping.md) (Results, 2026-11-24/27) unless a row gives a new source. A price marked
+in [shopping.md](shopping.md) as of 2026-11-27 unless a row gives a new source. A price marked
 **unverified** could not be confirmed on the store's own page today (Amazon, Mouser and Newegg blocked automated
 reads; Woodcraft rate-limited).
 
