@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoMatrix 8×8, NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices: ≈ $940 all-in** (≈ $733 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices: ≈ $950 all-in** (≈ $745 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -65,7 +65,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E8 | Power switch + light | 19 mm **latching** illuminated anti-vandal stainless pushbutton, ≥3 A, 12 V LED ring | 1 | $13.49 † | Amazon (APIELE 10 A, B07V96FYHP) | Switches the 15 V rail. Wire the ring LED through it so it lights when ON |
 | E9 | Buttons | 30 mm arcade buttons (Sanwa OBSF-30 or Adafruit 30 mm) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com), Paradise Arcade Shop, Amazon | Pick three colors: Back, Play/Pause, Skip. Adafruit LED versions #3490/#3487/#3488 (blue, green, yellow; no orange) |
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
-| E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $5–10 | Rockler, Amazon | Big and grippy. Grub-screw or D-shaft fit, glued |
+| E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $11.99 † | Amazon (B099DHHGGQ, 44 × 25 mm aluminium, set screw) | Big and grippy. Grub-screw or D-shaft fit, glued. The Amazon knob is the backup; print or turn one if you prefer. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
 | E12 | LED matrix | Adafruit NeoPixel **NeoMatrix 8×8** (#1487), or a flexible 8×8/16×16 WS2812B panel | 1 | $34.95 † | Adafruit, BTF-Lighting (Amazon) | Software-capped at ~20% brightness |
 | E13 | Level shifter | **74AHCT125** quad level shifter (Adafruit #1787) | 1 | $1.50 † | Adafruit | 3.3 V GPIO → 5 V NeoPixel data |
 | E14 | Slot sensor (**optional**, pending test) | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Only if NFC-only removal is laggy or flaky. Alt: Adafruit IR break-beam 3 mm (#2167) |
@@ -77,7 +77,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E20 | Wiring kit | 18 AWG speaker wire, 22 AWG silicone hookup wire, JST-XH connector kit + crimper, heat-shrink, inline 3 A blade fuse holder | 1 | $53 † | Amazon | Use keyed connectors (JST-XH) everywhere, not loose Dupont jumpers |
 | E21 | Mounting | M2.5 nylon standoff kit, M3 brass threaded inserts | 1 | $19 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $480** at Nov 2026 cart prices, including the charger and 60 tags (estimate was $450–520).
+**Electronics subtotal: about $494** at Nov 2026 cart prices, including the charger and 60 tags (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -107,7 +107,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $850–940** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $860–950** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 

@@ -214,7 +214,7 @@ The software changes are in [the v2 plan](plans/2026-11-24-hardwired-v2.md).
 | Speakers | Two drivers at the far ends (210 mm apart), each in a sealed 6 mm ply chamber of ~110 × 110 × 80 mm internal (≈ 1 L). Grilles are a 115 mm circle of 6 mm holes, with steel mesh and cloth behind |
 | Centre bay | ~100 mm wide between the chambers. Holds the LED matrix (front, upper), the three buttons (front, lower), the slot sleeve (from the top) and the electronics sled (bottom) |
 | Slot | Centred in the top panel under the handle. A 6 mm sleeve hangs 48 mm below the 12 mm top (60 mm insertion). PN532 on the sleeve's back wall, facing the cartridge |
-| Knob | Encoder through the top panel at the right end, clear of the handle upright |
+| Knob | Encoder through the top panel at the right end, clear of the handle upright. The PEC11R's ~20 mm shaft (check the datasheet) leaves only ~6 mm above a 12 mm panel plus nut, so **counterbore the panel from below to ~3–4 mm** around the encoder. Glue the knob as well as tightening its set screw. Backup knob: 44 × 25 mm aluminium (Amazon), or print/turn one |
 | Handle | Two hardwood uprights (70 × 40 × 19 mm), each glued into a 6 mm-deep mortise and screwed from inside through the top panel, at least 30 mm from the PN532. A 25 mm dowel through both, glued and pinned with a hardwood peg. It has to hold a toddler hanging on it, so test with ~20 kg |
 | Back | 260 × 120 mm service opening and a 6 mm cover with the recessed USB-C, the lit power button and vent holes. Tamper-resistant screws |
 
