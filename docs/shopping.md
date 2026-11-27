@@ -229,3 +229,14 @@ and sales tax come on top.
 | Not yet bought: finish, maple, grille sheet | | ≈ $90 |
 | Tools, if not owned | | ≈ $90 |
 | **Total** | **≈ $820** | **≈ $798 all-in** (≈ $708 if you already own the bits). The [cost-review.md](cost-review.md) savings were applied on 2026-11-27 (≈ $109); you already own a soldering kit |
+
+## Final purchase checklist
+
+Work through this before checking out. Add to it as questions come up.
+
+- [ ] **Amp4 power jack (Adafruit #369, $2).** #369 is a 5.5 × 2.1 mm barrel plug with screw terminals. It carries
+      the 15 V wires (HUSB238 → fuse → power switch) into the Amp4. Before buying:
+  - Confirm the Amp4's input is a **5.5 × 2.1 mm** barrel jack. HiFiBerry's datasheet doesn't say; one retailer
+    lists 5.5 × 2.1. Measure it or check HiFiBerry's docs. If the Amp4 uses screw terminals instead, remove #369.
+  - Polarity: **centre pin positive**. The 15 V wire goes to the + terminal.
+  - At assembly: tighten the screws firmly and cable-tie the wires to the sled so nothing tugs on the terminals.
