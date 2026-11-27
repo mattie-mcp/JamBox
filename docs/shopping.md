@@ -36,7 +36,7 @@ Amp4, PiShop vs hifiberry.com, *including shipping*.
 | NeoPixel Shield 5×8 (portrait; replaced the NeoMatrix 8×8 #1487 on 11/27) | #1430 | 1 | $27.95 |
 | 74AHCT125 quad level shifter | #1787 | 1 | ~$2 |
 | GPIO stacking header, 2×20 extra-tall | #1979 | 1 | ~$2.50 |
-| 24 mm mini LED arcade buttons, red / green / yellow (switched from 30 mm on 11/27) | #3430 / #3433 / #3431 | 3 | $2.50 ea |
+| 24 mm mini LED arcade buttons, blue / green / yellow (switched from 30 mm on 11/27) | #3432 / #3433 / #3431 | 3 | $2.50 ea |
 | Panel-mount USB-C female → USB-C male extension cable | search "Panel Mount USB C" | 1 | ~$6–10 |
 | Rotary encoder with push switch (if not buying Bourns at DigiKey) | #377 | 1 | ~$4.50 |
 | 19 mm latching illuminated anti-vandal pushbutton, if Adafruit has one rated ≥ 3 A at 12–15 V | search "Rugged Metal Pushbutton latching" | 1 | ~$8–15 |
@@ -141,7 +141,7 @@ and sales tax come on top.
 | 2 | Adafruit NeoPixel Shield for Arduino - 40 RGB LED Pixel Matrix (5×8) | #1430 | $27.95 | 1 | 33 in stock | [adafruit](https://www.adafruit.com/product/1430) |
 | 5 | Texas Instruments SN74AHCT125N quad buffer, DIP-14 (same chip as Adafruit #1787, which went out of stock 11/27) | Mouser 595-SN74AHCT125N | $0.95 | 1 | 1,002 in stock | [mouser](https://www.mouser.com/c/?q=SN74AHCT125N) |
 | 2 | Stacking Header - 2x20 Extra Tall Header | #1979 | $2.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1979) |
-| 2 | Mini LED Arcade Button - 24mm Translucent Red / Green / Translucent Yellow (Back / Play-Pause / Skip) | #3430 / #3433 / #3431 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3430) |
+| 2 | Mini LED Arcade Button - 24mm Translucent Blue / Green / Translucent Yellow (Back / Play-Pause / Skip) | #3432 / #3433 / #3431 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3432) |
 | 2 | Male DC Power adapter - 2.1mm plug to screw terminal block (15 V into the Amp4 jack; confirm the jack is 5.5 × 2.1 mm) | #369 | $2.00 | 1 | In stock | [adafruit](https://www.adafruit.com/product/369) |
 | 2 | MPM3610 5V Buck Converter Breakout - 21V In 5V Out at 1.2A (LED 5 V; replaces the Pololu) | #4739 | $6.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/4739) |
 | 2 | Multi-Colored Heat Shrink Pack - 3/32" + 1/8" + 3/16" Diameters | #1649 | $4.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1649) |

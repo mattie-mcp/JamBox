@@ -76,8 +76,8 @@ def front_view():
             lit = row < EQ[c]; peak = row == PEAK[c] - 1 and not lit
             col = led_color(row) if (lit or peak) else "#4a2e1c"
             p.append(box(cx - 3.4, Z(cz) - 3.4, 6.8, 6.8, rx=1.5, fill=col, opacity="1" if lit or peak else "0.6"))
-    # buttons: Back red, Play/Pause green, Skip yellow
-    for x, col, lab in ((140, "#e0402a", "Back"), (180, "#3fae4a", "Play/Pause"), (220, "#f2c230", "Skip")):
+    # buttons: Back blue, Play/Pause green, Skip yellow
+    for x, col, lab in ((140, "#2f7fd8", "Back"), (180, "#3fae4a", "Play/Pause"), (220, "#f2c230", "Skip")):
         p.append(circ(ox + x, Z(48), 13.5, fill="#2b2118"))
         p.append(circ(ox + x, Z(48), 10.5, fill=col, stroke="#fff", stroke_width=1, opacity="0.92"))
         p.append(text(ox + x, Z(22), lab, 7.5))
