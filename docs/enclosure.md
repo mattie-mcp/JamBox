@@ -26,6 +26,7 @@ All decisions were made on 2026-11-24.
 | 3D printing | **Your Ender 3 Pro** (slot mock-up, LED grid, brackets, cartridge experiments) |
 | Re-inserting a cartridge | **Resume if within ~30 minutes**, otherwise start over |
 | Volume ceiling | **Parent-adjustable** in the web app, starting at ~80 dB |
+| Control buttons | **24 mm mini LED arcade buttons** (Adafruit #3430 red Back, #3433 green Play/Pause, #3431 yellow Skip), decided 2026-11-27 for a neater radio look. LEDs need 5 V |
 | Volume knob | **Maple Shaker knob, 51 mm** (Woodcraft 2-pack), epoxied on (decided 2026-11-27; replaces the aluminium backup knob) |
 | Wiring | **Keyed JST-XH plugs at the sled end** (pre-crimped leads, no crimper), soldered and heat-shrunk at the device end, a Perma-Proto HAT for the GPIO breakout. The breadboard is for the bench prototype only (decided 2026-11-27) |
 | LED 5 V supply | **Adafruit MPM3610** 1.2 A buck (decided 2026-11-27; replaces the Pololu D36V28F5) |
@@ -239,7 +240,7 @@ x across (0–360), y front to back (0–170), z up (0–200).
 | Grilles | An **84 mm circle of 6 mm holes** over each driver (it has to fit inside the 90 mm chamber), with steel mesh and grille cloth behind. For a bigger look, a 100 mm V-groove ring around the holes |
 | Centre bay | **144 mm wide** between the chamber walls (x 108–252) in the front 82 mm. Behind the chambers (y > 82) the whole 336 mm width is open |
 | LED window | **52 W × 84 H mm**: a 70 mm-tall rectangle (z 80–150) with a 14 mm segmental arch on top (to z 164). The 5×8 LED field (~39 × 64 mm) sits inside the rectangle, so **the arch hides no LEDs**. Maple-veneer diffuser glued to the **back of a 1.5 mm recess at the front face**, egg-crate grid behind it |
-| Buttons | Three 30 mm arcade buttons at z = 48, x = 135 / 180 / 225 (45 mm apart). Hole **30 mm** (drill a test hole in scrap and check the thread first). With ~37 mm nuts they clear the chamber walls by 8 mm and the window by 13 mm. Their bodies reach y ≈ 47, 16 mm clear of the sled |
+| Buttons | Three **24 mm mini LED arcade buttons** (Back red, Play/Pause green, Skip yellow) at z = 48, x = 140 / 180 / 220 (40 mm apart). Hole **24 mm** (15/16" Forstner; test in scrap first). The 12 mm panel is inside their ~15 mm limit. With ~30 mm nuts they clear the chamber walls by ~17 mm and the window by ~17 mm. Their bodies reach y ≈ 45, clear of the sled. **Threadlock or epoxy each nut**: the bezel is small enough to fit the small-parts cylinder, so a button must never come loose |
 | Slot | **Centred** in the top: x = 180, y = 85. Stepped HDPE insert 130 × 50 × 12 mm with a 32 × 84 mm slot. Sleeve hangs to z = 134; PN532 in a 3 mm-wall pocket on the sleeve's back wall (y ≈ 104). It is ≥ 60 mm from the LED shield, the Pi and the driver magnets |
 | Knob | Encoder through the top at **x = 300, y = 120** (back right, behind the right chamber), counterbored from below to ~3–4 mm of panel. With no handle there's nothing near it to pinch a finger. Maple Shaker knob, 51 mm across, epoxied on |
 | Electronics sled | 6 mm ply, **136 W × 95 D mm**, rides on two 10 × 10 mm hardwood rails glued to the bottom panel (y 63–158). The Pi lies sideways (85 mm across the bay) on 10 mm nylon standoffs; buck and HUSB238 beside it. The 10 mm gap under the sled is the air inlet |
@@ -291,7 +292,7 @@ roughly doubles the rise to ~25 °C, which is too close to the limit.
 
 | Part | Qty | Size (mm) | Notes |
 |---|---|---|---|
-| Front | 1 | 360 × 200 | Two 84 mm grille fields of 6 mm holes (centres x 57 / 303, z 100). 52 × 84 arched LED window (z 80–164) with a 1.5 mm diffuser recess. Three 30 mm button holes at z 48. 10 mm (3/8") roundover on the outside edges |
+| Front | 1 | 360 × 200 | Two 84 mm grille fields of 6 mm holes (centres x 57 / 303, z 100). 52 × 84 arched LED window (z 80–164) with a 1.5 mm diffuser recess. Three 24 mm button holes at z 48, x 140 / 180 / 220. 10 mm (3/8") roundover on the outside edges |
 | Back | 1 | 360 × 200 | 260 × 98 service opening (z 22–120). Above it: USB-C jack and 19 mm power-button holes (22 mm × 6 mm counterbores from outside), outlet vents, 8 mm drain hole at z ≈ 126. Threaded inserts for the cover |
 | Sides | 2 | 146 × 200 | Fit between front and back. No hand-holds (they'd open the sealed chambers) |
 | Top | 1 | 336 × 146 | Stepped slot hole for the HDPE insert, centred at x 180, y 85. Encoder hole at x 300, y 120, counterbored from below |
@@ -428,8 +429,9 @@ headers), with a 1000 µF cap across 5 V. Details are in the [v2 plan](plans/202
 
 ## Toddler safety checklist
 
-- [ ] **No small parts.** Cartridges, knob and button caps are all larger than the small-parts cylinder
-      (31.7 mm Ø). Glue the knob on and use arcade buttons that can't be pried apart.
+- [ ] **No small parts.** Cartridges and the knob are larger than the small-parts cylinder (31.7 mm Ø); glue the knob on.
+      The 24 mm buttons are smaller, so they are held from inside: **threadlock or epoxy every button nut** and check
+      that no button can be pulled or pried out from the front.
 - [ ] **No magnets**, no button cells, **no battery inside the box**.
 - [ ] All outside edges are rounded over (10 mm on the box, 6 mm on cartridges), with no sharp corners or splinters (sand to 220).
 - [ ] **No pinch points.** No handle, hinges or lids. The slot's chamfered lip guides fingers out of the gap, and the knob

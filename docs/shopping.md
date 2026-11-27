@@ -36,7 +36,7 @@ Amp4, PiShop vs hifiberry.com, *including shipping*.
 | NeoPixel Shield 5×8 (portrait; replaced the NeoMatrix 8×8 #1487 on 11/27) | #1430 | 1 | $27.95 |
 | 74AHCT125 quad level shifter | #1787 | 1 | ~$2 |
 | GPIO stacking header, 2×20 extra-tall | #1979 | 1 | ~$2.50 |
-| 30 mm arcade buttons, 3 colours (blue, green, orange or nearest) | search "Arcade Button 30mm" | 3 | ~$2–3 ea |
+| 24 mm mini LED arcade buttons, red / green / yellow (switched from 30 mm on 11/27) | #3430 / #3433 / #3431 | 3 | $2.50 ea |
 | Panel-mount USB-C female → USB-C male extension cable | search "Panel Mount USB C" | 1 | ~$6–10 |
 | Rotary encoder with push switch (if not buying Bourns at DigiKey) | #377 | 1 | ~$4.50 |
 | 19 mm latching illuminated anti-vandal pushbutton, if Adafruit has one rated ≥ 3 A at 12–15 V | search "Rugged Metal Pushbutton latching" | 1 | ~$8–15 |
@@ -104,7 +104,7 @@ the better-documented board. Check the free-shipping threshold; Cart 2 may cross
 | Titebond III | 1 | ~$10 | |
 | Water-based toy-safe finish (labelled EN 71-3 / ASTM F963) | 1 | ~$25 | |
 | Router bits: ¼" and ⅜" roundover, 45° chamfer (if not owned) | – | $40–60 | |
-| 1-⅜" (35 mm) Forstner (tag pockets), 1-3/16" (30 mm) Forstner (buttons), ⅞" Forstner (USB-C/switch counterbores), 6 mm brad-point (grille holes) | – | ~$40 | |
+| 1-⅜" (35 mm) Forstner (tag pockets), 15/16" (24 mm) Forstner (buttons), ⅞" Forstner (USB-C/switch counterbores), 6 mm brad-point (grille holes) | – | ~$40 | |
 | Maple Shaker knob, 2", 2-pack (volume knob + spare) | 1 | ~$6 | |
 
 ---
@@ -117,7 +117,7 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | Cart | Store | Items in stock | Subtotal | Shipping | Free-ship threshold | Notes |
 |---|---|---|---|---|---|---|
 | 1 | [PiShop.us](https://www.pishop.us/cart.php) | 3/3 | $232.35 | At checkout (USPS / FedEx) | None listed | SD card moved here from Amazon |
-| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 10 lines (MPM3610 buck added 11/27); blue button #3490 went out of stock 11/27 (red #3489 instead); 74AHCT125 #1787 out of stock (moved to Mouser); PN532 #364 and encoder #377 **out of stock** | $68.20 ($57.97 with code OhFudge15) | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
+| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 10 lines (MPM3610 buck added 11/27); buttons switched to 24 mm minis 11/27; 74AHCT125 #1787 out of stock (moved to Mouser); PN532 #364 and encoder #377 **out of stock** | $68.20 ($57.97 with code OhFudge15) | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
 | 3 | [Parts Express](https://www.parts-express.com/cart) | 2/2 | $40.96 | $9.95 | $99 | Polyfill removed 11/27 (use what you have). BLACKFRI15 (15% off $75+, ends 11/29) doesn't reach |
 | 4 | Pololu | **0/1** (D36V28F5 out of stock, backorder only) | n/a | n/a | n/a | Dropped 11/27: Adafruit MPM3610 instead (Cart 2) |
 | 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 7/7 | $11.50 | $8.49 UPS Ground + $0.63 tariff | n/a | Switch and fuse moved to Amazon; level shifter and wiring passives added 11/27 |
@@ -141,7 +141,7 @@ and sales tax come on top.
 | 2 | Adafruit NeoPixel Shield for Arduino - 40 RGB LED Pixel Matrix (5×8) | #1430 | $27.95 | 1 | 33 in stock | [adafruit](https://www.adafruit.com/product/1430) |
 | 5 | Texas Instruments SN74AHCT125N quad buffer, DIP-14 (same chip as Adafruit #1787, which went out of stock 11/27) | Mouser 595-SN74AHCT125N | $0.95 | 1 | 1,002 in stock | [mouser](https://www.mouser.com/c/?q=SN74AHCT125N) |
 | 2 | Stacking Header - 2x20 Extra Tall Header | #1979 | $2.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1979) |
-| 2 | Arcade Button with LED - 30mm Translucent Red / Green / Yellow (red replaces blue, out of stock 11/27) | #3489 / #3487 / #3488 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3489) |
+| 2 | Mini LED Arcade Button - 24mm Translucent Red / Green / Translucent Yellow (Back / Play-Pause / Skip) | #3430 / #3433 / #3431 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3430) |
 | 2 | Male DC Power adapter - 2.1mm plug to screw terminal block (15 V into the Amp4 jack; confirm the jack is 5.5 × 2.1 mm) | #369 | $2.00 | 1 | In stock | [adafruit](https://www.adafruit.com/product/369) |
 | 2 | MPM3610 5V Buck Converter Breakout - 21V In 5V Out at 1.2A (LED 5 V; replaces the Pololu) | #4739 | $6.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/4739) |
 | 2 | Multi-Colored Heat Shrink Pack - 3/32" + 1/8" + 3/16" Diameters | #1649 | $4.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1649) |
@@ -215,7 +215,7 @@ and sales tax come on top.
 | Water-based toy-safe finish (EN 71-3 / ASTM F963) | Rockler and Woodcraft list no water-based finish with that label online. Rockler's only EN71 hit is Natura Onecoat Wood Oil 2K ($39.99), an oil | Your call. Ask at Woodcraft of Grand Rapids, or consider Osmo or a General Finishes water-based topcoat if you accept its toy-safe statement |
 | Maple or cherry, ¾" and ½", 3–4 bd-ft | Sold by the board foot in store | Woodcraft of Grand Rapids or a local hardwood dealer, ~$30–50 |
 | Perforated grille sheet, ~2 mm holes | Parts Express has none; McMaster's smallest is 24×24" ($54+) | Amazon 12×12" perforated stainless, ~$18 (3 mm holes on the listings that state size) |
-| Router bits (⅜" and ¼" roundover, 45° chamfer), 1-⅜", 1-3/16" and ⅞" Forstners, 6 mm brad-point | Marked "if not owned". No hole saw needed now | ~$80–100 at Woodcraft |
+| Router bits (⅜" and ¼" roundover, 45° chamfer), 1-⅜", 15/16" and ⅞" Forstners, 6 mm brad-point | Marked "if not owned". No hole saw needed now | ~$80–100 at Woodcraft |
 | Polyester fiberfill, a handful | Removed from Parts Express (1 lb was ~30× too much) | Pillow or craft-stash polyester (not cotton or wool), or a small craft bag, ~$5 |
 | Omron D2F-01L3 microswitch | Optional, only if the slot test fails | Mouser or DigiKey, ~$3 |
 

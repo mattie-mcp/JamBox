@@ -77,9 +77,9 @@ def front_view():
             col = led_color(row) if (lit or peak) else "#4a2e1c"
             p.append(box(cx - 3.4, Z(cz) - 3.4, 6.8, 6.8, rx=1.5, fill=col, opacity="1" if lit or peak else "0.6"))
     # buttons: Back red, Play/Pause green, Skip yellow
-    for x, col, lab in ((135, "#e0402a", "Back"), (180, "#3fae4a", "Play/Pause"), (225, "#f2c230", "Skip")):
-        p.append(circ(ox + x, Z(48), 16, fill="#2b2118"))
-        p.append(circ(ox + x, Z(48), 13, fill=col, stroke="#fff", stroke_width=1, opacity="0.92"))
+    for x, col, lab in ((140, "#e0402a", "Back"), (180, "#3fae4a", "Play/Pause"), (220, "#f2c230", "Skip")):
+        p.append(circ(ox + x, Z(48), 13.5, fill="#2b2118"))
+        p.append(circ(ox + x, Z(48), 10.5, fill=col, stroke="#fff", stroke_width=1, opacity="0.92"))
         p.append(text(ox + x, Z(22), lab, 7.5))
     # feet
     for x in (25, 335):
@@ -145,8 +145,8 @@ def section_view():
     p.append(box(X(20), Z(152), 2, 74, fill="#1d5e8a"))
     p.append(text(X(24), Z(118), "LEDs", 7, anchor="start"))
     # button
-    p.append(box(X(-3), Z(63), 3, 30, fill="#3fae4a"))
-    p.append(box(X(12), Z(60), 35, 24, fill="#555", rx=2))
+    p.append(box(X(-3), Z(60), 3, 24, fill="#3fae4a"))
+    p.append(box(X(12), Z(58), 33, 20, fill="#555", rx=2))
     p.append(text(X(30), Z(28), "button", 7))
     # rails, sled, Pi stack
     p.append(box(X(63), Z(22), 95, 10, fill=WOOD_D, stroke=EDGE, stroke_width=0.6))
@@ -267,7 +267,7 @@ still = """
 <tr><td>Perforated steel grille sheet, ~2–3 mm holes, 12 × 12"</td><td>Amazon</td><td>~$18</td></tr>
 <tr><td>Maple veneer (0.6 mm) for the LED diffuser</td><td>Woodcraft</td><td>~$10</td></tr>
 <tr><td>Handful of polyester fiberfill</td><td>Pillow or craft stash</td><td>$0–5</td></tr>
-<tr><td>Router bits and Forstners, if not owned: ⅜" and ¼" roundover, 45° chamfer; 1-⅜", 1-3/16", ⅞" Forstner; 6 mm brad-point</td><td>Woodcraft</td><td>~$80–100</td></tr>
+<tr><td>Router bits and Forstners, if not owned: ⅜" and ¼" roundover, 45° chamfer; 1-⅜", 15/16", ⅞" Forstner; 6 mm brad-point</td><td>Woodcraft</td><td>~$80–100</td></tr>
 <tr><td><i>Optional:</i> Omron D2F-01L3 slot microswitch, only if the slot test fails</td><td>Mouser</td><td>~$3</td></tr>
 """
 
@@ -313,7 +313,7 @@ a centred 32 mm slot, sled on rails, power in the back panel, and the arched 5×
 <li><b>Cartridge 80 × 100 × 30 mm</b>Two 15 mm maple halves, tag at the centre, ±0.5 mm</li>
 <li><b>Read gap 18–20 mm</b>15 mm to the tag + 0–2 mm clearance + 3 mm pocketed wall</li>
 <li><b>Chambers ≈ 1.0 L each</b>90 × 176 × 64 mm, sealed, drivers 246 mm apart behind 84 mm drilled grilles</li>
-<li><b>Bay 144 mm</b>Buttons clear the chamber walls by 8 mm and the sled by 16 mm</li>
+<li><b>Buttons 24 mm</b>Mini LED arcade buttons, 40 mm apart, nuts threadlocked; bay 144 mm</li>
 <li><b>LED window 52 × 84 mm</b>Arch above the grid, maple veneer at the front face</li>
 <li><b>Airflow ≈ 20 cm² in / out</b>Under the sled and low on the cover, out high on the back</li>
 </ul>

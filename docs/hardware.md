@@ -27,7 +27,7 @@ and a slot that takes chunky **cartridges**. One USB-C charger powers everything
 | On/off + "it's on" light | Illuminated **latching anti-vandal pushbutton** on the 15 V rail | The steel button is toddler-proof, and its LED ring is the on/off indicator. Pairs with a read-only OS so a hard power-off can't corrupt the SD card. |
 | NFC | **PN532** (Adafruit #364), kept from v1 | The existing code already uses it. The tuned antenna reads 30–40 mm tags through a thin wall easily. |
 | Cartridge presence | **NFC-only** (pause after 2–3 missed polls) plus a click detent for feel. The microswitch is an optional add-on | NFC alone can detect removal (~1–1.5 s) with no extra part. Add the switch only if the slot mock-up test shows laggy or false pauses |
-| Controls | 3× 30 mm arcade buttons (Back / Play-Pause / Skip) + rotary encoder volume knob | Arcade buttons are built for abuse. An encoder (not a pot) lets software enforce a max volume. |
+| Controls | 3× 24 mm mini LED arcade buttons (Back / Play-Pause / Skip) + rotary encoder volume knob | Arcade buttons are built for abuse. An encoder (not a pot) lets software enforce a max volume. |
 | LEDs | 5×8 **WS2812B** NeoPixel matrix (portrait) behind a diffuser, driven over SPI | Jukebox-style 5-band equaliser, boot/idle animations, volume bar and status. SPI avoids clashing with I2S audio. |
 | Storage | 64 GB **high-endurance** microSD + read-only root filesystem (overlayfs) | Survives being unplugged mid-song. |
 
@@ -63,7 +63,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E6 | USB-C panel mount | Panel-mount USB-C female → USB-C male extension, 20–30 cm, rated 5 A/100 W | 1 | $9.95 † | Adafruit #4218, Amazon | The only port Jamie will see. Mount it in a recessed pocket on the back. #4218 fits a 21.5–27 mm hole in panels ≤16 mm; its listing gives no current/PD rating, so confirm 15 V/3 A passes before relying on it |
 | E7 | 5 V supply for LEDs | Adafruit **MPM3610** 5 V buck, 6–21 V in, 1.2 A out (#4739) | 1 | $6.95 † | [Adafruit](https://www.adafruit.com/product/4739), Mouser 485-4739 | 15 V → 5 V for the LED matrix, button LEDs and level shifter (~0.5 A worst case at the 20% cap, so 2.4× headroom; a 100% brightness bug gets current-limited). Changed 2026-11-27 from the Pololu D36V28F5 ($16.99 + $4.99 ship) |
 | E8 | Power switch + light | 19 mm **latching** illuminated anti-vandal stainless pushbutton, ≥3 A, 12 V LED ring | 1 | $13.49 † | Amazon (APIELE 10 A, B07V96FYHP) | Switches the 15 V rail. Wire the ring LED through it so it lights when ON |
-| E9 | Buttons | 30 mm arcade buttons (Sanwa OBSF-30 or Adafruit 30 mm) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com), Paradise Arcade Shop, Amazon | Pick three colors: Back, Play/Pause, Skip. Adafruit LED versions #3489/#3487/#3488 (red, green, yellow; blue #3490 went out of stock 11/27) |
+| E9 | Buttons | Adafruit **24 mm mini LED arcade buttons**: #3430 red (Back), #3433 green (Play/Pause), #3431 yellow (Skip) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com/product/3430) | 24 mm hole, panels up to ~15 mm. Two LEDs in series with ~1 kΩ built in (~5 mA); **red and yellow need 5 V**, so feed LED+ from the 5 V buck. Switched 2026-11-27 from the 30 mm buttons. Threadlock the nuts |
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
 | E11 | Volume knob | Cindoco **maple Shaker knob, 2" (51 mm)**, ¾" tenon, 2-pack | 1 pack | $5.99 † | Woodcraft #161868 | Matches the maple cartridges. Cut the tenon short, drill 6 mm, epoxy onto the D-shaft, finish, and pull-test. The second knob is the spare. Changed 2026-11-27 from the Amazon aluminium knob ($11.99); a printed knob stays optional. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
 | E12 | LED matrix | Adafruit **NeoPixel Shield 5×8** (#1430), 40 LEDs, 68.9 × 53.4 mm, mounted portrait | 1 | $27.95 † | Adafruit | Software-capped at ~20% brightness (~0.48 A worst case). Wire DIN/5 V/GND pads directly; no Arduino headers. Changed 2026-11-27 from the NeoMatrix 8×8 (#1487) for a rectangular "dial" |
@@ -96,7 +96,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | Glue | Titebond III | $9.99 † | Anywhere |
 | Finish | Water-based, **toy-safe finish labeled EN 71-3 / ASTM F963**, plus non-toxic paint for accents | $25–40 | Woodcraft, Rockler |
 | Router bits | 10 mm (3/8") and 6 mm (¼") roundover, 45° chamfer | $40–60 | Rockler, Amazon (if not owned) |
-| Hole cutting | 35 mm (1-⅜") Forstner (tag pockets), 30 mm Forstner or step bit (buttons), 22 mm (⅞") Forstner (USB-C and switch counterbores), 6 mm brad-point (grille holes). No hole saw: the drivers sit behind drilled grilles | $40 | Rockler, Amazon |
+| Hole cutting | 35 mm (1-⅜") Forstner (tag pockets), 24 mm (15/16") Forstner or step bit (buttons), 22 mm (⅞") Forstner (USB-C and switch counterbores), 6 mm brad-point (grille holes). No hole saw: the drivers sit behind drilled grilles | $40 | Rockler, Amazon |
 
 **Enclosure subtotal: about $250–350**, depending on tools you already own.
 
@@ -161,7 +161,7 @@ Typical playback is 6–9 W.
 | Button: Skip | 25 | 22 | To GND, internal pull-up |
 | Slot microswitch (NO contact) | 5 | 29 | To GND, internal pull-up; closed = cartridge present |
 | PN532 3.3 V / GND | – | 1 / 6 | As in v1 |
-| Spare | 6, 12, 13, 16, 26 | 31, 32, 33, 36, 37 | 12/13 are PWM: keep free for future button LEDs |
+| Spare | 6, 12, 13, 16, 26 | 31, 32, 33, 36, 37 | 12/13 are PWM: keep free for future button LEDs (drive them at 5 V through the 74AHCT125's three spare channels) |
 
 **Do not use GPIO 18 (PWM) for the LEDs.** It's the I2S clock, so audio and LEDs would fight over it.
 On a Pi 4 the SPI method needs a fixed core clock. Add this to `/boot/firmware/config.txt`:
