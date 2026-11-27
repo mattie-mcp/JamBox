@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices: ≈ $905 all-in** (≈ $698 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices: ≈ $908 all-in** (≈ $702 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -63,7 +63,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E6 | USB-C panel mount | Panel-mount USB-C female → USB-C male extension, 20–30 cm, rated 5 A/100 W | 1 | $9.95 † | Adafruit #4218, Amazon | The only port Jamie will see. Mount it in a recessed pocket on the back. #4218 fits a 21.5–27 mm hole in panels ≤16 mm; its listing gives no current/PD rating, so confirm 15 V/3 A passes before relying on it |
 | E7 | 5 V supply for LEDs | Pololu **D36V28F5** 5 V 3.2 A step-down regulator | 1 | $16.99 † | [Pololu](https://www.pololu.com), Amazon (GetFPV) | 15 V → 5 V for the LED matrix and the level shifter. Nov 2026: Pololu $23.95 out of stock, RobotShop $21.95 restocking, Amazon/GetFPV $16.99 + $4.99 ship |
 | E8 | Power switch + light | 19 mm **latching** illuminated anti-vandal stainless pushbutton, ≥3 A, 12 V LED ring | 1 | $13.49 † | Amazon (APIELE 10 A, B07V96FYHP) | Switches the 15 V rail. Wire the ring LED through it so it lights when ON |
-| E9 | Buttons | 30 mm arcade buttons (Sanwa OBSF-30 or Adafruit 30 mm) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com), Paradise Arcade Shop, Amazon | Pick three colors: Back, Play/Pause, Skip. Adafruit LED versions #3490/#3487/#3488 (blue, green, yellow; no orange) |
+| E9 | Buttons | 30 mm arcade buttons (Sanwa OBSF-30 or Adafruit 30 mm) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com), Paradise Arcade Shop, Amazon | Pick three colors: Back, Play/Pause, Skip. Adafruit LED versions #3489/#3487/#3488 (red, green, yellow; blue #3490 went out of stock 11/27) |
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
 | E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $11.99 † | Amazon (B099DHHGGQ, 44 × 25 mm aluminium, set screw) | Big and grippy. Grub-screw or D-shaft fit, glued. The Amazon knob is the backup; print or turn one if you prefer. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
 | E12 | LED matrix | Adafruit **NeoPixel Shield 5×8** (#1430), 40 LEDs, 68.9 × 53.4 mm, mounted portrait | 1 | $27.95 † | Adafruit | Software-capped at ~20% brightness (~0.48 A worst case). Wire DIN/5 V/GND pads directly; no Arduino headers. Changed 2026-11-27 from the NeoMatrix 8×8 (#1487) for a rectangular "dial" |
@@ -107,7 +107,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $815–905** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $818–908** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 

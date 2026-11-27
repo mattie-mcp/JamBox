@@ -96,8 +96,8 @@ the better-documented board. Check the free-shipping threshold; Cart 2 may cross
 |---|---|---|---|
 | Baltic birch plywood, **12 mm (½")**, 24 × 30" or larger project panel | 1–2 | $30–50 | |
 | Baltic birch plywood, **6 mm (¼")**, 24 × 30" | 1 | $15–25 | |
-| Maple (or cherry) board, ¾" and ½" thick, ~3–4 bd-ft total (cartridges, handle uprights) | – | $30–50 | |
-| Hardwood dowel, **1" (25 mm)** × 36" (handle) | 1 | ~$8 | |
+| Maple (or cherry) board, ¾" and ½" thick, ~3–4 bd-ft total (cartridges in two 15 mm halves, sled rails) | – | $30–50 | |
+| ~~Hardwood dowel, 1" × 36" (handle)~~ | 0 | – | Dropped 2026-11-27: no handle |
 | Titebond III | 1 | ~$10 | |
 | Water-based toy-safe finish (labelled EN 71-3 / ASTM F963) | 1 | ~$25 | |
 | Router bits: ¼" and ⅜" roundover, 45° chamfer (if not owned) | – | $40–60 | |
@@ -113,16 +113,16 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | Cart | Store | Items in stock | Subtotal | Shipping | Free-ship threshold | Notes |
 |---|---|---|---|---|---|---|
 | 1 | [PiShop.us](https://www.pishop.us/cart.php) | 3/3 | $232.35 | At checkout (USPS / FedEx) | None listed | SD card moved here from Amazon |
-| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 7 lines; 74AHCT125 #1787 now out of stock (moved to Mouser); PN532 #364 and encoder #377 **out of stock** | $54.30 | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
+| 2 | [Adafruit](https://www.adafruit.com/shopping_cart) | 9 lines; blue button #3490 went out of stock 11/27 (red #3489 instead); 74AHCT125 #1787 out of stock (moved to Mouser); PN532 #364 and encoder #377 **out of stock** | $61.25 ($52.06 with code OhFudge15) | At checkout | $200 (US) | No 19 mm latching switch rated for 12–15 V |
 | 3 | [Parts Express](https://www.parts-express.com/cart) | 3/3 | $56.94 | $9.95 | $99 | Code EARLYBF15: 15% off $75+, ends 11/26 |
 | 4 | Pololu | **0/1** (D36V28F5 out of stock, backorder only) | n/a | n/a | n/a | Bought on Amazon instead (Cart 6) |
-| 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 2/2 | $3.29 | $8.49 UPS Ground + $0.49 tariff | n/a | Switch and fuse moved to Amazon; level shifter added 11/27 |
+| 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 7/7 | $11.50 | $8.49 UPS Ground + $0.63 tariff | n/a | Switch and fuse moved to Amazon; level shifter and wiring passives added 11/27 |
 | 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 14 lines (15 units) | $175.23 | $4.99 (GetFPV regulator); rest free (Prime) | Prime | SanDisk card not added: 2-card minimum. PEI sheet, PETG and PLA moved to **Saved for later** on 11/27 (printing comes last) |
 | 7 | [McMaster-Carr](https://www.mcmaster.com/order/) | 3/3 | $30.36 | At checkout | n/a | Perforated sheet not added (24×24" minimum, $54+) |
-| 8 | [Woodcraft](https://www.woodcraft.com/cart) | 4/4 | $121.95 | Free (over $50, through Dec 1) | $50 | Switched from Rockler (cart emptied). Woodcraft of Grand Rapids is local for maple and pickup. Finish and tools not added (see below) |
+| 8 | [Woodcraft](https://www.woodcraft.com/cart) | 3/3 (4 units) | $109.96 | Free (over $50, through Dec 1) | $50 | Switched from Rockler (cart emptied). Woodcraft of Grand Rapids is local for maple and pickup. Finish and tools not added (see below) |
 | | **hifiberry.com** | comparison only | $64.90 | $38.00 FedEx | | Amp4 left in that cart for comparison; **remove it, don't buy both** |
 
-**In carts: $674.42 of merchandise plus $23.92 of known shipping ≈ $698.** PiShop, Adafruit and McMaster shipping (≈ $25)
+**In carts: $677.59 of merchandise plus $24.06 of known shipping ≈ $702.** PiShop, Adafruit and McMaster shipping (≈ $25)
 and sales tax come on top.
 
 ### Line items
@@ -137,12 +137,19 @@ and sales tax come on top.
 | 2 | Adafruit NeoPixel Shield for Arduino - 40 RGB LED Pixel Matrix (5×8) | #1430 | $27.95 | 1 | 33 in stock | [adafruit](https://www.adafruit.com/product/1430) |
 | 5 | Texas Instruments SN74AHCT125N quad buffer, DIP-14 (same chip as Adafruit #1787, which went out of stock 11/27) | Mouser 595-SN74AHCT125N | $0.95 | 1 | 1,002 in stock | [mouser](https://www.mouser.com/c/?q=SN74AHCT125N) |
 | 2 | Stacking Header - 2x20 Extra Tall Header | #1979 | $2.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1979) |
-| 2 | Arcade Button with LED - 30mm Translucent Blue / Green / Yellow | #3490 / #3487 / #3488 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3490) |
+| 2 | Arcade Button with LED - 30mm Translucent Red / Green / Yellow (red replaces blue, out of stock 11/27) | #3489 / #3487 / #3488 | $2.50 | 1 each | In stock | [adafruit](https://www.adafruit.com/product/3489) |
+| 2 | Male DC Power adapter - 2.1mm plug to screw terminal block (15 V into the Amp4 jack; confirm the jack is 5.5 × 2.1 mm) | #369 | $2.00 | 1 | In stock | [adafruit](https://www.adafruit.com/product/369) |
+| 2 | Multi-Colored Heat Shrink Pack - 3/32" + 1/8" + 3/16" Diameters | #1649 | $4.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/1649) |
 | 2 | USB C Round Panel Mount Extension Cable | #4218 | $9.95 | 1 | In stock | [adafruit](https://www.adafruit.com/product/4218) |
 | 3 | Dayton Audio PC83-4 3" Full-Range Poly Cone Driver | 295-154 | $15.49 | 2 | 1,074 in stock | [parts-express](https://www.parts-express.com/Dayton-Audio-PC83-4-3-Full-Range-Poly-Cone-Driver-295-154) |
 | 3 | Parts Express Speaker Grille Cloth Black Yard 70" Wide | 260-335 | $9.98 | 1 | In stock | [search](https://www.parts-express.com/search?keywords=260-335) |
 | 3 | Acousta-Fill Nylon Polyfill 1 lb. Bag | 260-319 | $15.98 | 1 | In stock | [search](https://www.parts-express.com/search?keywords=260-319) |
 | 5 | Bourns PEC11R-4220F-S0024 Encoders 20mm SHAFT w/SWITCH | Mouser 652-PEC11R-4220F-S24 | $2.34 | 1 | 8,085 in stock | [mouser](https://www.mouser.com/ProductDetail/Bourns/PEC11R-4220F-S0024) |
+| 5 | Adafruit Perma-Proto HAT for Pi Mini Kit - No EEPROM (the permanent GPIO breakout; out of stock at Adafruit) | Mouser 485-2310 | $4.95 | 1 | 91 in stock | [mouser](https://www.mouser.com/c/?q=485-2310) |
+| 5 | Panasonic EEU-FR1C102 1000 µF 16 V electrolytic (across 5 V at the LED shield) | Mouser 667-EEU-FR1C102 | $0.98 | 1 | 1,550 in stock | [mouser](https://www.mouser.com/c/?q=EEU-FR1C102) |
+| 5 | YAGEO CFR-25JB-52-330R, 330 Ω ¼ W (LED data line + spare) | Mouser 603-CFR-25JB-52-330R | $0.11 | 2 | 7,270 in stock | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-330R) |
+| 5 | YAGEO CFR-25JB-52-470R, 470 Ω ¼ W (power-switch ring LED at 15 V + spare) | Mouser 603-CFR-25JB-52-470R | $0.11 | 2 | In stock | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-470R) |
+| 5 | KEMET C320C104K5R5TA 0.1 µF 50 V ceramic (level-shifter decoupling + spare) | Mouser 80-C320C104K5R5TA | $0.92 | 2 | In stock | [mouser](https://www.mouser.com/c/?q=C320C104K5R5TA) |
 | 6 | 5V, 3.2A Step-Down Voltage Regulator D36V28F5 (sold by GetFPV) | B0BJKVWR2D | $16.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0BJKVWR2D) |
 | 6 | HiLetgo PN532 NFC NXP RFID Module V3 Kit | B01I1J17LC | $8.99 | 1 | In stock | [amazon](https://www.amazon.com/dp/B01I1J17LC) |
 | 6 | 30pcs NFC Tags NTAG215 NFC Coins Rewritable White NFC Tag Round 30mm | B07PFC2FH5 | $9.50 | 2 | In stock | [amazon](https://www.amazon.com/dp/B07PFC2FH5) |
@@ -165,7 +172,6 @@ and sales tax come on top.
 | 8 | Woodcraft Woodshop Baltic Birch Plywood, 1/2" x 30" x 30" | Woodcraft #191388 | $38.99 | 2 | In stock online | [woodcraft](https://www.woodcraft.com/products/woodcraft-woodshop-baltic-birch-plywood) |
 | 8 | Woodcraft Woodshop Baltic Birch Plywood, 1/4" x 30" x 30" | Woodcraft #191387 | $21.99 | 1 | In stock online | same page |
 | 8 | Titebond III Ultimate Wood Glue - Waterproof, 16-oz | Woodcraft #145562 | $9.99 | 1 | In stock online | [woodcraft](https://www.woodcraft.com/products/titebond-iii-ultimate-wood-glue-waterproof) |
-| 8 | Cindoco 36" Round Wood Dowel, Maple, 1" | Woodcraft #158597 | $11.99 | 1 | In stock online | [woodcraft](https://www.woodcraft.com/products/cindoco-36-round-wood-dowel) |
 
 ### Comparisons
 
@@ -205,15 +211,16 @@ and sales tax come on top.
 | Maple or cherry, ¾" and ½", 3–4 bd-ft | Sold by the board foot in store | Woodcraft of Grand Rapids or a local hardwood dealer, ~$30–50 |
 | Perforated grille sheet, ~2 mm holes | Parts Express has none; McMaster's smallest is 24×24" ($54+) | Amazon 12×12" perforated stainless, ~$18 (3 mm holes on the listings that state size) |
 | Router bits, 3" hole saw, 1-⅜" Forstner, 6 mm brad-point | Marked "if not owned" | ~$80–100 at Woodcraft |
+| Soldering iron, 60/40 or lead-free rosin-core solder, flush cutters, wire strippers | Tools, if not owned. The breadboard and jumpers you have are for the bench prototype only; the final build is soldered | A temperature-controlled iron (e.g. Pinecil or a Hakko FX-888D class) plus solder and strippers, ~$40–70 |
 | Omron D2F-01L3 microswitch | Optional, only if the slot test fails | Mouser or DigiKey, ~$3 |
 
 ### Total versus the ≈ $820 estimate
 
 | | Estimate | Real |
 |---|---|---|
-| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $487** (Pi +$40, Amp4 +$33, SD +$16, knob +$12; PN532 −$31, 5×8 LEDs −$7) |
-| Enclosure and hardware in carts (printing supplies saved for later, $39) | | ≈ $188 |
+| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $502** (Pi +$40, Amp4 +$33, SD +$16, wiring small parts +$15, knob +$12; PN532 −$31, 5×8 LEDs −$7) |
+| Enclosure and hardware in carts (printing supplies saved for later, $39) | | ≈ $176 (handle dowel dropped) |
 | Known shipping and tariff | | ≈ $24 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
 | Not yet bought: finish, maple, grille sheet | | ≈ $90 |
 | Tools, if not owned | | ≈ $90 |
-| **Total** | **≈ $820** | **≈ $905 all-in** (≈ $815 if you already own the bits and hole saw). See [cost-review.md](cost-review.md) for ≈ $113 more in possible savings; still under the $1000 budget |
+| **Total** | **≈ $820** | **≈ $908 all-in** (≈ $818 if you already own the bits and hole saw; add ≈ $40–70 if you need a soldering iron). See [cost-review.md](cost-review.md) for ≈ $113 more in possible savings; still under the $1000 budget |

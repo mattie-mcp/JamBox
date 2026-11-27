@@ -20,6 +20,8 @@ All decisions were made on 2026-11-24.
 | LED display | **Adafruit NeoPixel Shield 5×8** (#1430), portrait, as a jukebox-style equaliser (changed 2026-11-27 from the NeoMatrix 8×8) |
 | Cartridge presence | **NFC-only + click detent**. The microswitch is an optional add-on if the slot test shows laggy or false pauses |
 | Portable power | **Wall power only** for v1. The battery spike below stays as a future option |
+| Carry handle | **None** (removed 2026-11-27). The box lives plugged into a wall; lift it with two hands under the ends |
+| Layout fixes | **Decided 2026-11-27** from the [design review](design/jam-radio-review.html): full-height speaker chambers and a 144 mm bay, a 32 mm slot with 15 + 15 mm cartridges, sled on rails, USB-C and power button in the 12 mm back panel. See "Inside the radio" |
 | Cartridges | **Laminated hardwood blocks** (tag sealed at the glue line). Printed cartridges are a stretch goal on branch `claude/3d-printed-cartridges` |
 | 3D printing | **Your Ender 3 Pro** (slot mock-up, LED grid, brackets, cartridge experiments) |
 | Re-inserting a cartridge | **Resume if within ~30 minutes**, otherwise start over |
@@ -29,7 +31,7 @@ All decisions were made on 2026-11-24.
 
 - **Players:** ages 2 to 6. It will be dropped, sat on, drooled on and fed things that aren't cartridges.
 - **Lives on the floor**, so it needs a low centre of gravity, a wide base and rubber feet.
-- **Portable:** a parent can carry it from room to room with one hand. Battery is an optional spike.
+- **Stays put:** it lives in one spot, plugged into the wall. No handle (one less thing to hang on). Battery is an optional spike.
 - **One USB-C cable.** No external speakers, no second power brick.
 - **Cartridges:** chunky blocks that slide into a slot. **In = cue up and play. Out = pause.**
 - **Controls:** volume knob; Back, Play/Pause and Skip buttons; an on/off light; a dancing LED display.
@@ -67,20 +69,19 @@ front roof slope, angled toward a child sitting in front of it.
 
 ![Jam Radio concept](images/concept-b-radio.svg)
 
-A retro portable radio with a wooden carry handle. The cartridge drops into a slot on top under
-the handle. Round drilled grilles on each side, the LED "dial" in the middle, buttons below it, and
-the volume knob on top.
+A retro tabletop radio. The cartridge drops into a slot centred on top. Round drilled grilles on each
+side, the arched LED "dial" in the middle, buttons below it, and the volume knob on top at the back right.
+(The concept drawing still shows a carry handle; it was removed on 2026-11-27.)
 
 | | |
 |---|---|
-| Size | **360 W × 170 D × 200 H mm** (14.2" × 6.7" × 7.9"); +100 mm handle |
+| Size | **360 W × 170 D × 200 H mm** (14.2" × 6.7" × 7.9"); +10 mm feet, +40 mm with a cartridge in |
 | Weight | ≈ 3 kg |
-| Carry | Hardwood dowel handle between two uprights (or a leather strap) |
-| Build | A plain rectangular box: rabbet joints, large roundovers, two hole-saw grilles. The fastest build |
+| Carry | None. Two hands under the ends |
+| Build | A plain rectangular box: glued butt joints with glue blocks, large roundovers, two drilled grilles. The fastest build |
 
-**Pros:** the most stable shape (very low), the most portable thanks to the real handle, the best stereo
-spacing, and the simplest joinery. **Cons:** less character unless you paint it. Kids can also hang on the handle,
-so it needs strong through-tenons or bolts.
+**Pros:** the most stable shape (very low), the best stereo spacing, and the simplest joinery.
+**Cons:** less character unless you paint it.
 
 ## Concept C: "Jam Bot" (most playful)
 
@@ -107,13 +108,13 @@ large-radius corners take more jig work.
 | Toddler appeal (2–4) | ★★★ | ★★ | ★★★ |
 | Still cool at 5–6 | ★★ | ★★★ | ★★★ |
 | Floor stability | ★★★ | ★★★ | ★★ |
-| Portability | ★★ (hand-holds) | ★★★ (handle) | ★★ |
+| Portability | ★★ (hand-holds) | ★ (no handle; wall-powered) | ★★ |
 | Build effort (table saw + router) | Medium | **Low** | Medium-high |
-| Stereo separation | Good (170 mm) | Best (210 mm) | Fair (120 mm) |
+| Stereo separation | Good (170 mm) | Best (246 mm) | Fair (120 mm) |
 | LED display | 8×8 "door" | 5×8 "dial" (portrait) | 8×16 "mouth" |
 | Looks like furniture | ★★★ | ★★★ | ★ |
 
-**Chosen: B (Radio).** It's the easiest build, the most stable on the floor, and the most portable.
+**Chosen: B (Radio).** It's the easiest build and the most stable on the floor.
 Paint and the LED "dial" give it character. My original pick was A (House). Its drawings and cut list
 stay below for reference.
 
@@ -125,16 +126,16 @@ stay below for reference.
 
 | Spec | Value | Reason |
 |---|---|---|
-| Size | **80 W × 100 H × 30 T mm** | Fills a toddler's two hands. Far larger than the small-parts cylinder (31.7 mm Ø), so no choking hazard |
-| Edges | 6 mm (¼") roundover everywhere | No sharp edges; slides into the slot easily |
-| Tag | NTAG215, **Ø30–35 mm**, at the **centre of the thickness**, centred **33 mm up from the bottom** | Centred in the thickness, so it reads the same whichever way it faces. Low, so it's fully inside the slot |
+| Size | **80 W × 100 H × 30 T mm**, tolerance **±0.5 mm** on width and thickness | Fills a toddler's two hands. Far larger than the small-parts cylinder (31.7 mm Ø), so no choking hazard |
+| Edges | 6 mm (¼") roundover everywhere (the box itself uses 10 mm) | No sharp edges; slides into the slot easily |
+| Tag | NTAG215, **Ø30–35 mm**, at the **centre of the thickness** (15 mm from each face), centred **28 mm up from the bottom** | Two equal 15 mm halves put the tag exactly in the middle, so it reads the same whichever way it faces. Low, so it's fully inside the slot |
 | Insertion | **60 mm in, 40 mm sticking out** to grab | Enough to grip and pull, and the tag is always inside |
 | Weight | ≈ 150–180 g in maple | Satisfying heft; stays put in the slot |
-| Magnets | **None** | Presence is sensed by a microswitch. Loose magnets are an ingestion hazard, so the design avoids them completely |
+| Magnets | **None** | Presence is sensed by NFC (the microswitch is optional). Loose magnets are an ingestion hazard, so the design avoids them completely |
 
-The cartridge is symmetric front-to-back. The only "wrong" way in is upside-down, and the flat
-bottom with artwork on top makes the right way obvious. If you want it fool-proof, the software can map
-a second tag in the top end to the same song.
+The cartridge is symmetric front-to-back, so it can face either way with the same read gap. The only
+"wrong" way in is upside-down, and the flat bottom with artwork on top makes the right way obvious. If you
+want it fool-proof, the software can map a second tag in the top end to the same song.
 
 ### No stickers on the outside
 
@@ -145,8 +146,9 @@ sealed under finish, engraving, or a raised printed icon. A label on the outside
 ### Three ways to make cartridges
 
 1. **Laminated hardwood block (recommended for v1, no printer).**
-   - Rip maple or cherry to 80 mm wide. Cut one 19 mm (¾") piece and one 12 mm (½") piece per cartridge, 100 mm long.
+   - Plane ¾" maple or cherry down to **15 mm** and rip it to 80 mm wide. Cut **two 15 mm pieces** per cartridge, 100 mm long, so the glue line (and the tag) sits exactly in the middle.
    - Drill a 1 mm-deep, 35 mm Forstner pocket in the mating face of one piece. Drop in the tag and glue the two pieces together with Titebond III. The tag ends up sealed permanently at the glue line.
+   - After glue-up, run every cartridge through the planer or a drum sander to **30.0 mm (±0.5)** and check it with calipers or a 30 mm gauge block. Thickness is what sets the read gap.
    - Round over all edges, sand to 220 grit, and finish.
    - Batch production: rip one long blank, cross-cut ten at once with a stop block, and route all the roundovers in one pass.
 2. **3D-printed character cartridge.**
@@ -159,16 +161,26 @@ sealed under finish, engraving, or a raised printed icon. A label on the outside
 engraving, or colour-coding by type (songs = yellow, lullabies = blue, stories = green). Because the song
 mapping lives in the web app, a cartridge can be reassigned at any time without rebuilding it.
 
-**Cartridge "garage":** a 12 mm plywood rack with 10 slots of 34 mm gives a home for the
+**Cartridge "garage":** a 12 mm plywood rack with 10 slots of 34 mm (looser than the box slot on purpose) gives a home for the
 cartridges and turns tidy-up into a game. It's easy to make with the table saw and a dado stack.
 
 ### Slot design
 
-- The slot opening is **34 × 84 mm** (2 mm clearance per side), with a **45° chamfered lip** that funnels small hands.
-- A **6 mm plywood sleeve** forms the slot. It hangs 60 mm down into the attic under the ridge cap.
-- The **PN532** is screwed (nylon screws) to the outside of the sleeve wall, with the antenna face-on to the tag.
-  The tag-to-antenna gap is **≈ 23 mm** (15 mm into the cartridge, 2 mm clearance, 6 mm wall).
+- The slot is **32 × 84 mm** (1 mm clearance per side on thickness, 2 mm on width), cut in a 12 mm **HDPE insert**
+  with a **45° × 6 mm chamfered lip** that funnels small hands. HDPE is slippery, so the tighter fit still slides easily.
+- The insert is **130 × 50 × 12 mm, stepped**, made from **two layers of the ¼" (6 mm) HDPE sheet**: the top layer is
+  110 mm long and the bottom layer 130 mm, so it drops in from below and can't be pulled out the top. No glue (HDPE
+  won't take it); the step and the cleats hold both layers. The top panel's hole is stepped to match (110 × 50 at the top face,
+  130 × 50 in the bottom 6 mm).
+- A **6 mm plywood sleeve** (inside 32 × 84 mm) hangs 48 mm below the 12 mm top, for 60 mm of insertion. Its end walls
+  are glued to two 6 mm plywood cleats that hold the insert's ends up.
+- The **PN532** sits in a **45 × 45 mm pocket routed 3 mm deep** into the outside of the sleeve's back wall, so only
+  3 mm of plywood is between the antenna and the cartridge. Centre the antenna on the tag (z ≈ 168); the board's top edge
+  then sits just under the top panel. Hold it with nylon screws.
+  **Read gap: 18–20 mm** (15 mm to the tag + 0–2 mm clearance + 3 mm wall), whichever way the cartridge faces.
   Bench-test this before final glue-up (see hardware.md §5).
+- **Keep metal 30 mm or more from the PN532.** The insert itself has no screws. The two cleats are screwed to the
+  top panel at the slot's ends, ≥ 50 mm from the reader.
 - **Presence sensing (open decision).** The NFC reader can tell when a cartridge leaves: when the tag
   stops answering for a few polls, pause. That works with no extra parts. A switch adds three things:
   1. **Speed.** The removal check is instant, instead of a few missed polls (~1–1.5 s with a 0.5 s poll).
@@ -182,10 +194,13 @@ cartridges and turns tidy-up into a game. It's easy to make with the table saw a
   snaps into a shallow groove on each cartridge face, so it clicks in and holds. Use no metal
   ball-plungers near the antenna. Add the microswitch later only if E3 shows laggy or false pauses.
   If you use it, it sits under the sleeve floor with its lever through a 6 mm slot.
+
+  **Decided:** NFC-only is the default and the switch is an optional add-on. Wherever older notes say "presence
+  is sensed by a microswitch", read NFC.
 - Either way, a **clean-out hole** in the slot floor lets crumbs and juice drain out. In the Radio it must drain
   to the outside, not onto the electronics below (see "Heat and airflow").
-- **Optional wear liner:** make the ridge cap (or just a slot insert) from **HDPE** (cutting-board plastic). It
-  shrugs off thousands of insertions, is transparent to NFC, and routes cleanly.
+- **Wear liner (decided):** the slot is an **HDPE** insert (cutting-board plastic). It shrugs off thousands of
+  insertions, is transparent to NFC, and routes cleanly.
 
 **Play semantics:** cartridge in → cue up and play. Out → pause. The same cartridge back in within
 ~30 minutes → resume where it left off. A different cartridge → start its track.
@@ -195,31 +210,41 @@ The software changes are in [the v2 plan](plans/2026-11-24-hardwired-v2.md).
 
 ## Inside the radio (chosen design)
 
+Revised 2026-11-27 to fix the design review's findings: no handle, full-height speaker chambers, a wider bay, and the
+power entry moved to the back panel. Coordinates are from the front-left-bottom outside corner:
+x across (0–360), y front to back (0–170), z up (0–200).
+
 ```
-   ┌───────── handle (25 mm hardwood dowel) ─────────┐
-   │ upright                                upright  │
- ┌─┴──────────────[slot]───────────────────[knob]───┴─┐  ← 12 mm top panel
- │  ┌─ spk chamber L ─┐  [ LED 5×8 ]  ┌─ spk chamber R ─┐ │
- │  │   PC83-4 ⌀75    │  ◉  ◉  ◉     │    PC83-4 ⌀75   │ │  ← front: grilles, display, buttons
- │  └─────────────────┘  [sleeve+PN532]└─────────────────┘ │
- │                [ electronics sled: Pi 4 + Amp4, buck,  │
- │                  PD trigger, JST terminals ]            │
- └─────────────────────────────────────────────────────┘
-   back: recessed USB-C, lit power button, vents
+ front view                                          top view
+ ┌────────────────────────────────────────────┐       ┌────────────────────────────────────────────┐
+ │ ┌────────┐┊      ╭────╮      ┊┌────────┐   │       │ back panel: USB-C, power, vents  [knob ◯]  │
+ │ │ ◌◌◌◌◌◌ │┊      │LED │      ┊│ ◌◌◌◌◌◌ │   │       │               ┌──────┐                     │
+ │ │ ◌ L  ◌ │┊      │5×8 │      ┊│ ◌ R  ◌ │   │       │               │ slot │  (centred)          │
+ │ │ ◌◌◌◌◌◌ │┊      └────┘      ┊│ ◌◌◌◌◌◌ │   │       │ ┌chamber L┐   └──────┘   ┌chamber R┐       │
+ │ │        │┊    ◉   ◉   ◉     ┊│        │   │       │ └─────────┘              └─────────┘       │
+ │ └────────┘┊   [sled behind]  ┊└────────┘   │       └──────────────── front ─────────────────────┘
+ └────────────────────────────────────────────┘
+   chambers run the full inside height; ┊ = 6 mm chamber walls
 ```
 
 | | |
 |---|---|
-| Outside | **360 W × 170 D × 200 H mm**, +100 mm handle. With 10 mm feet, ≈ 310 mm to the top of the handle |
-| Speakers | Two drivers at the far ends (210 mm apart), each in a sealed 6 mm ply chamber of ~110 × 110 × 80 mm internal (≈ 1 L). Grilles are a 115 mm circle of 6 mm holes, with steel mesh and cloth behind |
-| Centre bay | ~100 mm wide between the chambers. Holds the LED matrix (front, upper), the three buttons (front, lower), the slot sleeve (from the top) and the electronics sled (bottom) |
-| Slot | Centred in the top panel under the handle. A 6 mm sleeve hangs 48 mm below the 12 mm top (60 mm insertion). PN532 on the sleeve's back wall, facing the cartridge |
-| Knob | Encoder through the top panel at the right end, clear of the handle upright. The PEC11R's ~20 mm shaft (check the datasheet) leaves only ~6 mm above a 12 mm panel plus nut, so **counterbore the panel from below to ~3–4 mm** around the encoder. Glue the knob as well as tightening its set screw. Backup knob: 44 × 25 mm aluminium (Amazon), or print/turn one |
-| Handle | Two hardwood uprights (70 × 40 × 19 mm), each glued into a 6 mm-deep mortise and screwed from inside through the top panel, at least 30 mm from the PN532. A 25 mm dowel through both, glued and pinned with a hardwood peg. It has to hold a toddler hanging on it, so test with ~20 kg |
-| Back | 260 × 120 mm service opening and a 6 mm cover with the recessed USB-C, the lit power button and vent holes. Tamper-resistant screws |
+| Outside | **360 W × 170 D × 200 H mm** on four 10 mm screw-on feet. No handle |
+| Shell | 12 mm Baltic birch, **glued butt joints** (front and back full size, sides between them, top and bottom inside) with 12 × 12 mm plywood glue blocks along every inside edge. Inside: 336 × 146 × 176 mm |
+| Speaker chambers | One at each end, **full inside height**, using the side, top, bottom and front panels as four of their walls. A 6 mm inner wall and a 6 mm back wall close each one. Inside **90 W × 176 H × 64 D mm ≈ 1.0 L**, loosely filled with polyfill. Seal every joint with glue or caulk |
+| Drivers | PC83-4 centred in each chamber at x = 57 / 303, z = 100 (**246 mm apart**), screwed to the inside of the front panel behind its grille (cutout from the Dayton datasheet) |
+| Grilles | An **84 mm circle of 6 mm holes** over each driver (it has to fit inside the 90 mm chamber), with steel mesh and grille cloth behind. For a bigger look, a 100 mm V-groove ring around the holes |
+| Centre bay | **144 mm wide** between the chamber walls (x 108–252) in the front 82 mm. Behind the chambers (y > 82) the whole 336 mm width is open |
+| LED window | **52 W × 84 H mm**: a 70 mm-tall rectangle (z 80–150) with a 14 mm segmental arch on top (to z 164). The 5×8 LED field (~39 × 64 mm) sits inside the rectangle, so **the arch hides no LEDs**. Maple-veneer diffuser glued to the **back of a 1.5 mm recess at the front face**, egg-crate grid behind it |
+| Buttons | Three 30 mm arcade buttons at z = 48, x = 135 / 180 / 225 (45 mm apart). Hole **30 mm** (drill a test hole in scrap and check the thread first). With ~37 mm nuts they clear the chamber walls by 8 mm and the window by 13 mm. Their bodies reach y ≈ 47, 16 mm clear of the sled |
+| Slot | **Centred** in the top: x = 180, y = 85. Stepped HDPE insert 130 × 50 × 12 mm with a 32 × 84 mm slot. Sleeve hangs to z = 134; PN532 in a 3 mm-wall pocket on the sleeve's back wall (y ≈ 104). It is ≥ 60 mm from the LED shield, the Pi and the driver magnets |
+| Knob | Encoder through the top at **x = 300, y = 120** (back right, behind the right chamber), counterbored from below to ~3–4 mm of panel. With no handle there's nothing near it to pinch a finger. Knob ≥ 40 mm across, glued on |
+| Electronics sled | 6 mm ply, **136 W × 95 D mm**, rides on two 10 × 10 mm hardwood rails glued to the bottom panel (y 63–158). The Pi lies sideways (85 mm across the bay) on 10 mm nylon standoffs; buck and HUSB238 beside it. The 10 mm gap under the sled is the air inlet |
+| Back panel | 12 mm, with a **260 × 98 mm service opening** whose sill is level with the rail tops (z 22–120), so **the sled slides straight out**. Above the opening: the **USB-C panel jack and the lit power button**, mounted in the 12 mm panel (22 mm counterbore 6 mm deep from outside, so the plug sits recessed and a tugged cable pulls free), the outlet vents, and the slot drain |
+| Service cover | 6 mm, 280 × 118 mm, over the opening. Inlet holes along its bottom edge. Four tamper-resistant Torx screws into threaded inserts in the back panel |
 
-**Tight spot:** the centre bay is about 100 mm wide. A Pi 4 + Amp4 stack (85 × 56 × ~35 mm) fits on the sled,
-but check it in the mock-up. Keep the PN532 at the top of the bay, well above the Pi and amp.
+**Clearances (check in the mock-up):** Pi + Amp4 + proto HAT on the sled reaches z ≈ 88, 32 mm under the opening's top
+edge. The sled's front edge (y 63) is 16 mm behind the button bodies. The sleeve floor (z 134) is 46 mm above the stack.
 
 ### Heat and airflow (Radio)
 
@@ -237,7 +262,7 @@ The web UI builds as static files off the device (on a laptop or in CI); no Node
 **Where the heat goes:** plywood barely conducts heat. The bay's outside walls pass only ~0.2 W per °C, so a
 sealed bay would sit 30–40 °C above the room. Nearly all the heat must leave by **natural convection** (a chimney):
 cool air in at the bottom, warm air out high on the back. The speaker chambers are sealed and play no part, so only
-the ~100 mm centre bay vents.
+the centre bay (144 mm wide at the front, full width behind the chambers) vents.
 
 **Vent sizing:** about **20 cm² in and 20 cm² out**, about 70 × 6 mm holes each, keeps the bay air ~15 °C above
 the room. The Pi then runs at about **65–70 °C** in a 22 °C room; it throttles at 80 °C. Halving the vent area
@@ -245,35 +270,37 @@ roughly doubles the rise to ~25 °C, which is too close to the limit.
 
 - **Inlet:** a hole grid in the bottom panel under the sled (lifted 10 mm by the feet), plus a row of holes
   **low on the service cover**. The second inlet keeps the box breathing when it sits on carpet or a blanket.
-- **Outlet:** holes **high on the service cover**, as close under the top panel as the cover allows. No vents in
-  the top panel: that's where juice and crumbs land.
-- **Sled fix:** the 95 mm sled nearly fills the 100 mm bay and would block the bottom vents. Drill a matching
-  hole grid through the sled under the Pi, and stand the Pi on 10 mm nylon standoffs so air reaches the
-  underside of the board.
+- **Outlet:** holes **high on the back panel**, above the service opening (z ≈ 150–180), clear of the USB-C and
+  power button. No vents in the top panel: that's where juice and crumbs land.
+- **Sled:** it rides on 10 mm rails, so air flows under it from the bottom grid. Drill a hole grid through the sled
+  under the Pi too, and stand the Pi on 10 mm nylon standoffs so air reaches the underside of the board.
 - **Pi + Amp4 stack:** the Amp4 sits over the Pi's SoC heatsink. Use the extra-tall stacking header for a
   larger gap. A taller finned SoC heatsink is a cheap upgrade if the test runs warm.
-- **Crumb-hole fix:** the slot's clean-out hole is directly above the electronics. Angle its drain (a short
-  sloped channel or tube) to a hole in the back wall, or add a small drip tray, so spills never land on the sled.
+- **Crumb-hole fix:** the slot's 10 mm clean-out hole is above the electronics. Run an 8 mm (5/16") vinyl tube
+  from it, falling about 8 mm over ~50 mm, to a hole in the back panel at z ≈ 126, just above the service opening,
+  so spills never land on the sled.
 - **Software guard:** if the Pi passes ~75 °C, dim the LEDs and lower the volume ceiling, and log it.
 - **Outside:** the case should stay barely warm, so it's safe to touch.
 
 ### Cut list (Concept B, chosen)
 
-12 mm Baltic birch unless noted.
+12 mm Baltic birch unless noted. Glued butt joints (Titebond III) with 12 × 12 mm glue blocks along the inside edges.
 
 | Part | Qty | Size (mm) | Notes |
 |---|---|---|---|
-| Front | 1 | 360 × 200 | 2 grille fields, ~48 × 64 mm portrait display window with an arched top, 3 button holes (check button spec, usually 28 mm). 3/8" roundover on outside edges |
-| Back | 1 | 360 × 200 | 260 × 120 service opening |
-| Sides | 2 | 146 × 200 | Fit between front and back. Optional hand-hold slot as a second carry option |
-| Top | 1 | 336 × 146 | Slot 34 × 84 with 45° chamfer (or an HDPE insert), knob hole, handle mortises |
-| Bottom | 1 | 336 × 146 | Sled grooves, ~20 cm² vent grid under the sled, feet |
-| Service cover | 1 | 280 × 140, **6 mm** | USB-C pocket, power-button hole, ~20 cm² outlet vents high, a row of inlet holes low |
-| Speaker chambers | 2 sets | **6 mm** | ~110 × 110 × 80 internal each |
-| Slot sleeve | 1 set | **6 mm** | 2 × (96 × 48) long walls capturing 2 × (34 × 48) ends; floor 96 × 46 with crumb hole drained to the back wall, not onto the sled |
-| Electronics sled | 1 | 95 × 140, **6 mm** | Slides in from the back. Vent grid under the Pi, matching the bottom panel |
-| Handle uprights | 2 | 70 × 40 × 19, **hardwood** | 25 mm hole for the dowel |
-| Handle | 1 | Ø25 × 240, **hardwood dowel** | |
+| Front | 1 | 360 × 200 | Two 84 mm grille fields of 6 mm holes (centres x 57 / 303, z 100). 52 × 84 arched LED window (z 80–164) with a 1.5 mm diffuser recess. Three 30 mm button holes at z 48. 10 mm (3/8") roundover on the outside edges |
+| Back | 1 | 360 × 200 | 260 × 98 service opening (z 22–120). Above it: USB-C jack and 19 mm power-button holes (22 mm × 6 mm counterbores from outside), outlet vents, 8 mm drain hole at z ≈ 126. Threaded inserts for the cover |
+| Sides | 2 | 146 × 200 | Fit between front and back. No hand-holds (they'd open the sealed chambers) |
+| Top | 1 | 336 × 146 | Stepped slot hole for the HDPE insert, centred at x 180, y 85. Encoder hole at x 300, y 120, counterbored from below |
+| Bottom | 1 | 336 × 146 | Two 10 × 10 hardwood sled rails, ~20 cm² vent grid under the sled, 4 screw-on feet |
+| Service cover | 1 | 280 × 118, **6 mm** | Row of inlet holes along the bottom edge. 4 tamper-resistant screws |
+| Chamber inner walls | 2 | 64 × 176, **6 mm** | Between the front panel and the chamber back wall, at x 102–108 and 252–258 |
+| Chamber back walls | 2 | 96 × 176, **6 mm** | At y 76–82. A small caulked hole for the speaker wire |
+| Slot insert | 2 layers | 110 × 50 and 130 × 50, **6 mm HDPE** | Stacked into a stepped 12 mm insert. 32 × 84 slot, 45° × 6 mm chamfer |
+| Slot cleats | 2 | 50 × 30, **6 mm** | Under the insert's ends; screwed to the top, ≥ 50 mm from the PN532 |
+| Slot sleeve | 1 set | **6 mm** | 2 × (96 × 48) long walls capturing 2 × (32 × 48) ends; floor 96 × 44 with a 10 mm drain hole. 45 × 45 × 3 mm PN532 pocket in the back wall |
+| Electronics sled | 1 | 136 × 95, **6 mm** | Rides on the rails. Vent grid under the Pi |
+| Sled rails | 2 | 10 × 10 × 95, **hardwood** | y 63–158, glued to the bottom |
 
 The printed slot mock-up on the 3D branch (`hardware/3d/slot_mockup.scad`) matches this slot. Print it first to test fit and NFC.
 
@@ -363,11 +390,12 @@ The goal is a display that **dances with the music like a jukebox or a valve rad
 
 ### Look
 
-- **Window:** about **48 W × 64 H mm, portrait**, centred in the bay between the slot sleeve and the buttons,
-  with its top edge at least 30 mm below the PN532. Give it an **arched top** (a jukebox/cathedral-radio arch,
-  cut with a router template in a maple bezel) to lean into the radio look. Confirm the LED field size from
-  Adafruit's board files before cutting (pitch is ~8.5 mm, unverified).
-- **Diffuser:** 0.6 mm maple veneer for a warm wooden glow (or 3 mm opal acrylic for crisper pixels).
+- **Window:** **52 W × 84 H mm, portrait**, centred above the buttons: a 70 mm-tall rectangle (z 80–150) with a
+  14 mm segmental **arch** on top (a jukebox/cathedral-radio arch, cut with a router template). The 5 × 8 LED field
+  (~39 × 64 mm at ~8.5 mm pitch) fits inside the rectangle, so the arch sits **above** the grid and hides no LEDs.
+  Confirm the LED field size from Adafruit's board files before cutting (pitch unverified).
+- **Diffuser:** 0.6 mm maple veneer for a warm wooden glow (or 3 mm opal acrylic for crisper pixels), glued into a
+  1.5 mm recess at the **front face**, so the glow sits flush with the wood instead of deep in a hole.
 - **Egg-crate grid:** a 5 × 8 printed grid at the measured pitch, about 6–8 mm deep, between the LEDs and the
   diffuser so each pixel reads as a lit "valve segment".
 - **Palette:** warm only, like old radio dial lamps: amber at the bottom of a bar, orange in the middle, red at
@@ -400,12 +428,14 @@ headers), with a 1000 µF cap across 5 V. Details are in the [v2 plan](plans/202
 - [ ] **No small parts.** Cartridges, knob and button caps are all larger than the small-parts cylinder
       (31.7 mm Ø). Glue the knob on and use arcade buttons that can't be pried apart.
 - [ ] **No magnets**, no button cells, **no battery inside the box**.
-- [ ] All outside edges have a 6 mm roundover, with no sharp corners or splinters (sand to 220).
-- [ ] **No pinch points.** The slot has generous clearance and there are no hinges or lids a child can open.
+- [ ] All outside edges are rounded over (10 mm on the box, 6 mm on cartridges), with no sharp corners or splinters (sand to 220).
+- [ ] **No pinch points.** No handle, hinges or lids. The slot's chamfered lip guides fingers out of the gap, and the knob
+      has nothing beside it.
 - [ ] Speaker grilles: holes ≤ 6 mm, with steel mesh behind.
 - [ ] Tamper-resistant screws on the service cover only. No other fasteners are exposed.
 - [ ] **Volume cap** set in software. Aim for ≤ ~85 dB at Jamie's ear distance and check with a phone SPL app.
 - [ ] Toy-safe finish, fully cured.
+- [ ] **Feet:** screw-on rubber feet only (no adhesive pads a child can peel off).
 - [ ] **Stability:** push and lean test on carpet. Mount the heaviest parts (sled, speakers) low.
 - [ ] **Thermal:** an hour of loud play, with the Pi under ~70 °C (`vcgencmd measure_temp`) and the case not warm to the touch.
   Run it twice: on a hard floor, and on carpet with a blanket against the back.
@@ -462,7 +492,7 @@ The read-only OS means an empty bank or a pulled cable won't corrupt anything.
 
 1. **Bench prototype.** Pi 4 + Amp4 + one driver + PN532 + microswitch + one button on the desk. Land
    the software changes (wired audio, insert/remove, controls).
-2. **NFC test.** A real cartridge, a 6 mm plywood wall, 23 mm gap, read 20/20 in both orientations.
+2. **NFC test.** A real 30 mm cartridge, a 3 mm plywood wall, 18–20 mm gap, read 20/20 in both orientations.
 3. **Mock-up box** in cheap plywood (Concept B is ideal). Check acoustics, temperature and LED diffusion.
 4. **Cartridges.** Batch of 10 plus the garage rack.
 5. **Final enclosure.** Cut, dry-fit, glue, round over, finish and cure.
