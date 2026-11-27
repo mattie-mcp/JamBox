@@ -17,7 +17,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | Parts Express | **Ordered 2026-11-27** |
 | Adafruit | **Ordered 2026-11-27** |
 | Amazon | **Ordered 2026-11-27** (saved-for-later items not bought) |
-| PiShop.us | To order |
+| PiShop.us | To order. Checkout wasn't going through on 2026-11-27; the cart itself is fine (all in stock, no warnings) |
 | Woodcraft | To order (free shipping over $50 ends Dec 1) |
 | Lowe's (Kentwood), in store | To buy: HDPE cutting board, M4 inserts and screws |
 | Still to buy | Maple, finish, grille sheet, veneer, polyfill, label paper (see below) |
@@ -35,7 +35,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 ## 1. [PiShop.us](https://www.pishop.us/cart.php): $232.35
 
-> Shipping at checkout. The Pi, Amp4 and SD card ship together.
+> Cart shows $12.43 shipping + $13.94 tax = **$258.72** (checked 2026-11-27). The Pi, Amp4 and SD card ship together.
 
 | Item | Part | Unit | Qty | Link |
 |---|---|---|---|---|
