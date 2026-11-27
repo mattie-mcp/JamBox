@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $798 all-in** (≈ $592 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $789 all-in** (≈ $583 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -58,7 +58,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E1 | Single-board computer | Raspberry Pi 4 Model B, 4 GB | 1 | $100 † | [PiShop.us](https://www.pishop.us), [Adafruit](https://www.adafruit.com), [CanaKit](https://www.canakit.com), Micro Center | 2 GB also works; 4 GB is long-term headroom (future features, RAM-backed overlay root). Nov 2026: $100 at PiShop and CanaKit, $120 Adafruit, $99.99 Micro Center (in-store only) |
 | E2 | Amplifier HAT | HiFiBerry **Amp4** | 1 | $98.45 † | [hifiberry.com](https://www.hifiberry.com/shop/boards/hifiberry-amp4/), [PiShop](https://www.pishop.us) | 12–20 V input (4 Ω speakers); powers the Pi. Uses GPIO 2/3 (I2C), 4 (mute), 18–21 (I2S). $98.45 at PiShop; hifiberry.com is $64.90 + $38 FedEx from Switzerland (+ duties) |
 | E3 | Speaker drivers | Dayton Audio **PC83-4** 3" full-range, 4 Ω | 2 | $15.49 † | [Parts Express 295-154](https://www.parts-express.com/Dayton-Audio-PC83-4-3-Full-Range-Poly-Cone-Driver-295-154) | 30 W RMS, 86.8 dB. Upgrade: Dayton RS75-4 (~$30 †) |
-| E4 | NFC reader | Adafruit **PN532** breakout v1.6 (#364) | 1 | $39.95 † | [Adafruit](https://www.adafruit.com/product/364) | **Out of stock Nov 2026.** Bought the V3 alt instead: HiLetgo PN532 V3 ($8.99 †, Amazon B01I1J17LC; no Elechouse-brand listing on Amazon) |
+| E4 | NFC reader | Adafruit **PN532** breakout v1.6 (#364) | 1 | $39.95 † | [Adafruit](https://www.adafruit.com/product/364) | **Out of stock Nov 2026.** Using the HiLetgo PN532 V3 you **already own** (Amazon B01I1J17LC, $8.99 † if you ever need another) |
 | E5 | USB-PD trigger | Adafruit **HUSB238** PD Dummy Breakout (#5807) | 1 | $5.95 † | [Adafruit](https://www.adafruit.com/product/5807) | Bridge the **15 V** jumper. Up to 3.25 A |
 | E6 | USB-C panel mount | Panel-mount USB-C female → USB-C male extension, 20–30 cm, rated 5 A/100 W | 1 | $9.95 † | Adafruit #4218, Amazon | The only port Jamie will see. Mount it in a recessed pocket on the back. #4218 fits a 21.5–27 mm hole in panels ≤16 mm; its listing gives no current/PD rating, so confirm 15 V/3 A passes before relying on it |
 | E7 | 5 V supply for LEDs | Adafruit **MPM3610** 5 V buck, 6–21 V in, 1.2 A out (#4739) | 1 | $6.95 † | [Adafruit](https://www.adafruit.com/product/4739), Mouser 485-4739 | 15 V → 5 V for the LED matrix, button LEDs and level shifter (~0.5 A worst case at the 20% cap, so 2.4× headroom; a 100% brightness bug gets current-limited). Changed 2026-11-27 from the Pololu D36V28F5 ($16.99 + $4.99 ship) |
@@ -78,7 +78,7 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E22 | Wiring passives | 1000 µF 16 V cap (LED 5 V), 330 Ω (LED data), 470 Ω (switch ring LED at 15 V), 0.1 µF (74AHCT125 decoupling), 5.5 × 2.1 mm DC plug to screw terminal (Amp4 power in; confirm the jack size) | 1 set | $6 † | Mouser, Adafruit #369 | Spares included for the resistors and 0.1 µF |
 | E21 | Mounting | M2.5 nylon standoff kit, M3 brass threaded inserts | 1 | $19 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $453** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
+**Electronics subtotal: about $444** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -108,7 +108,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $708–798** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $699–789** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 
