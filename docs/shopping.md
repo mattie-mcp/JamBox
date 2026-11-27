@@ -9,6 +9,19 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 - If an item is out of stock, note it and ask before substituting.
 - Keep this file current: when a cart changes, change its table and the totals.
 
+## Order status
+
+| Store | Status |
+|---|---|
+| Mouser | **Ordered 2026-11-27** |
+| Parts Express | **Ordered 2026-11-27** |
+| Adafruit | **Ordered 2026-11-27** |
+| Amazon | **Ordered 2026-11-27** (saved-for-later items not bought) |
+| PiShop.us | To order |
+| Woodcraft | To order (free shipping over $50 ends Dec 1) |
+| Lowe's (Kentwood), in store | To buy: HDPE cutting board, M4 inserts and screws |
+| Still to buy | Maple, finish, grille sheet, veneer, polyfill, label paper (see below) |
+
 ## Totals
 
 | | |
@@ -33,7 +46,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 ## 2. [Adafruit](https://www.adafruit.com/shopping_cart): $68.20
 
-> $57.97 with code OhFudge15 (applied in the cart). Shipping at checkout; free over $200.
+> **Ordered 2026-11-27.** $57.97 with code OhFudge15.
 
 | Item | Part | Unit | Qty | Link |
 |---|---|---|---|---|
@@ -48,7 +61,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 ## 3. [Mouser](https://www.mouser.com/Cart/): $22.89
 
-> \+ $8.49 UPS Ground + $1.49 tariff = $32.87. Includes spares for the parts most likely to die. Cheaper than Amazon for the same parts.
+> **Ordered 2026-11-27.** + $8.49 UPS Ground + $1.49 tariff = $32.87. Includes spares for the parts most likely to die.
 
 | Item | Part | Unit | Qty | Link |
 |---|---|---|---|---|
@@ -63,7 +76,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 ## 4. [Amazon](https://www.amazon.com/gp/cart/view.html): $82.04
 
-> Free shipping (Prime). Your own Scotch tape is also in this cart.
+> **Ordered 2026-11-27.** Free shipping (Prime).
 
 | Item | Part | Unit | Qty | Link |
 |---|---|---|---|---|
@@ -75,7 +88,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 | 365 pcs M2.5 nylon standoff kit | B0FPMC9917 | $9.99 | 1 | [amazon](https://www.amazon.com/dp/B0FPMC9917) |
 | smseace 100 pcs screw-on rubber feet with washers and screws | B08PBH875X | $9.99 | 1 | [amazon](https://www.amazon.com/dp/B08PBH875X) |
 
-**Saved for later (not counted):**
+**Saved for later (not ordered, not counted):**
 
 | Item | Part | Unit | Why |
 |---|---|---|---|
@@ -86,7 +99,7 @@ What is in each cart now, store by store. Parts and reasons are in [hardware.md]
 
 ## 5. [Parts Express](https://www.parts-express.com/cart): $40.96
 
-> \+ $9.95 shipping (free over $99).
+> **Ordered 2026-11-27.** + $9.95 shipping.
 
 | Item | Part | Unit | Qty | Link |
 |---|---|---|---|---|
@@ -127,15 +140,13 @@ HiLetgo PN532 V3 NFC reader, a USB-C charger that lists 15 V ⎓ 3 A, a solderin
 
 ## Final purchase checklist
 
-Work through this before checking out. Add to it as questions come up.
+Work through this before the remaining checkouts and when parts arrive. Add to it as questions come up.
 
-- [ ] **Amp4 power jack (Adafruit #369, $2).** #369 is a 5.5 × 2.1 mm barrel plug with screw terminals. It carries
-      the 15 V wires (HUSB238 → fuse → power switch) into the Amp4. Before buying:
+- [ ] **Amp4 power jack (Adafruit #369, ordered).** #369 is a 5.5 × 2.1 mm barrel plug with screw terminals. It carries
+      the 15 V wires (HUSB238 → fuse → power switch) into the Amp4. When the Amp4 arrives:
   - Confirm the Amp4's input is a **5.5 × 2.1 mm** barrel jack. HiFiBerry's datasheet doesn't say; one retailer
-    lists 5.5 × 2.1. Measure it or check HiFiBerry's docs. If the Amp4 uses screw terminals instead, remove #369.
+    lists 5.5 × 2.1. Measure it or check HiFiBerry's docs. If the Amp4 uses screw terminals instead, #369 isn't needed.
   - Polarity: **centre pin positive**. The 15 V wire goes to the + terminal.
   - At assembly: tighten the screws firmly and cable-tie the wires to the sled so nothing tugs on the terminals.
 - [ ] **hifiberry.com cart:** it still holds an Amp4 from a price comparison. Remove it so you don't buy two.
-- [ ] **Adafruit code:** check OhFudge15 is still applied at checkout.
 - [ ] **Woodcraft:** free shipping over $50 ends Dec 1.
-- [ ] **Amazon:** your Scotch tape is in the same cart; leave it or remove it as you like.
