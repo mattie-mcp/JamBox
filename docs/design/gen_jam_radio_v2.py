@@ -161,12 +161,12 @@ def section_view():
     p.append(box(X(63), Z(188), 6, 48, **ply)); p.append(box(X(101), Z(188), 6, 48, **ply))
     p.append(box(X(63), Z(140), 44, 6, **ply))
     p.append(box(X(69), Z(240), 32, 100, fill="#d79b5c", stroke=EDGE, rx=5))
-    p.append(f'<line x1="{X(85)}" y1="{Z(240)}" x2="{X(85)}" y2="{Z(140)}" stroke="{EDGE}" stroke-dasharray="2 2" stroke-width="0.6"/>')
-    p.append(box(X(83.5), Z(185.5), 3, 35, fill="#1d5e8a"))
-    p.append(text(X(85), Z(246), "tag at centre", 7))
+    p.append(box(X(70), Z(185.5), 1.5, 35, fill="#1d5e8a")); p.append(box(X(98.5), Z(185.5), 1.5, 35, fill="#1d5e8a"))
+    p.append(box(X(71), Z(232), 1, 26, fill="#f4e3c3"))
+    p.append(text(X(85), Z(246), "tag under each face", 7))
     p.append(box(X(104), Z(188.5), 3, 41, fill="#2f7d4f"))
     p.append(text(X(112), Z(176), "PN532", 7, anchor="start", fill="#2f7d4f"))
-    p.append(text(X(112), Z(168), "18–20 mm gap", 7, anchor="start", fill="#2f7d4f"))
+    p.append(text(X(112), Z(168), "~5–7 mm gap", 7, anchor="start", fill="#2f7d4f"))
     # drain tube
     p.append(f'<path d="M{X(85)},{Z(134)} Q{X(120)},{Z(130)} {X(158)},{Z(126)} L{X(172)},{Z(126)}" fill="none" stroke="#6aa0c8" stroke-width="3" opacity="0.8"/>')
     p.append(text(X(130), Z(136), "drain", 7, fill="#4a7fa8"))
@@ -262,7 +262,7 @@ for cart in ("1", "2", "5", "6", "3", "7", "8"):
         f'<tbody>{"".join(trs)}</tbody></table></section>')
 
 still = """
-<tr><td>Maple or cherry, ¾" (planed to 15 mm), ~3–4 bd-ft</td><td>Woodcraft of Grand Rapids or a local hardwood dealer</td><td>$30–50</td></tr>
+<tr><td>8/4 hard maple milled to 30 mm (cartridges), ~3–4 bd-ft; label paper</td><td>Woodcraft of Grand Rapids or a local hardwood dealer</td><td>$30–50</td></tr>
 <tr><td>Water-based toy-safe finish (EN 71-3 / ASTM F963)</td><td>Ask at Woodcraft of Grand Rapids</td><td>~$25–40</td></tr>
 <tr><td>Perforated steel grille sheet, ~2–3 mm holes, 12 × 12"</td><td>Amazon</td><td>~$18</td></tr>
 <tr><td>Maple veneer (0.6 mm) for the LED diffuser</td><td>Woodcraft</td><td>~$10</td></tr>
@@ -310,8 +310,8 @@ a centred 32 mm slot, sled on rails, power in the back panel, and the arched 5×
 <ul class="keys">
 <li><b>360 × 170 × 200 mm</b>12 mm Baltic birch, glued butt joints with glue blocks, 10 mm roundovers, 4 screw-on feet</li>
 <li><b>Slot 32 × 84 mm</b>Stepped HDPE insert (two ¼" layers), 45° lip, no metal within 30 mm of the reader</li>
-<li><b>Cartridge 80 × 100 × 30 mm</b>Two 15 mm maple halves, tag at the centre, ±0.5 mm</li>
-<li><b>Read gap 18–20 mm</b>15 mm to the tag + 0–2 mm clearance + 3 mm pocketed wall</li>
+<li><b>Cartridge 80 × 100 × 30 mm</b>Solid maple, a sealed tag under each face, printed label in a 1 mm recess</li>
+<li><b>Read gap ~5–7 mm</b>Near tag 1.5 mm deep + 0–2 mm clearance + 3 mm pocketed wall, either way round</li>
 <li><b>Chambers ≈ 1.0 L each</b>90 × 176 × 64 mm, sealed, drivers 246 mm apart behind 84 mm drilled grilles</li>
 <li><b>Buttons 24 mm</b>Mini LED arcade buttons, 40 mm apart, nuts threadlocked; bay 144 mm</li>
 <li><b>LED window 52 × 84 mm</b>Arch above the grid, maple veneer at the front face</li>

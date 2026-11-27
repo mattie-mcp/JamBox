@@ -33,6 +33,9 @@ EMPTY ── switch closed / tag seen ──► READING ── tag id ──► 
   signal for instant removal and NFC just identifies the tag. Design the state machine so either input works.
 - **Insert:** read the tag. If it's the **same tag as last time and less than ~30 min ago** (decided), resume. Otherwise
   play the mapped track from the start. An unknown tag shows the "?" LED state; discovery mode still works.
+- **Two tags per cartridge** (one under each face, decided 2026-11-27). Both tag IDs map to the same song, so
+  either can identify the cartridge. Treat a second tag that maps to the same song as the same cartridge (no
+  restart). The web app should make registering the second tag easy ("flip it and insert again").
 - **Remove:** call a new `POST /api/pause` and remember `{tag, position, time}` for resume.
 - Keep the logic in pure functions (state transitions) so it's unit-testable without hardware,
   matching the existing `tests/test_nfc.py` style.

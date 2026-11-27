@@ -21,8 +21,8 @@ All decisions were made on 2026-11-24.
 | Cartridge presence | **NFC-only + click detent**. The microswitch is an optional add-on if the slot test shows laggy or false pauses |
 | Portable power | **Wall power only** for v1. The battery spike below stays as a future option |
 | Carry handle | **None** (removed 2026-11-27). The box lives plugged into a wall; lift it with two hands under the ends |
-| Layout fixes | **Decided 2026-11-27** from the [design review](design/jam-radio-review.html): full-height speaker chambers and a 144 mm bay, a 32 mm slot with 15 + 15 mm cartridges, sled on rails, USB-C and power button in the 12 mm back panel. See "Inside the radio" |
-| Cartridges | **Laminated hardwood blocks** (tag sealed at the glue line). Printed cartridges are a stretch goal on branch `claude/3d-printed-cartridges` |
+| Layout fixes | **Decided 2026-11-27** from the [design review](design/jam-radio-review.html): full-height speaker chambers and a 144 mm bay, a 32 mm slot with 30 mm solid-block cartridges, sled on rails, USB-C and power button in the 12 mm back panel. See "Inside the radio" |
+| Cartridges | **Solid hardwood blocks** with a tag sealed just under **each** face and a large printed label set into a recess and sealed under finish (decided 2026-11-27; replaces laminated blocks). Printed cartridges are a stretch goal on branch `claude/3d-printed-cartridges` |
 | 3D printing | **Your Ender 3 Pro** (slot mock-up, LED grid, brackets, cartridge experiments) |
 | Re-inserting a cartridge | **Resume if within ~30 minutes**, otherwise start over |
 | Volume ceiling | **Parent-adjustable** in the web app, starting at ~80 dB |
@@ -132,36 +132,45 @@ stay below for reference.
 |---|---|---|
 | Size | **80 W × 100 H × 30 T mm**, tolerance **±0.5 mm** on width and thickness | Fills a toddler's two hands. Far larger than the small-parts cylinder (31.7 mm Ø), so no choking hazard |
 | Edges | 6 mm (¼") roundover everywhere (the box itself uses 10 mm) | No sharp edges; slides into the slot easily |
-| Tag | NTAG215, **Ø30–35 mm**, at the **centre of the thickness** (15 mm from each face), centred **28 mm up from the bottom** | Two equal 15 mm halves put the tag exactly in the middle, so it reads the same whichever way it faces. Low, so it's fully inside the slot |
+| Tags | **Two** NTAG215 coins (30 mm), one sealed **~1.5 mm under each face**, centred across the width and **28 mm up from the bottom** | Whichever way it faces, one tag is right against the reader wall. Both are mapped to the same song. Low, so they're fully inside the slot |
+| Label | Large printed label in a **1 mm recess** on the part that sticks out (top 40 mm), sealed under the finish | Easy to make and change, with no edge for Jamie to pick at |
 | Insertion | **60 mm in, 40 mm sticking out** to grab | Enough to grip and pull, and the tag is always inside |
 | Weight | ≈ 150–180 g in maple | Satisfying heft; stays put in the slot |
 | Magnets | **None** | Presence is sensed by NFC (the microswitch is optional). Loose magnets are an ingestion hazard, so the design avoids them completely |
 
 The cartridge is symmetric front-to-back, so it can face either way with the same read gap. The only
-"wrong" way in is upside-down, and the flat bottom with artwork on top makes the right way obvious. If you
-want it fool-proof, the software can map a second tag in the top end to the same song.
+"wrong" way in is upside-down, and the flat bottom with the label on top makes the right way obvious.
 
-### No stickers on the outside
+### No stickers on the surface
 
-Jamie peels stickers, so **the tag is never on a surface**. It's sealed inside every cartridge: at the glue
-line of a wood block, or embedded mid-print in a printed one. **Artwork isn't a sticker either**: use paint
-sealed under finish, engraving, or a raised printed icon. A label on the outside is something to pick at.
+Jamie peels stickers, so **nothing sits on a surface**. The NFC tags are sealed in pockets under a glued wood
+disc. Printed labels are welcome, but they go **into a recess** and under the finish, so their edges sit below
+the wood. A loose NFC sticker or a torn label corner is small enough to choke on; a sealed one can't come off.
 
 ### Three ways to make cartridges
 
-1. **Laminated hardwood block (recommended for v1, no printer).**
-   - Plane ¾" maple or cherry down to **15 mm** and rip it to 80 mm wide. Cut **two 15 mm pieces** per cartridge, 100 mm long, so the glue line (and the tag) sits exactly in the middle.
-   - Drill a 1 mm-deep, 35 mm Forstner pocket in the mating face of one piece. Drop in the tag and glue the two pieces together with Titebond III. The tag ends up sealed permanently at the glue line.
-   - After glue-up, run every cartridge through the planer or a drum sander to **30.0 mm (±0.5)** and check it with calipers or a 30 mm gauge block. Thickness is what sets the read gap.
-   - Round over all edges, sand to 220 grit, and finish.
-   - Batch production: rip one long blank, cross-cut ten at once with a stop block, and route all the roundovers in one pass.
+1. **Solid hardwood block (recommended for v1, no printer).**
+   - Stock: **8/4 hard maple** (or cherry) milled to **30.0 mm (±0.5)** thick and 80 mm wide. A planer does it, or ask
+     the lumber yard to mill it to size. Cross-cut to 100 mm. Thickness is what sets the fit in the 32 mm slot.
+   - **Tag pockets:** with a 1-⅜" (35 mm) Forstner, drill a **2.5 mm-deep** pocket in **each** face, centred across
+     the width and 28 mm up from the bottom. Drop a tag coin in each.
+   - **Seal them:** glue a 35 mm disc of 1.5 mm maple veneer (or thin maple) over each tag with Titebond III, then
+     sand flush. Clear epoxy filled flush also works. The tag can't be reached once sealed.
+   - **Label recess:** rout a **1 mm-deep** recess about 70 × 30 mm on one or both faces of the top 40 mm, using a
+     template and a small straight bit. Print the label on paper, glue it in with PVA or Mod Podge, and seal it under
+     the toy-safe finish with the rest of the block. Keep the recess clear of the tag pockets (they're in the bottom 45 mm).
+   - Round over all edges (6 mm), sand to 220 grit, and finish.
+   - Batch production: mill one long blank, cross-cut ten at once with a stop block, drill all the pockets with a
+     fence and stop, and route all the roundovers in one pass.
+   - **Register both tags** in the web app: insert the cartridge one way, assign the song, then flip it and assign
+     the same song to the second tag.
 2. **3D-printed character cartridge.**
    - Print in PETG (tougher than PLA) with 4+ walls and 25–40% infill. Add a pause at the layer just above a tag pocket, drop in the tag, and the printer prints over it.
    - Multicolour prints allow real characters: an animal, a vehicle, a star.
    - Don't use them as teething toys. Printed layer lines can't be sanitised as well as finished wood.
-3. **Hybrid.** A wood block as in option 1, with a printed or painted character relief glued into a shallow routed pocket on the part that sticks out.
+3. **Hybrid.** A wood block as in option 1, with a printed or painted character relief glued into the label recess instead of a paper label.
 
-**Artwork ideas:** wood-burned or painted icons, printed images sealed under finish, a makerspace laser
+**Artwork ideas:** printed labels in the recess (the default), wood-burned or painted icons, a makerspace laser
 engraving, or colour-coding by type (songs = yellow, lullabies = blue, stories = green). Because the song
 mapping lives in the web app, a cartridge can be reassigned at any time without rebuilding it.
 
@@ -181,7 +190,8 @@ cartridges and turns tidy-up into a game. It's easy to make with the table saw a
 - The **PN532** sits in a **45 × 45 mm pocket routed 3 mm deep** into the outside of the sleeve's back wall, so only
   3 mm of plywood is between the antenna and the cartridge. Centre the antenna on the tag (z ≈ 168); the board's top edge
   then sits just under the top panel. Hold it with nylon screws.
-  **Read gap: 18–20 mm** (15 mm to the tag + 0–2 mm clearance + 3 mm wall), whichever way the cartridge faces.
+  **Read gap: about 5–7 mm** (1.5 mm to the near tag + 0–2 mm clearance + 3 mm wall), whichever way the cartridge
+  faces. The far tag is ~32 mm away and usually silent; if it answers too, it plays the same song.
   Bench-test this before final glue-up (see hardware.md §5).
 - **Keep metal 30 mm or more from the PN532.** The insert itself has no screws. The two cleats are screwed to the
   top panel at the slot's ends, ≥ 50 mm from the reader.
@@ -497,7 +507,8 @@ The read-only OS means an empty bank or a pulled cable won't corrupt anything.
 
 1. **Bench prototype.** Pi 4 + Amp4 + one driver + PN532 + microswitch + one button on the desk. Land
    the software changes (wired audio, insert/remove, controls).
-2. **NFC test.** A real 30 mm cartridge, a 3 mm plywood wall, 18–20 mm gap, read 20/20 in both orientations.
+2. **NFC test.** A real two-tag cartridge, a 3 mm plywood wall, ~5–7 mm gap, read 20/20 in both orientations. Also check that
+   a cartridge with both tags in range still starts its song once, not twice.
 3. **Mock-up box** in cheap plywood (Concept B is ideal). Check acoustics, temperature and LED diffusion.
 4. **Cartridges.** Batch of 10 plus the garage rack.
 5. **Final enclosure.** Cut, dry-fit, glue, round over, finish and cure.

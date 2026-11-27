@@ -99,7 +99,7 @@ the better-documented board. Check the free-shipping threshold; Cart 2 may cross
 |---|---|---|---|
 | Baltic birch plywood, **12 mm (½")**, 30 × 30" | 1 | $30–50 | |
 | Baltic birch plywood, **6 mm (¼")**, 24 × 30" | 1 | $15–25 | |
-| Maple (or cherry) board, ¾" and ½" thick, ~3–4 bd-ft total (cartridges in two 15 mm halves, sled rails) | – | $30–50 | |
+| Maple (or cherry) board, ¾" and ½" thick, ~3–4 bd-ft total (8/4 maple milled to 30 mm for the cartridges; sled rails) | – | $30–50 | |
 | ~~Hardwood dowel, 1" × 36" (handle)~~ | 0 | – | Dropped 2026-11-27: no handle |
 | Titebond III | 1 | ~$10 | |
 | Water-based toy-safe finish (labelled EN 71-3 / ASTM F963) | 1 | ~$25 | |
@@ -121,12 +121,12 @@ day; several are Black Friday sale prices. Shipping marked "at checkout" needs a
 | 3 | [Parts Express](https://www.parts-express.com/cart) | 2/2 | $40.96 | $9.95 | $99 | Polyfill removed 11/27 (use what you have). BLACKFRI15 (15% off $75+, ends 11/29) doesn't reach |
 | 4 | Pololu | **0/1** (D36V28F5 out of stock, backorder only) | n/a | n/a | n/a | Dropped 11/27: Adafruit MPM3610 instead (Cart 2) |
 | 5 | [Mouser](https://www.mouser.com/Cart/) (DigiKey showed a CAPTCHA) | 7/7 | $11.50 | $8.49 UPS Ground + $0.63 tariff | n/a | Switch and fuse moved to Amazon; level shifter and wiring passives added 11/27 |
-| 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 9 JamBox lines | $104.02 | Free (Prime) | Prime | SanDisk card not added: 2-card minimum. PEI sheet, PETG and PLA moved to **Saved for later** on 11/27 (printing comes last). PN532 removed 11/27 (you already own the HiLetgo V3). 11/27 savings: regulator, crimper kit, speaker wire, aluminium knob and one tag pack removed. Your Scotch tape is also in this cart |
+| 6 | [Amazon](https://www.amazon.com/gp/cart/view.html) | 9 JamBox lines (10 units) | $113.52 | Free (Prime) | Prime | SanDisk card not added: 2-card minimum. PEI sheet, PETG and PLA moved to **Saved for later** on 11/27 (printing comes last). PN532 removed 11/27 (you already own the HiLetgo V3). 11/27 savings: regulator, crimper kit, speaker wire, aluminium knob and one tag pack removed. Your Scotch tape is also in this cart |
 | 7 | [McMaster-Carr](https://www.mcmaster.com/order/) | 3/3 | $30.36 | At checkout | n/a | Perforated sheet not added (24×24" minimum, $54+) |
 | 8 | [Woodcraft](https://www.woodcraft.com/cart) | 4/4 | $76.96 | Free (over $50, through Dec 1) | $50 | Switched from Rockler (cart emptied). Woodcraft of Grand Rapids is local for maple and pickup. Finish and tools not added (see below) |
 | | **hifiberry.com** | comparison only | $64.90 | $38.00 FedEx | | Amp4 left in that cart for comparison; **remove it, don't buy both** |
 
-**In carts: $564.35 of merchandise plus $19.07 of known shipping ≈ $583** (≈ $573 with Adafruit's OhFudge15 code). PiShop, Adafruit and McMaster shipping (≈ $25)
+**In carts: $573.85 of merchandise plus $19.07 of known shipping ≈ $593** (≈ $583 with Adafruit's OhFudge15 code). PiShop, Adafruit and McMaster shipping (≈ $25)
 and sales tax come on top.
 
 ### Line items
@@ -154,7 +154,7 @@ and sales tax come on top.
 | 5 | YAGEO CFR-25JB-52-330R, 330 Ω ¼ W (LED data line + spare) | Mouser 603-CFR-25JB-52-330R | $0.11 | 2 | 7,270 in stock | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-330R) |
 | 5 | YAGEO CFR-25JB-52-470R, 470 Ω ¼ W (power-switch ring LED at 15 V + spare) | Mouser 603-CFR-25JB-52-470R | $0.11 | 2 | In stock | [mouser](https://www.mouser.com/c/?q=CFR-25JB-52-470R) |
 | 5 | KEMET C320C104K5R5TA 0.1 µF 50 V ceramic (level-shifter decoupling + spare) | Mouser 80-C320C104K5R5TA | $0.92 | 2 | In stock | [mouser](https://www.mouser.com/c/?q=C320C104K5R5TA) |
-| 6 | 30pcs NFC Tags NTAG215 NFC Coins Rewritable White NFC Tag Round 30mm | B07PFC2FH5 | $9.50 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07PFC2FH5) |
+| 6 | 30pcs NFC Tags NTAG215 NFC Coins Rewritable White NFC Tag Round 30mm (two per cartridge) | B07PFC2FH5 | $9.50 | 2 | In stock | [amazon](https://www.amazon.com/dp/B07PFC2FH5) |
 | 6 | UGREEN Nexode 65W USB C Charger Block, 3-Port (lists 15V/3A) | B091BGMKYS | $22.49 | 1 | In stock | [amazon](https://www.amazon.com/dp/B091BGMKYS) |
 | 6 | APIELE 10 Amp 19mm Latching Push Button Switch 12V SPST LED (stainless, blue ring) | B07V96FYHP | $13.49 | 1 | In stock | [amazon](https://www.amazon.com/dp/B07V96FYHP) |
 | 6 | 2pcs 18AWG Inline Fuse Holder with 3A Mini Fuse | B0DC3LVV75 | $5.59 | 1 | In stock | [amazon](https://www.amazon.com/dp/B0DC3LVV75) |
@@ -181,7 +181,7 @@ and sales tax come on top.
 | Pi 4 4 GB | PiShop **$100**, CanaKit $100, Micro Center $99.99 (in-store pickup only), Adafruit $120 | **PiShop**: same price as CanaKit, ships with the Amp4 and SD card |
 | HiFiBerry Amp4 | PiShop **$98.45**, in stock, ships with the Pi. hifiberry.com $64.90 + $38.00 FedEx Intl Economy = **$102.90**, plus possible US duties, 1–6 weeks | **PiShop** |
 | PN532 | Adafruit #364 $39.95, **out of stock**. Amazon V3 clones: HiLetgo $8.99 (220 reviews), AITRIP $7.99. No Elechouse-branded listing on Amazon | **HiLetgo V3** (in cart). Same PN532 chip and I2C, so the code works unchanged |
-| NTAG215, 30–35 mm | **ShopNFC: no NTAG215** (stocks 210/213/216/DNA; e.g. NTAG213 Bullseye 38 mm €0.69). **Seritag: no NTAG215**; genuine-NXP NTAG213 29 mm **$0.37** (10–99). Amazon: 30 mm NTAG215 coins, 30-pack $9.50 = **$0.32/tag** (genuine NXP not stated); most Amazon 50-packs are 25 mm | **Amazon 30 mm coins** (1 pack = 30 tags, in cart: 10 cartridges, optional second tags, spares). If you want verified NXP, Seritag 29 mm NTAG213 works too, because the daemon only reads the UID |
+| NTAG215, 30–35 mm | **ShopNFC: no NTAG215** (stocks 210/213/216/DNA; e.g. NTAG213 Bullseye 38 mm €0.69). **Seritag: no NTAG215**; genuine-NXP NTAG213 29 mm **$0.37** (10–99). Amazon: 30 mm NTAG215 coins, 30-pack $9.50 = **$0.32/tag** (genuine NXP not stated); most Amazon 50-packs are 25 mm | **Amazon 30 mm coins** (2 packs = 60 tags, in cart: two per cartridge for 10 cartridges, plus spares). If you want verified NXP, Seritag 29 mm NTAG213 works too, because the daemon only reads the UID |
 | Pololu D36V28F5 | Pololu $23.95, **out of stock**, backorder. RobotShop $21.95, restocking. Amazon (GetFPV) **$16.99 + $4.99** = $21.98, in stock. Mouser doesn't carry it; DigiKey blocked by CAPTCHA | Superseded 11/27: **Adafruit MPM3610** (#4739, $6.95) is enough for the capped LEDs |
 | USB-C PD charger 45 W+, 15 V ⎓ 3 A | UGREEN Nexode 65W $22.49 (lists 15V/3A), Anker Nano 70W $32.99 (lists 15V⎓3A), Anker 65W 3-port $22.77 (15 V not stated in listing) | **UGREEN Nexode 65W** |
 | SanDisk High Endurance 64 GB | Amazon $25.99, but **minimum order 2**; PiShop $30.95 | **PiShop** (rides along with Cart 1) |
@@ -222,12 +222,12 @@ and sales tax come on top.
 
 | | Estimate | Real |
 |---|---|---|
-| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $444** (PN532 already owned; Pi +$40, Amp4 +$33, SD +$16, wiring small parts +$15, knob +$6; PN532 −$31, 5×8 LEDs −$7, 5 V buck −$10, one tag pack, pre-crimped JST, no speaker wire) |
+| Electronics (E1–E21, incl. charger and tags) | ≈ $460 | **≈ $454** (PN532 already owned; 60 tags for two per cartridge; Pi +$40, Amp4 +$33, SD +$16, wiring small parts +$15, knob +$6; PN532 −$31, 5×8 LEDs −$7, 5 V buck −$10, one tag pack, pre-crimped JST, no speaker wire) |
 | Enclosure and hardware in carts (printing supplies saved for later, $39) | | ≈ $121 (handle dowel, second ½" sheet and polyfill dropped) |
 | Known shipping and tariff | | ≈ $19 (+ ≈ $25 still unpriced at PiShop, Adafruit, McMaster) |
 | Not yet bought: finish, maple, grille sheet | | ≈ $90 |
 | Tools, if not owned | | ≈ $90 |
-| **Total** | **≈ $820** | **≈ $789 all-in** (≈ $699 if you already own the bits). The [cost-review.md](cost-review.md) savings were applied on 2026-11-27 (≈ $109); you already own a soldering kit |
+| **Total** | **≈ $820** | **≈ $798 all-in** (≈ $708 if you already own the bits). The [cost-review.md](cost-review.md) savings were applied on 2026-11-27 (≈ $109); you already own a soldering kit |
 
 ## Final purchase checklist
 

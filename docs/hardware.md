@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $789 all-in** (≈ $583 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $798 all-in** (≈ $592 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -72,13 +72,13 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + **Perma-Proto HAT** mini kit (#2310) | 1 each | $2.95 † + $4.95 † | Adafruit (header), Mouser 485-2310 (HAT; out of stock at Adafruit) | The Amp4 sits on the Pi; this exposes free pins for wiring |
 | E16 | Storage | SanDisk **High Endurance** 64 GB microSD | 1 | $30.95 † | PiShop, Amazon, B&H | High-endurance cards are made for constant writes. Amazon's $25.99 listing has a 2-card minimum |
 | E17 | Pi cooling | Aluminum heatsink set for Pi 4 | 1 | $2.95 † | PiShop add-on, Amazon | Passive. The box has vent holes (see enclosure.md) |
-| E18 | NFC tags | **NTAG215 30–35 mm** round stickers or PVC coins | 30 (one pack) | $0.32 † | [ShopNFC](https://www.shopnfc.com), [Seritag](https://seritag.com), Amazon | Bigger tags read farther. Avoid "on-metal" tags (not needed). Nov 2026: neither ShopNFC nor Seritag stocks NTAG215; Amazon 30 mm coins 30-pack $9.50 (genuine NXP not stated). Seritag genuine-NXP NTAG213 29 mm is $0.37 |
+| E18 | NFC tags | **NTAG215 30–35 mm** round stickers or PVC coins (two per cartridge, sealed under each face) | 60 (two packs) | $0.32 † | [ShopNFC](https://www.shopnfc.com), [Seritag](https://seritag.com), Amazon | Bigger tags read farther. Avoid "on-metal" tags (not needed). Nov 2026: neither ShopNFC nor Seritag stocks NTAG215; Amazon 30 mm coins 30-pack $9.50 (genuine NXP not stated). Seritag genuine-NXP NTAG213 29 mm is $0.37 |
 | E19 | Charger | Any **USB-C PD charger, 45 W+, with a 15 V profile** (most 45–65 W GaN chargers) | 1 | $22.49 † | Anker, UGREEN, Apple, etc. | Check that the label lists 15 V ⎓ 3 A. UGREEN Nexode 65W (B091BGMKYS) lists 15V/3A |
 | E20 | Wiring kit | 22 AWG silicone hookup wire (also used for the speakers), **pre-crimped JST-XH kit** (2–7 pin, 90 × 13 cm leads, no crimper; Amazon B0CJ6JDMJH), heat-shrink (Adafruit #1649), inline 3 A blade fuse holder | 1 | $36 † | Amazon, Adafruit | Use keyed connectors (JST-XH) everywhere, not loose Dupont jumpers. The 13 cm leads are soldered and heat-shrunk onto hookup wire for longer runs. Breadboard and jumpers are for the bench prototype only |
 | E22 | Wiring passives | 1000 µF 16 V cap (LED 5 V), 330 Ω (LED data), 470 Ω (switch ring LED at 15 V), 0.1 µF (74AHCT125 decoupling), 5.5 × 2.1 mm DC plug to screw terminal (Amp4 power in; confirm the jack size) | 1 set | $6 † | Mouser, Adafruit #369 | Spares included for the resistors and 0.1 µF |
 | E21 | Mounting | M2.5 nylon standoff kit, M3 brass threaded inserts | 1 | $19 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $444** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
+**Electronics subtotal: about $454** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -108,7 +108,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $699–789** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $708–798** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 
