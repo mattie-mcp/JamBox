@@ -182,7 +182,8 @@ cartridges and turns tidy-up into a game. It's easy to make with the table saw a
   snaps into a shallow groove on each cartridge face, so it clicks in and holds. Use no metal
   ball-plungers near the antenna. Add the microswitch later only if E3 shows laggy or false pauses.
   If you use it, it sits under the sleeve floor with its lever through a 6 mm slot.
-- Either way, a **clean-out hole** in the slot floor lets crumbs and juice drain out.
+- Either way, a **clean-out hole** in the slot floor lets crumbs and juice drain out. In the Radio it must drain
+  to the outside, not onto the electronics below (see "Heat and airflow").
 - **Optional wear liner:** make the ridge cap (or just a slot insert) from **HDPE** (cutting-board plastic). It
   shrugs off thousands of insertions, is transparent to NFC, and routes cleanly.
 
@@ -220,6 +221,42 @@ The software changes are in [the v2 plan](plans/2026-11-24-hardwired-v2.md).
 **Tight spot:** the centre bay is about 100 mm wide. A Pi 4 + Amp4 stack (85 × 56 × ~35 mm) fits on the sled,
 but check it in the mock-up. Keep the PN532 at the top of the bay, well above the Pi and amp.
 
+### Heat and airflow (Radio)
+
+**Heat budget while playing: about 6–9 W** (about 12 W worst case):
+
+| Source | Heat |
+|---|---|
+| Pi 4 streaming | ~3–5 W |
+| Amp4 at toddler volume, including its 5 V regulator for the Pi | ~1–2 W |
+| LED matrix at the 20% cap | ~1–2 W, mostly at the front window |
+| 5 V buck and PD trigger | < 0.5 W |
+
+Build the Next.js app off the device (on a laptop or in CI) and only run it on the Pi; builds are the 12 W case.
+
+**Where the heat goes:** plywood barely conducts heat. The bay's outside walls pass only ~0.2 W per °C, so a
+sealed bay would sit 30–40 °C above the room. Nearly all the heat must leave by **natural convection** (a chimney):
+cool air in at the bottom, warm air out high on the back. The speaker chambers are sealed and play no part, so only
+the ~100 mm centre bay vents.
+
+**Vent sizing:** about **20 cm² in and 20 cm² out**, about 70 × 6 mm holes each, keeps the bay air ~15 °C above
+the room. The Pi then runs at about **65–70 °C** in a 22 °C room; it throttles at 80 °C. Halving the vent area
+roughly doubles the rise to ~25 °C, which is too close to the limit.
+
+- **Inlet:** a hole grid in the bottom panel under the sled (lifted 10 mm by the feet), plus a row of holes
+  **low on the service cover**. The second inlet keeps the box breathing when it sits on carpet or a blanket.
+- **Outlet:** holes **high on the service cover**, as close under the top panel as the cover allows. No vents in
+  the top panel: that's where juice and crumbs land.
+- **Sled fix:** the 95 mm sled nearly fills the 100 mm bay and would block the bottom vents. Drill a matching
+  hole grid through the sled under the Pi, and stand the Pi on 10 mm nylon standoffs so air reaches the
+  underside of the board.
+- **Pi + Amp4 stack:** the Amp4 sits over the Pi's SoC heatsink. Use the extra-tall stacking header for a
+  larger gap. A taller finned SoC heatsink is a cheap upgrade if the test runs warm.
+- **Crumb-hole fix:** the slot's clean-out hole is directly above the electronics. Angle its drain (a short
+  sloped channel or tube) to a hole in the back wall, or add a small drip tray, so spills never land on the sled.
+- **Software guard:** if the Pi passes ~75 °C, dim the LEDs and lower the volume ceiling, and log it.
+- **Outside:** the case should stay barely warm, so it's safe to touch.
+
 ### Cut list (Concept B, chosen)
 
 12 mm Baltic birch unless noted.
@@ -230,11 +267,11 @@ but check it in the mock-up. Keep the PN532 at the top of the bay, well above th
 | Back | 1 | 360 × 200 | 260 × 120 service opening |
 | Sides | 2 | 146 × 200 | Fit between front and back. Optional hand-hold slot as a second carry option |
 | Top | 1 | 336 × 146 | Slot 34 × 84 with 45° chamfer (or an HDPE insert), knob hole, handle mortises |
-| Bottom | 1 | 336 × 146 | Sled grooves, vent holes, feet |
-| Service cover | 1 | 280 × 140, **6 mm** | USB-C pocket, power-button hole, vents |
+| Bottom | 1 | 336 × 146 | Sled grooves, ~20 cm² vent grid under the sled, feet |
+| Service cover | 1 | 280 × 140, **6 mm** | USB-C pocket, power-button hole, ~20 cm² outlet vents high, a row of inlet holes low |
 | Speaker chambers | 2 sets | **6 mm** | ~110 × 110 × 80 internal each |
-| Slot sleeve | 1 set | **6 mm** | 2 × (96 × 48) long walls capturing 2 × (34 × 48) ends; floor 96 × 46 with crumb hole |
-| Electronics sled | 1 | 95 × 140, **6 mm** | Slides in from the back |
+| Slot sleeve | 1 set | **6 mm** | 2 × (96 × 48) long walls capturing 2 × (34 × 48) ends; floor 96 × 46 with crumb hole drained to the back wall, not onto the sled |
+| Electronics sled | 1 | 95 × 140, **6 mm** | Slides in from the back. Vent grid under the Pi, matching the bottom panel |
 | Handle uprights | 2 | 70 × 40 × 19, **hardwood** | 25 mm hole for the dowel |
 | Handle | 1 | Ø25 × 240, **hardwood dowel** | |
 
@@ -349,8 +386,10 @@ for eyes and power. Details are in the [v2 plan](plans/2026-11-24-hardwired-v2.m
 - [ ] **Volume cap** set in software. Aim for ≤ ~85 dB at Jamie's ear distance and check with a phone SPL app.
 - [ ] Toy-safe finish, fully cured.
 - [ ] **Stability:** push and lean test on carpet. Mount the heaviest parts (sled, speakers) low.
-- [ ] **Thermal:** an hour of loud play, with the Pi under ~70 °C and the case not warm to the touch.
+- [ ] **Thermal:** an hour of loud play, with the Pi under ~70 °C (`vcgencmd measure_temp`) and the case not warm to the touch.
+  Run it twice: on a hard floor, and on carpet with a blanket against the back.
 - [ ] **Cord:** a short USB-C cable routed behind furniture. Recessed port so it pulls free rather than tipping the box.
+- [ ] **Spill test:** pour a little water into the slot; it must drain out of the box, not onto the sled.
 - [ ] **Drop test** from about 75 cm onto carpet; check joints and that the electronics sled stays put.
 
 ---
