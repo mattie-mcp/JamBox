@@ -1,5 +1,11 @@
 # JamBox v2 cost review
 
+> **Applied 2026-11-27.** Rows 1–5 and 7–8 are in the carts (≈ $109 saved): one ½" sheet, the Adafruit MPM3610 buck,
+> no polyfill bag, one tag pack, a pre-crimped JST kit, no speaker wire, the Woodcraft maple knob. Row 6 was checked and
+> skipped (Adafruit's 15% code makes one Mouser order save only ~$0–5). Row 9: kept the Amazon feet kit, which is already
+> screw-on. The missing small parts (proto HAT, 1000 µF, 330/470 Ω, 0.1 µF, DC plug, heat-shrink) are in the Mouser
+> and Adafruit carts. The owner already has a soldering kit. See [shopping.md](shopping.md) for the current carts.
+
 Research only, 2026-11-27. Nothing was added to, removed from or bought in any cart. Prices come from the carts
 in [shopping.md](shopping.md) (Results, 2026-11-24/27) unless a row gives a new source. A price marked
 **unverified** could not be confirmed on the store's own page today (Amazon, Mouser and Newegg blocked automated

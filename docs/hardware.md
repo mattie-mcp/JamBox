@@ -3,7 +3,7 @@
 > **Decided 2026-11-24.** The choices here match the decision log in [enclosure.md](enclosure.md):
 > Jam Radio, Pi 4 4 GB, Amp4, PC83-4, NeoPixel Shield 5×8 (portrait), NFC-only presence, wall power, hardwood cartridges.
 > Estimated total with those picks: **≈ $820** (electronics ≈ $460, enclosure, tools and cartridges ≈ $360).
-> **Carts built 2026-11-24 with real prices: ≈ $908 all-in** (≈ $702 in carts incl. known shipping, plus
+> **Carts built 2026-11-24 with real prices; savings applied 2026-11-27: ≈ $798 all-in** (≈ $592 in carts incl. known shipping, plus
 > finish, maple, grille sheet and tools still to buy). The Pi, Amp4 and SD card cost more than estimated. See
 > the Results section of [shopping.md](shopping.md).
 
@@ -61,23 +61,24 @@ Items marked **†** were confirmed from the vendor's own listing on 2026-11-24,
 | E4 | NFC reader | Adafruit **PN532** breakout v1.6 (#364) | 1 | $39.95 † | [Adafruit](https://www.adafruit.com/product/364) | **Out of stock Nov 2026.** Bought the V3 alt instead: HiLetgo PN532 V3 ($8.99 †, Amazon B01I1J17LC; no Elechouse-brand listing on Amazon) |
 | E5 | USB-PD trigger | Adafruit **HUSB238** PD Dummy Breakout (#5807) | 1 | $5.95 † | [Adafruit](https://www.adafruit.com/product/5807) | Bridge the **15 V** jumper. Up to 3.25 A |
 | E6 | USB-C panel mount | Panel-mount USB-C female → USB-C male extension, 20–30 cm, rated 5 A/100 W | 1 | $9.95 † | Adafruit #4218, Amazon | The only port Jamie will see. Mount it in a recessed pocket on the back. #4218 fits a 21.5–27 mm hole in panels ≤16 mm; its listing gives no current/PD rating, so confirm 15 V/3 A passes before relying on it |
-| E7 | 5 V supply for LEDs | Pololu **D36V28F5** 5 V 3.2 A step-down regulator | 1 | $16.99 † | [Pololu](https://www.pololu.com), Amazon (GetFPV) | 15 V → 5 V for the LED matrix and the level shifter. Nov 2026: Pololu $23.95 out of stock, RobotShop $21.95 restocking, Amazon/GetFPV $16.99 + $4.99 ship |
+| E7 | 5 V supply for LEDs | Adafruit **MPM3610** 5 V buck, 6–21 V in, 1.2 A out (#4739) | 1 | $6.95 † | [Adafruit](https://www.adafruit.com/product/4739), Mouser 485-4739 | 15 V → 5 V for the LED matrix, button LEDs and level shifter (~0.5 A worst case at the 20% cap, so 2.4× headroom; a 100% brightness bug gets current-limited). Changed 2026-11-27 from the Pololu D36V28F5 ($16.99 + $4.99 ship) |
 | E8 | Power switch + light | 19 mm **latching** illuminated anti-vandal stainless pushbutton, ≥3 A, 12 V LED ring | 1 | $13.49 † | Amazon (APIELE 10 A, B07V96FYHP) | Switches the 15 V rail. Wire the ring LED through it so it lights when ON |
 | E9 | Buttons | 30 mm arcade buttons (Sanwa OBSF-30 or Adafruit 30 mm) | 3 | $2.50 † | [Adafruit](https://www.adafruit.com), Paradise Arcade Shop, Amazon | Pick three colors: Back, Play/Pause, Skip. Adafruit LED versions #3489/#3487/#3488 (red, green, yellow; blue #3490 went out of stock 11/27) |
 | E10 | Volume encoder | Bourns **PEC11R-4220F-S0024** (24 detents, push switch) | 1 | $2.34 † | Mouser 652-PEC11R-4220F-S24, DigiKey | Or Adafruit rotary encoder #377 (out of stock Nov 2026) |
-| E11 | Volume knob | 40–50 mm knob with a 6 mm shaft (wood, or 3D printed) | 1 | $11.99 † | Amazon (B099DHHGGQ, 44 × 25 mm aluminium, set screw) | Big and grippy. Grub-screw or D-shaft fit, glued. The Amazon knob is the backup; print or turn one if you prefer. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
+| E11 | Volume knob | Cindoco **maple Shaker knob, 2" (51 mm)**, ¾" tenon, 2-pack | 1 pack | $5.99 † | Woodcraft #161868 | Matches the maple cartridges. Cut the tenon short, drill 6 mm, epoxy onto the D-shaft, finish, and pull-test. The second knob is the spare. Changed 2026-11-27 from the Amazon aluminium knob ($11.99); a printed knob stays optional. Counterbore the top panel under the encoder (see enclosure.md) so enough shaft sticks out |
 | E12 | LED matrix | Adafruit **NeoPixel Shield 5×8** (#1430), 40 LEDs, 68.9 × 53.4 mm, mounted portrait | 1 | $27.95 † | Adafruit | Software-capped at ~20% brightness (~0.48 A worst case). Wire DIN/5 V/GND pads directly; no Arduino headers. Changed 2026-11-27 from the NeoMatrix 8×8 (#1487) for a rectangular "dial" |
 | E13 | Level shifter | **74AHCT125** quad level shifter, DIP-14 (TI SN74AHCT125N; Adafruit #1787 is the same chip) | 1 | $0.95 † | Mouser 595-SN74AHCT125N, Adafruit (out of stock 11/27) | 3.3 V GPIO → 5 V NeoPixel data |
 | E14 | Slot sensor (**optional**, pending test) | Omron **D2F-01L3** roller-lever microswitch (or SS-5GL) | 1 | ~$3 | DigiKey, Mouser | Only if NFC-only removal is laggy or flaky. Alt: Adafruit IR break-beam 3 mm (#2167) |
-| E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + screw-terminal or Perma-Proto HAT | 1 | $2.95 † + HAT | Adafruit | The Amp4 sits on the Pi; this exposes free pins for wiring |
+| E15 | GPIO breakout | 2×20 **extra-tall stacking header** (Adafruit #1979) + **Perma-Proto HAT** mini kit (#2310) | 1 each | $2.95 † + $4.95 † | Adafruit (header), Mouser 485-2310 (HAT; out of stock at Adafruit) | The Amp4 sits on the Pi; this exposes free pins for wiring |
 | E16 | Storage | SanDisk **High Endurance** 64 GB microSD | 1 | $30.95 † | PiShop, Amazon, B&H | High-endurance cards are made for constant writes. Amazon's $25.99 listing has a 2-card minimum |
 | E17 | Pi cooling | Aluminum heatsink set for Pi 4 | 1 | $2.95 † | PiShop add-on, Amazon | Passive. The box has vent holes (see enclosure.md) |
-| E18 | NFC tags | **NTAG215 30–35 mm** round stickers or PVC coins | 25–60 | $0.32 † | [ShopNFC](https://www.shopnfc.com), [Seritag](https://seritag.com), Amazon | Bigger tags read farther. Avoid "on-metal" tags (not needed). Nov 2026: neither ShopNFC nor Seritag stocks NTAG215; Amazon 30 mm coins 30-pack $9.50 (genuine NXP not stated). Seritag genuine-NXP NTAG213 29 mm is $0.37 |
+| E18 | NFC tags | **NTAG215 30–35 mm** round stickers or PVC coins | 30 (one pack) | $0.32 † | [ShopNFC](https://www.shopnfc.com), [Seritag](https://seritag.com), Amazon | Bigger tags read farther. Avoid "on-metal" tags (not needed). Nov 2026: neither ShopNFC nor Seritag stocks NTAG215; Amazon 30 mm coins 30-pack $9.50 (genuine NXP not stated). Seritag genuine-NXP NTAG213 29 mm is $0.37 |
 | E19 | Charger | Any **USB-C PD charger, 45 W+, with a 15 V profile** (most 45–65 W GaN chargers) | 1 | $22.49 † | Anker, UGREEN, Apple, etc. | Check that the label lists 15 V ⎓ 3 A. UGREEN Nexode 65W (B091BGMKYS) lists 15V/3A |
-| E20 | Wiring kit | 18 AWG speaker wire, 22 AWG silicone hookup wire, JST-XH connector kit + crimper, heat-shrink, inline 3 A blade fuse holder | 1 | $53 † | Amazon | Use keyed connectors (JST-XH) everywhere, not loose Dupont jumpers |
+| E20 | Wiring kit | 22 AWG silicone hookup wire (also used for the speakers), **pre-crimped JST-XH kit** (2–7 pin, 90 × 13 cm leads, no crimper; Amazon B0CJ6JDMJH), heat-shrink (Adafruit #1649), inline 3 A blade fuse holder | 1 | $36 † | Amazon, Adafruit | Use keyed connectors (JST-XH) everywhere, not loose Dupont jumpers. The 13 cm leads are soldered and heat-shrunk onto hookup wire for longer runs. Breadboard and jumpers are for the bench prototype only |
+| E22 | Wiring passives | 1000 µF 16 V cap (LED 5 V), 330 Ω (LED data), 470 Ω (switch ring LED at 15 V), 0.1 µF (74AHCT125 decoupling), 5.5 × 2.1 mm DC plug to screw terminal (Amp4 power in; confirm the jack size) | 1 set | $6 † | Mouser, Adafruit #369 | Spares included for the resistors and 0.1 µF |
 | E21 | Mounting | M2.5 nylon standoff kit, M3 brass threaded inserts | 1 | $19 † | Amazon | Keep brass/steel **≥30 mm away** from the NFC antenna |
 
-**Electronics subtotal: about $487** at Nov 2026 cart prices, including the charger and 60 tags (estimate was $450–520).
+**Electronics subtotal: about $453** at Nov 2026 cart prices, including the charger and 30 tags, after the 2026-11-27 savings (estimate was $450–520).
 
 ### Enclosure and finishing
 
@@ -85,17 +86,17 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 
 | Item | Spec | ≈ Cost | Where |
 |---|---|---|---|
-| Baltic birch plywood | 12 mm (½") and 6 mm (¼"), void-free, about one 30"×60" panel of each | $100 † (Woodcraft 30×30": 2× ½" at $38.99, 1× ¼" at $21.99) | Woodcraft (Grand Rapids store), Rockler, local hardwood dealer. Not Home Depot: its birch panels aren't Baltic birch |
+| Baltic birch plywood | 12 mm (½") and 6 mm (¼"), void-free, about one 30"×60" panel of each | $61 † (Woodcraft 30×30": 1× ½" at $38.99, 1× ¼" at $21.99; all Radio parts fit) | Woodcraft (Grand Rapids store), Rockler, local hardwood dealer. Not Home Depot: its birch panels aren't Baltic birch |
 | Hardwood for cartridges | Maple or cherry, ¾" (19 mm) and ½" (12 mm) boards, about 4 bd-ft | $30–50 | Woodcraft of Grand Rapids, local hardwood dealer |
 | Speaker grille mesh | Perforated steel or aluminum sheet, ~2 mm holes, or a 3" steel grille insert | $18–55 | Amazon 12×12" perforated stainless (~$18). Not bought yet: Parts Express has no sheet (its 3" grille fits 2.5" drivers) and McMaster's smallest is 24×24" from $54 |
-| Grille cloth + polyfill | Acoustic grille cloth, polyester fiberfill for the speaker chambers | $26 † | Parts Express |
+| Grille cloth + polyfill | Acoustic grille cloth; a handful of polyester fiberfill for the chambers | $10 † | Parts Express (cloth). Polyfill: use pillow or craft-stash polyester (not cotton or wool), or a small craft bag (~$5) |
 | LED diffuser | 3 mm opal/frosted acrylic, or 0.6 mm (1/42") maple veneer | $10 | TAP Plastics, Amazon |
 | Fasteners | **Tamper-resistant Torx (pin-in T20)** screws + matching bit, M3/#6 threaded inserts | $20 † | McMaster-Carr (91900A848 + 7233A61), Amazon. M3 pin-in Torx takes a **T8** bit, not T20 |
-| Feet | 4× rubber feet, ~10 mm tall (lifts the box for bottom vents) | $10 † | Amazon, hardware store |
+| Feet | 4× **screw-on** rubber feet, ~10 mm tall (lifts the box for bottom vents). No adhesive pads | $10 † | Amazon (smseace kit with screws), hardware store |
 | Glue | Titebond III | $9.99 † | Anywhere |
 | Finish | Water-based, **toy-safe finish labeled EN 71-3 / ASTM F963**, plus non-toxic paint for accents | $25–40 | Woodcraft, Rockler |
-| Router bits | 6 mm (¼") roundover, 45° chamfer, rabbeting set | $40–60 | Rockler, Amazon (if not owned) |
-| Hole cutting | 75 mm (3") hole saw for the drivers, 32–35 mm Forstner (tag pockets), 6 mm brad-point (grille holes), 30 mm Forstner or step bit (buttons) | $40 | Rockler, Amazon |
+| Router bits | 10 mm (3/8") and 6 mm (¼") roundover, 45° chamfer | $40–60 | Rockler, Amazon (if not owned) |
+| Hole cutting | 35 mm (1-⅜") Forstner (tag pockets), 30 mm Forstner or step bit (buttons), 22 mm (⅞") Forstner (USB-C and switch counterbores), 6 mm brad-point (grille holes). No hole saw: the drivers sit behind drilled grilles | $40 | Rockler, Amazon |
 
 **Enclosure subtotal: about $250–350**, depending on tools you already own.
 
@@ -107,7 +108,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
 | UL 2056-certified USB-C PD power bank, 20,000 mAh+, with **15 V output** | $50–80 | **Deferred: v1 is wall-powered.** For later portable use; see "Battery spike" in enclosure.md. No battery goes *inside* the box |
 | Spare Pi 4 + SD card | $70 | Swap in a backup if something dies |
 
-**Overall: about $818–908** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
+**Overall: about $708–798** at Nov 2026 prices (the high end includes router bits and hole cutters), inside the original <$1000 budget.
 
 ---
 
@@ -127,7 +128,7 @@ The full rationale and cut list are in [enclosure.md](enclosure.md).
             │ 15 V
      ┌──────┴───────────────┐
      ▼                      ▼
- [E2] HiFiBerry Amp4    [E7] Pololu 5 V buck
+ [E2] HiFiBerry Amp4    [E7] MPM3610 5 V buck
   │ powers Pi via 40-pin  │ 5 V
   ▼                       ├─► NeoPixel 5×8 shield (+ 1000 µF cap)
  [E1] Raspberry Pi 4       └─► 74AHCT125 level shifter VCC
@@ -179,7 +180,7 @@ audio isn't selected.
 ### Wiring summary
 
 ```
- Pi 4 ─[stacking header]─ Amp4 ─[speaker terminals]─ L / R drivers (18 AWG, twisted pair)
+ Pi 4 ─[stacking header]─ Amp4 ─[speaker terminals]─ L / R drivers (22 AWG, twisted pair)
    │
    ├─ pin 1 (3.3V), 3 (SDA), 5 (SCL), 6 (GND) ──────── PN532 (I2C mode*)
    ├─ pin 19 (GPIO10) ─ 74AHCT125 (5 V) ─ 330 Ω ────── NeoPixel DIN

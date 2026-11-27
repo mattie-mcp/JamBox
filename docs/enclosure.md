@@ -26,6 +26,9 @@ All decisions were made on 2026-11-24.
 | 3D printing | **Your Ender 3 Pro** (slot mock-up, LED grid, brackets, cartridge experiments) |
 | Re-inserting a cartridge | **Resume if within ~30 minutes**, otherwise start over |
 | Volume ceiling | **Parent-adjustable** in the web app, starting at ~80 dB |
+| Volume knob | **Maple Shaker knob, 51 mm** (Woodcraft 2-pack), epoxied on (decided 2026-11-27; replaces the aluminium backup knob) |
+| Wiring | **Keyed JST-XH plugs at the sled end** (pre-crimped leads, no crimper), soldered and heat-shrunk at the device end, a Perma-Proto HAT for the GPIO breakout. The breadboard is for the bench prototype only (decided 2026-11-27) |
+| LED 5 V supply | **Adafruit MPM3610** 1.2 A buck (decided 2026-11-27; replaces the Pololu D36V28F5) |
 
 ## Design goals
 
@@ -232,13 +235,13 @@ x across (0–360), y front to back (0–170), z up (0–200).
 | Outside | **360 W × 170 D × 200 H mm** on four 10 mm screw-on feet. No handle |
 | Shell | 12 mm Baltic birch, **glued butt joints** (front and back full size, sides between them, top and bottom inside) with 12 × 12 mm plywood glue blocks along every inside edge. Inside: 336 × 146 × 176 mm |
 | Speaker chambers | One at each end, **full inside height**, using the side, top, bottom and front panels as four of their walls. A 6 mm inner wall and a 6 mm back wall close each one. Inside **90 W × 176 H × 64 D mm ≈ 1.0 L**, loosely filled with polyfill. Seal every joint with glue or caulk |
-| Drivers | PC83-4 centred in each chamber at x = 57 / 303, z = 100 (**246 mm apart**), screwed to the inside of the front panel behind its grille (cutout from the Dayton datasheet) |
+| Drivers | PC83-4 centred in each chamber at x = 57 / 303, z = 100 (**246 mm apart**), screwed to the inside of the front panel behind its grille (no cutout; the grille holes are the opening) |
 | Grilles | An **84 mm circle of 6 mm holes** over each driver (it has to fit inside the 90 mm chamber), with steel mesh and grille cloth behind. For a bigger look, a 100 mm V-groove ring around the holes |
 | Centre bay | **144 mm wide** between the chamber walls (x 108–252) in the front 82 mm. Behind the chambers (y > 82) the whole 336 mm width is open |
 | LED window | **52 W × 84 H mm**: a 70 mm-tall rectangle (z 80–150) with a 14 mm segmental arch on top (to z 164). The 5×8 LED field (~39 × 64 mm) sits inside the rectangle, so **the arch hides no LEDs**. Maple-veneer diffuser glued to the **back of a 1.5 mm recess at the front face**, egg-crate grid behind it |
 | Buttons | Three 30 mm arcade buttons at z = 48, x = 135 / 180 / 225 (45 mm apart). Hole **30 mm** (drill a test hole in scrap and check the thread first). With ~37 mm nuts they clear the chamber walls by 8 mm and the window by 13 mm. Their bodies reach y ≈ 47, 16 mm clear of the sled |
 | Slot | **Centred** in the top: x = 180, y = 85. Stepped HDPE insert 130 × 50 × 12 mm with a 32 × 84 mm slot. Sleeve hangs to z = 134; PN532 in a 3 mm-wall pocket on the sleeve's back wall (y ≈ 104). It is ≥ 60 mm from the LED shield, the Pi and the driver magnets |
-| Knob | Encoder through the top at **x = 300, y = 120** (back right, behind the right chamber), counterbored from below to ~3–4 mm of panel. With no handle there's nothing near it to pinch a finger. Knob ≥ 40 mm across, glued on |
+| Knob | Encoder through the top at **x = 300, y = 120** (back right, behind the right chamber), counterbored from below to ~3–4 mm of panel. With no handle there's nothing near it to pinch a finger. Maple Shaker knob, 51 mm across, epoxied on |
 | Electronics sled | 6 mm ply, **136 W × 95 D mm**, rides on two 10 × 10 mm hardwood rails glued to the bottom panel (y 63–158). The Pi lies sideways (85 mm across the bay) on 10 mm nylon standoffs; buck and HUSB238 beside it. The 10 mm gap under the sled is the air inlet |
 | Back panel | 12 mm, with a **260 × 98 mm service opening** whose sill is level with the rail tops (z 22–120), so **the sled slides straight out**. Above the opening: the **USB-C panel jack and the lit power button**, mounted in the 12 mm panel (22 mm counterbore 6 mm deep from outside, so the plug sits recessed and a tugged cable pulls free), the outlet vents, and the slot drain |
 | Service cover | 6 mm, 280 × 118 mm, over the opening. Inlet holes along its bottom edge. Four tamper-resistant Torx screws into threaded inserts in the back panel |
